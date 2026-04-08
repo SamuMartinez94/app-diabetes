@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantalla_bienvenida/resultado.dart';
+import 'package:appDiabetes/resultado.dart';
 
 void main() {
   testWidgets('ResultadoScreen tiene 3 botones de imágenes', (

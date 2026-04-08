@@ -21,129 +21,86 @@ class ResultadoScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        foregroundColor: Colors.black, // para que el texto sea visible
-        elevation: 0, // sin sombra
+        foregroundColor: Colors.black,
+        elevation: 0,
         title: const Text('Resultado'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Text(
-              'Tu configuración:',
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (bomba.isNotEmpty)
-                  SizedBox(
-                    width: 90,
-                    height: 90,
-                    child: Image.asset(
-                      'assets/images/$bomba.png',
-                      fit: BoxFit.contain, // mantiene proporción
-                    ),
-                  ),
-                const SizedBox(width: 10),
-                if (sensor.isNotEmpty)
-                  SizedBox(
-                    width: 90,
-                    height: 90,
-                    child: Image.asset(
-                      'assets/images/$sensor.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                const SizedBox(width: 10),
-                if (cateter.isNotEmpty)
-                  SizedBox(
-                    width: 90,
-                    height: 90,
-                    child: Image.asset(
-                      'assets/images/$cateter.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-              ],
-            ),
+      // SingleChildScrollView para hacer scroll en móviles pequeños
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Column(
+            children: [
+              const Text(
+                'Tu configuración:',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (bomba.isNotEmpty) _buildConfigImage(bomba),
+                  const SizedBox(width: 10),
+                  if (sensor.isNotEmpty) _buildConfigImage(sensor),
+                  const SizedBox(width: 10),
+                  if (cateter.isNotEmpty) _buildConfigImage(cateter),
+                ],
+              ),
 
-            const SizedBox(height: 30),
+              const SizedBox(height: 25), // Espacio antes del menú
 
-            Text(
-              '¿Qué quieres hacer?',
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
+              const Text(
+                '¿Qué quieres hacer?',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 15),
 
-            // ✅ Menú con imágenes
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Cambio de catéter
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            CambioCateterScreen(bomba: bomba, cateter: cateter),
-                      ),
-                    );
-                  },
-                  child: Image.asset(
-                    'assets/images/cambio_cateter.png',
-                    width: 150,
-                    height: 150,
-                  ),
-                ),
+              // Menú de opciones
+              _menuItem(
+                context,
+                'assets/images/cambio_cateter.png',
+                CambioCateterScreen(bomba: bomba, cateter: cateter),
+              ),
 
-                const SizedBox(height: 30), // Espacio entre imágenes
-                // Cambio de sensor
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            CambioSensorScreen(bomba: bomba, sensor: sensor),
-                      ),
-                    );
-                  },
-                  child: Image.asset(
-                    'assets/images/cambio_sensor.png',
-                    width: 150,
-                    height: 150,
-                  ),
-                ),
+              const SizedBox(height: 15),
 
-                const SizedBox(height: 30), // Espacio entre imágenes
-                // Errores
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ErroresScreen(
-                          bomba: bomba,
-                          sensor: sensor,
-                          cateter: cateter,
-                        ),
-                      ),
-                    );
-                  },
-                  child: Image.asset(
-                    'assets/images/errores.png',
-                    width: 150,
-                    height: 150,
-                  ),
-                ),
-              ],
-            ),
-          ],
+              _menuItem(
+                context,
+                'assets/images/cambio_sensor.png',
+                CambioSensorScreen(bomba: bomba, sensor: sensor),
+              ),
+
+              const SizedBox(height: 15),
+
+              _menuItem(
+                context,
+                'assets/images/errores.png',
+                ErroresScreen(bomba: bomba, sensor: sensor, cateter: cateter),
+              ),
+
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _buildConfigImage(String assetName) {
+    return SizedBox(
+      width: 80,
+      height: 80,
+      child: Image.asset('assets/images/$assetName.png', fit: BoxFit.contain),
+    );
+  }
+
+  Widget _menuItem(BuildContext context, String imagePath, Widget screen) {
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => screen),
+      ),
+      child: Image.asset(imagePath, width: 140, height: 140),
     );
   }
 }
