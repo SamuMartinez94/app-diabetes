@@ -3,7 +3,6 @@ name: Flutter CI
 on:
   push:
     branches:
-      - dev
       - main
   pull_request:
 
@@ -15,37 +14,63 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone repo
+      #Clonar repo
+      - name: Checkout repo
         uses: actions/checkout@v3
 
+      #Instalar Flutter
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.x'
 
+      #Instalar dependencias
       - name: Install dependencies
         run: flutter pub get
 
+      #Analizar código
       - name: Analyze code
         run: flutter analyze
 
+      #Compilar APK
       - name: Build APK
         run: flutter build apk --release
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload APK to Release
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/app/outputs/flutter-apk/app-release.apk
-          asset_name: app-release.apk
-          asset_content_type: application/vnd.android.package-archive
+      #Instalar GitHub CLI
+      - name: Install GitHub CLI
+        run: sudo apt-get update && sudo apt-get install -y gh
+
+      #Autenticar GitHub CLI
+      - name: Authenticate GitHub CLI
+        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+
+      #Administrar assets del Release "latest"
+      - name: Manage Release Assets
+        run: |
+          RELEASE="latest"
+          OWNER="${{ github.repository_owner }}"
+          REPO="${{ github.repository }}"
+
+          # Crear Release si no existe
+          if ! gh release view $RELEASE > /dev/null 2>&1; then
+            gh release create $RELEASE --title "Latest Release" --notes "Automated Flutter build"
+          fi
+
+          # Obtener lista de assets
+          ASSETS=$(gh release view $RELEASE --json assets -q '.assets[].name')
+
+          # Si existe app-release-prev.apk, eliminarla
+          if echo "$ASSETS" | grep -q "app-release-prev.apk"; then
+            PREV_ID=$(gh release view $RELEASE --json assets -q '.assets[] | select(.name=="app-release-prev.apk").id')
+            gh api -X DELETE repos/$OWNER/$REPO/releases/assets/$PREV_ID
+          fi
+
+          # Si existe app-release-latest.apk, renombrarla a prev
+          if echo "$ASSETS" | grep -q "app-release-latest.apk"; then
+            LATEST_ID=$(gh release view $RELEASE --json assets -q '.assets[] | select(.name=="app-release-latest.apk").id')
+            gh api -X PATCH repos/$OWNER/$REPO/releases/assets/$LATEST_ID -F name='app-release-prev.apk'
+          fi
+
+          # Subir nueva APK como latest
+          gh release upload $RELEASE build/app/outputs/flutter-apk/app-release.apk --name app-release-latest.apk
