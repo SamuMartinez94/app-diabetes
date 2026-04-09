@@ -25,7 +25,6 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
 
   //Mapa con pasos
   static final Map<String, List<Paso>> instruccionesMap = {
-    // BCA Maps
     'bcamaps_cextended': [
       Paso(texto: 'Lávate las manos'),
       Paso(texto: 'Prepara el material', imagen: 'assets/images/paso1.png'),
@@ -153,25 +152,22 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
     return instruccionesMap[key] ??
         [
           Paso(
-            texto: 'No hay instrucciones disponibles.',
+            texto: 'No hay instrucciones específicas para esta combinación.',
             imagen: 'assets/images/error.png',
           ),
         ];
   }
 
-  void siguientePaso() async {
-    if (pasoActual < getPasos().length - 1) {
-      setState(() {
-        pasoActual++;
-      });
+  void siguientePaso() {
+    final pasos = getPasos();
+    if (pasoActual < pasos.length - 1) {
+      setState(() => pasoActual++);
     }
   }
 
   void pasoAnterior() {
     if (pasoActual > 0) {
-      setState(() {
-        pasoActual--;
-      });
+      setState(() => pasoActual--);
     }
   }
 
@@ -188,103 +184,96 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
         foregroundColor: Colors.black87,
         elevation: 0,
         centerTitle: true,
+        toolbarHeight: 50,
         title: const Text(
           'Instrucciones',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             children: [
               const SizedBox(height: 10),
               LinearProgressIndicator(
                 value: (pasoActual + 1) / pasos.length,
-                backgroundColor: Colors.grey[200],
+                backgroundColor: Colors.grey[100],
                 color: Colors.blueAccent,
+                minHeight: 6,
                 borderRadius: BorderRadius.circular(10),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               Text(
                 'PASO ${pasoActual + 1} DE ${pasos.length}',
                 style: const TextStyle(
-                  letterSpacing: 1.2,
+                  letterSpacing: 1.1,
                   fontWeight: FontWeight.bold,
-                  fontSize: 12,
+                  fontSize: 11,
                   color: Colors.blueAccent,
                 ),
               ),
-
               Expanded(
                 child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 400),
+                  duration: const Duration(milliseconds: 300),
                   child: SingleChildScrollView(
                     key: ValueKey(pasoActual),
+                    physics: const BouncingScrollPhysics(),
                     child: Column(
-                      // Cambiamos a start para controlar el espaciado manualmente
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        // Espacio inicial para que no pegue al indicador de arriba
-                        const SizedBox(height: 20),
-
+                        const SizedBox(height: 15),
                         if (tieneImagen) ...[
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(18),
                             child: Image.asset(
                               paso.imagen!,
-                              height: 220, // Un poco más pequeña para dar aire
+                              height: 180,
                               fit: BoxFit.contain,
                             ),
                           ),
-                          const SizedBox(height: 30),
+                          const SizedBox(height: 20),
                         ] else ...[
-                          // Si no hay imagen, añadimos un espacio extra arriba
-                          // para que el texto grande baje un poco pero siga alto
-                          const SizedBox(height: 60),
+                          const SizedBox(height: 40),
                         ],
-
                         Text(
                           paso.texto,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: tieneImagen
-                                ? 22
-                                : 34, // Texto sin imagen aún más grande
-                            height: 1.2,
-                            fontWeight: tieneImagen
-                                ? FontWeight.w400
-                                : FontWeight.w700,
+                            fontSize: tieneImagen ? 20 : 26,
+                            height: 1.25,
+                            fontWeight: FontWeight.w700,
                             color: Colors.black87,
-                            letterSpacing: -0.8,
+                            letterSpacing: -0.5,
                           ),
                         ),
-
-                        // Este es el "punto medio" que buscamos entre texto y botones
-                        const SizedBox(height: 50),
-
+                        const SizedBox(height: 25),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            if (pasoActual > 0)
+                            if (pasoActual > 0) ...[
                               Expanded(
                                 child: OutlinedButton(
                                   onPressed: pasoAnterior,
                                   style: OutlinedButton.styleFrom(
                                     padding: const EdgeInsets.symmetric(
-                                      vertical: 15,
+                                      vertical: 12,
                                     ),
+                                    side: BorderSide(color: Colors.grey[300]!),
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(14),
                                     ),
                                   ),
                                   child: const Text(
                                     'Anterior',
-                                    style: TextStyle(color: Colors.black54),
+                                    style: TextStyle(
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ),
-                            if (pasoActual > 0) const SizedBox(width: 15),
+                              const SizedBox(width: 12),
+                            ],
                             Expanded(
                               child: FilledButton(
                                 onPressed: pasoActual < pasos.length - 1
@@ -293,10 +282,10 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
                                 style: FilledButton.styleFrom(
                                   backgroundColor: Colors.blueAccent[700],
                                   padding: const EdgeInsets.symmetric(
-                                    vertical: 15,
+                                    vertical: 12,
                                   ),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
+                                    borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
                                 child: Text(
@@ -304,7 +293,7 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
                                       ? 'Siguiente'
                                       : 'Finalizar',
                                   style: const TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -312,9 +301,7 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 40,
-                        ), // Espacio final para evitar cortes
+                        const SizedBox(height: 20),
                       ],
                     ),
                   ),

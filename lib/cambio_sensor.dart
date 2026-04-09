@@ -46,8 +46,7 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
     return instruccionesMap[key] ??
         [
           Paso(
-            texto:
-                'No hay instrucciones específicas para esta combinación de sensor.',
+            texto: 'No hay instrucciones específicas para esta combinación.',
             imagen: 'assets/images/error.png',
           ),
         ];
@@ -56,17 +55,13 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
   void siguientePaso() {
     final pasos = getPasos();
     if (pasoActual < pasos.length - 1) {
-      setState(() {
-        pasoActual++;
-      });
+      setState(() => pasoActual++);
     }
   }
 
   void pasoAnterior() {
     if (pasoActual > 0) {
-      setState(() {
-        pasoActual--;
-      });
+      setState(() => pasoActual--);
     }
   }
 
@@ -83,105 +78,104 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
         foregroundColor: Colors.black87,
         elevation: 0,
         centerTitle: true,
+        toolbarHeight: 50,
         title: const Text(
           'Cambio de Sensor',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             children: [
               const SizedBox(height: 10),
-              // Barra de progreso
+              //Barra de progreso
               LinearProgressIndicator(
                 value: (pasoActual + 1) / pasos.length,
-                backgroundColor: Colors.grey[200],
+                backgroundColor: Colors.grey[100],
                 color: Colors.blueAccent,
+                minHeight: 6,
                 borderRadius: BorderRadius.circular(10),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               Text(
                 'PASO ${pasoActual + 1} DE ${pasos.length}',
                 style: const TextStyle(
-                  letterSpacing: 1.2,
+                  letterSpacing: 1.1,
                   fontWeight: FontWeight.bold,
-                  fontSize: 12,
+                  fontSize: 11,
                   color: Colors.blueAccent,
                 ),
               ),
 
               Expanded(
                 child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 400),
-                  transitionBuilder:
-                      (Widget child, Animation<double> animation) {
-                        return FadeTransition(opacity: animation, child: child);
-                      },
+                  duration: const Duration(milliseconds: 300),
                   child: SingleChildScrollView(
                     key: ValueKey(pasoActual),
+                    physics: const BouncingScrollPhysics(),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 15),
 
-                        //Imagen
                         if (tieneImagen) ...[
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(18),
                             child: Image.asset(
                               paso.imagen!,
-                              height: 220,
+                              height: 180,
                               fit: BoxFit.contain,
                             ),
                           ),
-                          const SizedBox(height: 30),
+                          const SizedBox(height: 20),
                         ] else ...[
-                          const SizedBox(height: 60),
+                          const SizedBox(height: 40),
                         ],
 
-                        //Texto instruccion
+                        //Texto instrucción
                         Text(
                           paso.texto,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: tieneImagen ? 22 : 32,
-                            height: 1.2,
-                            fontWeight: tieneImagen
-                                ? FontWeight.w400
-                                : FontWeight.w700,
+                            fontSize: tieneImagen ? 20 : 26,
+                            height: 1.25,
+                            fontWeight: FontWeight.w700,
                             color: Colors.black87,
-                            letterSpacing: -0.8,
+                            letterSpacing: -0.5,
                           ),
                         ),
 
-                        // Espaciado
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 25),
 
-                        // Botones
+                        //Botones
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            if (pasoActual > 0)
+                            if (pasoActual > 0) ...[
                               Expanded(
                                 child: OutlinedButton(
                                   onPressed: pasoAnterior,
                                   style: OutlinedButton.styleFrom(
                                     padding: const EdgeInsets.symmetric(
-                                      vertical: 15,
+                                      vertical: 12,
                                     ),
+                                    side: BorderSide(color: Colors.grey[300]!),
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(14),
                                     ),
                                   ),
                                   child: const Text(
                                     'Anterior',
-                                    style: TextStyle(color: Colors.black54),
+                                    style: TextStyle(
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ),
-                            if (pasoActual > 0) const SizedBox(width: 15),
+                              const SizedBox(width: 12),
+                            ],
                             Expanded(
                               child: FilledButton(
                                 onPressed: pasoActual < pasos.length - 1
@@ -190,10 +184,10 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
                                 style: FilledButton.styleFrom(
                                   backgroundColor: Colors.blueAccent[700],
                                   padding: const EdgeInsets.symmetric(
-                                    vertical: 15,
+                                    vertical: 12,
                                   ),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
+                                    borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
                                 child: Text(
@@ -201,7 +195,7 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
                                       ? 'Siguiente'
                                       : 'Finalizar',
                                   style: const TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -209,7 +203,7 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 20),
                       ],
                     ),
                   ),

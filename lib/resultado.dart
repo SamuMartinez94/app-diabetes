@@ -24,35 +24,37 @@ class ResultadoScreen extends StatelessWidget {
         foregroundColor: Colors.black87,
         elevation: 0,
         centerTitle: true,
+        toolbarHeight: 50,
         title: const Text(
           'Panel de Control',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+      body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //Mi configuracion
               const Text(
-                'Tu configuración',
-                textAlign: TextAlign.center,
+                'TU CONFIGURACIÓN',
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 11,
                   fontWeight: FontWeight.bold,
                   color: Colors.blueAccent,
                   letterSpacing: 1.1,
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
+
               Container(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 15,
+                  horizontal: 10,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.grey[50],
-                  borderRadius: BorderRadius.circular(24),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -64,26 +66,22 @@ class ResultadoScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 40),
-
-              //Secciones
+              const SizedBox(height: 25),
               const Text(
                 '¿Qué necesitas hacer?',
-                textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w700,
                   color: Colors.black87,
                   letterSpacing: -0.5,
                 ),
               ),
-              const SizedBox(height: 20),
-
+              const SizedBox(height: 15),
               //Menú
               _buildMenuCard(
                 context,
                 title: 'Recambio de catéter',
-                subtitle: 'Guía paso a paso para recambiar catéter.',
+                subtitle: 'Guía paso a paso.',
                 icon: Icons.opacity,
                 color: Colors.blueAccent,
                 screen: CambioCateterScreen(bomba: bomba, cateter: cateter),
@@ -91,15 +89,15 @@ class ResultadoScreen extends StatelessWidget {
               _buildMenuCard(
                 context,
                 title: 'Recambio de Sensor',
-                subtitle: 'Instrucciones para tu monitor de glucosa.',
+                subtitle: 'Instrucciones del monitor.',
                 icon: Icons.sensors,
                 color: Colors.greenAccent[700]!,
                 screen: CambioSensorScreen(bomba: bomba, sensor: sensor),
               ),
               _buildMenuCard(
                 context,
-                title: 'Resolución de Errores y Dudas',
-                subtitle: 'Soluciones comunes y alertas frecuentes.',
+                title: 'Resolución de Errores',
+                subtitle: 'Soluciones y alertas comunes.',
                 icon: Icons.warning_amber_rounded,
                 color: Colors.orangeAccent[700]!,
                 screen: ErroresScreen(
@@ -108,8 +106,6 @@ class ResultadoScreen extends StatelessWidget {
                   cateter: cateter,
                 ),
               ),
-
-              const SizedBox(height: 30),
             ],
           ),
         ),
@@ -117,32 +113,31 @@ class ResultadoScreen extends StatelessWidget {
     );
   }
 
-  // Widget para los items de la configuración superior
   Widget _buildConfigItem(String id, String label) {
     return Column(
       children: [
         Container(
-          width: 70,
-          height: 70,
-          padding: const EdgeInsets.all(10),
+          width: 65,
+          height: 65,
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: Colors.white,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.05),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
+                color: Colors.black.withAlpha((0.08 * 255).round()),
+                blurRadius: 8,
+                offset: const Offset(0, 3),
               ),
             ],
           ),
           child: Image.asset('assets/images/$id.png', fit: BoxFit.contain),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         Text(
           label,
           style: TextStyle(
-            fontSize: 12,
+            fontSize: 11,
             color: Colors.grey[600],
             fontWeight: FontWeight.w500,
           ),
@@ -151,7 +146,6 @@ class ResultadoScreen extends StatelessWidget {
     );
   }
 
-  //Tarjetas menú principal
   Widget _buildMenuCard(
     BuildContext context, {
     required String title,
@@ -161,7 +155,7 @@ class ResultadoScreen extends StatelessWidget {
     required Widget screen,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.only(bottom: 12),
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -169,24 +163,24 @@ class ResultadoScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => screen),
           );
         },
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(18),
         child: Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey[200]!),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(18),
           ),
           child: Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(15),
+                  color: color.withAlpha((0.1 * 255).round()),
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(icon, color: color, size: 28),
+                child: Icon(icon, color: color, size: 24),
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: 15),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,24 +188,21 @@ class ResultadoScreen extends StatelessWidget {
                     Text(
                       title,
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.black87,
                       ),
                     ),
-                    const SizedBox(height: 4),
                     Text(
                       subtitle,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey[600],
-                        height: 1.3,
-                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 13, color: Colors.grey[600]),
                     ),
                   ],
                 ),
               ),
-              Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey[400]),
+              Icon(Icons.arrow_forward_ios, size: 14, color: Colors.grey[400]),
             ],
           ),
         ),
