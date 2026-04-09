@@ -1,0 +1,80 @@
+name: Flutter CI
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clonar el repositorio
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # 2. Instalar el entorno de Flutter
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.x'
+
+      # 3. Descargar paquetes de Dart/Flutter
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 4. Verificar que no haya errores de sintaxis
+      - name: Analyze code
+        run: flutter analyze
+
+      # 5. Generar el archivo APK en modo release
+      - name: Build APK
+        run: flutter build apk --release
+
+      # 6. Instalar la herramienta de línea de comandos de GitHub
+      - name: Install GitHub CLI
+        run: sudo apt-get update && sudo apt-get install -y gh
+
+      # 7. Lógica de gestión de Releases y subida del archivo
+      - name: Manage Release Assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RELEASE="latest"
+          OWNER="${{ github.repository_owner }}"
+          REPO="${{ github.repository }}"
+          APK_PATH="build/app/outputs/flutter-apk/app-release.apk"
+          NEW_NAME="build/app/outputs/flutter-apk/app-release-latest.apk"
+
+          # Crear la Release "latest" si no existe todavía
+          if ! gh release view $RELEASE > /dev/null 2>&1; then
+            gh release create $RELEASE --title "Latest Release" --notes "Automated Flutter build"
+          fi
+
+          # Obtener la lista de archivos actuales en la release
+          ASSETS=$(gh release view $RELEASE --json assets -q '.assets[].name')
+
+          # Si existe una versión 'prev' (antigua), la borramos para hacer sitio
+          if echo "$ASSETS" | grep -q "app-release-prev.apk"; then
+            PREV_ID=$(gh release view $RELEASE --json assets -q '.assets[] | select(.name=="app-release-prev.apk").id')
+            gh api -X DELETE repos/$OWNER/$REPO/releases/assets/$PREV_ID
+          fi
+
+          # Si existe la versión 'latest' actual, la renombramos a 'prev'
+          if echo "$ASSETS" | grep -q "app-release-latest.apk"; then
+            LATEST_ID=$(gh release view $RELEASE --json assets -q '.assets[] | select(.name=="app-release-latest.apk").id')
+            gh api -X PATCH repos/$OWNER/$REPO/releases/assets/$LATEST_ID -F name='app-release-prev.apk'
+          fi
+
+          # Renombramos el archivo recién compilado localmente
+          mv $APK_PATH $NEW_NAME
+
+          # Subimos el nuevo APK renombrado a la release
+          # --clobber asegura que sobrescriba si hay algún conflicto residual
+          gh release upload $RELEASE $NEW_NAME --clobber

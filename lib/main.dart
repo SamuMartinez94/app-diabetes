@@ -6,6 +6,7 @@ void main() {
 }
 
 class MiApp extends StatelessWidget {
+  const MiApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,6 +17,7 @@ class MiApp extends StatelessWidget {
 }
 
 class PantallaBienvenida extends StatelessWidget {
+  const PantallaBienvenida({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +36,7 @@ class PantallaBienvenida extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Text(
-              'Conceptos básicos sobre bombas de insulina',
+              'Conceptos básicos sobre bombas de insulina.',
               style: TextStyle(
                 color: Color.fromARGB(179, 255, 255, 255),
                 fontSize: 18,
