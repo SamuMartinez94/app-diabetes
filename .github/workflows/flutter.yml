@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dev
   pull_request:
 
 env:
@@ -41,12 +42,11 @@ jobs:
       - name: Install GitHub CLI
         run: sudo apt-get update && sudo apt-get install -y gh
 
-      #Autenticar GitHub CLI
-      - name: Authenticate GitHub CLI
-        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
 
       #Administrar assets del Release "latest"
       - name: Manage Release Assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Solo añade esto
         run: |
           RELEASE="latest"
           OWNER="${{ github.repository_owner }}"
