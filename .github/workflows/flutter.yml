@@ -35,7 +35,7 @@ jobs:
         run: flutter build apk --release
 
       - name: Build Web
-        run: flutter build web --base-href "/${{ github.event.repository.name }}/" --renderer canvaskit --release --pwa-strategy none
+        run: flutter build web --base-href "/${{ github.event.repository.name }}/" --release --pwa-strategy none
 
       # 3. Instalación de GH CLI
       - name: Install GitHub CLI
