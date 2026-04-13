@@ -25,6 +25,7 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
 
   //Mapa con pasos
   static final Map<String, List<Paso>> instruccionesMap = {
+    //---------------------CamAPS Ypsopump
     'bcamaps_cextended': [
       Paso(texto: 'Lávate las manos'),
       Paso(texto: 'Prepara el material', imagen: 'assets/images/paso1.png'),
@@ -53,13 +54,43 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
       Paso(texto: 'Paso 1 BCA Maps + SureT', imagen: 'assets/images/paso1.png'),
     ],
 
-    // BMedtronic
+    //------------------------BMedtronic
+    */
     'bmedtronic_cextended': [
+      Paso(texto: 'Lávate bien las manos con agua y jabón.'),
       Paso(
-        texto: 'Paso 1 Medtronic + Extended',
-        imagen: 'assets/images/paso1.png',
+        texto:
+            'Retira el reservorio usado y selecciona "Reservorio y equipo de inf." > "Nueva configuración" en tu bomba para rebobinar el pistón.',
       ),
-    ],
+      Paso(
+        texto:
+            'Llena el nuevo reservorio con insulina U-100, eliminando las burbujas de aire.',
+      ), //[cite: 124]
+      Paso(
+        texto:
+            'Conecta el tubo del equipo de infusión de Medtronic al reservorio.',
+      ), //[cite: 124]
+      Paso(
+        texto:
+            'Inserta el reservorio en la bomba y gíralo para bloquearlo. Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.',
+      ), //[cite: 111, 5]
+      Paso(
+        texto:
+            'IMPORTANTE: Asegúrate de que el equipo de infusión esté DESCONECTADO de tu cuerpo antes de llenar el tubo.',
+      ),
+      Paso(
+        texto:
+            'Mantén pulsado "Llenar" hasta que veas gotas en el extremo del tubo y no queden burbujas.',
+      ),
+      Paso(
+        texto:
+            'Inserta el equipo de infusión en la zona elegida (abdomen, muslo, nalgas o brazo) siguiendo las instrucciones de su insertador.',
+      ),
+      Paso(
+        texto:
+            'Selecciona "Llenar cánula" e introduce la cantidad de unidades necesaria según tu tipo de catéter (consulta su caja).',
+      ), //[cite: 112, 5]
+    ] /*
     'bmedtronic_cmio': [
       Paso(texto: 'Paso 1 Medtronic + MIO', imagen: 'assets/images/paso1.png'),
     ],
@@ -88,7 +119,7 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
       ),
     ],
 
-    // BoMnipod
+    //--------------------------BoMnipod
     'bomnipod_cextended': [
       Paso(
         texto: 'Paso 1 Omnipod + Extended',
@@ -117,7 +148,7 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
       Paso(texto: 'Paso 1 Omnipod + SureT', imagen: 'assets/images/paso1.png'),
     ],
 
-    // BTandem
+    //--------------------------------BTandem
     'btandem_cextended': [
       Paso(
         texto: 'Paso 1 Tandem + Extended',
@@ -144,7 +175,7 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
     ],
     'btandem_csuret': [
       Paso(texto: 'Paso 1 Tandem + SureT', imagen: 'assets/images/paso1.png'),
-    ],*/
+    ],*/,
   };
 
   List<Paso> getPasos() {

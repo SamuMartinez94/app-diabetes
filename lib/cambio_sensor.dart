@@ -39,6 +39,33 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
         imagen: 'assets/images/paso1.png',
       ),
     ],
+    //------------------------ Sensor Simplera Sync
+    'bmedtronic_simplerasync': [
+      Paso(
+        texto:
+            'Lávate las manos y limpia la zona de inserción del brazo con alcohol.', //[cite: 113, 116]
+      ),
+      Paso(
+        texto:
+            'IMPORTANTE: El sensor Simplera Sync está indicado para insertarse ÚNICAMENTE en la parte posterior del brazo.',
+      ),
+      Paso(
+        texto:
+            'Utiliza el dispositivo de inserción para colocar el sensor en la zona preparada.', //[cite: 113]
+      ),
+      Paso(
+        texto:
+            'Retira el papel adhesivo y presiona suavemente para que se pegue bien a la piel.', //[cite: 113]
+      ),
+      Paso(
+        texto:
+            'En la bomba, ve a "Sensores emparejados" y asegúrate de que el nuevo sensor esté vinculado.', //[cite: 113]
+      ),
+      Paso(
+        texto:
+            'Espera a que finalice el periodo de calentamiento. La bomba te avisará cuando empiece a mostrar lecturas de glucosa.', //[cite: 113, 11]
+      ),
+    ],
   };
 
   List<Paso> getPasos() {
