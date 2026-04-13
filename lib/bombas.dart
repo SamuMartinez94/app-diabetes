@@ -57,7 +57,7 @@ class _BombasScreenState extends State<BombasScreen> {
       case 'bomnipod':
         return ['cpod'];
       case 'bcamaps':
-        return ['cypsopump', 'cdana'];
+        return ['corbit', 'cinset'];
       default:
         return [];
     }
