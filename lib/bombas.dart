@@ -23,25 +23,89 @@ class _BombasScreenState extends State<BombasScreen> {
     'sguardian',
     'ssimplera',
   ];
-  final List<String> cateteres = [
-    'cextended',
-    'cmio',
-    'cmio30',
-    'cquickset',
-    'csilhouette',
-    'csuret',
-  ];
 
-  //Retroceder
+  // --- LÓGICA DE FILTRADO ---
+
+  List<String> get sensoresFiltrados {
+    switch (bombaSeleccionada) {
+      case 'bmedtronic':
+        return ['sguardian', 'ssimplera'];
+      case 'btandem':
+        return ['sdexg6', 'sdexg7'];
+      case 'bomnipod':
+        return ['sdexg6', 'sdexg7'];
+      case 'bcamaps':
+        return ['sdexg6', 'sfreelibre3'];
+      default:
+        return sensores;
+    }
+  }
+
+  List<String> get cateteresFiltrados {
+    switch (bombaSeleccionada) {
+      case 'bmedtronic':
+        return [
+          'cextended',
+          'cmio',
+          'cmio30',
+          'cquickset',
+          'csilhouette',
+          'csuret',
+        ];
+      case 'btandem':
+        return ['cautosoft90', 'cautosoft30', 'ctrusteel'];
+      case 'bomnipod':
+        return ['cpod'];
+      case 'bcamaps':
+        return ['cypsopump', 'cdana'];
+      default:
+        return [];
+    }
+  }
+
+  // --- NAVEGACIÓN HACIA EL RESULTADO ---
+  void _irAResultado(String ultimoCateter) {
+    setState(() => cateterSeleccionado = ultimoCateter);
+
+    // Pequeña pausa para que el usuario perciba su última selección
+    Future.delayed(const Duration(milliseconds: 250), () {
+      if (!mounted) return;
+
+      Navigator.push(
+        context,
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              ResultadoScreen(
+                bomba: bombaSeleccionada!,
+                sensor: sensorSeleccionado!,
+                cateter: cateterSeleccionado!,
+              ),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            // Combinación de Opacidad y Desplazamiento sutil hacia arriba
+            return FadeTransition(
+              opacity: animation,
+              child: SlideTransition(
+                position: animation.drive(
+                  Tween(
+                    begin: const Offset(0, 0.03),
+                    end: Offset.zero,
+                  ).chain(CurveTween(curve: Curves.easeOut)),
+                ),
+                child: child,
+              ),
+            );
+          },
+          transitionDuration: const Duration(milliseconds: 450),
+        ),
+      );
+    });
+  }
+
   void _retroceder() {
     setState(() {
       if (paso == 3) {
-        if (cateterSeleccionado != null) {
-          cateterSeleccionado = null;
-        } else {
-          paso = 2;
-          sensorSeleccionado = null;
-        }
+        paso = 2;
+        cateterSeleccionado = null;
       } else if (paso == 2) {
         paso = 1;
         bombaSeleccionada = null;
@@ -72,7 +136,6 @@ class _BombasScreenState extends State<BombasScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            // Barra de progreso
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: LinearProgressIndicator(
@@ -82,10 +145,9 @@ class _BombasScreenState extends State<BombasScreen> {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-
             const SizedBox(height: 20),
 
-            //Resumen seleccion
+            // Resumen selección
             Container(
               height: 70,
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -96,129 +158,51 @@ class _BombasScreenState extends State<BombasScreen> {
                     _buildMiniThumb(bombaSeleccionada!),
                   if (sensorSeleccionado != null)
                     _buildMiniThumb(sensorSeleccionado!),
-                  if (cateterSeleccionado != null)
-                    _buildMiniThumb(cateterSeleccionado!),
                 ],
               ),
             ),
 
-            const SizedBox(height: 10),
-
-            //Contenido
             Expanded(
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: SingleChildScrollView(
-                  key: ValueKey('$paso-$cateterSeleccionado'),
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Column(
-                    children: [
-                      if (paso == 1)
-                        buildSelector(
-                          titulo: '¿Qué bomba usas?',
-                          opciones: bombas,
-                          seleccionado: bombaSeleccionada,
-                          onSelect: (val) => setState(() {
-                            bombaSeleccionada = val;
-                            paso = 2;
-                          }),
-                        ),
-                      if (paso == 2)
-                        buildSelector(
-                          titulo: 'Selecciona tu sensor',
-                          opciones: sensores,
-                          seleccionado: sensorSeleccionado,
-                          onSelect: (val) => setState(() {
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Column(
+                  children: [
+                    if (paso == 1)
+                      buildSelector(
+                        titulo: '¿Qué bomba usas?',
+                        opciones: bombas,
+                        seleccionado: bombaSeleccionada,
+                        onSelect: (val) => setState(() {
+                          bombaSeleccionada = val;
+                          paso = 2;
+                        }),
+                      ),
+                    if (paso == 2)
+                      buildSelector(
+                        titulo: 'Selecciona tu sensor',
+                        opciones: sensoresFiltrados,
+                        seleccionado: sensorSeleccionado,
+                        onSelect: (val) {
+                          setState(() {
                             sensorSeleccionado = val;
-                            paso = 3;
-                          }),
-                        ),
-                      if (paso == 3) ...[
-                        //Si no se selecciona catéter, muestra la lista
-                        if (cateterSeleccionado == null)
-                          buildSelector(
-                            titulo: 'Elige tu catéter',
-                            opciones: cateteres,
-                            seleccionado: cateterSeleccionado,
-                            onSelect: (val) =>
-                                setState(() => cateterSeleccionado = val),
-                          )
-                        else ...[
-                          // Si se seleccionó, muestra botones
-                          const SizedBox(height: 40),
-                          const Icon(
-                            Icons.check_circle_outline_rounded,
-                            size: 80,
-                            color: Colors.blueAccent,
-                          ),
-                          const SizedBox(height: 20),
-                          const Text(
-                            '¡Configuración lista!',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 60),
-
-                          //Botón
-                          SizedBox(
-                            width: double.infinity,
-                            child: FilledButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ResultadoScreen(
-                                      bomba: bombaSeleccionada!,
-                                      sensor: sensorSeleccionado!,
-                                      cateter: cateterSeleccionado!,
-                                    ),
-                                  ),
-                                );
-                              },
-                              style: FilledButton.styleFrom(
-                                backgroundColor: Colors.blueAccent[700],
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 18,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                              child: const Text(
-                                'Ver resultados',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          const SizedBox(height: 15),
-
-                          //Boton atrás (Gris)
-                          SizedBox(
-                            width: double.infinity,
-                            child: TextButton(
-                              onPressed: _retroceder,
-                              style: TextButton.styleFrom(
-                                foregroundColor: Colors.grey[600],
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 18,
-                                ),
-                              ),
-                              child: const Text(
-                                'Atrás',
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ],
-                    ],
-                  ),
+                            if (bombaSeleccionada == 'bomnipod') {
+                              _irAResultado(
+                                'cpod',
+                              ); // Salto directo si es Omnipod
+                            } else {
+                              paso = 3;
+                            }
+                          });
+                        },
+                      ),
+                    if (paso == 3)
+                      buildSelector(
+                        titulo: 'Elige tu catéter',
+                        opciones: cateteresFiltrados,
+                        seleccionado: cateterSeleccionado,
+                        onSelect: (val) => _irAResultado(val),
+                      ),
+                  ],
                 ),
               ),
             ),
@@ -228,6 +212,8 @@ class _BombasScreenState extends State<BombasScreen> {
     );
   }
 
+  // --- WIDGETS AUXILIARES ---
+
   Widget buildSelector({
     required String titulo,
     required List<String> opciones,
@@ -236,15 +222,12 @@ class _BombasScreenState extends State<BombasScreen> {
   }) {
     return Column(
       children: [
+        const SizedBox(height: 10),
         Text(
           titulo,
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 25),
+        const SizedBox(height: 30),
         Wrap(
           alignment: WrapAlignment.center,
           spacing: 15,
@@ -260,7 +243,7 @@ class _BombasScreenState extends State<BombasScreen> {
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? Colors.blue.withAlpha((0.1 * 255).round())
+                      ? Colors.blue.withOpacity(0.05)
                       : Colors.grey[50],
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
@@ -288,13 +271,6 @@ class _BombasScreenState extends State<BombasScreen> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: Colors.grey[100]!),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha((0.03 * 255).round()),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
       ),
       child: Image.asset(
         'assets/images/$id.png',

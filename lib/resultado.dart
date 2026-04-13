@@ -17,6 +17,9 @@ class ResultadoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Variable para saber si es Omnipod y simplificar los IF
+    final bool esOmnipod = bomba == 'bomnipod';
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -47,6 +50,7 @@ class ResultadoScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
 
+              // Contenedor de iconos de configuración
               Container(
                 padding: const EdgeInsets.symmetric(
                   vertical: 15,
@@ -61,7 +65,8 @@ class ResultadoScreen extends StatelessWidget {
                   children: [
                     _buildConfigItem(bomba, 'Bomba'),
                     _buildConfigItem(sensor, 'Sensor'),
-                    _buildConfigItem(cateter, 'Catéter'),
+                    // OCULTAR CATÉTER SI ES OMNIPOD
+                    if (!esOmnipod) _buildConfigItem(cateter, 'Catéter'),
                   ],
                 ),
               ),
@@ -77,15 +82,20 @@ class ResultadoScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15),
-              //Menú
+
+              // Menú de opciones
               _buildMenuCard(
                 context,
-                title: 'Recambio de catéter',
-                subtitle: 'Guía paso a paso.',
+                // Cambio de nombre dinámico
+                title: esOmnipod ? 'Recambio de Pod' : 'Recambio de catéter',
+                subtitle: esOmnipod
+                    ? 'Instrucciones para un nuevo Pod.'
+                    : 'Guía paso a paso.',
                 icon: Icons.opacity,
                 color: Colors.blueAccent,
                 screen: CambioCateterScreen(bomba: bomba, cateter: cateter),
               ),
+
               _buildMenuCard(
                 context,
                 title: 'Recambio de Sensor',
@@ -94,6 +104,7 @@ class ResultadoScreen extends StatelessWidget {
                 color: Colors.greenAccent[700]!,
                 screen: CambioSensorScreen(bomba: bomba, sensor: sensor),
               ),
+
               _buildMenuCard(
                 context,
                 title: 'Resolución de Errores',

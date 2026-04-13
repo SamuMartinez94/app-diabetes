@@ -20,6 +20,9 @@ class _ErroresScreenState extends State<ErroresScreen> {
   int pasoActual = 0;
   String flujoActivo = "";
 
+  // Variable de utilidad para saber si es Omnipod
+  bool get esOmnipod => widget.bomba == 'bomnipod';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +56,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
             children: [
               _buildHeaderConfig(),
               const SizedBox(height: 25),
-              //Alternar entre menú y flujo de preguntas
+              // Alternar entre menú y flujo de preguntas
               Expanded(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -96,7 +99,8 @@ class _ErroresScreenState extends State<ErroresScreen> {
                 _buildConfigItem(widget.bomba, 'Bomba'),
               if (widget.sensor.isNotEmpty)
                 _buildConfigItem(widget.sensor, 'Sensor'),
-              if (widget.cateter.isNotEmpty)
+              // CORRECCIÓN AQUÍ: No mostrar catéter si es Omnipod
+              if (widget.cateter.isNotEmpty && !esOmnipod)
                 _buildConfigItem(widget.cateter, 'Catéter'),
             ],
           ),
@@ -157,9 +161,13 @@ class _ErroresScreenState extends State<ErroresScreen> {
           "Problemas de señal o sincronización.",
         ),
         _buildErrorCard(
-          "Aviso de flujo obstruido",
+          esOmnipod
+              ? "Aviso de oclusión en el Pod"
+              : "Aviso de flujo obstruido",
           "flujo_obstruido",
-          "La insulina no pasa correctamente.",
+          esOmnipod
+              ? "El Pod ha detectado un problema."
+              : "La insulina no pasa correctamente.",
         ),
         _buildErrorCard(
           "Lecturas dudosas",
@@ -215,6 +223,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
   }
 
   Widget _buildFlujoDiagnostico() {
+    // FLUJO SENSOR
     if (flujoActivo == "sensor_no_conecta") {
       if (pasoActual == 1) {
         return _buildPasoVisual(
@@ -226,16 +235,39 @@ class _ErroresScreenState extends State<ErroresScreen> {
       } else if (pasoActual == 2) {
         return _buildPasoVisual(
           pregunta: "¿Tiempo de uso?",
-          descripcion: "¿Llevas más de 7 días con este sensor puesto?",
-          textoSi: "Sí, más de 7 días",
+          descripcion: "¿Llevas más de 7 o 10 días con este sensor?",
+          textoSi: "Sí, ya lleva tiempo",
           textoNo: "No, es reciente",
           onSi: () => _mostrarSolucion(
-            "El sensor ha caducado. Debes sustituirlo por uno nuevo.",
+            "El sensor ha caducado o está cerca de hacerlo. Debes sustituirlo.",
           ),
-          onNo: () => setState(() => pasoActual = 3),
+          onNo: () => _mostrarSolucion(
+            "Intenta reiniciar el Bluetooth de tu móvil y espera 15 minutos.",
+          ),
         );
       }
     }
+
+    // FLUJO FLUJO OBSTRUIDO / OCLUSIÓN
+    if (flujoActivo == "flujo_obstruido") {
+      return _buildPasoVisual(
+        pregunta: esOmnipod ? "¿Alarma sonora?" : "¿Doblado o acodado?",
+        descripcion: esOmnipod
+            ? "Si el Pod emite un pitido constante, es una oclusión interna."
+            : "Revisa si el tubo tiene burbujas o si el catéter parece doblado.",
+        textoSi: "Hay problemas visibles",
+        textoNo: "Todo parece normal",
+        onSi: () => _mostrarSolucion(
+          esOmnipod
+              ? "El Pod está bloqueado. Debes desactivarlo y poner uno nuevo."
+              : "Cambia el set de infusión completo (catéter y reservorio).",
+        ),
+        onNo: () => _mostrarSolucion(
+          "Realiza un pequeño bolo de prueba (0.5u) para ver si la bomba da error.",
+        ),
+      );
+    }
+
     return const Center(child: Text("Cargando pasos..."));
   }
 
@@ -308,9 +340,8 @@ class _ErroresScreenState extends State<ErroresScreen> {
         child: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
-            mainAxisSize: MainAxisSize.min, // Se ajusta al contenido
+            mainAxisSize: MainAxisSize.min,
             children: [
-              // Icono superior circular
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -324,8 +355,6 @@ class _ErroresScreenState extends State<ErroresScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Título centrado
               const Text(
                 "Recomendación",
                 textAlign: TextAlign.center,
@@ -336,7 +365,6 @@ class _ErroresScreenState extends State<ErroresScreen> {
                 ),
               ),
               const SizedBox(height: 12),
-
               Text(
                 mensaje,
                 textAlign: TextAlign.center,
@@ -347,7 +375,6 @@ class _ErroresScreenState extends State<ErroresScreen> {
                 ),
               ),
               const SizedBox(height: 30),
-
               SizedBox(
                 width: double.infinity,
                 child: FilledButton(
@@ -357,7 +384,6 @@ class _ErroresScreenState extends State<ErroresScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    elevation: 0,
                   ),
                   onPressed: () {
                     Navigator.pop(context);

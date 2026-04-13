@@ -90,7 +90,8 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
         texto:
             'Selecciona "Llenar cánula" e introduce la cantidad de unidades necesaria según tu tipo de catéter (consulta su caja).',
       ), //[cite: 112, 5]
-    ] /*
+    ],
+    /*
     'bmedtronic_cmio': [
       Paso(texto: 'Paso 1 Medtronic + MIO', imagen: 'assets/images/paso1.png'),
     ],
@@ -149,12 +150,30 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
     ],
 
     //--------------------------------BTandem
+    */
     'btandem_cextended': [
       Paso(
-        texto: 'Paso 1 Tandem + Extended',
-        imagen: 'assets/images/paso1.png',
+        texto:
+            'Carga el cartucho con insulina (mínimo 95 unidades) usando la jeringa y asegúrate de eliminar burbujas.',
+      ),
+      Paso(
+        texto:
+            'En la bomba, ve a "Opciones" > "Carga" > "Cambiar Cartucho" y sigue los pasos para instalar el cartucho nuevo.',
+      ),
+      Paso(
+        texto:
+            'Selecciona "Llenar Tubo" y espera a que aparezcan 3 gotas de insulina en la punta de la aguja del catéter.',
+      ),
+      Paso(
+        texto:
+            'Limpia la zona de inserción, retira el papel adhesivo e inserta el catéter usando el dispositivo de inserción.',
+      ),
+      Paso(
+        texto:
+            'Conecta el tubo al sitio de inserción y selecciona "Llenar Cánula" (normalmente 0.3 unidades para cánulas de 6mm).',
       ),
     ],
+    /*
     'btandem_cmio': [
       Paso(texto: 'Paso 1 Tandem + MIO', imagen: 'assets/images/paso1.png'),
     ],
@@ -175,7 +194,7 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
     ],
     'btandem_csuret': [
       Paso(texto: 'Paso 1 Tandem + SureT', imagen: 'assets/images/paso1.png'),
-    ],*/,
+    ],*/
   };
 
   List<Paso> getPasos() {

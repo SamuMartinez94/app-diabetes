@@ -66,6 +66,32 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
             'Espera a que finalice el periodo de calentamiento. La bomba te avisará cuando empiece a mostrar lecturas de glucosa.', //[cite: 113, 11]
       ),
     ],
+    'btandem_sdexg6': [
+      Paso(texto: 'En la bomba, ve a Opciones > Mi MCG > Detener Sensor.'),
+      Paso(
+        texto:
+            'Despega el adhesivo del sensor viejo. Guarda el transmisor (la pieza gris reutilizable) y limpia los restos de sangre con alcohol.',
+      ),
+      Paso(
+        texto:
+            'Lávate las manos y limpia la nueva zona de inserción con alcohol.',
+      ),
+      Paso(
+        texto:
+            'Coloca el aplicador del nuevo sensor sobre la piel, retira la pestaña de seguridad y presiona el botón naranja.',
+      ),
+      Paso(
+        texto:
+            'Encaja el transmisor en el soporte del nuevo sensor hasta oír dos "clics".',
+      ),
+      Paso(
+        texto:
+            'Ve a Opciones > Mi MCG > Iniciar Sensor. Introduce el código de 4 dígitos que viene en el papel del adhesivo del sensor.',
+      ),
+      Paso(
+        texto: 'Espera a que termine el periodo de calentamiento de 2 horas.',
+      ),
+    ],
   };
 
   List<Paso> getPasos() {
