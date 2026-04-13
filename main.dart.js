@@ -35716,7 +35716,7 @@ ga1q(){var s=t.s
 switch(this.d){case"bmedtronic":return A.c(["cextended","cmio","cmio30","cquickset","csilhouette","csuret"],s)
 case"btandem":return A.c(["cautosoft90","cautosoft30","ctrusteel"],s)
 case"bomnipod":return A.c(["cpod"],s)
-case"bcamaps":return A.c(["cypsopump","cdana"],s)
+case"bcamaps":return A.c(["corbit","cinset"],s)
 default:return A.c([],s)}},
 G9(a){this.ai(new A.a3l(this,a))
 A.Cm(B.kx,new A.a3m(this),t.P)},
