@@ -14,7 +14,12 @@ class _BombasScreenState extends State<BombasScreen> {
   String? cateterSeleccionado;
   int paso = 1;
 
-  final List<String> bombas = ['bcamaps', 'bmedtronic', 'bomnipod', 'btandem'];
+  final List<String> bombas = [
+    'bypsopump',
+    'bmedtronic',
+    'bomnipod',
+    'btandem',
+  ];
   final List<String> sensores = [
     'sdexg6',
     'sdexg7',
@@ -34,7 +39,7 @@ class _BombasScreenState extends State<BombasScreen> {
         return ['sdexg6', 'sdexg7'];
       case 'bomnipod':
         return ['sdexg6', 'sdexg7'];
-      case 'bcamaps':
+      case 'bypsopump':
         return ['sdexg6', 'sfreelibre3'];
       default:
         return sensores;
@@ -56,7 +61,7 @@ class _BombasScreenState extends State<BombasScreen> {
         return ['cautosoft90', 'cautosoft30', 'ctrusteel'];
       case 'bomnipod':
         return ['cpod'];
-      case 'bcamaps':
+      case 'bypsopump':
         return ['corbit', 'cinset'];
       default:
         return [];

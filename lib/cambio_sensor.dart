@@ -24,7 +24,7 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
   int pasoActual = 0;
 
   static final Map<String, List<Paso>> instruccionesMap = {
-    'bcamaps_sdexg6': [
+    'bypsopump_sdexg6': [
       Paso(texto: 'Lávate las manos y limpia la zona con alcohol'),
       Paso(
         texto: 'Prepara el aplicador del Dexcom G6',

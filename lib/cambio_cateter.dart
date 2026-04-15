@@ -25,32 +25,32 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
 
   //Mapa con pasos
   static final Map<String, List<Paso>> instruccionesMap = {
-    //---------------------CamAPS Ypsopump
-    'bcamaps_cextended': [
+    //--------------------- Ypsopump
+    'bypsopump_cextended': [
       Paso(texto: 'Lávate las manos'),
       Paso(texto: 'Prepara el material', imagen: 'assets/images/paso1.png'),
       Paso(texto: 'Inserta el catéter'),
     ],
     /*
-    'bcamaps_cmio': [
+    'bypsopump_cmio': [
       Paso(texto: 'Paso 1 BCA Maps + MIO', imagen: 'assets/images/paso1.png'),
     ],
-    'bcamaps_cmio30': [
+    'bypsopump_cmio30': [
       Paso(texto: 'Paso 1 BCA Maps + MIO30', imagen: 'assets/images/paso1.png'),
     ],
-    'bcamaps_cquickset': [
+    'bypsopump_cquickset': [
       Paso(
         texto: 'Paso 1 BCA Maps + Quickset',
         imagen: 'assets/images/paso1.png',
       ),
     ],
-    'bcamaps_csilhouette': [
+    'bypsopump_csilhouette': [
       Paso(
         texto: 'Paso 1 BCA Maps + Silhouette',
         imagen: 'assets/images/paso1.png',
       ),
     ],
-    'bcamaps_csuret': [
+    'bypsopump_csuret': [
       Paso(texto: 'Paso 1 BCA Maps + SureT', imagen: 'assets/images/paso1.png'),
     ],
 
@@ -59,21 +59,26 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
     'bmedtronic_cextended': [
       Paso(texto: 'Lávate bien las manos con agua y jabón.'),
       Paso(
-        texto:
-            'Retira el reservorio usado y selecciona "Reservorio y equipo de inf." > "Nueva configuración" en tu bomba para rebobinar el pistón.',
+        texto: '''
+Retira el reservorio usado y selecciona 
+"Reservorio y equipo de inf."
+
+Selecciona "Nueva configuración" en tu bomba para rebobinar el pistón.''',
       ),
       Paso(
         texto:
-            'Llena el nuevo reservorio con insulina U-100, eliminando las burbujas de aire.',
-      ), //[cite: 124]
+            'Llena el nuevo reservorio con insulina, eliminando las burbujas de aire.',
+      ),
       Paso(
         texto:
             'Conecta el tubo del equipo de infusión de Medtronic al reservorio.',
-      ), //[cite: 124]
+      ),
       Paso(
-        texto:
-            'Inserta el reservorio en la bomba y gíralo para bloquearlo. Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.',
-      ), //[cite: 111, 5]
+        texto: '''
+'Inserta el reservorio en la bomba y gíralo para bloquearlo.
+
+Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.',''',
+      ),
       Paso(
         texto:
             'IMPORTANTE: Asegúrate de que el equipo de infusión esté DESCONECTADO de tu cuerpo antes de llenar el tubo.',
@@ -83,18 +88,78 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
             'Mantén pulsado "Llenar" hasta que veas gotas en el extremo del tubo y no queden burbujas.',
       ),
       Paso(
-        texto:
-            'Inserta el equipo de infusión en la zona elegida (abdomen, muslo, nalgas o brazo) siguiendo las instrucciones de su insertador.',
+        texto: '''
+'Inserta el equipo de infusión en la zona elegida (abdomen, muslo, nalgas o brazo) siguiendo las instrucciones de su insertador.',
+      ''',
+      ),
+      Paso(
+        texto: '''
+'Selecciona "Llenar cánula" e introduce la cantidad de unidades necesaria 
+según tu tipo de catéter (consulta su caja).',
+      ''',
+      ),
+    ], //PROCESOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    'bmedtronic_cmio': [
+      Paso(texto: 'Lávate bien las manos con agua y jabón.'),
+      Paso(
+        texto: '''
+Retira el reservorio usado y selecciona 
+"Reservorio y equipo de inf."
+
+Selecciona "Nueva configuración" en tu bomba para rebobinar el pistón.''',
       ),
       Paso(
         texto:
-            'Selecciona "Llenar cánula" e introduce la cantidad de unidades necesaria según tu tipo de catéter (consulta su caja).',
-      ), //[cite: 112, 5]
+            'Llena el nuevo reservorio con insulina, eliminando todas las burbujas de aire.',
+      ),
+      Paso(
+        texto:
+            'Conecta el tubo del Quick-set al reservorio mediante la conexión MiniMed.',
+      ),
+      Paso(
+        texto: '''
+Inserta el reservorio en la bomba y gíralo para bloquearlo.
+
+Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.''',
+      ),
+      Paso(
+        texto:
+            'IMPORTANTE: Asegúrate de que el equipo esté DESCONECTADO de tu cuerpo antes de llenar el tubo.',
+      ),
+      Paso(
+        texto:
+            'Selecciona "Llenar tubo" y mantén pulsado hasta que veas gotas en la punta de la aguja.',
+      ),
+      Paso(
+        texto: '''
+PREPARAR EL DISPOSITIVO:
+Coloca el Quick-set dentro del insertador azul (Quick-serter) y presiona hacia abajo hasta que encaje.''',
+      ),
+      Paso(
+        texto:
+            'Retira el papel protector del adhesivo y el protector de plástico de la aguja.',
+      ),
+      Paso(
+        texto: '''
+TENSAR Y COLOCAR:
+Tira del mango verde del insertador hacia atrás hasta que oigas un clic. 
+
+Apóyalo en la zona de inserción y presiona los botones laterales.''',
+      ),
+      Paso(
+        texto: '''
+Retira el insertador azul con cuidado. 
+
+Presiona el adhesivo con el dedo para que quede bien pegado a la piel.''',
+      ),
+      Paso(
+        texto: '''
+Selecciona "Llenar cánula" e introduce la cantidad necesaria. 
+
+(Suele ser 0.3 unidades para cánula de 6mm o 0.5 unidades para cánula de 9mm).''',
+      ),
     ],
     /*
-    'bmedtronic_cmio': [
-      Paso(texto: 'Paso 1 Medtronic + MIO', imagen: 'assets/images/paso1.png'),
-    ],
     'bmedtronic_cmio30': [
       Paso(
         texto: 'Paso 1 Medtronic + MIO30',
@@ -263,98 +328,98 @@ class _CambioCateterScreenState extends State<CambioCateterScreen> {
                   color: Colors.blueAccent,
                 ),
               ),
+
               Expanded(
                 child: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
-                  child: SingleChildScrollView(
+                  child: Center(
                     key: ValueKey(pasoActual),
-                    physics: const BouncingScrollPhysics(),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 15),
-                        if (tieneImagen) ...[
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(18),
-                            child: Image.asset(
-                              paso.imagen!,
-                              height: 180,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                        ] else ...[
-                          const SizedBox(height: 40),
-                        ],
-                        Text(
-                          paso.texto,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: tieneImagen ? 20 : 26,
-                            height: 1.25,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black87,
-                            letterSpacing: -0.5,
-                          ),
-                        ),
-                        const SizedBox(height: 25),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            if (pasoActual > 0) ...[
-                              Expanded(
-                                child: OutlinedButton(
-                                  onPressed: pasoAnterior,
-                                  style: OutlinedButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 12,
-                                    ),
-                                    side: BorderSide(color: Colors.grey[300]!),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(14),
-                                    ),
-                                  ),
-                                  child: const Text(
-                                    'Anterior',
-                                    style: TextStyle(
-                                      color: Colors.black54,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 12),
-                            ],
-                            Expanded(
-                              child: FilledButton(
-                                onPressed: pasoActual < pasos.length - 1
-                                    ? siguientePaso
-                                    : () => Navigator.pop(context),
-                                style: FilledButton.styleFrom(
-                                  backgroundColor: Colors.blueAccent[700],
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 12,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(14),
-                                  ),
-                                ),
-                                child: Text(
-                                  pasoActual < pasos.length - 1
-                                      ? 'Siguiente'
-                                      : 'Finalizar',
-                                  style: const TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (tieneImagen) ...[
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(18),
+                              child: Image.asset(
+                                paso.imagen!,
+                                height: 180,
+                                fit: BoxFit.contain,
                               ),
                             ),
+                            const SizedBox(
+                              height: 30,
+                            ), // Espacio entre imagen y texto
                           ],
-                        ),
-                        const SizedBox(height: 20),
-                      ],
+                          Text(
+                            paso.texto,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20,
+                              height: 1.4,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                ),
+              ),
+
+              // Sección de botones
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20, top: 10),
+                child: Row(
+                  children: [
+                    if (pasoActual > 0) ...[
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: pasoAnterior,
+                          style: OutlinedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            side: BorderSide(color: Colors.grey[300]!),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(14),
+                            ),
+                          ),
+                          child: const Text(
+                            'Anterior',
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                    ],
+                    Expanded(
+                      child: FilledButton(
+                        onPressed: pasoActual < pasos.length - 1
+                            ? siguientePaso
+                            : () => Navigator.pop(context),
+                        style: FilledButton.styleFrom(
+                          backgroundColor: Colors.blueAccent[700],
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                        ),
+                        child: Text(
+                          pasoActual < pasos.length - 1
+                              ? 'Siguiente'
+                              : 'Finalizar',
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
