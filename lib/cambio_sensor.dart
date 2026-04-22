@@ -24,7 +24,7 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
   int pasoActual = 0;
 
   static final Map<String, List<Paso>> instruccionesMap = {
-    'bcamaps_sdexg6': [
+    'bypsopump_sdexg6': [
       Paso(texto: 'Lávate las manos y limpia la zona con alcohol'),
       Paso(
         texto: 'Prepara el aplicador del Dexcom G6',
@@ -37,6 +37,59 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
       Paso(
         texto: 'Espera a que se inicie el periodo de calentamiento',
         imagen: 'assets/images/paso1.png',
+      ),
+    ],
+    //------------------------ Sensor Simplera Sync
+    'bmedtronic_simplerasync': [
+      Paso(
+        texto:
+            'Lávate las manos y limpia la zona de inserción del brazo con alcohol.', //[cite: 113, 116]
+      ),
+      Paso(
+        texto:
+            'IMPORTANTE: El sensor Simplera Sync está indicado para insertarse ÚNICAMENTE en la parte posterior del brazo.',
+      ),
+      Paso(
+        texto:
+            'Utiliza el dispositivo de inserción para colocar el sensor en la zona preparada.', //[cite: 113]
+      ),
+      Paso(
+        texto:
+            'Retira el papel adhesivo y presiona suavemente para que se pegue bien a la piel.', //[cite: 113]
+      ),
+      Paso(
+        texto:
+            'En la bomba, ve a "Sensores emparejados" y asegúrate de que el nuevo sensor esté vinculado.', //[cite: 113]
+      ),
+      Paso(
+        texto:
+            'Espera a que finalice el periodo de calentamiento. La bomba te avisará cuando empiece a mostrar lecturas de glucosa.', //[cite: 113, 11]
+      ),
+    ],
+    'btandem_sdexg6': [
+      Paso(texto: 'En la bomba, ve a Opciones > Mi MCG > Detener Sensor.'),
+      Paso(
+        texto:
+            'Despega el adhesivo del sensor viejo. Guarda el transmisor (la pieza gris reutilizable) y limpia los restos de sangre con alcohol.',
+      ),
+      Paso(
+        texto:
+            'Lávate las manos y limpia la nueva zona de inserción con alcohol.',
+      ),
+      Paso(
+        texto:
+            'Coloca el aplicador del nuevo sensor sobre la piel, retira la pestaña de seguridad y presiona el botón naranja.',
+      ),
+      Paso(
+        texto:
+            'Encaja el transmisor en el soporte del nuevo sensor hasta oír dos "clics".',
+      ),
+      Paso(
+        texto:
+            'Ve a Opciones > Mi MCG > Iniciar Sensor. Introduce el código de 4 dígitos que viene en el papel del adhesivo del sensor.',
+      ),
+      Paso(
+        texto: 'Espera a que termine el periodo de calentamiento de 2 horas.',
       ),
     ],
   };

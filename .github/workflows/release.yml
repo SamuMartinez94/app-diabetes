@@ -1,0 +1,74 @@
+name: Flutter CI/CD & Release Please
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  # Gestiona las versiones y crea la Release de GitHub
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          release-type: dart
+
+  # Compila y despliega
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    # Se ejecuta siempre en dev/main, o cuando Job 1 crea una release oficial
+    needs: release-please
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          flutter-version: '3.x'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Compilación
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Build Web
+        run: flutter build web --base-href "/${{ github.event.repository.name }}/" --release --pwa-strategy none
+
+      # GESTIÓN DE APK: Solo si Release Please acaba de crear una versión oficial
+      - name: Upload APK to Official Release
+        if: ${{ needs.release-please.outputs.release_created }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG=${{ needs.release-please.outputs.tag_name }}
+          APK_PATH="build/app/outputs/flutter-apk/app-release.apk"
+          # Subimos el APK directamente a la release que acaba de crear el bot
+          gh release upload $TAG $APK_PATH --clobber
+
+      # DESPLIEGUE WEB: (se ejecuta en cada push a main/dev)
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+
+
+
+          # Para un futuro poner +1 en version pubspec.yaml
+#- name: Build APK
+#run: flutter build apk --release --build-number=${{ github.run_number }}

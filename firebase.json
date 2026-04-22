@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"web-diabetes","appId":"1:683855058011:android:e3b8884a3501038870db7e","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"web-diabetes","configurations":{"android":"1:683855058011:android:e3b8884a3501038870db7e","web":"1:683855058011:web:b1154294cf4d293970db7e"}}}}}}
