@@ -20,7 +20,6 @@ class _ErroresScreenState extends State<ErroresScreen> {
   int pasoActual = 0;
   String flujoActivo = "";
 
-  // Variable de utilidad para saber si es Omnipod
   bool get esOmnipod => widget.bomba == 'bomnipod';
 
   @override
@@ -55,8 +54,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildHeaderConfig(),
-              const SizedBox(height: 25),
-              // Alternar entre menú y flujo de preguntas
+              const SizedBox(height: 25), // Ajustado a la dimensión original
               Expanded(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -99,7 +97,6 @@ class _ErroresScreenState extends State<ErroresScreen> {
                 _buildConfigItem(widget.bomba, 'Bomba'),
               if (widget.sensor.isNotEmpty)
                 _buildConfigItem(widget.sensor, 'Sensor'),
-              // CORRECCIÓN AQUÍ: No mostrar catéter si es Omnipod
               if (widget.cateter.isNotEmpty && !esOmnipod)
                 _buildConfigItem(widget.cateter, 'Catéter'),
             ],
@@ -133,7 +130,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
         Text(
           label,
           style: TextStyle(
-            fontSize: 10,
+            fontSize: 11, // Subido de 10 a 11 para igualar original
             color: Colors.grey[600],
             fontWeight: FontWeight.w500,
           ),
@@ -151,6 +148,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w700,
+            color: Colors.black87, // Color añadido
             letterSpacing: -0.5,
           ),
         ),
@@ -188,13 +186,27 @@ class _ErroresScreenState extends State<ErroresScreen> {
         }),
         borderRadius: BorderRadius.circular(18),
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(15), // Cambiado de 16 a 15
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey[200]!),
             borderRadius: BorderRadius.circular(18),
           ),
           child: Row(
             children: [
+              // Contenedor de icono genérico para mantener estructura visual
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.orangeAccent.withAlpha((0.1 * 255).round()),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(
+                  Icons.help_outline,
+                  color: Colors.orangeAccent,
+                  size: 24,
+                ),
+              ),
+              const SizedBox(width: 15),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,11 +216,13 @@ class _ErroresScreenState extends State<ErroresScreen> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black87, // Color añadido
                       ),
                     ),
-                    const SizedBox(height: 2),
                     Text(
                       sub,
+                      maxLines: 1, // Añadido para consistencia
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(fontSize: 13, color: Colors.grey[600]),
                     ),
                   ],

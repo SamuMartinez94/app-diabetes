@@ -230,7 +230,11 @@ class _BombasScreenState extends State<BombasScreen> {
         const SizedBox(height: 10),
         Text(
           titulo,
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.black87,
+          ),
         ),
         const SizedBox(height: 30),
         Wrap(
@@ -248,7 +252,7 @@ class _BombasScreenState extends State<BombasScreen> {
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? Colors.blue.withOpacity(0.05)
+                      ? Colors.blue.withAlpha((0.05 * 255).toInt())
                       : Colors.grey[50],
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
