@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/SamuMartinez94/app-diabetes/compare/v1.0.0...v1.1.0) (2026-04-22)
+
+
+### Features
+
+* add catheter change feature and UI design adjustments ([6fde6e2](https://github.com/SamuMartinez94/app-diabetes/commit/6fde6e271de088da43b74fbd09e46a717fcb1b73))
+
 ## 1.0.0 (2026-04-22)
 
 
