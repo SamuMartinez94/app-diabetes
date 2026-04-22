@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'bombas.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart'; // <--- Nuevo
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -9,13 +9,11 @@ void main() async {
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // CONFIGURACIÓN DE REMOTE CONFIG
+  //REMOTE CONFIG
   final remoteConfig = FirebaseRemoteConfig.instance;
   await remoteConfig.setConfigSettings(
     RemoteConfigSettings(
       fetchTimeout: const Duration(minutes: 1),
-      // Durante el desarrollo, ponemos 0 para ver los cambios al instante.
-      // En producción se suele subir a 1 hora o más.
       minimumFetchInterval: Duration.zero,
     ),
   );
