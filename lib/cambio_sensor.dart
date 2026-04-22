@@ -250,6 +250,7 @@ class _CambioSensorScreenState extends State<CambioSensorScreen> {
                                   style: const TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),
