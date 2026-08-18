@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'tema.dart';
+import 'widgets/comunes.dart';
+
 class ErroresScreen extends StatefulWidget {
   final String bomba;
   final String sensor;
@@ -22,25 +25,21 @@ class _ErroresScreenState extends State<ErroresScreen> {
 
   bool get esOmnipod => widget.bomba == 'bomnipod';
 
+  void _volverAlMenu() => setState(() {
+    pasoActual = 0;
+    flujoActivo = "";
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
-        elevation: 0,
-        centerTitle: true,
-        toolbarHeight: 50,
-        title: const Text(
-          'Resolución de Problemas',
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-        ),
+        title: const Text('Resolución de Problemas'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, size: 18),
           onPressed: () {
             if (pasoActual > 0) {
-              setState(() => pasoActual = 0);
+              _volverAlMenu();
             } else {
               Navigator.pop(context);
             }
@@ -53,8 +52,22 @@ class _ErroresScreenState extends State<ErroresScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildHeaderConfig(),
-              const SizedBox(height: 25), // Ajustado a la dimensión original
+              Text(
+                'TU CONFIGURACIÓN',
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: context.esquema.primary,
+                  letterSpacing: 1.1,
+                ),
+              ),
+              const SizedBox(height: 10),
+              ResumenConfiguracion(
+                bomba: widget.bomba,
+                sensor: widget.sensor,
+                cateter: widget.cateter,
+              ),
+              const SizedBox(height: 25),
               Expanded(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -70,171 +83,55 @@ class _ErroresScreenState extends State<ErroresScreen> {
     );
   }
 
-  Widget _buildHeaderConfig() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'TU CONFIGURACIÓN',
-          style: TextStyle(
-            fontSize: 11,
-            fontWeight: FontWeight.bold,
-            color: Colors.blueAccent,
-            letterSpacing: 1.1,
-          ),
-        ),
-        const SizedBox(height: 10),
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.grey[50],
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              if (widget.bomba.isNotEmpty)
-                _buildConfigItem(widget.bomba, 'Bomba'),
-              if (widget.sensor.isNotEmpty)
-                _buildConfigItem(widget.sensor, 'Sensor'),
-              if (widget.cateter.isNotEmpty && !esOmnipod)
-                _buildConfigItem(widget.cateter, 'Catéter'),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildConfigItem(String id, String label) {
-    return Column(
-      children: [
-        Container(
-          width: 65,
-          height: 65,
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha((0.08 * 255).round()),
-                blurRadius: 8,
-                offset: const Offset(0, 3),
-              ),
-            ],
-          ),
-          child: Image.asset('assets/images/$id.png', fit: BoxFit.contain),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 11, // Subido de 10 a 11 para igualar original
-            color: Colors.grey[600],
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _buildMenuErrores() {
+    final colores = context.colores;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '¿Qué está ocurriendo?',
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w700,
-            color: Colors.black87, // Color añadido
+            color: context.esquema.onSurface,
             letterSpacing: -0.5,
           ),
         ),
         const SizedBox(height: 15),
-        _buildErrorCard(
-          "El sensor no conecta",
-          "sensor_no_conecta",
-          "Problemas de señal o sincronización.",
+        TarjetaMenu(
+          titulo: "El sensor no conecta",
+          subtitulo: "Problemas de señal o sincronización.",
+          icono: Icons.sensors_off,
+          color: colores.aviso,
+          alPulsar: () => _abrirFlujo("sensor_no_conecta"),
         ),
-        _buildErrorCard(
-          esOmnipod
+        TarjetaMenu(
+          titulo: esOmnipod
               ? "Aviso de oclusión en el Pod"
               : "Aviso de flujo obstruido",
-          "flujo_obstruido",
-          esOmnipod
+          subtitulo: esOmnipod
               ? "El Pod ha detectado un problema."
               : "La insulina no pasa correctamente.",
+          icono: Icons.water_drop_outlined,
+          color: colores.aviso,
+          alPulsar: () => _abrirFlujo("flujo_obstruido"),
         ),
-        _buildErrorCard(
-          "Lecturas dudosas",
-          "glucosa_error",
-          "Diferencia con glucemia capilar.",
+        TarjetaMenu(
+          titulo: "Lecturas dudosas",
+          subtitulo: "Diferencia con glucemia capilar.",
+          icono: Icons.query_stats,
+          color: colores.aviso,
+          alPulsar: () => _abrirFlujo("glucosa_error"),
         ),
       ],
     );
   }
 
-  Widget _buildErrorCard(String title, String id, String sub) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: InkWell(
-        onTap: () => setState(() {
-          flujoActivo = id;
-          pasoActual = 1;
-        }),
-        borderRadius: BorderRadius.circular(18),
-        child: Container(
-          padding: const EdgeInsets.all(15), // Cambiado de 16 a 15
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey[200]!),
-            borderRadius: BorderRadius.circular(18),
-          ),
-          child: Row(
-            children: [
-              // Contenedor de icono genérico para mantener estructura visual
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.orangeAccent.withAlpha((0.1 * 255).round()),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const Icon(
-                  Icons.help_outline,
-                  color: Colors.orangeAccent,
-                  size: 24,
-                ),
-              ),
-              const SizedBox(width: 15),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87, // Color añadido
-                      ),
-                    ),
-                    Text(
-                      sub,
-                      maxLines: 1, // Añadido para consistencia
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 13, color: Colors.grey[600]),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(Icons.arrow_forward_ios, size: 14, color: Colors.grey[400]),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  void _abrirFlujo(String id) => setState(() {
+    flujoActivo = id;
+    pasoActual = 1;
+  });
 
   Widget _buildFlujoDiagnostico() {
     // FLUJO SENSOR
@@ -242,44 +139,124 @@ class _ErroresScreenState extends State<ErroresScreen> {
       if (pasoActual == 1) {
         return _buildPasoVisual(
           pregunta: "Comprueba el encaje",
-          descripcion: "Asegúrate de que el transmisor haya hecho un 'clic'.",
-          textoSi: "Está bien puesto",
+          descripcion:
+              "Presiona el transmisor sobre el soporte del sensor. ¿Notas que "
+              "está bien asentado y ha hecho clic?",
+          textoSi: "Sí, está bien puesto",
+          textoNo: "No, se mueve o no encaja",
           onSi: () => setState(() => pasoActual = 2),
+          onNo: () => _mostrarSolucion(
+            "Retira el transmisor, limpia los contactos y el soporte con un "
+            "paño seco y vuelve a encajarlo hasta oír los clics. Si el soporte "
+            "está dañado, tendrás que cambiar el sensor.",
+          ),
         );
       } else if (pasoActual == 2) {
         return _buildPasoVisual(
           pregunta: "¿Tiempo de uso?",
-          descripcion: "¿Llevas más de 7 o 10 días con este sensor?",
+          descripcion:
+              "¿Llevas más de 7 o 10 días con este sensor, según tu modelo?",
           textoSi: "Sí, ya lleva tiempo",
           textoNo: "No, es reciente",
           onSi: () => _mostrarSolucion(
             "El sensor ha caducado o está cerca de hacerlo. Debes sustituirlo.",
           ),
+          onNo: () => setState(() => pasoActual = 3),
+        );
+      } else if (pasoActual == 3) {
+        return _buildPasoVisual(
+          pregunta: "Reinicia la conexión",
+          descripcion:
+              "Apaga y vuelve a encender el Bluetooth del receptor, acércalo "
+              "al sensor y espera 15 minutos sin alejarte.",
+          textoSi: "Ya vuelve a dar lecturas",
+          textoNo: "Sigue sin conectar",
+          onSi: () => _mostrarSolucion(
+            "Perfecto. Si vuelve a pasarte a menudo, evita llevar el receptor "
+            "en el lado opuesto del cuerpo: el propio cuerpo bloquea la señal.",
+          ),
           onNo: () => _mostrarSolucion(
-            "Intenta reiniciar el Bluetooth de tu móvil y espera 15 minutos.",
+            "Sustituye el sensor y, si el problema se repite con el nuevo, "
+            "contacta con el soporte del fabricante: puede ser el transmisor.",
           ),
         );
       }
     }
 
-    // FLUJO FLUJO OBSTRUIDO / OCLUSIÓN
+    // FLUJO OCLUSIÓN / FLUJO OBSTRUIDO
     if (flujoActivo == "flujo_obstruido") {
-      return _buildPasoVisual(
-        pregunta: esOmnipod ? "¿Alarma sonora?" : "¿Doblado o acodado?",
-        descripcion: esOmnipod
-            ? "Si el Pod emite un pitido constante, es una oclusión interna."
-            : "Revisa si el tubo tiene burbujas o si el catéter parece doblado.",
-        textoSi: "Hay problemas visibles",
-        textoNo: "Todo parece normal",
-        onSi: () => _mostrarSolucion(
-          esOmnipod
-              ? "El Pod está bloqueado. Debes desactivarlo y poner uno nuevo."
-              : "Cambia el set de infusión completo (catéter y reservorio).",
-        ),
-        onNo: () => _mostrarSolucion(
-          "Realiza un pequeño bolo de prueba (0.5u) para ver si la bomba da error.",
-        ),
-      );
+      if (pasoActual == 1) {
+        return _buildPasoVisual(
+          pregunta: esOmnipod ? "¿Alarma sonora?" : "¿Doblado o acodado?",
+          descripcion: esOmnipod
+              ? "Si el Pod emite un pitido constante, es una oclusión interna."
+              : "Revisa si el tubo tiene burbujas o si el catéter parece doblado.",
+          textoSi: "Hay problemas visibles",
+          textoNo: "Todo parece normal",
+          onSi: () => _mostrarSolucion(
+            esOmnipod
+                ? "El Pod está bloqueado. Desactívalo y coloca uno nuevo. "
+                      "Mídete la glucosa: llevas tiempo sin basal."
+                : "Cambia el set de infusión completo (catéter y reservorio) "
+                      "y mídete la glucosa.",
+          ),
+          onNo: () => setState(() => pasoActual = 2),
+        );
+      } else if (pasoActual == 2) {
+        return _buildPasoVisual(
+          pregunta: "¿Cómo está tu glucosa?",
+          descripcion:
+              "Una oclusión sin señales visibles se confirma por la glucosa: "
+              "sin insulina, sube y no baja con las correcciones.",
+          textoSi: "Alta y no baja",
+          textoNo: "En rango",
+          onSi: () => _mostrarSolucion(
+            "Trátalo como una oclusión real: cambia todo el set de infusión, "
+            "corrige con pluma si tu equipo médico te lo ha indicado y "
+            "comprueba cetonas.",
+          ),
+          onNo: () => _mostrarSolucion(
+            "Puede haber sido un falso positivo. Vigila la glucosa las "
+            "próximas 2 horas y cambia el set si el aviso se repite.",
+          ),
+        );
+      }
+    }
+
+    // FLUJO LECTURAS DUDOSAS
+    if (flujoActivo == "glucosa_error") {
+      if (pasoActual == 1) {
+        return _buildPasoVisual(
+          pregunta: "¿Cuánto lleva puesto el sensor?",
+          descripcion:
+              "Durante las primeras horas tras la inserción las lecturas "
+              "suelen ser menos precisas.",
+          textoSi: "Menos de 24 horas",
+          textoNo: "Más de 24 horas",
+          onSi: () => _mostrarSolucion(
+            "Es normal cierta imprecisión al inicio. Guíate por la glucemia "
+            "capilar para tomar decisiones y espera a que se estabilice.",
+          ),
+          onNo: () => setState(() => pasoActual = 2),
+        );
+      } else if (pasoActual == 2) {
+        return _buildPasoVisual(
+          pregunta: "¿La diferencia es grande?",
+          descripcion:
+              "Compara la lectura del sensor con una glucemia capilar hecha "
+              "con las manos limpias y secas.",
+          textoSi: "Sí, se desvía mucho",
+          textoNo: "No, es una diferencia pequeña",
+          onSi: () => _mostrarSolucion(
+            "Calibra el sensor si tu modelo lo permite. Si tras la calibración "
+            "sigue desviado, sustitúyelo y contacta con el fabricante.",
+          ),
+          onNo: () => _mostrarSolucion(
+            "Una diferencia pequeña es esperable: el sensor mide glucosa "
+            "intersticial y va con unos minutos de retraso respecto a la sangre.",
+          ),
+        );
+      }
     }
 
     return const Center(child: Text("Cargando pasos..."));
@@ -289,30 +266,39 @@ class _ErroresScreenState extends State<ErroresScreen> {
     required String pregunta,
     required String descripcion,
     required String textoSi,
-    String textoNo = "Sigue fallando",
+    required String textoNo,
     required VoidCallback onSi,
-    VoidCallback? onNo,
+    required VoidCallback onNo,
   }) {
+    final esquema = context.esquema;
+
     return Column(
       children: [
         const SizedBox(height: 10),
         Text(
           pregunta,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: esquema.onSurface,
+          ),
         ),
         const SizedBox(height: 10),
         Text(
           descripcion,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 15, color: Colors.grey[600], height: 1.3),
+          style: TextStyle(
+            fontSize: 15,
+            color: esquema.onSurfaceVariant,
+            height: 1.35,
+          ),
         ),
         const SizedBox(height: 30),
-
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blueAccent,
-            foregroundColor: Colors.white,
+            backgroundColor: esquema.primary,
+            foregroundColor: esquema.onPrimary,
             elevation: 0,
             minimumSize: const Size(double.infinity, 52),
             shape: RoundedRectangleBorder(
@@ -322,22 +308,24 @@ class _ErroresScreenState extends State<ErroresScreen> {
           onPressed: onSi,
           child: Text(
             textoSi,
+            textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
           ),
         ),
         const SizedBox(height: 12),
         OutlinedButton(
           style: OutlinedButton.styleFrom(
-            foregroundColor: Colors.blueAccent,
-            side: const BorderSide(color: Colors.blueAccent, width: 1.5),
+            foregroundColor: esquema.primary,
+            side: BorderSide(color: esquema.primary, width: 1.5),
             minimumSize: const Size(double.infinity, 52),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),
           ),
-          onPressed: onNo ?? () => setState(() => pasoActual++),
+          onPressed: onNo,
           child: Text(
             textoNo,
+            textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
           ),
         ),
@@ -346,6 +334,8 @@ class _ErroresScreenState extends State<ErroresScreen> {
   }
 
   void _mostrarSolucion(String mensaje) {
+    final esquema = context.esquema;
+
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -359,23 +349,24 @@ class _ErroresScreenState extends State<ErroresScreen> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.blueAccent.withAlpha((0.1 * 255).round()),
+                  color: esquema.primary.withAlpha(26),
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.lightbulb_outline_rounded,
-                  color: Colors.blueAccent,
+                  color: esquema.primary,
                   size: 32,
                 ),
               ),
               const SizedBox(height: 20),
-              const Text(
+              Text(
                 "Recomendación",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w800,
                   letterSpacing: -0.5,
+                  color: esquema.onSurface,
                 ),
               ),
               const SizedBox(height: 12),
@@ -384,7 +375,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.grey[700],
+                  color: esquema.onSurfaceVariant,
                   height: 1.4,
                 ),
               ),
@@ -393,7 +384,8 @@ class _ErroresScreenState extends State<ErroresScreen> {
                 width: double.infinity,
                 child: FilledButton(
                   style: FilledButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: esquema.primary,
+                    foregroundColor: esquema.onPrimary,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
@@ -401,7 +393,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
                   ),
                   onPressed: () {
                     Navigator.pop(context);
-                    setState(() => pasoActual = 0);
+                    _volverAlMenu();
                   },
                   child: const Text(
                     "Entendido",

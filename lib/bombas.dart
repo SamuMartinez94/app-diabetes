@@ -1,5 +1,53 @@
 import 'package:flutter/material.dart';
+
 import 'resultado.dart';
+import 'servicios/notificaciones.dart';
+import 'servicios/preferencias.dart';
+import 'tema.dart';
+import 'widgets/comunes.dart';
+
+/// El Omnipod integra el catéter en el propio Pod, así que no es una pieza
+/// que el usuario elija: se asigna sola al saltarse el paso 3.
+const String kCateterPod = 'cpod';
+
+/// Pregunta antes de reiniciar el asistente y, si se confirma, lo abre.
+///
+/// Lo usan tanto el panel de control como la pantalla de configuración, para
+/// que el aviso sea el mismo desde los dos sitios.
+Future<void> confirmarCambioDeConfiguracion(BuildContext context) async {
+  final confirmado = await showDialog<bool>(
+    context: context,
+    builder: (context) => AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      title: const Text('¿Elegir otra configuración?'),
+      content: const Text(
+        'Volverás a seleccionar tu bomba, tu sensor y tu catéter.\n\n'
+        'Tus recordatorios y el historial de zonas de inserción se mantienen.',
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context, false),
+          child: const Text('Cancelar'),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.pop(context, true),
+          child: const Text('Cambiar'),
+        ),
+      ],
+    ),
+  );
+
+  if (confirmado != true || !context.mounted) return;
+
+  await Preferencias.borrarConfiguracion();
+  if (!context.mounted) return;
+
+  Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(builder: (_) => const BombasScreen()),
+    (route) => false,
+  );
+}
 
 class BombasScreen extends StatefulWidget {
   const BombasScreen({super.key});
@@ -20,14 +68,6 @@ class _BombasScreenState extends State<BombasScreen> {
     'bomnipod',
     'btandem',
   ];
-  final List<String> sensores = [
-    'sdexg6',
-    'sdexg7',
-    'sfreelibre2',
-    'sfreelibre3',
-    'sguardian',
-    'ssimplera',
-  ];
 
   // --- LÓGICA DE FILTRADO ---
 
@@ -42,7 +82,7 @@ class _BombasScreenState extends State<BombasScreen> {
       case 'bypsopump':
         return ['sdexg6', 'sfreelibre3'];
       default:
-        return sensores;
+        return const [];
     }
   }
 
@@ -59,24 +99,32 @@ class _BombasScreenState extends State<BombasScreen> {
         ];
       case 'btandem':
         return ['cautosoft90', 'cautosoft30', 'ctrusteel'];
-      case 'bomnipod':
-        return ['cpod'];
       case 'bypsopump':
         return ['corbit', 'cinset'];
       default:
-        return [];
+        return const [];
     }
   }
 
   // --- NAVEGACIÓN HACIA EL RESULTADO ---
-  void _irAResultado(String ultimoCateter) {
+
+  Future<void> _irAResultado(String ultimoCateter) async {
     setState(() => cateterSeleccionado = ultimoCateter);
 
-    // Pequeña pausa para que el usuario perciba su última selección
+    await Preferencias.guardarConfiguracion(
+      bomba: bombaSeleccionada!,
+      sensor: sensorSeleccionado!,
+      cateter: ultimoCateter,
+    );
+    // Los intervalos por defecto pueden haber cambiado con la nueva bomba.
+    await Notificaciones.reprogramar();
+
     Future.delayed(const Duration(milliseconds: 250), () {
       if (!mounted) return;
 
-      Navigator.push(
+      // Se sustituye toda la pila: desde el panel de control, "atrás" debe
+      // salir de la app, no volver a repetir el asistente.
+      Navigator.pushAndRemoveUntil(
         context,
         PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) =>
@@ -86,7 +134,6 @@ class _BombasScreenState extends State<BombasScreen> {
                 cateter: cateterSeleccionado!,
               ),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            // Combinación de Opacidad y Desplazamiento sutil hacia arriba
             return FadeTransition(
               opacity: animation,
               child: SlideTransition(
@@ -102,6 +149,7 @@ class _BombasScreenState extends State<BombasScreen> {
           },
           transitionDuration: const Duration(milliseconds: 450),
         ),
+        (route) => false,
       );
     });
   }
@@ -111,25 +159,26 @@ class _BombasScreenState extends State<BombasScreen> {
       if (paso == 3) {
         paso = 2;
         cateterSeleccionado = null;
+        sensorSeleccionado = null;
       } else if (paso == 2) {
         paso = 1;
         bombaSeleccionada = null;
+        sensorSeleccionado = null;
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final esquema = context.esquema;
+
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
-        elevation: 0,
-        centerTitle: true,
-        title: const Text(
-          'Configuración',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        title: const Text('Configuración'),
+        titleTextStyle: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          color: esquema.onSurface,
         ),
         leading: paso > 1
             ? IconButton(
@@ -145,17 +194,13 @@ class _BombasScreenState extends State<BombasScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: LinearProgressIndicator(
                 value: paso / 3,
-                backgroundColor: Colors.grey[100],
-                color: Colors.blueAccent,
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
             const SizedBox(height: 20),
 
-            // Resumen selección
-            Container(
+            SizedBox(
               height: 70,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -170,6 +215,7 @@ class _BombasScreenState extends State<BombasScreen> {
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: [
                     if (paso == 1)
@@ -188,16 +234,12 @@ class _BombasScreenState extends State<BombasScreen> {
                         opciones: sensoresFiltrados,
                         seleccionado: sensorSeleccionado,
                         onSelect: (val) {
-                          setState(() {
-                            sensorSeleccionado = val;
-                            if (bombaSeleccionada == 'bomnipod') {
-                              _irAResultado(
-                                'cpod',
-                              ); // Salto directo si es Omnipod
-                            } else {
-                              paso = 3;
-                            }
-                          });
+                          setState(() => sensorSeleccionado = val);
+                          if (bombaSeleccionada == 'bomnipod') {
+                            _irAResultado(kCateterPod);
+                          } else {
+                            setState(() => paso = 3);
+                          }
                         },
                       ),
                     if (paso == 3)
@@ -205,7 +247,7 @@ class _BombasScreenState extends State<BombasScreen> {
                         titulo: 'Elige tu catéter',
                         opciones: cateteresFiltrados,
                         seleccionado: cateterSeleccionado,
-                        onSelect: (val) => _irAResultado(val),
+                        onSelect: _irAResultado,
                       ),
                   ],
                 ),
@@ -223,17 +265,20 @@ class _BombasScreenState extends State<BombasScreen> {
     required String titulo,
     required List<String> opciones,
     required String? seleccionado,
-    required Function(String) onSelect,
+    required void Function(String) onSelect,
   }) {
+    final esquema = context.esquema;
+
     return Column(
       children: [
         const SizedBox(height: 10),
         Text(
           titulo,
-          style: const TextStyle(
+          textAlign: TextAlign.center,
+          style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: Colors.black87,
+            color: esquema.onSurface,
           ),
         ),
         const SizedBox(height: 30),
@@ -252,18 +297,15 @@ class _BombasScreenState extends State<BombasScreen> {
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? Colors.blue.withAlpha((0.05 * 255).toInt())
-                      : Colors.grey[50],
+                      ? esquema.primary.withAlpha(20)
+                      : esquema.surfaceContainerLow,
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
-                    color: isSelected ? Colors.blueAccent : Colors.transparent,
+                    color: isSelected ? esquema.primary : Colors.transparent,
                     width: 2.5,
                   ),
                 ),
-                child: Image.asset(
-                  'assets/images/$id.png',
-                  fit: BoxFit.contain,
-                ),
+                child: ImagenDispositivo(id: id),
               ),
             );
           }).toList(),
@@ -273,20 +315,17 @@ class _BombasScreenState extends State<BombasScreen> {
   }
 
   Widget _buildMiniThumb(String id) {
+    final esquema = context.esquema;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 4),
       padding: const EdgeInsets.all(6),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: esquema.surface,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey[100]!),
+        border: Border.all(color: esquema.outlineVariant),
       ),
-      child: Image.asset(
-        'assets/images/$id.png',
-        width: 35,
-        height: 35,
-        fit: BoxFit.contain,
-      ),
+      child: ImagenDispositivo(id: id, ancho: 35, alto: 35),
     );
   }
 }
