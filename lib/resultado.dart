@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+
+import 'bombas.dart';
+import 'buscador.dart';
 import 'cambio_cateter.dart';
 import 'cambio_sensor.dart';
+import 'configuracion.dart';
 import 'errores.dart';
+import 'kit_viaje.dart';
+import 'soporte.dart';
+import 'tema.dart';
+import 'widgets/boton_sugerencia.dart';
+import 'widgets/comunes.dart';
+import 'zonas_insercion.dart';
 
 class ResultadoScreen extends StatelessWidget {
   final String bomba;
@@ -15,209 +25,318 @@ class ResultadoScreen extends StatelessWidget {
     required this.cateter,
   });
 
+  bool get esOmnipod => bomba == 'bomnipod';
+
+  /// Apartados que el buscador puede encontrar, además de las alarmas.
+  List<Apartado> _apartados() => [
+    Apartado(
+      titulo: esOmnipod ? 'Recambio de Pod' : 'Recambio de catéter',
+      subtitulo: 'Guía paso a paso.',
+      icono: Icons.opacity,
+      palabras: [
+        'cateter',
+        'pod',
+        'reservorio',
+        'canula',
+        'infusion',
+        'cambiar',
+        'recambio',
+      ],
+      construir: (_) => CambioCateterScreen(bomba: bomba, cateter: cateter),
+    ),
+    Apartado(
+      titulo: 'Recambio de sensor',
+      subtitulo: 'Instrucciones del monitor.',
+      icono: Icons.sensors,
+      palabras: [
+        'sensor',
+        'mcg',
+        'monitor',
+        'glucosa',
+        'dexcom',
+        'libre',
+        'guardian',
+        'calentamiento',
+      ],
+      construir: (_) => CambioSensorScreen(bomba: bomba, sensor: sensor),
+    ),
+    Apartado(
+      titulo: 'Resolución de errores',
+      subtitulo: 'Diagnóstico guiado por preguntas.',
+      icono: Icons.warning_amber_rounded,
+      palabras: ['error', 'problema', 'fallo', 'diagnostico', 'ayuda'],
+      construir: (_) =>
+          ErroresScreen(bomba: bomba, sensor: sensor, cateter: cateter),
+    ),
+    Apartado(
+      titulo: 'Kit de viaje',
+      subtitulo: 'Qué llevar y qué papeles necesitas.',
+      icono: Icons.luggage_outlined,
+      palabras: [
+        'viaje',
+        'kit',
+        'maleta',
+        'aeropuerto',
+        'avion',
+        'vacaciones',
+        'emergencia',
+        'repuesto',
+        'equipaje',
+      ],
+      construir: (_) => const KitViajeScreen(),
+    ),
+    Apartado(
+      titulo: 'Soporte y manuales',
+      subtitulo: 'Webs oficiales y urgencias.',
+      icono: Icons.support_agent,
+      palabras: [
+        'soporte',
+        'telefono',
+        'contacto',
+        'manual',
+        'fabricante',
+        'urgencia',
+        'ayuda',
+      ],
+      construir: (_) => const SoporteScreen(),
+    ),
+    Apartado(
+      titulo: 'Rotación de zonas',
+      subtitulo: 'Dónde pinchar la próxima vez.',
+      icono: Icons.place_outlined,
+      palabras: [
+        'zona',
+        'rotacion',
+        'lipo',
+        'lipohipertrofia',
+        'donde',
+        'pinchar',
+        'abdomen',
+        'brazo',
+        'muslo',
+      ],
+      construir: (_) => const ZonasScreen(),
+    ),
+    Apartado(
+      titulo: 'Configuración',
+      subtitulo: 'Recordatorios, tema y dispositivos.',
+      icono: Icons.settings_outlined,
+      palabras: [
+        'configuracion',
+        'ajustes',
+        'notificaciones',
+        'recordatorio',
+        'tema',
+        'oscuro',
+        'privacidad',
+      ],
+      construir: (_) => const ConfiguracionScreen(),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    // Variable para saber si es Omnipod y simplificar los IF
-    final bool esOmnipod = bomba == 'bomnipod';
+    final esquema = context.esquema;
+    final colores = context.colores;
 
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
-        elevation: 0,
-        centerTitle: true,
-        toolbarHeight: 50,
-        title: const Text(
-          'Panel de Control',
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-        ),
+        title: const Text('Panel de Control'),
+        actions: [
+          IconButton(
+            tooltip: 'Configuración',
+            icon: const Icon(Icons.settings_outlined, size: 22),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const ConfiguracionScreen()),
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
-        child: Padding(
+        child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'TU CONFIGURACIÓN',
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent,
-                  letterSpacing: 1.1,
+          physics: const BouncingScrollPhysics(),
+          children: [
+            const DistintivoModoSugerencias(),
+            // El buscador va arriba del todo: es la vía rápida cuando ya te
+            // está pitando algo y no quieres navegar por menús.
+            InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => BuscadorScreen(apartados: _apartados()),
                 ),
               ),
-              const SizedBox(height: 10),
-
-              // Contenedor de iconos de configuración
-              Container(
+              borderRadius: BorderRadius.circular(16),
+              child: Container(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 15,
-                  horizontal: 10,
+                  horizontal: 16,
+                  vertical: 14,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.grey[50],
-                  borderRadius: BorderRadius.circular(20),
+                  color: esquema.surfaceContainerLow,
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buildConfigItem(bomba, 'Bomba'),
-                    _buildConfigItem(sensor, 'Sensor'),
-                    // OCULTAR CATÉTER SI ES OMNIPOD
-                    if (!esOmnipod) _buildConfigItem(cateter, 'Catéter'),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 25),
-              const Text(
-                '¿Qué necesitas hacer?',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black87,
-                  letterSpacing: -0.5,
-                ),
-              ),
-              const SizedBox(height: 15),
-
-              // Menú de opciones
-              _buildMenuCard(
-                context,
-                // Cambio de nombre dinámico
-                title: esOmnipod ? 'Recambio de Pod' : 'Recambio de catéter',
-                subtitle: esOmnipod
-                    ? 'Instrucciones para un nuevo Pod.'
-                    : 'Guía paso a paso.',
-                icon: Icons.opacity,
-                color: Colors.blueAccent,
-                screen: CambioCateterScreen(bomba: bomba, cateter: cateter),
-              ),
-
-              _buildMenuCard(
-                context,
-                title: 'Recambio de Sensor',
-                subtitle: 'Instrucciones del monitor.',
-                icon: Icons.sensors,
-                color: Colors.greenAccent[700]!,
-                screen: CambioSensorScreen(bomba: bomba, sensor: sensor),
-              ),
-
-              _buildMenuCard(
-                context,
-                title: 'Resolución de Errores',
-                subtitle: 'Soluciones y alertas comunes.',
-                icon: Icons.warning_amber_rounded,
-                color: Colors.orangeAccent[700]!,
-                screen: ErroresScreen(
-                  bomba: bomba,
-                  sensor: sensor,
-                  cateter: cateter,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildConfigItem(String id, String label) {
-    return Column(
-      children: [
-        Container(
-          width: 65,
-          height: 65,
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha((0.08 * 255).round()),
-                blurRadius: 8,
-                offset: const Offset(0, 3),
-              ),
-            ],
-          ),
-          child: Image.asset('assets/images/$id.png', fit: BoxFit.contain),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 11,
-            color: Colors.grey[600],
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildMenuCard(
-    BuildContext context, {
-    required String title,
-    required String subtitle,
-    required IconData icon,
-    required Color color,
-    required Widget screen,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => screen),
-          );
-        },
-        borderRadius: BorderRadius.circular(18),
-        child: Container(
-          padding: const EdgeInsets.all(15),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey[200]!),
-            borderRadius: BorderRadius.circular(18),
-          ),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: color.withAlpha((0.1 * 255).round()),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(icon, color: color, size: 24),
-              ),
-              const SizedBox(width: 15),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                    Icon(Icons.search, color: esquema.onSurfaceVariant),
+                    const SizedBox(width: 12),
                     Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                      'Buscar alarma o apartado…',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: esquema.onSurfaceVariant,
                       ),
                     ),
-                    Text(
-                      subtitle,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 13, color: Colors.grey[600]),
-                    ),
                   ],
                 ),
               ),
-              Icon(Icons.arrow_forward_ios, size: 14, color: Colors.grey[400]),
-            ],
-          ),
+            ),
+            const SizedBox(height: 22),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _rotulo(context, 'TU CONFIGURACIÓN'),
+                InkWell(
+                  onTap: () => confirmarCambioDeConfiguracion(context),
+                  borderRadius: BorderRadius.circular(20),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 6,
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.edit, size: 13, color: esquema.primary),
+                        const SizedBox(width: 5),
+                        Text(
+                          'Cambiar',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: esquema.primary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 4),
+            ResumenConfiguracion(
+              bomba: bomba,
+              sensor: sensor,
+              cateter: cateter,
+            ),
+
+            const SizedBox(height: 25),
+            Text(
+              '¿Qué necesitas hacer?',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w700,
+                color: esquema.onSurface,
+                letterSpacing: -0.5,
+              ),
+            ),
+            const SizedBox(height: 15),
+
+            TarjetaMenu(
+              titulo: esOmnipod ? 'Recambio de Pod' : 'Recambio de catéter',
+              subtitulo: esOmnipod
+                  ? 'Instrucciones para un nuevo Pod.'
+                  : 'Guía paso a paso.',
+              icono: Icons.opacity,
+              color: esquema.primary,
+              alPulsar: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) =>
+                      CambioCateterScreen(bomba: bomba, cateter: cateter),
+                ),
+              ),
+            ),
+            TarjetaMenu(
+              titulo: 'Recambio de Sensor',
+              subtitulo: 'Instrucciones del monitor.',
+              icono: Icons.sensors,
+              color: colores.exito,
+              alPulsar: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) =>
+                      CambioSensorScreen(bomba: bomba, sensor: sensor),
+                ),
+              ),
+            ),
+            TarjetaMenu(
+              titulo: 'Resolución de Errores',
+              subtitulo: 'Soluciones y alertas comunes.',
+              icono: Icons.warning_amber_rounded,
+              color: colores.aviso,
+              alPulsar: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ErroresScreen(
+                    bomba: bomba,
+                    sensor: sensor,
+                    cateter: cateter,
+                  ),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 15),
+            _rotulo(context, 'MÁS'),
+            const SizedBox(height: 12),
+
+            TarjetaMenu(
+              titulo: 'Kit de viaje',
+              subtitulo: 'Qué llevar y qué papeles necesitas.',
+              icono: Icons.luggage_outlined,
+              color: esquema.primary,
+              alPulsar: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const KitViajeScreen()),
+              ),
+            ),
+            TarjetaMenu(
+              titulo: 'Rotación de zonas',
+              subtitulo: 'Dónde pinchar la próxima vez.',
+              icono: Icons.place_outlined,
+              color: colores.exito,
+              alPulsar: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ZonasScreen()),
+              ),
+            ),
+            TarjetaMenu(
+              titulo: 'Soporte y manuales',
+              subtitulo: 'Webs oficiales y urgencias.',
+              icono: Icons.support_agent,
+              color: colores.aviso,
+              alPulsar: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const SoporteScreen()),
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
         ),
       ),
     );
   }
+
+  Widget _rotulo(BuildContext context, String texto) => Text(
+    texto,
+    style: TextStyle(
+      fontSize: 11,
+      fontWeight: FontWeight.bold,
+      color: context.esquema.primary,
+      letterSpacing: 1.1,
+    ),
+  );
 }

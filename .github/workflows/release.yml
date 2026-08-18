@@ -41,12 +41,20 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test
+
       # Compilación
+      # Se excluye x86_64: solo lo usan los emuladores y son 17 MB del APK.
+      # Sigue siendo un único archivo, para que el enlace del README no cambie.
       - name: Build APK
-        run: flutter build apk --release
+        run: flutter build apk --release --target-platform android-arm,android-arm64
 
       - name: Build Web
-        run: flutter build web --base-href "/${{ github.event.repository.name }}/" --release --pwa-strategy none
+        run: flutter build web --base-href "/${{ github.event.repository.name }}/" --release
 
       # GESTIÓN DE APK: Solo si Release Please acaba de crear una versión oficial
       - name: Upload APK to Official Release
