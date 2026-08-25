@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../datos/dispositivos.dart';
 import '../tema.dart';
 
 /// Imagen de un dispositivo por su identificador.
@@ -183,19 +184,27 @@ class ResumenConfiguracion extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (bomba.isNotEmpty) _item(context, bomba, 'Bomba'),
           if (sensor.isNotEmpty) _item(context, sensor, 'Sensor'),
+          // El catéter va sin nombre: los modelos son crípticos y ocupan
+          // demasiado al lado de la bomba y el sensor.
           if (cateter.isNotEmpty && !esOmnipod)
-            _item(context, cateter, 'Catéter'),
+            _item(context, cateter, 'Catéter', conNombre: false),
         ],
       ),
     );
   }
 
-  Widget _item(BuildContext context, String id, String etiqueta) {
-    return Column(
+  Widget _item(
+    BuildContext context,
+    String id,
+    String etiqueta, {
+    bool conNombre = true,
+  }) {
+    return Expanded(
+      child: Column(
       children: [
         Container(
           width: 65,
@@ -217,13 +226,30 @@ class ResumenConfiguracion extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           etiqueta,
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 11,
             color: context.esquema.onSurfaceVariant,
             fontWeight: FontWeight.w500,
           ),
         ),
+        if (conNombre) ...[
+          const SizedBox(height: 2),
+          Text(
+            nombreDispositivo(id),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 13,
+              height: 1.2,
+              color: context.esquema.onSurface,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
       ],
+      ),
     );
   }
 }
