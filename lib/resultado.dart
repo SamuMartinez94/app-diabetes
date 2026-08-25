@@ -182,11 +182,15 @@ class ResultadoScreen extends StatelessWidget {
                   children: [
                     Icon(Icons.search, color: esquema.onSurfaceVariant),
                     const SizedBox(width: 12),
-                    Text(
-                      'Buscar alarma o apartado…',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: esquema.onSurfaceVariant,
+                    Expanded(
+                      child: Text(
+                        'Buscar alarma o apartado…',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: esquema.onSurfaceVariant,
+                        ),
                       ),
                     ),
                   ],

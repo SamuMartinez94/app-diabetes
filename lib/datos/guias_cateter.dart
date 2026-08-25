@@ -1,3 +1,21 @@
+/// GUÍAS DE RECAMBIO DE CATÉTER / EQUIPO DE INFUSIÓN
+///
+/// Contenido volcado de los manuales oficiales del fabricante:
+///
+///   • Medtronic MiniMed 780G — System User Guide, pp. 110-125.
+///     ATENCIÓN: ese manual está en INGLÉS. Los nombres de menú en español
+///     son una traducción, no la cadena literal que muestra la bomba. Hay
+///     que contrastarlos con el dispositivo.
+///   • Tandem t:slim X2 — Guía del usuario, cap. 6, pp. 96-105 (español).
+///   • Omnipod 5 — Guía del usuario, pp. 24-29 (español).
+///   • mylife YpsoPump — Guía del usuario, cap. 5, pp. 96-113 (español).
+///
+/// Los manuales de bomba describen el lado de la BOMBA (reservorio, cebado,
+/// llenado de cánula). Los pasos de inserción propios de cada catéter vienen
+/// en las instrucciones de uso de ese catéter, que no están entre los
+/// manuales disponibles: siguen pendientes de contrastar.
+library;
+
 import '../modelos/paso.dart';
 
 /// TODAS las guías están pendientes de validar por un profesional sanitario.
@@ -18,264 +36,372 @@ const Set<String> guiasCateterPorRevisar = {
   'btandem_ctrusteel',
 };
 
-const Map<String, List<Paso>> instruccionesCateter = {
-  //------------------------BMedtronic
-  //MEDTRONIC_EXTENDED
-  'bmedtronic_cextended': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
-    Paso(
-      texto: '''
-Retira el reservorio usado y selecciona 
-"Reservorio y equipo de inf."
+// ---------------------------------------------------------------------------
+// MEDTRONIC — bloques comunes de reservorio (manual pp. 110-124)
+// ---------------------------------------------------------------------------
 
-Selecciona "Nueva configuración" en tu bomba para rebobinar el pistón.''',
-    ),
-    Paso(
-      texto:
-          'Llena el nuevo reservorio con insulina, eliminando las burbujas de aire.',
-    ),
-    Paso(
-      texto:
-          'Conecta el tubo del equipo de infusión de Medtronic al reservorio.',
-    ),
-    Paso(
-      texto: '''
-Inserta el reservorio en la bomba y gíralo para bloquearlo.
+const List<Paso> _medtronicPreparacion = [
+  Paso(
+    texto:
+        'Saca la insulina con antelación: debe estar a temperatura ambiente. '
+        'La insulina fría genera burbujas de aire en el reservorio y en el '
+        'tubo, y eso altera la cantidad que recibes.',
+  ),
+  Paso(texto: 'Lávate bien las manos con agua y jabón.'),
+  Paso(
+    texto: '''
+En la bomba, entra en el menú y selecciona "Nuevo reservorio y equipo".
 
-Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.''',
-    ),
-    Paso(
-      texto:
-          'IMPORTANTE: Asegúrate de que el equipo de infusión esté DESCONECTADO de tu cuerpo antes de llenar el tubo.',
-    ),
-    Paso(
-      texto:
-          'Mantén pulsado "Llenar" hasta que veas gotas en el extremo del tubo y no queden burbujas.',
-    ),
-    Paso(
-      texto:
-          'Inserta el equipo de infusión en la zona elegida (abdomen, muslo, nalgas o brazo) siguiendo las instrucciones de su insertador.',
-    ),
-    Paso(
-      texto: '''
-Selecciona "Llenar cánula" e introduce la cantidad de unidades necesaria
-según tu tipo de catéter (consulta su caja).''',
-    ),
-  ],
+Necesitas: reservorio Medtronic, equipo de infusión y un vial de insulina rápida U-100.''',
+  ),
+  Paso(
+    texto:
+        'Retira el equipo de infusión usado aflojando el adhesivo y '
+        'separándolo del cuerpo. Confirma en la bomba para continuar.',
+  ),
+  Paso(
+    texto: '''
+Retira el reservorio usado de la bomba y selecciona "Rebobinar".
 
-  //MEDTRONIC_MIO
-  'bmedtronic_cmio': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
-    Paso(
-      texto: '''
-Retira el reservorio usado y selecciona 
-"Reservorio y equipo de inf."
+ADVERTENCIA: el equipo de infusión tiene que estar DESCONECTADO del cuerpo antes de rebobinar. Si no lo está, puedes recibir insulina de forma accidental.''',
+  ),
+];
 
-Selecciona "Nueva configuración" en tu bomba para rebobinar el pistón.''',
-    ),
-    Paso(
-      texto:
-          'Llena el nuevo reservorio con insulina, eliminando todas las burbujas de aire.',
-    ),
-    Paso(
-      texto:
-          'Conecta el tubo del Quick-set al reservorio mediante la conexión MiniMed.',
-    ),
-    Paso(
-      texto: '''
-Inserta el reservorio en la bomba y gíralo para bloquearlo.
+const List<Paso> _medtronicLlenado = [
+  Paso(
+    texto: '''
+Saca el reservorio del envase y tira del émbolo hasta la cantidad de insulina que vayas a cargar.
 
-Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.''',
-    ),
-    Paso(
-      texto:
-          'IMPORTANTE: Asegúrate de que el equipo esté DESCONECTADO de tu cuerpo antes de llenar el tubo.',
-    ),
-    Paso(
-      texto:
-          'Selecciona "Llenar tubo" y mantén pulsado hasta que veas gotas en la punta de la aguja.',
-    ),
-    Paso(
-      texto: '''
-PREPARAR EL DISPOSITIVO:
-Coloca el Quick-set dentro del insertador azul (Quick-serter) y presiona hacia abajo hasta que encaje.''',
-    ),
-    Paso(
-      texto:
-          'Retira el papel protector del adhesivo y el protector de plástico de la aguja.',
-    ),
-    Paso(
-      texto: '''
-TENSAR Y COLOCAR:
-Tira del mango verde del insertador hacia atrás hasta que oigas un clic. 
+Limpia el tapón del vial con alcohol, apoya el vial en una superficie firme y presiona el transfer sobre él.''',
+  ),
+  Paso(
+    texto: '''
+Empuja el émbolo y mantenlo presionado.
 
-Apóyalo en la zona de inserción y presiona los botones laterales.''',
-    ),
-    Paso(
-      texto: '''
-Retira el insertador azul con cuidado. 
+Sin soltar el pulgar, dale la vuelta al conjunto para que el vial quede arriba. Suelta y tira del émbolo para llenar el reservorio.''',
+  ),
+  Paso(
+    texto: '''
+Golpea suavemente el reservorio para que las burbujas suban.
 
-Presiona el adhesivo con el dedo para que quede bien pegado a la piel.''',
-    ),
-    Paso(
-      texto: '''
-Selecciona "Llenar cánula" e introduce la cantidad necesaria. 
+Empuja el émbolo para devolver el aire al vial y vuelve a tirar hasta la cantidad que necesitas.''',
+  ),
+  Paso(
+    texto: '''
+Vuelve a girar el conjunto para que el reservorio quede arriba: así evitas que caiga insulina sobre su parte superior.
 
-(Suele ser 0.3 unidades para cánula de 6mm o 0.5 unidades para cánula de 9mm).''',
-    ),
-  ],
+Sujeta el transfer y gira el reservorio en sentido antihorario para separarlo.''',
+  ),
+  Paso(
+    texto:
+        'ADVERTENCIA: no uses el reservorio ni el equipo si ha caído insulina '
+        'o cualquier líquido sobre la parte superior del reservorio o dentro '
+        'del conector del tubo. Puede bloquear los respiraderos y alterar la '
+        'insulina que recibes. Empieza de nuevo con material nuevo.',
+  ),
+  Paso(
+    texto:
+        'Conecta el conector del tubo al reservorio empujando con suavidad y '
+        'girándolo en sentido horario hasta que quede bloqueado.',
+  ),
+  Paso(
+    texto: '''
+Golpea el reservorio para subir las burbujas y empuja ligeramente el émbolo para pasarlas al tubo.
 
-  //MEDTRONIC_MIO30
-  'bmedtronic_cmio30': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
-    Paso(
-      texto: '''
-Retira el reservorio usado y selecciona 
-"Reservorio y equipo de inf."
+Después gira el émbolo en sentido antihorario para aflojarlo y retíralo.''',
+  ),
+];
 
-Selecciona "Nueva configuración" en tu bomba para rebobinar el pistón.''',
-    ),
-    Paso(
-      texto:
-          'Llena el nuevo reservorio con insulina, eliminando todas las burbujas de aire.',
-    ),
-    Paso(
-      texto:
-          'Conecta el tubo del Mio 30 al reservorio mediante la conexión MiniMed.',
-    ),
-    Paso(
-      texto: '''
-Inserta el reservorio en la bomba y gíralo para bloquearlo.
+const List<Paso> _medtronicCarga = [
+  Paso(
+    texto: '''
+Introduce el reservorio en la bomba y gíralo en sentido horario hasta que quede bloqueado. Continúa.
 
-Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.''',
-    ),
-    Paso(
-      texto:
-          'IMPORTANTE: Asegúrate de que el equipo esté DESCONECTADO de tu cuerpo antes de llenar el tubo.',
-    ),
-    Paso(
-      texto:
-          'Selecciona "Llenar tubo" y mantén pulsado hasta que veas gotas en la punta de la aguja',
-    ),
-    Paso(
-      texto: '''
-PREPARAR EL MIO 30:
-Retira el papel del adhesivo.
-Retira el protector de la aguja con cuidado''',
-    ),
-    Paso(
-      texto: '''
-TENSAR EL DISPOSITIVO
-Sujeta las protuberancias laterales y tira hacia atrás hasta que oigas un CLIC. 
-(Verás que la aguja queda expuesta en un ángulo inclinado)''',
-    ),
-    Paso(
-      texto: '''
-INSERCIÓN ANGULADA
-Coloca el dispositivo plano sobre la piel. 
-El diseño ya viene con el ángulo de 30 grados incorporado. 
-Presiona los botones laterales para insertar.
-''',
-    ),
-    Paso(
-      texto:
-          'Presiona el centro del insertador para fijar el adhesivo y retira el envase de plástico hacia atrás, siguiendo la línea de la aguja',
-    ),
-    Paso(
-      texto: 'Selecciona "Llenar cánula" e introduce la cantidad necesaria.',
-    ),
-  ],
+El equipo NO debe estar conectado al cuerpo.''',
+  ),
+  Paso(
+    texto:
+        'Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de '
+        'verificación en pantalla. Después continúa.',
+  ),
+  Paso(
+    texto: '''
+Selecciona "Llenar" y mantén pulsado hasta que no quede ninguna burbuja en el tubo y salgan gotas por el extremo.
 
-  //MEDTRONIC_QUICKSET
-  'bmedtronic_cquickset': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
-    Paso(
-      texto: '''
-Retira el reservorio usado y selecciona "Reservorio y equipo de inf."
+ADVERTENCIA: revisa siempre el tubo. Si quedan burbujas, sigue llenando.''',
+  ),
+];
 
-Selecciona "Nueva configuración" en tu bomba para rebobinar el pistón.''',
-    ),
-    Paso(
-      texto:
-          'Llena el nuevo reservorio con insulina, eliminando todas las burbujas de aire.',
-    ),
-    Paso(
-      texto:
-          'Conecta el tubo del Quick-set al reservorio mediante la conexión MiniMed.',
-    ),
-    Paso(
-      texto: '''
-Inserta el reservorio en la bomba y gíralo para bloquearlo.
+const List<Paso> _medtronicCierre = [
+  Paso(
+    texto: '''
+Selecciona "Llenar cánula" e introduce la cantidad que indique la caja de tu catéter.
 
-Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.''',
-    ),
-    Paso(
-      texto:
-          'IMPORTANTE: Asegúrate de que el equipo esté DESCONECTADO de tu cuerpo antes de llenar el tubo.',
-    ),
-    Paso(
-      texto:
-          'Selecciona "Llenar tubo" y mantén pulsado hasta que veas gotas en la punta de la aguja.',
-    ),
+ADVERTENCIA: no dejes la bomba parada en la pantalla de llenado de cánula. Mientras esté ahí, la administración de insulina está suspendida.''',
+  ),
+  Paso(
+    texto:
+        'Comprueba tu glucemia con un medidor capilar entre 1 y 3 horas '
+        'después del cambio. Es la forma de detectar a tiempo que el equipo '
+        'no esté administrando bien.',
+  ),
+];
+
+const List<Paso> _medtronicCierreAcero = [
+  Paso(
+    texto: '''
+Este equipo lleva aguja de acero, así que NO se llena cánula.
+
+Cuando la bomba lo pregunte, selecciona "Omitir llenado de cánula" o "Hecho".''',
+  ),
+  Paso(
+    texto:
+        'Comprueba tu glucemia con un medidor capilar entre 1 y 3 horas '
+        'después del cambio.',
+  ),
+];
+
+/// Une los bloques comunes de Medtronic con los pasos propios del catéter.
+List<Paso> _medtronic(List<Paso> insercion, {bool llenarCanula = true}) => [
+  ..._medtronicPreparacion,
+  ..._medtronicLlenado,
+  ..._medtronicCarga,
+  ...insercion,
+  ...(llenarCanula ? _medtronicCierre : _medtronicCierreAcero),
+];
+
+// ---------------------------------------------------------------------------
+// TANDEM — bloques comunes de cartucho (manual cap. 6)
+// ---------------------------------------------------------------------------
+
+const List<Paso> _tandemComun = [
+  Paso(texto: 'Lávate bien las manos con agua y jabón.'),
+  Paso(
+    texto: '''
+Prepara el material: cartucho sin abrir, jeringa de 3,0 ml con aguja de llenado, vial de insulina, toallitas de alcohol y un equipo de infusión nuevo.
+
+El cartucho se cambia cada 48-72 horas, según te haya indicado tu equipo médico.''',
+  ),
+  Paso(
+    texto: '''
+Calcula cuánta insulina cargar: añade unas 45 unidades a la cantidad que quieras tener disponible.
+
+El llenado del tubo consume hasta 30 unidades que después no quedan disponibles para administrar.''',
+  ),
+  Paso(
+    texto: '''
+Limpia el tapón del vial con alcohol. Enrosca la aguja en la jeringa y retira el capuchón.
+
+Carga la jeringa de aire hasta la cantidad de insulina deseada.''',
+  ),
+  Paso(
+    texto: '''
+Con el vial en vertical, inserta la aguja e inyecta el aire. Mantén la presión en el émbolo.
+
+Da la vuelta al conjunto y suelta el émbolo: la insulina fluirá hacia la jeringa. Tira despacio hasta la cantidad que necesitas.''',
+  ),
+  Paso(
+    texto: '''
+Con la aguja aún en el vial y boca abajo, da golpecitos a la jeringa para que las burbujas suban y empuja despacio para devolverlas al vial.
+
+Repite hasta que no quede ninguna burbuja y saca la aguja.''',
+  ),
+  Paso(
+    texto: '''
+Sujeta el cartucho en vertical e inserta poco a poco la aguja en el puerto blanco de llenado. No la fuerces hasta el fondo.
+
+Tira del émbolo hasta el tope para extraer el aire residual del cartucho y después suéltalo.''',
+  ),
+  Paso(
+    texto: '''
+Retira la aguja del puerto. Pon la jeringa en vertical, da golpecitos y presiona con suavidad hasta ver una gota de insulina en la punta.
+
+Vuelve a insertarla en el puerto y llena el cartucho poco a poco. Es normal notar contrapresión.''',
+  ),
+  Paso(
+    texto: '''
+Mantén la presión en el émbolo mientras sacas la aguja del cartucho.
+
+Comprueba que no haya fugas. Si pierde insulina, desecha el cartucho y empieza de nuevo con uno nuevo.''',
+  ),
+  Paso(
+    texto: '''
+En la bomba: OPCIONES → Cargar → Cambiar cartucho.
+
+Aparecerá un aviso de que se detiene toda la administración de insulina. Confirma para continuar.''',
+  ),
+  Paso(
+    texto:
+        'Desconecta el equipo de infusión de tu cuerpo y confirma. Extrae el '
+        'cartucho usado; si se resiste, ayúdate con la herramienta de '
+        'extracción o el borde de una moneda en la ranura inferior.',
+  ),
+  Paso(
+    texto: '''
+Coloca la parte inferior del cartucho nuevo en el extremo de la bomba, alineado con los carriles guía.
+
+Empuja el puerto de llenado circular para deslizarlo hacia dentro y pulsa DESBLOQUEAR.''',
+  ),
+  Paso(
+    texto: '''
+Conecta el tubo del equipo al conector del cartucho. Gira en sentido horario hasta apretar con la mano y da un CUARTO DE VUELTA EXTRA.
+
+ADVERTENCIA: sin ese cuarto de vuelta la conexión puede quedar floja y perder insulina.''',
+  ),
+  Paso(
+    texto: '''
+ADVERTENCIA: nunca llenes el tubo con el equipo conectado al cuerpo.
+
+Sujeta la bomba en vertical y pulsa INICIO. Vibrará o pitará mientras se llena.''',
+  ),
+  Paso(
+    texto: '''
+Pulsa DETENER cuando veas 3 gotas de insulina en el extremo del tubo, y después LISTO.
+
+Si no ves las gotas, pulsa LLENAR y repite. Cada ciclo admite un máximo de 30 unidades.''',
+  ),
+];
+
+const List<Paso> _tandemCierre = [
+  Paso(
+    texto: '''
+Pulsa "Llenar la cánula" y después "Editar cantidad de llenado".
+
+Selecciona la cantidad que indiquen las instrucciones de tu equipo de infusión, entre 0,1 y 1,0 unidades, y pulsa INICIO.''',
+  ),
+  Paso(
+    texto: '''
+Configura el Recordatorio del sitio si lo usas: entre 1 y 3 días, con 3 días por defecto.
+
+Después reanuda la administración de insulina.''',
+  ),
+  Paso(
+    texto:
+        'La bomba te recordará medir la glucemia entre 1 y 2 horas después. '
+        'Hazlo: es la forma de comprobar que el equipo nuevo está '
+        'administrando bien.',
+  ),
+];
+
+const List<Paso> _tandemCierreAcero = [
+  Paso(
+    texto: '''
+El TruSteel lleva aguja de acero: no tiene cánula, así que se salta el llenado de cánula.
+
+Cuando la bomba lo ofrezca, márcalo como hecho y reanuda la insulina.''',
+  ),
+  Paso(
+    texto:
+        'Mide la glucemia entre 1 y 2 horas después del cambio para confirmar '
+        'que el equipo administra correctamente.',
+  ),
+];
+
+// ---------------------------------------------------------------------------
+// MAPA DE GUÍAS
+// ---------------------------------------------------------------------------
+
+final Map<String, List<Paso>> instruccionesCateter = {
+  // ------------------------- MEDTRONIC -------------------------
+  'bmedtronic_cextended': _medtronic(const [
     Paso(
       texto: '''
-PREPARAR EL DISPOSITIVO:
-Coloca el Quick-set dentro del insertador azul (Quick-serter) y presiona hacia abajo hasta que encaje.''',
+Elige una zona de inserción (abdomen, muslo, nalgas o brazo) y límpiala con alcohol o el antiséptico que te haya indicado tu equipo médico.
+
+Inserta el equipo Extended siguiendo las instrucciones de su envase.''',
     ),
     Paso(
       texto:
-          'Retira el papel protector del adhesivo y el protector de plástico de la aguja',
+          'PRECAUCIÓN: no repitas la misma zona de inserción una y otra vez. '
+          'Ve rotando para que la piel tenga tiempo de recuperarse.',
+    ),
+  ]),
+
+  'bmedtronic_cmio': _medtronic(const [
+    Paso(
+      texto: '''
+PREPARAR EL DISPOSITIVO
+Coloca el Mio dentro de su insertador y presiona hacia abajo hasta que encaje.''',
+    ),
+    Paso(
+      texto:
+          'Retira el papel protector del adhesivo y el protector de plástico '
+          'de la aguja.',
     ),
     Paso(
       texto: '''
 TENSAR Y COLOCAR
-Tira del mango verde del insertador hacia atrás hasta que oigas un clic. Apóyalo en la zona de inserción y presiona los botones laterales.''',
-    ),
-    Paso(
-      texto:
-          'Retira el insertador azul con cuidado. Presiona el adhesivo con el dedo para que quede bien pegado a la piel.',
-    ),
-    Paso(
-      texto: 'Selecciona "Llenar cánula" e introduce la cantidad necesaria.',
-    ),
-  ],
+Tira del mango del insertador hacia atrás hasta oír un clic.
 
-  //MEDTRONIC_SILHUETTE
-  'bmedtronic_csilhouette': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
-    Paso(
-      texto: '''
-Retira el reservorio usado y selecciona "Reservorio y equipo de inf."
-
-Selecciona "Nueva configuración" en tu bomba para rebobinar el pistón.''',
-    ),
-    Paso(
-      texto:
-          'Llena el nuevo reservorio con insulina, eliminando todas las burbujas de aire.',
-    ),
-    Paso(
-      texto:
-          'Conecta el tubo del Silhouette al reservorio mediante la conexión MiniMed.',
+Apóyalo sobre la zona ya limpia y presiona los botones laterales.''',
     ),
     Paso(
       texto: '''
-Inserta el reservorio en la bomba y gíralo para bloquearlo.
+Retira el insertador con cuidado.
 
-Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.''',
+Presiona el adhesivo con el dedo para que quede bien pegado a la piel.''',
     ),
+  ]),
+
+  'bmedtronic_cmio30': _medtronic(const [
     Paso(
-      texto:
-          'IMPORTANTE: Asegúrate de que el equipo esté DESCONECTADO de tu cuerpo antes de llenar el tubo.',
-    ),
-    Paso(
-      texto:
-          'Selecciona "Llenar tubo" y mantén pulsado hasta que veas gotas en la punta de la aguja.',
+      texto: '''
+PREPARAR EL MIO 30
+Retira el papel del adhesivo y, con cuidado, el protector de la aguja.''',
     ),
     Paso(
       texto: '''
-PREPARACIÓN:
-Retira el papel protector del adhesivo y quita el protector de la aguja. 
-(Puedes insertarlo manualmente o usar el dispositivo Sil-serter).''',
+TENSAR EL DISPOSITIVO
+Sujeta las protuberancias laterales y tira hacia atrás hasta oír un CLIC.
+
+La aguja queda expuesta en ángulo inclinado.''',
+    ),
+    Paso(
+      texto: '''
+INSERCIÓN ANGULADA
+Coloca el dispositivo plano sobre la piel: el ángulo de 30 grados ya viene incorporado.
+
+Presiona los botones laterales para insertar.''',
+    ),
+    Paso(
+      texto:
+          'Presiona el centro del insertador para fijar el adhesivo y retira '
+          'el envase de plástico hacia atrás, siguiendo la línea de la aguja.',
+    ),
+  ]),
+
+  'bmedtronic_cquickset': _medtronic(const [
+    Paso(
+      texto: '''
+PREPARAR EL DISPOSITIVO
+Coloca el Quick-set dentro del insertador azul (Quick-serter) y presiona hacia abajo hasta que encaje.''',
+    ),
+    Paso(
+      texto:
+          'Retira el papel protector del adhesivo y el protector de plástico '
+          'de la aguja.',
+    ),
+    Paso(
+      texto: '''
+TENSAR Y COLOCAR
+Tira del mango verde del insertador hacia atrás hasta oír un clic.
+
+Apóyalo en la zona de inserción y presiona los botones laterales.''',
+    ),
+    Paso(
+      texto:
+          'Retira el insertador azul con cuidado y presiona el adhesivo con '
+          'el dedo para que quede bien pegado a la piel.',
+    ),
+  ]),
+
+  'bmedtronic_csilhouette': _medtronic(const [
+    Paso(
+      texto: '''
+PREPARACIÓN
+Retira el papel protector del adhesivo y quita el protector de la aguja.
+
+Puedes insertarlo manualmente o con el dispositivo Sil-serter.''',
     ),
     Paso(
       texto: '''
@@ -284,235 +410,357 @@ Pellizca la piel e inserta la aguja de forma inclinada, buscando un ángulo de e
     ),
     Paso(
       texto:
-          'RETIRAR LA AGUJA: Sujeta el catéter con un dedo para que no se mueva y retira la aguja guía con cuidado.',
+          'RETIRAR LA AGUJA: sujeta el catéter con un dedo para que no se '
+          'mueva y retira la aguja guía con cuidado.',
     ),
-    Paso(texto: 'Selecciona "Llenar cánula" en la bomba.'),
-  ],
+  ]),
 
-  //MEDTRONIC_SURET
-  'bmedtronic_csuret': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
-    Paso(
-      texto: '''
-Retira el reservorio usado y selecciona "Reservorio y equipo de inf."
-
-Selecciona "Nueva configuración" en tu bomba para rebobinar el pistón.''',
-    ),
-    Paso(
-      texto:
-          'Llena el nuevo reservorio con insulina, eliminando todas las burbujas de aire.',
-    ),
-    Paso(
-      texto:
-          'Conecta el tubo del Sure-T al reservorio mediante la conexión MiniMed.',
-    ),
-    Paso(
-      texto: '''
-Inserta el reservorio en la bomba y gíralo para bloquearlo.
-
-Selecciona "Colocar" y mantén pulsado hasta que aparezca la marca de verificación.''',
-    ),
-    Paso(
-      texto:
-          'IMPORTANTE: Asegúrate de que el equipo esté DESCONECTADO de tu cuerpo antes de llenar el tubo.',
-    ),
-    Paso(
-      texto:
-          'Selecciona "Llenar tubo" y mantén pulsado hasta que veas gotas en la punta de la aguja de acero.',
-    ),
-    Paso(
-      texto: '''
-PREPARAR LA AGUJA:
+  'bmedtronic_csuret': _medtronic(
+    const [
+      Paso(
+        texto: '''
+PREPARAR LA AGUJA
 Retira el papel protector del adhesivo grande y quita el protector de plástico de la aguja de acero.''',
+      ),
+      Paso(
+        texto: '''
+INSERCIÓN MANUAL
+Pellizca suavemente la piel en la zona elegida e inserta la aguja de acero directamente.
+
+Presiona el adhesivo firmemente contra la piel.''',
+      ),
+      Paso(
+        texto:
+            'Retira el papel del adhesivo pequeño (el del tubo) y pégalo a '
+            'unos centímetros del lugar de inserción, para que un tirón '
+            'accidental no arranque la aguja.',
+      ),
+    ],
+    llenarCanula: false,
+  ),
+
+  // ------------------------- OMNIPOD -------------------------
+  'bomnipod_cpod': const [
+    Paso(
+      texto: '''
+Saca la insulina con antelación: tiene que estar a temperatura ambiente.
+
+Lávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.''',
     ),
     Paso(
       texto: '''
-INSERCIÓN MANUAL:
-Pellizca suavemente la piel en la zona elegida e inserta la aguja de acero directamente. Presiona el adhesivo firmemente contra la piel.''',
+IMPORTANTE: no apliques un Pod nuevo hasta haber desactivado y retirado el anterior.
+
+Para retirarlo: INFORMACIÓN DEL POD → VER DETALLES DEL POD → CAMBIAR EL POD → DESACTIVAR POD.''',
     ),
     Paso(
       texto:
-          'Retira el papel del adhesivo pequeño (el que está en el tubo) y pégalo a unos pocos centímetros del lugar de inserción.',
+          'Despega despacio los bordes del adhesivo y retira el Pod usado. '
+          'Hacerlo lentamente reduce la irritación de la piel.',
+    ),
+    Paso(
+      texto: 'En la aplicación o el Controlador, toca CONFIGURAR NUEVO POD.',
+    ),
+    Paso(
+      texto: '''
+Saca la aguja y la jeringa de la bandeja del Pod, pero DEJA el Pod dentro de la bandeja durante toda la configuración.
+
+Enrosca la aguja en la jeringa y retira el capuchón tirando en línea recta.''',
+    ),
+    Paso(
+      texto: '''
+Carga la jeringa con una cantidad de aire igual a la insulina que vas a usar.
+
+Debes cargar como MÍNIMO 85 unidades: es la línea de llenado MÍN marcada en la jeringa.''',
+    ),
+    Paso(
+      texto: '''
+Inserta la aguja en el vial y empuja el émbolo para introducir el aire.
+
+Con la jeringa aún en el vial, dale la vuelta al conjunto y tira despacio del émbolo. Da unos golpecitos para eliminar las burbujas.''',
+    ),
+    Paso(
+      texto: '''
+Retira la aguja del vial e insértala directamente en el puerto de llenado del Pod.
+
+Una flecha en el papel blanco del reverso señala dónde está. Empuja el émbolo despacio hasta llenarlo del todo.''',
+    ),
+    Paso(
+      texto: '''
+El Pod emitirá DOS PITIDOS.
+
+Esa es la señal de que está lleno y listo para continuar. Si durante la activación no pita, no lo uses: sustitúyelo.''',
+    ),
+    Paso(
+      texto: '''
+Con el Pod todavía en la bandeja, ponlo en contacto con el Controlador y toca SIGUIENTE.
+
+El sistema hará una serie de comprobaciones de seguridad y cebará el Pod automáticamente. Espera a que termine.''',
+    ),
+    Paso(
+      texto: '''
+Elige la zona respetando estas distancias mínimas:
+
+• 8 cm de tu sensor Dexcom
+• 2,5 cm del sitio del Pod anterior
+• 5 cm del ombligo
+
+El Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunicarse sin que tu cuerpo bloquee la señal.''',
+    ),
+    Paso(
+      texto: '''
+Evita lunares, tatuajes y cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.
+
+Busca una zona con una capa de tejido graso y de fácil acceso.''',
     ),
     Paso(
       texto:
-          'En la pantalla de la bomba, selecciona "Omitir llenado de cánula" o pulsa "Atrás".',
+          'Retira los adhesivos, aplica el Pod sobre la piel y sigue las '
+          'instrucciones que aparecen en pantalla para insertar la cánula.',
+    ),
+    Paso(
+      texto: '''
+Comprueba a través de la ventana del Pod que la cánula ha quedado bien insertada y confírmalo en el Controlador.
+
+Mide tu glucosa unas horas después del cambio.''',
     ),
   ],
 
-  //--------------------------BoMnipod
-  //OMNIPOD_POD
-  'bomnipod_cpod': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
+  // ------------------------- YPSOPUMP -------------------------
+  'bypsopump_corbit': const [
     Paso(
       texto: '''
-Saca un nuevo Pod de su embalaje. 
-IMPORTANTE: No quites todavía el protector azul de la aguja/cánula.''',
-    ),
-    Paso(
-      texto: '''
-Usa la jeringa que viene en la caja para extraer la insulina del vial. 
-Introduce la aguja de la jeringa en el puerto de llenado (el círculo de goma) en la parte trasera del Pod.''',
+El kit Orbit soft no debe usarse durante más de 72 horas.
+
+Empieza desconectándote el kit de infusión del cuerpo.''',
     ),
     Paso(
       texto: '''
-Llena el Pod.
-Escucharás DOS PITIDOS que indican que el Pod está listo para ser activado.''',
+Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".
+
+Después toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.''',
+    ),
+    Paso(
+      texto: '''
+Espera a que la varilla se retraiga por completo (el porcentaje baja al 0 %) y a que termine la autocomprobación.
+
+NO insertes el cartucho antes: si lo haces, aparecerá el aviso "Retracción varilla roscada no finalizada" y habrá que repetir el proceso.''',
+    ),
+    Paso(
+      texto: '''
+Desconecta el kit de infusión girando el adaptador en sentido antihorario hasta el tope.
+
+Extrae el cartucho vacío de la bomba.''',
     ),
     Paso(
       texto:
-          'En tu mando (PDM), selecciona "Configurar nuevo Pod". El PDM se comunicará con el Pod y realizará el cebado automático. Espera a que termine.',
+          'Sujeta la bomba en vertical, con el orificio del compartimento '
+          'hacia arriba, e inserta un reservorio de 1,6 ml cargado por ti o '
+          'un cartucho precargado de 1,6 ml.',
+    ),
+    Paso(
+      texto: '''
+Coloca el adaptador en vertical sobre el cartucho y gíralo en sentido horario hasta la posición de bloqueo.
+
+Oirás un ligero clic o notarás un tope mecánico definido.''',
+    ),
+    Paso(
+      texto: '''
+Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo".
+
+Selecciona el volumen de cebado, entre 1,0 U y 30,0 U, según las instrucciones de tu kit Orbit, y confirma.''',
+    ),
+    Paso(
+      texto: '''
+Confirma que el kit está desconectado del cuerpo.
+
+Durante el cebado, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma de la mano para que suban las burbujas.''',
+    ),
+    Paso(
+      texto: '''
+Repite el cebado hasta que no quede aire en el cartucho, el adaptador ni el tubo, y hasta que salga insulina por el extremo.
+
+El volumen indicado es solo una referencia: puede hacer falta administrar más.''',
+    ),
+    Paso(
+      texto: '''
+Lávate bien las manos.
+
+Limpia la zona con una toallita de alcohol isopropílico al 70 %. Asegúrate de que no haya vello y de que la piel esté seca antes de continuar.''',
+    ),
+    Paso(
+      texto: '''
+Desprende con cuidado la lámina protectora de la cinta adhesiva, sin tocar la película.
+
+Retira después el protector de la cánula.''',
+    ),
+    Paso(
+      texto: '''
+Estabiliza la zona de infusión e inserta la cánula con un ángulo de 90°.
+
+Puedes usar el insertador mylife Orbit para que la entrada sea más fácil.''',
     ),
     Paso(
       texto:
-          'Ahora sí, retira el protector azul de la cánula y el papel de los adhesivos.',
+          'Presiona la cinta sobre la piel y recórrela con los dedos unos '
+          'segundos, para que la adhesión sea óptima.',
+    ),
+    Paso(
+      texto: '''
+Sujeta la cinta contra la piel con una mano y, con dos dedos de la otra, sujeta el capuchón del introductor.
+
+Extrae la aguja introductora presionando las dos aletas exteriores del capuchón.''',
     ),
     Paso(
       texto:
-          'Pega el Pod en la piel de forma firme. En el PDM, pulsa "Insertar cánula". El Pod disparará la cánula automáticamente.',
+          'Cubre la aguja introductora con el capuchón protector azul y '
+          'deséchala en un contenedor para objetos punzantes.',
     ),
     Paso(
-      texto:
-          'Observa a través de la ventana transparente del Pod si la cánula rosa está bien insertada en la piel. Confirma en el PDM que la inserción ha sido correcta.',
+      texto: '''
+Conecta el capuchón del tubo a la base de la cánula sin ladearlo. Asegúrate de oírlo encajar.
+
+Después gira el tubo a izquierda y derecha, al menos una vuelta completa en cada dirección, tirando del capuchón hacia arriba: así confirmas que está bien encajado y que la vía está abierta.''',
+    ),
+    Paso(
+      texto: '''
+Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar cánula".
+
+Selecciona un volumen entre 0,1 U y 1,0 U según las instrucciones de tu kit y confirma.''',
     ),
   ],
 
-  //------------------------YPSOPUMP
-  //YPSOPUMP_ORBIT
-  'bypsopump_corbit': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
+  // NOTA PENDIENTE: el manual de la YpsoPump solo reconoce como compatibles
+  // los kits Orbit soft y Orbit micro; no menciona el Inset. Esta entrada
+  // conserva el identificador 'cinset' para no romper el asset, pero el
+  // contenido es el del Orbit micro, que es el kit de aguja de acero del
+  // sistema. Hay que decidir si se renombra el identificador y se sustituye
+  // la imagen.
+  'bypsopump_cinset': const [
     Paso(
-      texto:
-          'Asegúrate de que tu cartucho de insulina esté bien colocado en la bomba.',
-    ),
-    Paso(
-      texto:
-          'Conecta el tubo del catéter Orbit a la punta del cartucho de la bomba.',
-    ),
-    Paso(
-      texto:
-          'En el menú de la bomba, selecciona la función de cebado. Mantén pulsado hasta que la insulina salga por la punta del conector del catéter.',
+      texto: '''
+El kit Orbit micro lleva cánula de acero y no debe usarse durante más de 48 horas.
+
+Empieza desconectándote el kit de infusión del cuerpo.''',
     ),
     Paso(
       texto: '''
-Limpia la zona de inserción.
-Retira el papel protector del adhesivo del Orbit.
-Inserta el parche (usando el insertador Orbit-Inserter o manualmente).''',
+Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".
+
+Después toca "Retraer varilla roscada" y confirma.''',
+    ),
+    Paso(
+      texto: '''
+Espera a que la varilla se retraiga del todo (0 %) y a que termine la autocomprobación.
+
+NO insertes el cartucho antes de que acabe.''',
     ),
     Paso(
       texto:
-          'Retira la aguja guía (si es el modelo Soft) y haz clic con el conector del tubo sobre el parche ya pegado. Puedes orientar el tubo en cualquier dirección.',
+          'Desconecta el kit girando el adaptador en sentido antihorario '
+          'hasta el tope y extrae el cartucho vacío.',
     ),
     Paso(
-      texto: 'En la bomba, selecciona "Llenar cánula". Introduce insulina.',
+      texto: '''
+Sujeta la bomba en vertical con el compartimento hacia arriba e inserta un reservorio de 1,6 ml.
+
+Coloca el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.''',
+    ),
+    Paso(
+      texto: '''
+Menú principal → "Cebar kit de infusión" → "Cebar tubo".
+
+Selecciona el volumen (1,0-30,0 U) según las instrucciones de tu kit y confirma que estás desconectado.''',
+    ),
+    Paso(
+      texto: '''
+Mantén la bomba vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para eliminar las burbujas.
+
+Repite hasta que no quede aire y salga insulina por el extremo del tubo.''',
+    ),
+    Paso(
+      texto: '''
+Lávate las manos y limpia la zona con alcohol isopropílico al 70 %. La piel debe estar seca y sin vello.
+
+Desprende la lámina protectora del adhesivo y retira el protector de la cánula.''',
+    ),
+    Paso(
+      texto: '''
+El Orbit micro lleva una cánula de acero que se aplica sin aguja introductora.
+
+Estabiliza la zona e inserta la cánula a 90°. Puedes usar el insertador mylife Orbit.''',
+    ),
+    Paso(
+      texto: '''
+Presiona la cinta sobre la piel y recórrela con los dedos unos segundos.
+
+Retira el capuchón introductor presionando sus dos aletas exteriores.''',
+    ),
+    Paso(
+      texto: '''
+Conecta el capuchón del tubo a la base de la cánula sin ladearlo, hasta oírlo encajar.
+
+Gira el tubo al menos una vuelta completa en cada dirección tirando hacia arriba, para confirmar que la vía está abierta.''',
+    ),
+    Paso(
+      texto: '''
+Menú principal → "Cebar kit de infusión" → "Cebar cánula".
+
+Selecciona un volumen entre 0,1 U y 1,0 U según las instrucciones de tu kit.''',
     ),
   ],
 
-  //YPSOPUMP_INSET
-  'bypsopump_cinset': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
-    Paso(
-      texto:
-          'Conecta el tubo al cartucho de la YpsoPump y purga el sistema hasta que la insulina asome por la aguja.',
-    ),
-    Paso(
-      texto: '''
-Retira el precinto de plástico.
-Quita el papel protector del adhesivo.
-Retira con cuidado el protector de la aguja.''',
-    ),
-    Paso(
-      texto:
-          'Sujeta el dispositivo por las muescas laterales y tira de la parte superior hacia atrás hasta que oigas un CLIC.',
-    ),
-    Paso(
-      texto:
-          'Coloca el Inset sobre la piel y presiona los botones laterales para disparar la cánula.',
-    ),
-    Paso(
-      texto: '''
-RETIRAR INSERTADOR
-Presiona suavemente el centro del dispositivo y tira del insertador de plástico hacia arriba, dejando el catéter pegado.''',
-    ),
-    Paso(
-      texto:
-          'Selecciona en la bomba la opción de llenar cánula. Introduce insulina.',
-    ),
-  ],
-
-  //--------------------------------BTandem
-  //TANDEM_AUTOSOFT90
+  // ------------------------- TANDEM -------------------------
   'btandem_cautosoft90': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
-    Paso(
-      texto:
-          'En la pantalla de tu Tandem, selecciona: OPCIONES > CARGA > LLENAR TUBO. Asegúrate de tener el cartucho ya preparado con insulina.',
-    ),
-    Paso(
-      texto:
-          'Conecta el tubo del AutoSoft 90 al conector t:lock del cartucho.',
-    ),
-    Paso(
+    ..._tandemComun,
+    const Paso(
       texto: '''
-LLENADO DEL TUBO
-Selecciona INICIAR y espera a que aparezcan 3 gotas de insulina en la punta de la aguja. Pulsa DETENER y luego CONTINUAR.''',
+Retira el papel del adhesivo y el protector de la aguja.
+
+Tira de la parte central del insertador hacia arriba hasta oír un CLIC.''',
     ),
-    Paso(
-      texto:
-          'IMPORTANTE: No conectes el equipo a tu cuerpo hasta que el tubo esté lleno.',
-    ),
-    Paso(
+    const Paso(
       texto: '''
-Retira el papel del adhesivo.
-Quita el protector de la aguja.
-Tira de la parte central del insertador hacia arriba hasta que oigas un CLIC.''',
+Coloca el dispositivo sobre la zona elegida y presiona los huecos laterales para disparar.
+
+Presiona el centro del insertador y retíralo con cuidado.''',
     ),
-    Paso(
-      texto:
-          'Coloca el dispositivo en la zona elegida y presiona los huecos laterales para disparar. Presiona el centro del insertador y retíralo con cuidado.',
-    ),
-    Paso(texto: 'En la pantalla, selecciona LLENAR CÁNULA.'),
+    ..._tandemCierre,
   ],
 
-  //TANDEM_AUTOSOFT30
   'btandem_cautosoft30': [
-    Paso(texto: 'Lávate bien las manos con agua y jabón.'),
-    Paso(
-      texto:
-          'Conecta el tubo al cartucho (t:lock) y realiza el proceso de LLENAR TUBO en la bomba hasta ver 3 gotas.',
-    ),
-    Paso(
+    ..._tandemComun,
+    const Paso(
       texto: '''
 PREPARAR EL DISPOSITIVO
-Retira los protectores y tira hacia atrás del insertador hasta oír el CLIC. Verás que el diseño ya tiene la inclinación de 30 grados.''',
+Retira los protectores y tira del insertador hacia atrás hasta oír el CLIC.
+
+El diseño ya incorpora la inclinación de 30 grados.''',
     ),
-    Paso(
+    const Paso(
       texto: '''
 INSERCIÓN
-Coloca el dispositivo plano sobre la piel y dispara. Retira el insertador deslizándolo hacia atrás con cuidado siguiendo el ángulo de la aguja.''',
+Coloca el dispositivo plano sobre la piel y dispara.
+
+Retira el insertador deslizándolo hacia atrás con cuidado, siguiendo el ángulo de la aguja.''',
     ),
-    Paso(texto: 'Selecciona LLENAR CÁNULA en la bomba.'),
+    ..._tandemCierre,
   ],
 
-  //TANDEM_TRUSTEEL
   'btandem_ctrusteel': [
-    Paso(texto: 'Lávate bien las manos.'),
-    Paso(
-      texto:
-          'Llena el tubo en la bomba hasta que la insulina salga por la punta de la aguja de acero.',
-    ),
-    Paso(
+    ..._tandemComun,
+    const Paso(
       texto: '''
-INSERCIÓN
-Retira los protectores e inserta la aguja de acero manualmente a 90 grados. Fija el adhesivo principal.''',
+INSERCIÓN MANUAL
+Retira los protectores e inserta la aguja de acero a 90 grados.
+
+Fija el adhesivo principal presionándolo contra la piel.''',
     ),
-    Paso(
+    const Paso(
       texto:
-          'Pega el segundo adhesivo (el del tubo) a unos centímetros de la aguja para evitar tirones accidentales.',
+          'Pega el segundo adhesivo (el del tubo) a unos centímetros de la '
+          'aguja, para que un tirón accidental no la arranque.',
     ),
-    Paso(
-      texto:
-          'Cuando la bomba pregunte si deseas "LLENAR CÁNULA", selecciona "HECHO" o pulsa el botón de cerrar. NO LLENES CÁNULA. La aguja de acero ya está lista para administrar insulina.',
-    ),
+    ..._tandemCierreAcero,
   ],
 };
