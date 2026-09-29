@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:app_diabetes/resultado.dart';
-import 'package:app_diabetes/servicios/preferencias.dart';
-import 'package:app_diabetes/tema.dart';
+import 'package:adiabetes/resultado.dart';
+import 'package:adiabetes/servicios/preferencias.dart';
+import 'package:adiabetes/tema.dart';
 
 Future<void> conConfiguracion() async {
   SharedPreferences.setMockInitialValues({});

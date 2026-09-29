@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'bombas.dart';
 import 'disclaimer.dart';
+import 'l10n/idioma.dart';
 import 'resultado.dart';
 import 'servicios/notificaciones.dart';
 import 'servicios/preferencias.dart';
 import 'servicios/sugerencias.dart';
 import 'tema.dart';
+import 'widgets/selector_idioma.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // La app es 100% offline: no hay red, ni cuentas, ni analítica.
   await Preferencias.inicializar();
+
+  // Primer arranque: se usa el idioma del móvil si la app lo tiene.
+  if (!Preferencias.hayIdiomaGuardado) Traductor.actual = Idioma.delSistema();
+
   await Notificaciones.inicializar();
   await Sugerencias.inicializar();
   await Notificaciones.reprogramar();
@@ -25,15 +32,23 @@ class MiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Reconstruye el MaterialApp para que `themeMode` siga a las preferencias.
+    // Reconstruye el MaterialApp para que `themeMode` y el idioma sigan a las
+    // preferencias.
     return ValueListenableBuilder<int>(
       valueListenable: Preferencias.revision,
       builder: (context, _, _) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'App Diabetes',
+        title: 'ADiABETES',
         theme: temaClaro,
         darkTheme: temaOscuro,
         themeMode: Preferencias.tema,
+        locale: Traductor.actual.locale,
+        supportedLocales: Idioma.values.map((i) => i.locale).toList(),
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         home: const PuntoDeEntrada(),
       ),
     );
@@ -88,50 +103,69 @@ class PantallaBienvenida extends StatelessWidget {
     final esquema = context.esquema;
 
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Bienvenido',
-                style: TextStyle(
-                  color: esquema.onSurface,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            const Align(
+              alignment: Alignment.topRight,
+              child: Padding(padding: EdgeInsets.all(8), child: BotonIdioma()),
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      t('Bienvenido a'),
+                      style: TextStyle(
+                        color: esquema.onSurfaceVariant,
+                        fontSize: 18,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'ADiABETES',
+                      style: TextStyle(
+                        color: esquema.primary,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.5,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      t('Guía para bombas de insulina y sensores de glucosa.'),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: esquema.onSurfaceVariant,
+                        fontSize: 18,
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    FilledButton(
+                      style: FilledButton.styleFrom(
+                        backgroundColor: esquema.primary,
+                        foregroundColor: esquema.onPrimary,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 40,
+                          vertical: 15,
+                        ),
+                      ),
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const BombasScreen()),
+                      ),
+                      child: Text(
+                        t('Comenzar'),
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: 10),
-              Text(
-                'Conceptos básicos sobre bombas de insulina.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: esquema.onSurfaceVariant,
-                  fontSize: 18,
-                ),
-              ),
-              const SizedBox(height: 30),
-              FilledButton(
-                style: FilledButton.styleFrom(
-                  backgroundColor: esquema.primary,
-                  foregroundColor: esquema.onPrimary,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 40,
-                    vertical: 15,
-                  ),
-                ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const BombasScreen()),
-                ),
-                child: const Text(
-                  'Comenzar',
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

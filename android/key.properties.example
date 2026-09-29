@@ -1,0 +1,6 @@
+# Copia este fichero como `key.properties` (sin .example) y rellénalo.
+# `key.properties` y los .jks están en .gitignore: NO los subas nunca.
+storeFile=../upload-keystore.jks
+storePassword=
+keyAlias=upload
+keyPassword=

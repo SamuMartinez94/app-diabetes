@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'datos/soporte.dart';
+import 'l10n/idioma.dart';
 import 'servicios/preferencias.dart';
 import 'tema.dart';
 
@@ -16,9 +17,9 @@ class _SoporteScreenState extends State<SoporteScreen> {
   Future<void> _abrir(Uri destino) async {
     if (!await launchUrl(destino, mode: LaunchMode.externalApplication)) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No se pudo abrir el enlace.')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t('No se pudo abrir el enlace.'))));
     }
   }
 
@@ -37,7 +38,7 @@ class _SoporteScreenState extends State<SoporteScreen> {
       });
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Soporte y manuales')),
+      appBar: AppBar(title: Text(t('Soporte y manuales'))),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -46,9 +47,9 @@ class _SoporteScreenState extends State<SoporteScreen> {
             Container(
               padding: const EdgeInsets.all(18),
               decoration: BoxDecoration(
-                color: colores.porRevisarFondo,
+                color: colores.urgente.withAlpha(20),
                 borderRadius: BorderRadius.circular(18),
-                border: Border.all(color: colores.porRevisar.withAlpha(70)),
+                border: Border.all(color: colores.urgente.withAlpha(70)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,25 +58,27 @@ class _SoporteScreenState extends State<SoporteScreen> {
                     children: [
                       Icon(
                         Icons.emergency_outlined,
-                        color: colores.porRevisar,
+                        color: colores.urgente,
                         size: 20,
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        'URGENCIAS',
+                        t('URGENCIAS'),
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1.1,
-                          color: colores.porRevisar,
+                          color: colores.urgente,
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Ante una hipoglucemia grave, pérdida de consciencia o '
-                    'cetoacidosis, llama al 112.',
+                    t(
+                      'Ante una glucosa baja grave, pérdida de conocimiento o '
+                      'cetoacidosis, llama al 112.',
+                    ),
                     style: TextStyle(
                       fontSize: 15,
                       height: 1.4,
@@ -87,7 +90,7 @@ class _SoporteScreenState extends State<SoporteScreen> {
                     width: double.infinity,
                     child: FilledButton.icon(
                       style: FilledButton.styleFrom(
-                        backgroundColor: colores.porRevisar,
+                        backgroundColor: colores.urgente,
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                         shape: RoundedRectangleBorder(
@@ -96,9 +99,9 @@ class _SoporteScreenState extends State<SoporteScreen> {
                       ),
                       onPressed: () => _abrir(Uri.parse('tel:112')),
                       icon: const Icon(Icons.call, size: 20),
-                      label: const Text(
-                        'Llamar al 112',
-                        style: TextStyle(
+                      label: Text(
+                        t('Llamar al 112'),
+                        style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
@@ -110,7 +113,7 @@ class _SoporteScreenState extends State<SoporteScreen> {
             ),
             const SizedBox(height: 28),
             Text(
-              'FABRICANTES',
+              t('FABRICANTES'),
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
@@ -120,9 +123,11 @@ class _SoporteScreenState extends State<SoporteScreen> {
             ),
             const SizedBox(height: 6),
             Text(
-              'Los teléfonos de soporte cambian según el país, así que no vienen '
-              'precargados: un número equivocado en una urgencia es peor que '
-              'ninguno. Busca el tuyo en la web oficial.',
+              t(
+                'Los teléfonos de soporte cambian según el país, así que no '
+                'vienen precargados: un número equivocado en una urgencia es '
+                'peor que ninguno. Busca el tuyo en la web oficial.',
+              ),
               style: TextStyle(
                 fontSize: 13,
                 height: 1.4,
@@ -197,7 +202,7 @@ class _FichaFabricante extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      'TU BOMBA',
+                      t('TU BOMBA'),
                       style: TextStyle(
                         fontSize: 9,
                         fontWeight: FontWeight.bold,
@@ -211,10 +216,7 @@ class _FichaFabricante extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               fabricante.dispositivos,
-              style: TextStyle(
-                fontSize: 13,
-                color: esquema.onSurfaceVariant,
-              ),
+              style: TextStyle(fontSize: 13, color: esquema.onSurfaceVariant),
             ),
             const SizedBox(height: 12),
             OutlinedButton.icon(
@@ -226,7 +228,7 @@ class _FichaFabricante extends StatelessWidget {
                 ),
               ),
               icon: const Icon(Icons.open_in_new, size: 16),
-              label: const Text('Web oficial y manuales'),
+              label: Text(t('Web oficial y manuales')),
             ),
           ],
         ),

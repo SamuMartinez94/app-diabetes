@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'datos/kit.dart';
+import 'l10n/idioma.dart';
 import 'tema.dart';
 import 'widgets/comunes.dart';
 
@@ -14,6 +15,8 @@ class KitViajeScreen extends StatefulWidget {
 }
 
 class _KitViajeScreenState extends State<KitViajeScreen> {
+  /// Las marcas se guardan por el texto en castellano (la clave), no por el
+  /// traducido: así siguen marcadas si cambias de idioma a mitad.
   final Set<String> marcados = {};
 
   int get _total =>
@@ -27,12 +30,12 @@ class _KitViajeScreenState extends State<KitViajeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kit de viaje'),
+        title: Text(t('Kit de viaje')),
         actions: [
           if (marcados.isNotEmpty)
             TextButton(
               onPressed: () => setState(marcados.clear),
-              child: const Text('Reiniciar'),
+              child: Text(t('Reiniciar')),
             ),
         ],
       ),
@@ -41,10 +44,11 @@ class _KitViajeScreenState extends State<KitViajeScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           physics: const BouncingScrollPhysics(),
           children: [
-            const BannerRevision(
-              mensaje:
-                  'Lista orientativa sin revisar. Ajústala con tu equipo médico '
-                  'según tu tratamiento y tu destino.',
+            BannerRevision(
+              mensaje: t(
+                'Lista orientativa en revisión. Ajústala con tu equipo médico '
+                'según tu tratamiento y tu destino.',
+              ),
             ),
             const SizedBox(height: 16),
             Container(
@@ -58,17 +62,18 @@ class _KitViajeScreenState extends State<KitViajeScreen> {
               child: Row(
                 children: [
                   Icon(
-                    completo
-                        ? Icons.check_circle
-                        : Icons.checklist_rtl_rounded,
+                    completo ? Icons.check_circle : Icons.checklist_rtl_rounded,
                     color: completo ? colores.exito : esquema.primary,
                   ),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(
                       completo
-                          ? 'Todo listo. Buen viaje.'
-                          : '${marcados.length} de $_total preparados',
+                          ? t('Todo listo. Buen viaje.')
+                          : tf('{n} de {total} preparados', {
+                              'n': marcados.length,
+                              'total': _total,
+                            }),
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
@@ -80,17 +85,19 @@ class _KitViajeScreenState extends State<KitViajeScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            ...kitViaje.map((grupo) => _Grupo(
-                  grupo: grupo,
-                  marcados: marcados,
-                  alCambiar: (clave, valor) => setState(() {
-                    if (valor) {
-                      marcados.add(clave);
-                    } else {
-                      marcados.remove(clave);
-                    }
-                  }),
-                )),
+            ...kitViaje.map(
+              (grupo) => _Grupo(
+                grupo: grupo,
+                marcados: marcados,
+                alCambiar: (clave, valor) => setState(() {
+                  if (valor) {
+                    marcados.add(clave);
+                  } else {
+                    marcados.remove(clave);
+                  }
+                }),
+              ),
+            ),
             const SizedBox(height: 30),
           ],
         ),
@@ -120,7 +127,7 @@ class _Grupo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            grupo.titulo.toUpperCase(),
+            t(grupo.titulo).toUpperCase(),
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.bold,
@@ -130,7 +137,7 @@ class _Grupo extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            grupo.nota,
+            t(grupo.nota),
             style: TextStyle(
               fontSize: 13,
               height: 1.35,
@@ -148,13 +155,11 @@ class _Grupo extends StatelessWidget {
               dense: true,
               controlAffinity: ListTileControlAffinity.leading,
               title: Text(
-                elemento,
+                t(elemento),
                 style: TextStyle(
                   fontSize: 15,
                   height: 1.3,
-                  color: marcado
-                      ? esquema.onSurfaceVariant
-                      : esquema.onSurface,
+                  color: marcado ? esquema.onSurfaceVariant : esquema.onSurface,
                   decoration: marcado ? TextDecoration.lineThrough : null,
                 ),
               ),

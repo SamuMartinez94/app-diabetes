@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'l10n/idioma.dart';
 import 'tema.dart';
+import 'widgets/selector_idioma.dart';
 
-/// Un apartado del aviso médico.
+/// Un apartado del aviso médico, ya traducido.
 class _Apartado {
   final String titulo;
   final String texto;
@@ -10,39 +12,46 @@ class _Apartado {
   const _Apartado(this.titulo, this.texto);
 }
 
-const String _entradilla =
-    'Esta aplicación te acompaña en el manejo diario de tu bomba de insulina, '
-    'pero no reemplaza a la documentación oficial ni al criterio de tu equipo '
-    'médico. Léelo antes de usarla.';
-
-const List<_Apartado> _apartados = [
+/// Se construye en cada `build` para que siga al idioma activo.
+List<_Apartado> _apartados() => [
   _Apartado(
-    'Proyecto informativo',
-    'Es un proyecto personal sin ánimo de lucro. No es un producto sanitario, '
-        'ni está vinculado, patrocinado o avalado por los fabricantes de los '
-        'dispositivos que aparecen en la app.',
+    t('Proyecto informativo'),
+    t(
+      'Es un proyecto personal sin ánimo de lucro. No es un producto '
+      'sanitario, ni está vinculado, patrocinado o avalado por los '
+      'fabricantes de los dispositivos que aparecen en la app.',
+    ),
   ),
   _Apartado(
-    'No sustituye al manual',
-    'Las guías son un apoyo visual. El manual oficial de tu dispositivo y las '
-        'indicaciones de tu equipo médico tienen siempre prioridad sobre lo '
-        'que leas aquí.',
+    t('No sustituye al manual'),
+    t(
+      'Las guías son un apoyo. El manual oficial de tu dispositivo y las '
+      'indicaciones de tu equipo médico mandan siempre sobre lo que leas '
+      'aquí.',
+    ),
   ),
   _Apartado(
-    'Sin cálculo de dosis',
-    'La app no calcula dosis de insulina ni emite recomendaciones de '
-        'tratamiento. Consulta a tu profesional sanitario ante cualquier duda '
-        'sobre tu pauta.',
+    t('Sin cálculo de dosis'),
+    t(
+      'La app no calcula dosis de insulina ni da recomendaciones de '
+      'tratamiento. Si tienes cualquier duda sobre tu pauta, pregunta a tu '
+      'equipo médico.',
+    ),
   ),
   _Apartado(
-    'Contenido en revisión',
-    'Las guías y las fichas de alarmas están pendientes de validación '
-        'clínica. Mientras lo estén, se muestran en rojo dentro de la app.',
+    t('Contenido en revisión'),
+    t(
+      'Las guías y las alarmas todavía las está revisando un profesional '
+      'sanitario. Si ves algo que no cuadra, avísanos con el modo '
+      'sugerencias.',
+    ),
   ),
   _Apartado(
-    'En caso de urgencia',
-    'Ante una hipoglucemia grave, pérdida de consciencia o sospecha de '
-        'cetoacidosis, llama al 112.',
+    t('En caso de urgencia'),
+    t(
+      'Ante una glucosa baja grave, pérdida de conocimiento o sospecha de '
+      'cetoacidosis, llama al 112.',
+    ),
   ),
 ];
 
@@ -65,7 +74,7 @@ class DisclaimerScreen extends StatelessWidget {
     return Scaffold(
       appBar: requiereAceptacion
           ? null
-          : AppBar(title: const Text('Aviso importante')),
+          : AppBar(title: Text(t('Aviso importante'))),
       body: SafeArea(
         child: Column(
           children: [
@@ -74,9 +83,14 @@ class DisclaimerScreen extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(28, 0, 28, 10),
                 physics: const BouncingScrollPhysics(),
                 children: [
-                  SizedBox(height: requiereAceptacion ? 48 : 24),
+                  if (requiereAceptacion) ...[
+                    const SizedBox(height: 20),
+                    const SelectorIdioma(conNombre: false),
+                    const SizedBox(height: 24),
+                  ] else
+                    const SizedBox(height: 24),
                   Text(
-                    'AVISO IMPORTANTE',
+                    t('AVISO IMPORTANTE'),
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
@@ -86,7 +100,7 @@ class DisclaimerScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Antes de empezar',
+                    t('Antes de empezar'),
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w800,
@@ -97,7 +111,12 @@ class DisclaimerScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 14),
                   Text(
-                    _entradilla,
+                    t(
+                      'Esta aplicación te acompaña en el día a día con tu '
+                      'bomba de insulina, pero no sustituye a los manuales '
+                      'oficiales ni a tu equipo médico. Léelo antes de '
+                      'usarla.',
+                    ),
                     style: TextStyle(
                       fontSize: 16,
                       height: 1.5,
@@ -105,7 +124,7 @@ class DisclaimerScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 28),
-                  ..._apartados.map((a) => _Bloque(apartado: a)),
+                  ..._apartados().map((a) => _Bloque(apartado: a)),
                   const SizedBox(height: 8),
                 ],
               ),
@@ -131,9 +150,9 @@ class DisclaimerScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: alAceptar,
-                    child: const Text(
-                      'Entiendo y continúo',
-                      style: TextStyle(
+                    child: Text(
+                      t('Entiendo y continúo'),
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),

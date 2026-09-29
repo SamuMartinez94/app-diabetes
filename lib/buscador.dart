@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
 import 'datos/alarmas.dart';
+import 'datos/guias_cateter.dart';
+import 'datos/guias_sensor.dart';
+import 'l10n/idioma.dart';
 import 'modelos/alarma.dart';
+import 'modelos/paso.dart';
 import 'servicios/preferencias.dart';
 import 'tema.dart';
 import 'widgets/boton_sugerencia.dart';
 import 'widgets/comunes.dart';
+import 'widgets/pantalla_guia.dart';
 
 /// Un apartado de la app que el buscador puede encontrar.
+/// Título y subtítulo llegan ya traducidos; las palabras clave, en castellano.
 class Apartado {
   final String titulo;
   final String subtitulo;
@@ -25,6 +31,85 @@ class Apartado {
 
   String get textoBuscable =>
       '$titulo $subtitulo ${palabras.join(' ')}'.toLowerCase();
+}
+
+/// Un paso de guía encontrado por el buscador.
+class PasoEncontrado {
+  final String claveGuia;
+  final String titulo;
+  final int indice;
+  final int total;
+  final Paso paso;
+
+  const PasoEncontrado({
+    required this.claveGuia,
+    required this.titulo,
+    required this.indice,
+    required this.total,
+    required this.paso,
+  });
+}
+
+/// Recorre solo las guías de los dispositivos del usuario: no tiene sentido
+/// devolverle pasos de una bomba que no usa.
+List<PasoEncontrado> buscarEnGuias(String consulta) {
+  if (consulta.trim().isEmpty) return const [];
+
+  final bomba = Preferencias.bomba;
+  final sensor = Preferencias.sensor;
+  final cateter = Preferencias.cateter;
+  if (bomba == null) return const [];
+
+  final fuentes = <String, ({String titulo, List<Paso> pasos})>{};
+
+  final claveCateter = '${bomba}_$cateter';
+  final guiaCateter = instruccionesCateter[claveCateter];
+  if (guiaCateter != null) {
+    fuentes[claveCateter] = (
+      titulo: t('Recambio de catéter'),
+      pasos: guiaCateter,
+    );
+  }
+
+  final soloReservorio = instruccionesSoloReservorio[bomba];
+  if (soloReservorio != null) {
+    fuentes['${bomba}_solo_reservorio'] = (
+      titulo: t('Solo reservorio'),
+      pasos: soloReservorio,
+    );
+  }
+
+  if (sensor != null) {
+    final claveSensor = '${bomba}_$sensor';
+    final guiaSensor = instruccionesSensor[claveSensor];
+    if (guiaSensor != null) {
+      fuentes[claveSensor] = (
+        titulo: t('Recambio de sensor'),
+        pasos: guiaSensor,
+      );
+    }
+  }
+
+  final q = normalizar(consulta);
+  final resultados = <PasoEncontrado>[];
+  fuentes.forEach((clave, fuente) {
+    for (var i = 0; i < fuente.pasos.length; i++) {
+      final paso = fuente.pasos[i];
+      // Se busca en castellano y en el idioma activo.
+      if (normalizar('${paso.texto} ${t(paso.texto)}').contains(q)) {
+        resultados.add(
+          PasoEncontrado(
+            claveGuia: clave,
+            titulo: fuente.titulo,
+            indice: i,
+            total: fuente.pasos.length,
+            paso: paso,
+          ),
+        );
+      }
+    }
+  });
+  return resultados;
 }
 
 /// Quita tildes y pasa a minúsculas, para que "oclusion" encuentre "oclusión".
@@ -73,6 +158,8 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
         .toList();
   }
 
+  List<PasoEncontrado> get _pasosFiltrados => buscarEnGuias(consulta);
+
   List<Apartado> get _apartadosFiltrados {
     if (consulta.isEmpty) return widget.apartados;
     final q = normalizar(consulta);
@@ -86,10 +173,11 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
     final esquema = context.esquema;
     final apartados = _apartadosFiltrados;
     final resultados = _alarmasFiltradas;
-    final vacio = apartados.isEmpty && resultados.isEmpty;
+    final pasos = _pasosFiltrados;
+    final vacio = apartados.isEmpty && resultados.isEmpty && pasos.isEmpty;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Buscar')),
+      appBar: AppBar(title: Text(t('Buscar'))),
       body: SafeArea(
         child: Column(
           children: [
@@ -101,7 +189,7 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
                 textInputAction: TextInputAction.search,
                 onChanged: (v) => setState(() => consulta = v.trim()),
                 decoration: InputDecoration(
-                  hintText: 'Alarma, síntoma o apartado…',
+                  hintText: t('Alarma, síntoma o apartado…'),
                   prefixIcon: const Icon(Icons.search),
                   suffixIcon: consulta.isEmpty
                       ? null
@@ -129,7 +217,7 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
                       physics: const BouncingScrollPhysics(),
                       children: [
                         if (apartados.isNotEmpty) ...[
-                          _titulo(context, 'APARTADOS DE LA APP'),
+                          _titulo(context, t('APARTADOS DE LA APP')),
                           ...apartados.map(
                             (a) => TarjetaMenu(
                               titulo: a.titulo,
@@ -144,10 +232,22 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
                           ),
                           const SizedBox(height: 10),
                         ],
+                        if (pasos.isNotEmpty) ...[
+                          _titulo(
+                            context,
+                            tf('PASOS DE TUS GUÍAS ({n})', {'n': pasos.length}),
+                          ),
+                          ...pasos.map(
+                            (p) => _FilaPaso(resultado: p, consulta: consulta),
+                          ),
+                          const SizedBox(height: 10),
+                        ],
                         if (resultados.isNotEmpty) ...[
                           _titulo(
                             context,
-                            'ALARMAS Y AVISOS (${resultados.length})',
+                            tf('ALARMAS Y AVISOS ({n})', {
+                              'n': resultados.length,
+                            }),
                           ),
                           ...resultados.map((a) => _FilaAlarma(alarma: a)),
                         ],
@@ -187,7 +287,7 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
           ),
           const SizedBox(height: 16),
           Text(
-            'Nada coincide con "$consulta".',
+            tf('Nada coincide con "{consulta}".', {'consulta': consulta}),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 15,
@@ -196,8 +296,10 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
           ),
           const SizedBox(height: 8),
           Text(
-            'Prueba con el texto que muestra tu dispositivo, o con lo que te '
-            'está pasando: "no pasa insulina", "pitido", "batería".',
+            t(
+              'Prueba con el texto que muestra tu dispositivo, o con lo que '
+              'te está pasando: "no pasa insulina", "pitido", "batería".',
+            ),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 13,
@@ -211,6 +313,122 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
   );
 }
 
+/// Resultado de búsqueda dentro de una guía: muestra el fragmento y lleva
+/// a la pantalla de la guía abierta por ese paso.
+class _FilaPaso extends StatelessWidget {
+  final PasoEncontrado resultado;
+  final String consulta;
+
+  const _FilaPaso({required this.resultado, required this.consulta});
+
+  /// Recorta el texto alrededor de la coincidencia para no volcar el paso
+  /// entero en la lista de resultados.
+  String get _fragmento {
+    final texto = t(resultado.paso.texto).replaceAll('\n', ' ');
+    final pos = normalizar(texto).indexOf(normalizar(consulta));
+    if (pos < 0) {
+      return texto.length > 90 ? '${texto.substring(0, 90)}…' : texto;
+    }
+    final ini = (pos - 35).clamp(0, texto.length);
+    final fin = (pos + consulta.length + 55).clamp(0, texto.length);
+    return '${ini > 0 ? "…" : ""}${texto.substring(ini, fin).trim()}'
+        '${fin < texto.length ? "…" : ""}';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final esquema = context.esquema;
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: InkWell(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => PantallaGuia(
+              titulo: resultado.titulo,
+              clave: resultado.claveGuia,
+              pasos: _pasosDe(resultado.claveGuia) ?? const [],
+              porRevisar: true,
+              pasoInicial: resultado.indice,
+            ),
+          ),
+        ),
+        borderRadius: BorderRadius.circular(18),
+        child: Container(
+          padding: const EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            border: Border.all(color: esquema.outlineVariant),
+            borderRadius: BorderRadius.circular(18),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: esquema.primary.withAlpha(26),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Icon(
+                  Icons.menu_book_outlined,
+                  color: esquema.primary,
+                  size: 24,
+                ),
+              ),
+              const SizedBox(width: 15),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      tf('{titulo} · paso {i} de {total}', {
+                        'titulo': resultado.titulo,
+                        'i': resultado.indice + 1,
+                        'total': resultado.total,
+                      }),
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: esquema.primary,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      _fragmento,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 13,
+                        height: 1.35,
+                        color: esquema.onSurface,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Recupera la lista de pasos a partir de la clave, sea de catéter o sensor.
+List<Paso>? _pasosDe(String clave) =>
+    instruccionesCateter[clave] ??
+    instruccionesSensor[clave] ??
+    instruccionesSoloReservorio[clave.replaceAll('_solo_reservorio', '')];
+
+Color _colorGravedad(BuildContext context, Gravedad gravedad) {
+  return switch (gravedad) {
+    Gravedad.informativa => context.esquema.primary,
+    Gravedad.atencion => context.colores.aviso,
+    Gravedad.urgente => context.colores.urgente,
+  };
+}
+
 class _FilaAlarma extends StatelessWidget {
   final Alarma alarma;
 
@@ -219,14 +437,7 @@ class _FilaAlarma extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final esquema = context.esquema;
-    final colores = context.colores;
-    final porRevisar = alarmasPorRevisar.contains(alarma.id);
-
-    final colorGravedad = switch (alarma.gravedad) {
-      Gravedad.informativa => esquema.primary,
-      Gravedad.atencion => colores.aviso,
-      Gravedad.urgente => colores.porRevisar,
-    };
+    final colorGravedad = _colorGravedad(context, alarma.gravedad);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -262,18 +473,16 @@ class _FilaAlarma extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      alarma.titulo,
+                      t(alarma.titulo),
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: porRevisar
-                            ? colores.porRevisar
-                            : esquema.onSurface,
+                        color: esquema.onSurface,
                       ),
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      alarma.gravedad.etiqueta,
+                      t(alarma.gravedad.etiqueta),
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
@@ -304,24 +513,20 @@ class AlarmaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final esquema = context.esquema;
-    final colores = context.colores;
     final porRevisar = alarmasPorRevisar.contains(alarma.id);
-    final colorTexto = porRevisar ? colores.porRevisar : esquema.onSurface;
-
-    final colorGravedad = switch (alarma.gravedad) {
-      Gravedad.informativa => esquema.primary,
-      Gravedad.atencion => colores.aviso,
-      Gravedad.urgente => colores.porRevisar,
-    };
+    final colorGravedad = _colorGravedad(context, alarma.gravedad);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Alarma')),
+      appBar: AppBar(title: Text(t('Alarma'))),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           physics: const BouncingScrollPhysics(),
           children: [
-            if (porRevisar) ...[const BannerRevision(), const SizedBox(height: 20)],
+            if (porRevisar) ...[
+              const BannerRevision(),
+              const SizedBox(height: 20),
+            ],
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
@@ -334,7 +539,7 @@ class AlarmaScreen extends StatelessWidget {
                   Icon(alarma.gravedad.icono, size: 15, color: colorGravedad),
                   const SizedBox(width: 6),
                   Text(
-                    alarma.gravedad.etiqueta.toUpperCase(),
+                    t(alarma.gravedad.etiqueta).toUpperCase(),
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
@@ -347,18 +552,18 @@ class AlarmaScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              alarma.titulo,
+              t(alarma.titulo),
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.w800,
                 letterSpacing: -0.5,
-                color: colorTexto,
+                color: esquema.onSurface,
               ),
             ),
             if (alarma.codigo != null) ...[
               const SizedBox(height: 6),
               Text(
-                'Código ${alarma.codigo}',
+                tf('Código {codigo}', {'codigo': alarma.codigo!}),
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -368,7 +573,7 @@ class AlarmaScreen extends StatelessWidget {
             ],
             const SizedBox(height: 20),
             Text(
-              'QUÉ SIGNIFICA',
+              t('QUÉ SIGNIFICA'),
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
@@ -378,12 +583,16 @@ class AlarmaScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              alarma.significado,
-              style: TextStyle(fontSize: 16, height: 1.5, color: colorTexto),
+              t(alarma.significado),
+              style: TextStyle(
+                fontSize: 16,
+                height: 1.5,
+                color: esquema.onSurface,
+              ),
             ),
             const SizedBox(height: 25),
             Text(
-              'QUÉ HACER',
+              t('QUÉ HACER'),
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
@@ -418,11 +627,11 @@ class AlarmaScreen extends StatelessWidget {
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        e.value,
+                        t(e.value),
                         style: TextStyle(
                           fontSize: 15,
                           height: 1.45,
-                          color: colorTexto,
+                          color: esquema.onSurface,
                         ),
                       ),
                     ),
@@ -430,9 +639,7 @@ class AlarmaScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Center(
-              child: BotonSugerencia(ubicacion: 'Alarma ${alarma.id}'),
-            ),
+            Center(child: BotonSugerencia(ubicacion: 'Alarma ${alarma.id}')),
             const SizedBox(height: 30),
           ],
         ),

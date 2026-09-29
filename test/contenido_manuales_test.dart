@@ -1,16 +1,18 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:app_diabetes/datos/alarmas.dart';
-import 'package:app_diabetes/datos/guias_cateter.dart';
-import 'package:app_diabetes/datos/guias_sensor.dart';
-import 'package:app_diabetes/modelos/paso.dart';
+import 'package:adiabetes/datos/alarmas.dart';
+import 'package:adiabetes/datos/guias_cateter.dart';
+import 'package:adiabetes/datos/guias_sensor.dart';
+import 'package:adiabetes/modelos/paso.dart';
 
 String textoDe(List<Paso> pasos) => pasos.map((p) => p.texto).join(' ');
 
 void main() {
   group('Datos concretos tomados de los manuales', () {
-    test('Omnipod: mínimo de 85 unidades al llenar el Pod', () {
-      expect(textoDe(instruccionesCateter['bomnipod_cpod']!), contains('85'));
+    test('Omnipod: se avisa de la línea MÍN de la jeringa, sin dar cifras', () {
+      final texto = textoDe(instruccionesCateter['bomnipod_cpod']!);
+      expect(texto, contains('MÍN'));
+      expect(texto, isNot(contains('85')));
     });
 
     test('Omnipod: distancia mínima al sensor Dexcom', () {
@@ -77,12 +79,59 @@ void main() {
       }
     });
 
-    test('Medtronic recuerda medir la glucemia tras el cambio', () {
+    test('Medtronic recuerda medir la glucosa tras el cambio', () {
       expect(
         textoDe(instruccionesCateter['bmedtronic_cmio']!).toLowerCase(),
-        contains('glucemia'),
+        contains('glucosa'),
       );
     });
+  });
+
+  group('Lenguaje para quien empieza', () {
+    /// Todos los textos que ve una persona en las guías y las alarmas.
+    List<String> textosVisibles() => [
+      for (final mapa in [
+        instruccionesCateter,
+        instruccionesSensor,
+        instruccionesSoloReservorio,
+      ])
+        for (final pasos in mapa.values) ...pasos.map((p) => p.texto),
+      for (final a in alarmas) ...[a.titulo, a.significado, ...a.queHacer],
+    ];
+
+    test('No se dan cantidades de insulina ni volúmenes', () {
+      // "0,5 U", "1,6 ml", "45 unidades"…
+      final cantidad = RegExp(
+        r'\b\d+([.,]\d+)?\s?(u|ui|ml|unidades|unidad)\b',
+        caseSensitive: false,
+      );
+      for (final texto in textosVisibles()) {
+        expect(
+          cantidad.hasMatch(texto),
+          isFalse,
+          reason: 'Lleva una cantidad: "${texto.split("\n").first}"',
+        );
+      }
+    });
+
+    test(
+      'Se habla de pluma y no de jeringa fuera del llenado del cartucho',
+      () {
+        for (final texto in textosVisibles()) {
+          final minusculas = texto.toLowerCase();
+          final habla = minusculas.contains('jeringa');
+          final esLlenado =
+              minusculas.contains('llen') ||
+              minusculas.contains('aire') ||
+              minusculas.contains('aguja');
+          expect(
+            !habla || esLlenado,
+            isTrue,
+            reason: 'Usa "jeringa" sin ser del llenado: "$texto"',
+          );
+        }
+      },
+    );
   });
 
   group('Integridad del contenido', () {

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../l10n/idioma.dart';
 import '../modelos/registro_insercion.dart';
 
 /// Almacenamiento local del dispositivo. No sale nada de aquí: sin cuentas,
@@ -12,6 +13,7 @@ class Preferencias {
   static const _kSensor = 'config_sensor';
   static const _kCateter = 'config_cateter';
   static const _kTema = 'ajuste_tema';
+  static const _kIdioma = 'ajuste_idioma';
   static const _kRecordatorios = 'ajuste_recordatorios';
   static const _kDiasCateter = 'ajuste_dias_cateter';
   static const _kDiasSensor = 'ajuste_dias_sensor';
@@ -19,6 +21,7 @@ class Preferencias {
   static const _kRotacion = 'ajuste_rotacion';
   static const _kRegistros = 'registros_insercion';
   static const _kModoSugerencias = 'modo_sugerencias';
+  static const _kProgreso = 'progreso_guia_';
 
   static late SharedPreferences _prefs;
 
@@ -29,6 +32,19 @@ class Preferencias {
 
   static Future<void> inicializar() async {
     _prefs = await SharedPreferences.getInstance();
+    Traductor.actual = Idioma.deCodigo(_prefs.getString(_kIdioma)) ?? Idioma.es;
+  }
+
+  // --- IDIOMA ---
+
+  /// `true` si la persona ya eligió idioma alguna vez. Si no, la app arranca
+  /// en el idioma del sistema (ver `main`).
+  static bool get hayIdiomaGuardado => _prefs.getString(_kIdioma) != null;
+
+  static Future<void> guardarIdioma(Idioma idioma) async {
+    await _prefs.setString(_kIdioma, idioma.codigo);
+    Traductor.cambiar(idioma);
+    _notificar();
   }
 
   // --- CONFIGURACIÓN DE DISPOSITIVOS ---
@@ -109,13 +125,25 @@ class Preferencias {
   // --- MODO SUGERENCIAS ---
 
   /// Modo revisor: muestra botones para reportar errores en cada guía.
-  static bool get modoSugerencias =>
-      _prefs.getBool(_kModoSugerencias) ?? false;
+  static bool get modoSugerencias => _prefs.getBool(_kModoSugerencias) ?? false;
 
   static Future<void> guardarModoSugerencias(bool activo) async {
     await _prefs.setBool(_kModoSugerencias, activo);
     _notificar();
   }
+
+  // --- PROGRESO DENTRO DE UNA GUÍA ---
+
+  /// Paso en el que se quedó el usuario, para poder retomar el recambio si
+  /// la app se cierra a mitad. 0 = sin progreso guardado.
+  static int progresoGuia(String clave) =>
+      _prefs.getInt('$_kProgreso$clave') ?? 0;
+
+  static Future<void> guardarProgresoGuia(String clave, int paso) =>
+      _prefs.setInt('$_kProgreso$clave', paso);
+
+  static Future<void> borrarProgresoGuia(String clave) =>
+      _prefs.remove('$_kProgreso$clave');
 
   // --- ROTACIÓN DE ZONAS ---
 

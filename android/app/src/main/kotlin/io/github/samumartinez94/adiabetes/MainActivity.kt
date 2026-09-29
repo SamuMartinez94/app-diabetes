@@ -1,4 +1,4 @@
-package com.example.pantalla_bienvenida
+package io.github.samumartinez94.adiabetes
 
 import io.flutter.embedding.android.FlutterActivity
 

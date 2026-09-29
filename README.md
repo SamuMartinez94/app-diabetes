@@ -2,11 +2,13 @@
 > **Proyecto No Oficial:** Esta aplicación es un proyecto personal sin fines de lucro, desarrollado exclusivamente con fines informativos y orientados al usuario. No es una herramienta médica profesional, ni está vinculada, patrocinada o avalada por ninguna de las marcas comerciales de dispositivos médicos mencionadas.
 
 > [!CAUTION]
-> **Contenido pendiente de validación clínica.** Todas las guías de recambio y las fichas de alarmas están marcadas como borrador y se muestran en rojo dentro de la app. Están pendientes de revisión por un profesional sanitario.
+> **Contenido pendiente de validación clínica.** Las guías de recambio y las fichas de alarmas llevan un aviso discreto de "contenido en revisión" dentro de la app. Están pendientes de revisión por un profesional sanitario.
 
 ---
 
-# App Control de bombas Diabetes
+# ADiABETES
+
+*Guía para usuarios de bombas de insulina y sensores de glucosa.*
 
 Aplicación de soporte desarrollada en **Flutter** para usuarios de bombas de insulina y sensores de glucosa. Ofrece guías visuales paso a paso, un buscador de alarmas y herramientas de seguimiento.
 
@@ -23,6 +25,71 @@ Aplicación de soporte desarrollada en **Flutter** para usuarios de bombas de in
 - **Kit de viaje:** checklist de qué llevar y qué papeles necesitas.
 - **Soporte y manuales:** webs oficiales de cada fabricante y acceso rápido al 112.
 - **Tema claro y oscuro**, o el del sistema.
+- **Cinco idiomas:** castellano, inglés, gallego, catalán y euskera. Se elige con banderas y el cambio es instantáneo, sin cerrar la pantalla en la que estás.
+
+---
+
+## Publicar en Google Play
+
+El APK de release se firma con **tu propia clave**. Sin ella, se firma con la de debug: sirve para probar, pero Google Play no lo acepta.
+
+### 1. Crear la clave (una sola vez)
+
+En PowerShell, con el `keytool` que trae Android Studio. Te pedirá contraseñas y tus datos: **elígelas tú y guárdalas en un gestor de contraseñas**.
+
+```powershell
+& "C:\Program Files\Android\Android Studio\jbr\bin\keytool.exe" -genkeypair -v `
+  -keystore "$HOME\upload-keystore.jks" -alias upload `
+  -keyalg RSA -keysize 2048 -validity 10000
+```
+
+> Haz **copia de seguridad** del `.jks` y de las contraseñas fuera del repositorio. Si los pierdes no podrás actualizar la app (Play App Signing permite recuperar la clave de subida, pero es un trámite).
+
+### 2. Compilar en local
+
+Copia `android/key.properties.example` como `android/key.properties`, rellénalo con la ruta al `.jks` y tus contraseñas, y compila:
+
+```bash
+flutter build appbundle --release
+```
+
+El `.aab` queda en `build/app/outputs/bundle/release/`. Es el formato que pide Google Play.
+
+### 3. Compilar en GitHub Actions
+
+En *Settings → Secrets and variables → Actions* crea estos cuatro secretos:
+
+| Secreto | Valor |
+|---|---|
+| `ANDROID_KEYSTORE_BASE64` | El `.jks` en base64: `[Convert]::ToBase64String([IO.File]::ReadAllBytes("$HOME\upload-keystore.jks"))` |
+| `ANDROID_KEYSTORE_PASSWORD` | Contraseña del almacén |
+| `ANDROID_KEY_ALIAS` | `upload` (o el alias que hayas usado) |
+| `ANDROID_KEY_PASSWORD` | Contraseña de la clave |
+
+Sin los secretos (por ejemplo en un fork) el flujo sigue funcionando y firma con la clave de debug.
+
+### 4. Antes de subir a Play Console
+
+- La política de privacidad tiene que tener una URL pública. La app no recoge datos, pero Play la exige igualmente.
+- Rellena el formulario de *Seguridad de los datos* (no se recopilan datos) y la declaración de app de salud.
+- Esta app no es un producto sanitario: indícalo en la ficha y mantén el aviso médico.
+
+---
+
+## Idiomas
+
+El castellano es el idioma de origen: todos los textos del código están escritos en castellano y **ese mismo texto sirve de clave** para buscar su traducción.
+
+```dart
+Text(t('Lávate bien las manos con agua y jabón.'))     // texto fijo
+Text(tf('Hace {n} días', {'n': dias}))                  // con datos variables
+```
+
+Las traducciones están en [`lib/l10n/`](lib/l10n/) (`en.dart`, `gl.dart`, `ca.dart`, `eu.dart`). Son un mapa `'texto en castellano': 'traducción'`.
+
+Si cambias un texto en castellano hay que actualizar su clave en los cuatro ficheros. `flutter test test/traducciones_test.dart` avisa de qué falta, qué sobra y de los marcadores `{n}` que no coincidan. Las guías, alarmas y el kit se comprueban desde sus datos; el resto, buscando las llamadas a `t()` y `tf()` en el código.
+
+> Las traducciones son automáticas y **están pendientes de revisión por personas nativas**. El modo sugerencias añade el idioma que se estaba leyendo al reportar un fallo.
 
 ---
 

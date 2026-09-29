@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/idioma.dart';
+
 enum Gravedad {
   informativa('Informativa', Icons.info_outline),
   atencion('Requiere atención', Icons.warning_amber_rounded),
@@ -41,7 +43,14 @@ class Alarma {
     this.sinonimos = const [],
   });
 
+  /// Los sinónimos juntos, tal y como se traducen (una sola entrada por alarma).
+  String get textoSinonimos => sinonimos.join(', ');
+
+  /// Texto por el que se puede encontrar la alarma. Incluye siempre el
+  /// castellano (los sinónimos se buscan también en el idioma de origen) y,
+  /// si la app está en otro idioma, también su traducción.
   String get textoBuscable =>
-      '$titulo ${codigo ?? ''} $significado ${sinonimos.join(' ')}'
+      '$titulo ${codigo ?? ''} $significado $textoSinonimos '
+              '${t(titulo)} ${t(significado)} ${t(textoSinonimos)}'
           .toLowerCase();
 }

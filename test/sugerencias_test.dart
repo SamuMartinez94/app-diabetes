@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:app_diabetes/cambio_cateter.dart';
-import 'package:app_diabetes/configuracion.dart';
-import 'package:app_diabetes/datos/sugerencias.dart';
-import 'package:app_diabetes/servicios/preferencias.dart';
-import 'package:app_diabetes/servicios/sugerencias.dart';
-import 'package:app_diabetes/tema.dart';
+import 'package:adiabetes/cambio_cateter.dart';
+import 'package:adiabetes/configuracion.dart';
+import 'package:adiabetes/datos/sugerencias.dart';
+import 'package:adiabetes/servicios/preferencias.dart';
+import 'package:adiabetes/servicios/sugerencias.dart';
+import 'package:adiabetes/tema.dart';
 
 Future<void> prefs({bool modoSugerencias = false}) async {
   SharedPreferences.setMockInitialValues({});
@@ -20,9 +20,10 @@ Future<void> prefs({bool modoSugerencias = false}) async {
 Widget conTema(Widget hijo) =>
     MaterialApp(theme: temaClaro, darkTheme: temaOscuro, home: hijo);
 
-Widget guia() => conTema(
-  const CambioCateterScreen(bomba: 'bmedtronic', cateter: 'cmio30'),
-);
+/// Omnipod no tiene selector de tipo de cambio, así que entra directo a la
+/// guía: es el caso más simple para probar la visibilidad del botón.
+Widget guia() =>
+    conTema(const CambioCateterScreen(bomba: 'bomnipod', cateter: 'cpod'));
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -148,8 +149,10 @@ void main() {
     test('La URL construida lleva la ubicación en su campo', () {
       final uri = Sugerencias.construirUrl('Guía bmedtronic_cmio30 — paso 4');
 
-      expect(uri.queryParameters[kCampoUbicacion],
-          'Guía bmedtronic_cmio30 — paso 4');
+      expect(
+        uri.queryParameters[kCampoUbicacion],
+        'Guía bmedtronic_cmio30 — paso 4',
+      );
       expect(uri.queryParameters['usp'], 'pp_url');
       // Nombre y sugerencia los escribe la persona, no la app.
       expect(uri.queryParameters.containsKey(kCampoNombre), isFalse);

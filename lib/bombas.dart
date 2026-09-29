@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'l10n/idioma.dart';
 import 'resultado.dart';
 import 'servicios/notificaciones.dart';
 import 'servicios/preferencias.dart';
 import 'tema.dart';
 import 'widgets/comunes.dart';
+import 'widgets/selector_idioma.dart';
 
 /// El Omnipod integra el catéter en el propio Pod, así que no es una pieza
 /// que el usuario elija: se asigna sola al saltarse el paso 3.
@@ -19,19 +21,21 @@ Future<void> confirmarCambioDeConfiguracion(BuildContext context) async {
     context: context,
     builder: (context) => AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-      title: const Text('¿Elegir otra configuración?'),
-      content: const Text(
-        'Volverás a seleccionar tu bomba, tu sensor y tu catéter.\n\n'
-        'Tus recordatorios y el historial de zonas de inserción se mantienen.',
+      title: Text(t('¿Elegir otra configuración?')),
+      content: Text(
+        t(
+          'Volverás a elegir tu bomba, tu sensor y tu catéter.\n\n'
+          'Tus recordatorios y el historial de zonas se mantienen.',
+        ),
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context, false),
-          child: const Text('Cancelar'),
+          child: Text(t('Cancelar')),
         ),
         FilledButton(
           onPressed: () => Navigator.pop(context, true),
-          child: const Text('Cambiar'),
+          child: Text(t('Cambiar')),
         ),
       ],
     ),
@@ -174,7 +178,8 @@ class _BombasScreenState extends State<BombasScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Configuración'),
+        title: Text(t('Configuración')),
+        actions: const [BotonIdioma()],
         titleTextStyle: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,
@@ -220,7 +225,7 @@ class _BombasScreenState extends State<BombasScreen> {
                   children: [
                     if (paso == 1)
                       buildSelector(
-                        titulo: '¿Qué bomba usas?',
+                        titulo: t('¿Qué bomba usas?'),
                         opciones: bombas,
                         seleccionado: bombaSeleccionada,
                         onSelect: (val) => setState(() {
@@ -230,7 +235,7 @@ class _BombasScreenState extends State<BombasScreen> {
                       ),
                     if (paso == 2)
                       buildSelector(
-                        titulo: 'Selecciona tu sensor',
+                        titulo: t('Elige tu sensor'),
                         opciones: sensoresFiltrados,
                         seleccionado: sensorSeleccionado,
                         onSelect: (val) {
@@ -244,7 +249,7 @@ class _BombasScreenState extends State<BombasScreen> {
                       ),
                     if (paso == 3)
                       buildSelector(
-                        titulo: 'Elige tu catéter',
+                        titulo: t('Elige tu catéter'),
                         opciones: cateteresFiltrados,
                         seleccionado: cateterSeleccionado,
                         onSelect: _irAResultado,

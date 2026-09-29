@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:app_diabetes/datos/dispositivos.dart';
-import 'package:app_diabetes/datos/guias_cateter.dart';
-import 'package:app_diabetes/datos/guias_sensor.dart';
-import 'package:app_diabetes/resultado.dart';
-import 'package:app_diabetes/servicios/preferencias.dart';
-import 'package:app_diabetes/tema.dart';
+import 'package:adiabetes/datos/dispositivos.dart';
+import 'package:adiabetes/datos/guias_cateter.dart';
+import 'package:adiabetes/datos/guias_sensor.dart';
+import 'package:adiabetes/resultado.dart';
+import 'package:adiabetes/servicios/preferencias.dart';
+import 'package:adiabetes/tema.dart';
 
 Widget panel({
   required String bomba,
@@ -81,7 +81,9 @@ void main() {
   group('Cobertura del mapa de nombres', () {
     /// Todos los ids que aparecen en las claves de las guías.
     Set<String> idsDeGuias(Iterable<String> claves, {required bool bomba}) =>
-        claves.map((c) => bomba ? c.split('_').first : c.split('_').last).toSet();
+        claves
+            .map((c) => bomba ? c.split('_').first : c.split('_').last)
+            .toSet();
 
     test('Todas las bombas tienen nombre', () {
       final bombas = idsDeGuias(instruccionesCateter.keys, bomba: true);
