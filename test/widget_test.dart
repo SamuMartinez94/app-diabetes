@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:app_diabetes/bombas.dart';
-import 'package:app_diabetes/buscador.dart';
-import 'package:app_diabetes/cambio_sensor.dart';
-import 'package:app_diabetes/datos/alarmas.dart';
-import 'package:app_diabetes/datos/guias_cateter.dart';
-import 'package:app_diabetes/datos/guias_sensor.dart';
-import 'package:app_diabetes/disclaimer.dart';
-import 'package:app_diabetes/modelos/registro_insercion.dart';
-import 'package:app_diabetes/servicios/preferencias.dart';
-import 'package:app_diabetes/tema.dart';
+import 'package:adiabetes/bombas.dart';
+import 'package:adiabetes/buscador.dart';
+import 'package:adiabetes/cambio_sensor.dart';
+import 'package:adiabetes/datos/alarmas.dart';
+import 'package:adiabetes/datos/guias_cateter.dart';
+import 'package:adiabetes/datos/guias_sensor.dart';
+import 'package:adiabetes/disclaimer.dart';
+import 'package:adiabetes/modelos/registro_insercion.dart';
+import 'package:adiabetes/servicios/preferencias.dart';
+import 'package:adiabetes/tema.dart';
 
 Future<void> prefsVacias() async {
   SharedPreferences.setMockInitialValues({});
@@ -47,7 +47,7 @@ void main() {
       await tester.tap(find.byType(GestureDetector).first);
       await tester.pumpAndSettle();
 
-      expect(find.text('Selecciona tu sensor'), findsOneWidget);
+      expect(find.text('Elige tu sensor'), findsOneWidget);
     });
 
     testWidgets('El botón atrás limpia la selección de sensor', (tester) async {
@@ -153,12 +153,15 @@ void main() {
       expect(Preferencias.registros.first.zona, 'abdomen_sup_izq');
     });
 
-    test('Cada cambio incrementa la revisión para refrescar la interfaz', () async {
-      final antes = Preferencias.revision.value;
-      await Preferencias.guardarRotacion(false);
+    test(
+      'Cada cambio incrementa la revisión para refrescar la interfaz',
+      () async {
+        final antes = Preferencias.revision.value;
+        await Preferencias.guardarRotacion(false);
 
-      expect(Preferencias.revision.value, greaterThan(antes));
-    });
+        expect(Preferencias.revision.value, greaterThan(antes));
+      },
+    );
   });
 
   group('Contenido pendiente de revisar', () {
@@ -207,14 +210,14 @@ void main() {
       );
     });
 
-    testWidgets('Una guía sin revisar muestra el aviso de borrador', (
+    testWidgets('Una guía sin revisar muestra el aviso de revisión', (
       tester,
     ) async {
       await tester.pumpWidget(
         conTema(const CambioSensorScreen(bomba: 'btandem', sensor: 'sdexg7')),
       );
 
-      expect(find.textContaining('Borrador sin revisar'), findsOneWidget);
+      expect(find.textContaining('Contenido en revisión'), findsOneWidget);
     });
   });
 
@@ -258,7 +261,7 @@ void main() {
       await tester.enterText(find.byType(TextField), 'oclusion');
       await tester.pumpAndSettle();
 
-      expect(find.text('Oclusión / Flujo bloqueado'), findsOneWidget);
+      expect(find.text('Bloqueo (oclusión)'), findsOneWidget);
     });
 
     testWidgets('Encuentra una alarma por su sinónimo', (tester) async {
@@ -267,7 +270,7 @@ void main() {
       await tester.enterText(find.byType(TextField), 'no pasa insulina');
       await tester.pumpAndSettle();
 
-      expect(find.text('Oclusión / Flujo bloqueado'), findsOneWidget);
+      expect(find.text('Bloqueo (oclusión)'), findsOneWidget);
     });
 
     testWidgets('Encuentra apartados de la app, no solo alarmas', (

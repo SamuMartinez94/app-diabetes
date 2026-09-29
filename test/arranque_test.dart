@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:app_diabetes/main.dart';
-import 'package:app_diabetes/servicios/preferencias.dart';
+import 'package:adiabetes/main.dart';
+import 'package:adiabetes/servicios/preferencias.dart';
 
 Future<void> arrancarCon(Map<String, Object> valores) async {
   SharedPreferences.setMockInitialValues(valores);

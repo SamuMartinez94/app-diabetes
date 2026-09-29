@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../datos/dispositivos.dart';
+import '../l10n/idioma.dart';
 import '../tema.dart';
 
 /// Imagen de un dispositivo por su identificador.
@@ -12,12 +13,7 @@ class ImagenDispositivo extends StatelessWidget {
   final double? ancho;
   final double? alto;
 
-  const ImagenDispositivo({
-    super.key,
-    required this.id,
-    this.ancho,
-    this.alto,
-  });
+  const ImagenDispositivo({super.key, required this.id, this.ancho, this.alto});
 
   @override
   Widget build(BuildContext context) {
@@ -35,16 +31,13 @@ class ImagenDispositivo extends StatelessWidget {
   }
 }
 
-/// Aviso de contenido todavía no validado por un profesional sanitario.
+/// Aviso discreto de contenido todavía no validado por un profesional
+/// sanitario. Color neutro a propósito: informa, no alarma.
 class BannerRevision extends StatelessWidget {
-  final String mensaje;
+  /// Ya traducido. Si es `null` se usa el aviso genérico de las guías.
+  final String? mensaje;
 
-  const BannerRevision({
-    super.key,
-    this.mensaje =
-        'Borrador sin revisar. Contrasta estos pasos con el manual oficial y '
-        'con tu equipo médico.',
-  });
+  const BannerRevision({super.key, this.mensaje});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +57,11 @@ class BannerRevision extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              mensaje,
+              mensaje ??
+                  t(
+                    'Contenido en revisión. Contrasta estos pasos con el '
+                    'manual oficial y con tu equipo médico.',
+                  ),
               style: TextStyle(
                 fontSize: 12,
                 height: 1.3,
@@ -80,6 +77,7 @@ class BannerRevision extends StatelessWidget {
 }
 
 /// Tarjeta de navegación con icono, título y subtítulo.
+/// Los textos llegan ya traducidos.
 class TarjetaMenu extends StatelessWidget {
   final String titulo;
   final String subtitulo;
@@ -186,12 +184,12 @@ class ResumenConfiguracion extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (bomba.isNotEmpty) _item(context, bomba, 'Bomba'),
-          if (sensor.isNotEmpty) _item(context, sensor, 'Sensor'),
+          if (bomba.isNotEmpty) _item(context, bomba, t('Bomba')),
+          if (sensor.isNotEmpty) _item(context, sensor, t('Sensor')),
           // El catéter va sin nombre: los modelos son crípticos y ocupan
           // demasiado al lado de la bomba y el sensor.
           if (cateter.isNotEmpty && !esOmnipod)
-            _item(context, cateter, 'Catéter', conNombre: false),
+            _item(context, cateter, t('Catéter'), conNombre: false),
         ],
       ),
     );
@@ -205,50 +203,50 @@ class ResumenConfiguracion extends StatelessWidget {
   }) {
     return Expanded(
       child: Column(
-      children: [
-        Container(
-          width: 65,
-          height: 65,
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: context.esquema.surface,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha(20),
-                blurRadius: 8,
-                offset: const Offset(0, 3),
-              ),
-            ],
+        children: [
+          Container(
+            width: 65,
+            height: 65,
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: context.esquema.surface,
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withAlpha(20),
+                  blurRadius: 8,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: ImagenDispositivo(id: id),
           ),
-          child: ImagenDispositivo(id: id),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          etiqueta,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 11,
-            color: context.esquema.onSurfaceVariant,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        if (conNombre) ...[
-          const SizedBox(height: 2),
+          const SizedBox(height: 6),
           Text(
-            nombreDispositivo(id),
+            etiqueta,
             textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              fontSize: 13,
-              height: 1.2,
-              color: context.esquema.onSurface,
-              fontWeight: FontWeight.w700,
+              fontSize: 11,
+              color: context.esquema.onSurfaceVariant,
+              fontWeight: FontWeight.w500,
             ),
           ),
+          if (conNombre) ...[
+            const SizedBox(height: 2),
+            Text(
+              nombreDispositivo(id),
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 13,
+                height: 1.2,
+                color: context.esquema.onSurface,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
         ],
-      ],
       ),
     );
   }

@@ -7,10 +7,12 @@ import 'cambio_sensor.dart';
 import 'configuracion.dart';
 import 'errores.dart';
 import 'kit_viaje.dart';
+import 'l10n/idioma.dart';
 import 'soporte.dart';
 import 'tema.dart';
 import 'widgets/boton_sugerencia.dart';
 import 'widgets/comunes.dart';
+import 'widgets/selector_idioma.dart';
 import 'zonas_insercion.dart';
 
 class ResultadoScreen extends StatelessWidget {
@@ -28,10 +30,12 @@ class ResultadoScreen extends StatelessWidget {
   bool get esOmnipod => bomba == 'bomnipod';
 
   /// Apartados que el buscador puede encontrar, además de las alarmas.
+  /// Las palabras clave están en castellano y se buscan siempre, sea cual sea
+  /// el idioma de la app.
   List<Apartado> _apartados() => [
     Apartado(
-      titulo: esOmnipod ? 'Recambio de Pod' : 'Recambio de catéter',
-      subtitulo: 'Guía paso a paso.',
+      titulo: esOmnipod ? t('Recambio de Pod') : t('Recambio de catéter'),
+      subtitulo: t('Guía paso a paso.'),
       icono: Icons.opacity,
       palabras: [
         'cateter',
@@ -45,8 +49,8 @@ class ResultadoScreen extends StatelessWidget {
       construir: (_) => CambioCateterScreen(bomba: bomba, cateter: cateter),
     ),
     Apartado(
-      titulo: 'Recambio de sensor',
-      subtitulo: 'Instrucciones del monitor.',
+      titulo: t('Recambio de sensor'),
+      subtitulo: t('Instrucciones del sensor de glucosa.'),
       icono: Icons.sensors,
       palabras: [
         'sensor',
@@ -61,16 +65,16 @@ class ResultadoScreen extends StatelessWidget {
       construir: (_) => CambioSensorScreen(bomba: bomba, sensor: sensor),
     ),
     Apartado(
-      titulo: 'Resolución de errores',
-      subtitulo: 'Diagnóstico guiado por preguntas.',
+      titulo: t('Resolver problemas'),
+      subtitulo: t('Te hacemos unas preguntas y te ayudamos.'),
       icono: Icons.warning_amber_rounded,
       palabras: ['error', 'problema', 'fallo', 'diagnostico', 'ayuda'],
       construir: (_) =>
           ErroresScreen(bomba: bomba, sensor: sensor, cateter: cateter),
     ),
     Apartado(
-      titulo: 'Kit de viaje',
-      subtitulo: 'Qué llevar y qué papeles necesitas.',
+      titulo: t('Kit de viaje'),
+      subtitulo: t('Qué llevar y qué papeles necesitas.'),
       icono: Icons.luggage_outlined,
       palabras: [
         'viaje',
@@ -86,8 +90,8 @@ class ResultadoScreen extends StatelessWidget {
       construir: (_) => const KitViajeScreen(),
     ),
     Apartado(
-      titulo: 'Soporte y manuales',
-      subtitulo: 'Webs oficiales y urgencias.',
+      titulo: t('Soporte y manuales'),
+      subtitulo: t('Webs oficiales y urgencias.'),
       icono: Icons.support_agent,
       palabras: [
         'soporte',
@@ -101,8 +105,8 @@ class ResultadoScreen extends StatelessWidget {
       construir: (_) => const SoporteScreen(),
     ),
     Apartado(
-      titulo: 'Rotación de zonas',
-      subtitulo: 'Dónde pinchar la próxima vez.',
+      titulo: t('Rotación de zonas'),
+      subtitulo: t('Dónde ponértelo la próxima vez.'),
       icono: Icons.place_outlined,
       palabras: [
         'zona',
@@ -118,8 +122,8 @@ class ResultadoScreen extends StatelessWidget {
       construir: (_) => const ZonasScreen(),
     ),
     Apartado(
-      titulo: 'Configuración',
-      subtitulo: 'Recordatorios, tema y dispositivos.',
+      titulo: t('Configuración'),
+      subtitulo: t('Idioma, recordatorios, tema y dispositivos.'),
       icono: Icons.settings_outlined,
       palabras: [
         'configuracion',
@@ -129,6 +133,8 @@ class ResultadoScreen extends StatelessWidget {
         'tema',
         'oscuro',
         'privacidad',
+        'idioma',
+        'language',
       ],
       construir: (_) => const ConfiguracionScreen(),
     ),
@@ -141,10 +147,11 @@ class ResultadoScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Panel de Control'),
+        title: Text(t('Panel de Control')),
         actions: [
+          const BotonIdioma(),
           IconButton(
-            tooltip: 'Configuración',
+            tooltip: t('Configuración'),
             icon: const Icon(Icons.settings_outlined, size: 22),
             onPressed: () => Navigator.push(
               context,
@@ -184,7 +191,7 @@ class ResultadoScreen extends StatelessWidget {
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        'Buscar alarma o apartado…',
+                        t('Buscar alarma o apartado…'),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -202,7 +209,7 @@ class ResultadoScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _rotulo(context, 'TU CONFIGURACIÓN'),
+                Expanded(child: _rotulo(context, t('TU CONFIGURACIÓN'))),
                 InkWell(
                   onTap: () => confirmarCambioDeConfiguracion(context),
                   borderRadius: BorderRadius.circular(20),
@@ -216,7 +223,9 @@ class ResultadoScreen extends StatelessWidget {
                         Icon(Icons.edit, size: 13, color: esquema.primary),
                         const SizedBox(width: 5),
                         Text(
-                          'Cambiar',
+                          t('Cambiar'),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w700,
@@ -238,7 +247,7 @@ class ResultadoScreen extends StatelessWidget {
 
             const SizedBox(height: 25),
             Text(
-              '¿Qué necesitas hacer?',
+              t('¿Qué necesitas hacer?'),
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w700,
@@ -249,10 +258,12 @@ class ResultadoScreen extends StatelessWidget {
             const SizedBox(height: 15),
 
             TarjetaMenu(
-              titulo: esOmnipod ? 'Recambio de Pod' : 'Recambio de catéter',
+              titulo: esOmnipod
+                  ? t('Recambio de Pod')
+                  : t('Recambio de catéter'),
               subtitulo: esOmnipod
-                  ? 'Instrucciones para un nuevo Pod.'
-                  : 'Guía paso a paso.',
+                  ? t('Instrucciones para poner un Pod nuevo.')
+                  : t('Guía paso a paso.'),
               icono: Icons.opacity,
               color: esquema.primary,
               alPulsar: () => Navigator.push(
@@ -264,8 +275,8 @@ class ResultadoScreen extends StatelessWidget {
               ),
             ),
             TarjetaMenu(
-              titulo: 'Recambio de Sensor',
-              subtitulo: 'Instrucciones del monitor.',
+              titulo: t('Recambio de sensor'),
+              subtitulo: t('Instrucciones del sensor de glucosa.'),
               icono: Icons.sensors,
               color: colores.exito,
               alPulsar: () => Navigator.push(
@@ -277,8 +288,8 @@ class ResultadoScreen extends StatelessWidget {
               ),
             ),
             TarjetaMenu(
-              titulo: 'Resolución de Errores',
-              subtitulo: 'Soluciones y alertas comunes.',
+              titulo: t('Resolver problemas'),
+              subtitulo: t('Te hacemos unas preguntas y te ayudamos.'),
               icono: Icons.warning_amber_rounded,
               color: colores.aviso,
               alPulsar: () => Navigator.push(
@@ -294,12 +305,12 @@ class ResultadoScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 15),
-            _rotulo(context, 'MÁS'),
+            _rotulo(context, t('MÁS')),
             const SizedBox(height: 12),
 
             TarjetaMenu(
-              titulo: 'Kit de viaje',
-              subtitulo: 'Qué llevar y qué papeles necesitas.',
+              titulo: t('Kit de viaje'),
+              subtitulo: t('Qué llevar y qué papeles necesitas.'),
               icono: Icons.luggage_outlined,
               color: esquema.primary,
               alPulsar: () => Navigator.push(
@@ -308,8 +319,8 @@ class ResultadoScreen extends StatelessWidget {
               ),
             ),
             TarjetaMenu(
-              titulo: 'Rotación de zonas',
-              subtitulo: 'Dónde pinchar la próxima vez.',
+              titulo: t('Rotación de zonas'),
+              subtitulo: t('Dónde ponértelo la próxima vez.'),
               icono: Icons.place_outlined,
               color: colores.exito,
               alPulsar: () => Navigator.push(
@@ -318,8 +329,8 @@ class ResultadoScreen extends StatelessWidget {
               ),
             ),
             TarjetaMenu(
-              titulo: 'Soporte y manuales',
-              subtitulo: 'Webs oficiales y urgencias.',
+              titulo: t('Soporte y manuales'),
+              subtitulo: t('Webs oficiales y urgencias.'),
               icono: Icons.support_agent,
               color: colores.aviso,
               alPulsar: () => Navigator.push(

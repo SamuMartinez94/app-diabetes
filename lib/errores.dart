@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'l10n/idioma.dart';
 import 'tema.dart';
 import 'widgets/comunes.dart';
 
@@ -34,7 +35,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Resolución de Problemas'),
+        title: Text(t('Resolver problemas')),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, size: 18),
           onPressed: () {
@@ -53,7 +54,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'TU CONFIGURACIÓN',
+                t('TU CONFIGURACIÓN'),
                 style: TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
@@ -90,7 +91,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '¿Qué está ocurriendo?',
+          t('¿Qué está pasando?'),
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w700,
@@ -100,26 +101,26 @@ class _ErroresScreenState extends State<ErroresScreen> {
         ),
         const SizedBox(height: 15),
         TarjetaMenu(
-          titulo: "El sensor no conecta",
-          subtitulo: "Problemas de señal o sincronización.",
+          titulo: t('El sensor no conecta'),
+          subtitulo: t('Problemas de señal o de conexión.'),
           icono: Icons.sensors_off,
           color: colores.aviso,
           alPulsar: () => _abrirFlujo("sensor_no_conecta"),
         ),
         TarjetaMenu(
           titulo: esOmnipod
-              ? "Aviso de oclusión en el Pod"
-              : "Aviso de flujo obstruido",
+              ? t('Aviso de bloqueo en el Pod')
+              : t('Aviso de insulina bloqueada'),
           subtitulo: esOmnipod
-              ? "El Pod ha detectado un problema."
-              : "La insulina no pasa correctamente.",
+              ? t('El Pod ha detectado un problema.')
+              : t('La insulina no pasa bien.'),
           icono: Icons.water_drop_outlined,
           color: colores.aviso,
           alPulsar: () => _abrirFlujo("flujo_obstruido"),
         ),
         TarjetaMenu(
-          titulo: "Lecturas dudosas",
-          subtitulo: "Diferencia con glucemia capilar.",
+          titulo: t('No me fío de las lecturas'),
+          subtitulo: t('El sensor y el dedo no coinciden.'),
           icono: Icons.query_stats,
           color: colores.aviso,
           alPulsar: () => _abrirFlujo("glucosa_error"),
@@ -138,86 +139,117 @@ class _ErroresScreenState extends State<ErroresScreen> {
     if (flujoActivo == "sensor_no_conecta") {
       if (pasoActual == 1) {
         return _buildPasoVisual(
-          pregunta: "Comprueba el encaje",
-          descripcion:
-              "Presiona el transmisor sobre el soporte del sensor. ¿Notas que "
-              "está bien asentado y ha hecho clic?",
-          textoSi: "Sí, está bien puesto",
-          textoNo: "No, se mueve o no encaja",
+          pregunta: t('Comprueba que está bien encajado'),
+          descripcion: t(
+            'Presiona el transmisor sobre el soporte del sensor. ¿Notas que '
+            'está bien colocado y ha hecho clic?',
+          ),
+          textoSi: t('Sí, está bien puesto'),
+          textoNo: t('No, se mueve o no encaja'),
           onSi: () => setState(() => pasoActual = 2),
           onNo: () => _mostrarSolucion(
-            "Retira el transmisor, limpia los contactos y el soporte con un "
-            "paño seco y vuelve a encajarlo hasta oír los clics. Si el soporte "
-            "está dañado, tendrás que cambiar el sensor.",
+            t(
+              'Quita el transmisor, limpia los contactos y el soporte con un '
+              'paño seco y vuelve a encajarlo hasta oír los clics. Si el '
+              'soporte está dañado, tendrás que cambiar el sensor.',
+            ),
           ),
         );
       } else if (pasoActual == 2) {
         return _buildPasoVisual(
-          pregunta: "¿Tiempo de uso?",
-          descripcion:
-              "¿Llevas más de 7 o 10 días con este sensor, según tu modelo?",
-          textoSi: "Sí, ya lleva tiempo",
-          textoNo: "No, es reciente",
+          pregunta: t('¿Cuánto tiempo lleva puesto?'),
+          descripcion: t(
+            '¿Llevas más de 7 o 10 días con este sensor, según tu modelo?',
+          ),
+          textoSi: t('Sí, ya lleva tiempo'),
+          textoNo: t('No, es reciente'),
           onSi: () => _mostrarSolucion(
-            "El sensor ha caducado o está cerca de hacerlo. Debes sustituirlo.",
+            t(
+              'El sensor ha caducado o está a punto de hacerlo. Hay que '
+              'cambiarlo.',
+            ),
           ),
           onNo: () => setState(() => pasoActual = 3),
         );
       } else if (pasoActual == 3) {
         return _buildPasoVisual(
-          pregunta: "Reinicia la conexión",
-          descripcion:
-              "Apaga y vuelve a encender el Bluetooth del receptor, acércalo "
-              "al sensor y espera 15 minutos sin alejarte.",
-          textoSi: "Ya vuelve a dar lecturas",
-          textoNo: "Sigue sin conectar",
+          pregunta: t('Reinicia la conexión'),
+          descripcion: t(
+            'Apaga y vuelve a encender el Bluetooth del móvil o del receptor, '
+            'acércalo al sensor y espera 15 minutos sin alejarte.',
+          ),
+          textoSi: t('Ya vuelve a dar lecturas'),
+          textoNo: t('Sigue sin conectar'),
           onSi: () => _mostrarSolucion(
-            "Perfecto. Si vuelve a pasarte a menudo, evita llevar el receptor "
-            "en el lado opuesto del cuerpo: el propio cuerpo bloquea la señal.",
+            t(
+              'Perfecto. Si te pasa a menudo, evita llevar el móvil o el '
+              'receptor en el lado contrario del cuerpo: el propio cuerpo '
+              'tapa la señal.',
+            ),
           ),
           onNo: () => _mostrarSolucion(
-            "Sustituye el sensor y, si el problema se repite con el nuevo, "
-            "contacta con el soporte del fabricante: puede ser el transmisor.",
+            t(
+              'Cambia el sensor y, si el problema se repite con el nuevo, '
+              'contacta con el soporte del fabricante: puede ser el '
+              'transmisor.',
+            ),
           ),
         );
       }
     }
 
-    // FLUJO OCLUSIÓN / FLUJO OBSTRUIDO
+    // FLUJO BLOQUEO / INSULINA BLOQUEADA
     if (flujoActivo == "flujo_obstruido") {
       if (pasoActual == 1) {
         return _buildPasoVisual(
-          pregunta: esOmnipod ? "¿Alarma sonora?" : "¿Doblado o acodado?",
+          pregunta: esOmnipod
+              ? t('¿Suena una alarma?')
+              : t('¿Hay algo doblado?'),
           descripcion: esOmnipod
-              ? "Si el Pod emite un pitido constante, es una oclusión interna."
-              : "Revisa si el tubo tiene burbujas o si el catéter parece doblado.",
-          textoSi: "Hay problemas visibles",
-          textoNo: "Todo parece normal",
+              ? t(
+                  'Si el Pod pita sin parar, es un bloqueo dentro del propio '
+                  'Pod.',
+                )
+              : t(
+                  'Mira si el tubo tiene burbujas o si el catéter parece '
+                  'doblado.',
+                ),
+          textoSi: t('Veo algún problema'),
+          textoNo: t('Todo parece normal'),
           onSi: () => _mostrarSolucion(
             esOmnipod
-                ? "El Pod está bloqueado. Desactívalo y coloca uno nuevo. "
-                      "Mídete la glucosa: llevas tiempo sin basal."
-                : "Cambia el set de infusión completo (catéter y reservorio) "
-                      "y mídete la glucosa.",
+                ? t(
+                    'El Pod está bloqueado. Desactívalo y pon uno nuevo. '
+                    'Mide tu glucosa: llevas un rato sin insulina de fondo.',
+                  )
+                : t(
+                    'Cambia el catéter entero (catéter y reservorio) y mide '
+                    'tu glucosa.',
+                  ),
           ),
           onNo: () => setState(() => pasoActual = 2),
         );
       } else if (pasoActual == 2) {
         return _buildPasoVisual(
-          pregunta: "¿Cómo está tu glucosa?",
-          descripcion:
-              "Una oclusión sin señales visibles se confirma por la glucosa: "
-              "sin insulina, sube y no baja con las correcciones.",
-          textoSi: "Alta y no baja",
-          textoNo: "En rango",
+          pregunta: t('¿Cómo tienes la glucosa?'),
+          descripcion: t(
+            'Un bloqueo que no se ve se nota en la glucosa: sin insulina, '
+            'sube y no baja aunque te corrijas.',
+          ),
+          textoSi: t('Alta y no baja'),
+          textoNo: t('En rango'),
           onSi: () => _mostrarSolucion(
-            "Trátalo como una oclusión real: cambia todo el set de infusión, "
-            "corrige con pluma si tu equipo médico te lo ha indicado y "
-            "comprueba cetonas.",
+            t(
+              'Trátalo como un bloqueo de verdad: cambia todo el catéter, '
+              'corrige con la pluma si tu equipo médico te lo ha indicado y '
+              'comprueba las cetonas.',
+            ),
           ),
           onNo: () => _mostrarSolucion(
-            "Puede haber sido un falso positivo. Vigila la glucosa las "
-            "próximas 2 horas y cambia el set si el aviso se repite.",
+            t(
+              'Puede haber sido una falsa alarma. Vigila tu glucosa las '
+              'próximas 2 horas y cambia el catéter si el aviso se repite.',
+            ),
           ),
         );
       }
@@ -227,39 +259,49 @@ class _ErroresScreenState extends State<ErroresScreen> {
     if (flujoActivo == "glucosa_error") {
       if (pasoActual == 1) {
         return _buildPasoVisual(
-          pregunta: "¿Cuánto lleva puesto el sensor?",
-          descripcion:
-              "Durante las primeras horas tras la inserción las lecturas "
-              "suelen ser menos precisas.",
-          textoSi: "Menos de 24 horas",
-          textoNo: "Más de 24 horas",
+          pregunta: t('¿Cuánto lleva puesto el sensor?'),
+          descripcion: t(
+            'Durante las primeras horas tras ponerlo, las lecturas suelen '
+            'ser menos precisas.',
+          ),
+          textoSi: t('Menos de 24 horas'),
+          textoNo: t('Más de 24 horas'),
           onSi: () => _mostrarSolucion(
-            "Es normal cierta imprecisión al inicio. Guíate por la glucemia "
-            "capilar para tomar decisiones y espera a que se estabilice.",
+            t(
+              'Es normal que al principio sea menos exacto. Guíate por el '
+              'pinchazo en el dedo para tomar decisiones y espera a que se '
+              'estabilice.',
+            ),
           ),
           onNo: () => setState(() => pasoActual = 2),
         );
       } else if (pasoActual == 2) {
         return _buildPasoVisual(
-          pregunta: "¿La diferencia es grande?",
-          descripcion:
-              "Compara la lectura del sensor con una glucemia capilar hecha "
-              "con las manos limpias y secas.",
-          textoSi: "Sí, se desvía mucho",
-          textoNo: "No, es una diferencia pequeña",
+          pregunta: t('¿La diferencia es grande?'),
+          descripcion: t(
+            'Compara la lectura del sensor con un pinchazo en el dedo hecho '
+            'con las manos limpias y secas.',
+          ),
+          textoSi: t('Sí, se desvía mucho'),
+          textoNo: t('No, es una diferencia pequeña'),
           onSi: () => _mostrarSolucion(
-            "Calibra el sensor si tu modelo lo permite. Si tras la calibración "
-            "sigue desviado, sustitúyelo y contacta con el fabricante.",
+            t(
+              'Calibra el sensor si tu modelo lo permite. Si después sigue '
+              'desviado, cámbialo y contacta con el fabricante.',
+            ),
           ),
           onNo: () => _mostrarSolucion(
-            "Una diferencia pequeña es esperable: el sensor mide glucosa "
-            "intersticial y va con unos minutos de retraso respecto a la sangre.",
+            t(
+              'Una diferencia pequeña es normal: el sensor mide la glucosa '
+              'que hay entre las células y va unos minutos por detrás de la '
+              'sangre.',
+            ),
           ),
         );
       }
     }
 
-    return const Center(child: Text("Cargando pasos..."));
+    return Center(child: Text(t('Cargando pasos...')));
   }
 
   Widget _buildPasoVisual({
@@ -360,7 +402,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
               ),
               const SizedBox(height: 20),
               Text(
-                "Recomendación",
+                t('Recomendación'),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,
@@ -395,9 +437,12 @@ class _ErroresScreenState extends State<ErroresScreen> {
                     Navigator.pop(context);
                     _volverAlMenu();
                   },
-                  child: const Text(
-                    "Entendido",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  child: Text(
+                    t('Entendido'),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

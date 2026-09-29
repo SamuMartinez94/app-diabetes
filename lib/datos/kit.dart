@@ -12,46 +12,50 @@ class GrupoKit {
 }
 
 /// Checklist para viajes y para el kit de emergencia del día a día.
-/// Pendiente de revisar con un profesional.
+/// Sin cantidades de insulina: cuánto llevar lo decide cada persona con su
+/// equipo médico. Pendiente de revisar con un profesional.
 const List<GrupoKit> kitViaje = [
   GrupoKit(
-    titulo: 'Insulina y fungible',
-    nota: 'Lleva el doble de lo que calcules necesitar. Los viajes se alargan.',
+    titulo: 'Insulina y material de repuesto',
+    nota:
+        'Lleva más de lo que creas que vas a necesitar: los viajes se alargan '
+        'y las cosas se pierden o se estropean.',
     elementos: [
-      'Insulina de repuesto (el doble de los días de viaje)',
-      'Catéteres / equipos de infusión de repuesto',
+      'Insulina de repuesto',
+      'Catéteres de repuesto',
       'Reservorios o cartuchos de repuesto',
       'Sensores de repuesto',
-      'Adhesivos extra o parches de sujeción',
+      'Adhesivos extra o parches para sujetar',
       'Toallitas de alcohol',
     ],
   ),
   GrupoKit(
     titulo: 'Plan B sin bomba',
     nota:
-        'Si la bomba falla lejos de casa, necesitas poder pasar a inyecciones.',
+        'Si la bomba falla lejos de casa, tienes que poder pasar a ponerte '
+        'la insulina con pluma.',
     elementos: [
-      'Plumas o jeringas de insulina rápida',
+      'Plumas de insulina rápida',
       'Insulina lenta de respaldo',
-      'Agujas para pluma',
-      'Pauta de dosis en inyecciones escrita por tu equipo médico',
+      'Agujas para la pluma',
+      'Instrucciones escritas por tu equipo médico sobre cómo ponerte la insulina con pluma',
     ],
   ),
   GrupoKit(
-    titulo: 'Medición',
+    titulo: 'Medir la glucosa',
     nota: 'El sensor puede fallar: no dependas solo de él.',
     elementos: [
-      'Glucómetro capilar',
+      'Medidor de glucosa (el del pinchazo en el dedo)',
       'Tiras reactivas',
-      'Lancetas',
-      'Tiras de cetonas',
+      'Lancetas (las agujitas del pinchazo)',
+      'Tiras para medir cetonas',
     ],
   ),
   GrupoKit(
-    titulo: 'Hipoglucemias',
-    nota: 'Repartido en varios sitios, no todo en la misma bolsa.',
+    titulo: 'Glucosa baja (hipoglucemia)',
+    nota: 'Repártelo en varios sitios, no todo en la misma bolsa.',
     elementos: [
-      'Azúcar de acción rápida (geles, tabletas o zumos)',
+      'Azúcar de acción rápida (geles, tabletas o zumo)',
       'Hidratos de absorción lenta para después',
       'Glucagón de rescate, sin caducar',
       'Alguien de tu entorno que sepa usarlo',
@@ -59,24 +63,24 @@ const List<GrupoKit> kitViaje = [
   ),
   GrupoKit(
     titulo: 'Energía',
-    nota: 'Una bomba sin batería no administra basal.',
+    nota: 'Una bomba sin batería no te da insulina.',
     elementos: [
       'Cargador de la bomba y del móvil',
       'Pilas de repuesto del modelo correcto',
       'Batería externa',
-      'Adaptador de enchufe del país de destino',
+      'Adaptador de enchufe del país al que vas',
     ],
   ),
   GrupoKit(
     titulo: 'Papeles y aeropuerto',
     nota:
-        'Las bombas y sensores no deben pasar por escáner de rayos X ni por el '
-        'escáner corporal de cuerpo entero. Pide inspección manual.',
+        'Las bombas y los sensores no deben pasar por rayos X ni por el '
+        'escáner corporal. Pide que te revisen a mano.',
     elementos: [
       'Informe médico que justifique el material (mejor en inglés)',
-      'Receta o volante de la insulina',
+      'Receta de la insulina',
       'Tarjeta sanitaria y seguro de viaje',
-      'Teléfono de soporte del fabricante en destino',
+      'Teléfono de soporte del fabricante en tu destino',
       'Nevera portátil o funda isotérmica para la insulina',
     ],
   ),

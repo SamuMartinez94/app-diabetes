@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'bombas.dart';
-import 'disclaimer.dart';
 import 'datos/sugerencias.dart';
+import 'disclaimer.dart';
+import 'l10n/idioma.dart';
 import 'servicios/notificaciones.dart';
 import 'servicios/preferencias.dart';
 import 'tema.dart';
+import 'widgets/selector_idioma.dart';
 import 'zonas_insercion.dart';
 
 class ConfiguracionScreen extends StatefulWidget {
@@ -22,10 +24,12 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
       if (!concedido) {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
-              'Sin permiso de notificaciones no se pueden programar avisos. '
-              'Actívalo en los ajustes del sistema.',
+              t(
+                'Sin permiso de notificaciones no se pueden programar avisos. '
+                'Actívalo en los ajustes del sistema.',
+              ),
             ),
           ),
         );
@@ -70,7 +74,7 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
                   .map(
                     (d) => RadioListTile<int>(
                       value: d,
-                      title: Text('$d días'),
+                      title: Text(tf('{n} días', {'n': d})),
                     ),
                   )
                   .toList(),
@@ -96,15 +100,17 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
       context: context,
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-        title: const Text('Modo sugerencias'),
+        title: Text(t('Modo sugerencias')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Pensado para quienes están revisando el contenido de la app. '
-              'Añade un botón para reportar errores en cada guía y en cada '
-              'alarma.',
+              t(
+                'Pensado para quienes están revisando el contenido de la app. '
+                'Añade un botón para avisar de errores en cada guía y en cada '
+                'alarma.',
+              ),
               style: TextStyle(
                 fontSize: 14,
                 height: 1.4,
@@ -116,9 +122,9 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
               autofocus: true,
               keyboardType: TextInputType.number,
               obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Código',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: t('Código'),
+                border: const OutlineInputBorder(),
               ),
               onChanged: (v) => introducido = v,
               onSubmitted: (v) => Navigator.pop(context, v),
@@ -128,11 +134,11 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancelar'),
+            child: Text(t('Cancelar')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(context, introducido),
-            child: const Text('Activar'),
+            child: Text(t('Activar')),
           ),
         ],
       ),
@@ -141,9 +147,9 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
     if (codigo == null || !mounted) return;
 
     if (codigo.trim() != kCodigoModoSugerencias) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Código incorrecto.')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t('Código incorrecto.'))));
       return;
     }
 
@@ -154,9 +160,11 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
       SnackBar(
         content: Text(
           formularioConfigurado
-              ? 'Modo sugerencias activado.'
-              : 'Activado, pero falta configurar el formulario en '
-                    'lib/datos/sugerencias.dart.',
+              ? t('Modo sugerencias activado.')
+              : t(
+                  'Activado, pero falta configurar el formulario en '
+                  'lib/datos/sugerencias.dart.',
+                ),
         ),
       ),
     );
@@ -182,21 +190,28 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
     final horaAviso = Preferencias.horaAviso;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Configuración')),
+      appBar: AppBar(title: Text(t('Configuración'))),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           physics: const BouncingScrollPhysics(),
           children: [
-            _seccion(context, 'RECORDATORIOS DE RECAMBIO'),
+            _seccion(context, t('IDIOMA')),
+            const SizedBox(height: 6),
+            const SelectorIdioma(),
+            const SizedBox(height: 24),
+
+            _seccion(context, t('RECORDATORIOS DE CAMBIO')),
             SwitchListTile(
               value: recordatorios,
               onChanged: _cambiarRecordatorios,
               contentPadding: EdgeInsets.zero,
-              title: const Text('Avisarme de los cambios'),
+              title: Text(t('Avisarme de los cambios')),
               subtitle: Text(
-                'Notificaciones programadas en el propio móvil. No se envía '
-                'nada a ningún servidor.',
+                t(
+                  'Notificaciones programadas en el propio móvil. No se envía '
+                  'nada a ningún servidor.',
+                ),
                 style: TextStyle(
                   fontSize: 12,
                   height: 1.3,
@@ -208,13 +223,17 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 enabled: recordatorios,
-                title: const Text('Cambio de catéter'),
-                subtitle: Text('Cada ${Preferencias.diasCateter} días'),
+                title: Text(t('Cambio de catéter')),
+                subtitle: Text(
+                  tf('Cada {n} días', {'n': Preferencias.diasCateter}),
+                ),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => _elegirDias(
-                  titulo: 'Cambio de catéter',
-                  descripcion:
-                      'Lo habitual son 2 o 3 días. Sigue la pauta de tu equipo médico.',
+                  titulo: t('Cambio de catéter'),
+                  descripcion: t(
+                    'Lo habitual son 2 o 3 días. Sigue la pauta de tu equipo '
+                    'médico.',
+                  ),
                   actual: Preferencias.diasCateter,
                   opciones: const [1, 2, 3, 4],
                   guardar: Preferencias.guardarDiasCateter,
@@ -222,13 +241,17 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
               ),
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                title: const Text('Cambio de sensor'),
-                subtitle: Text('Cada ${Preferencias.diasSensor} días'),
+                title: Text(t('Cambio de sensor')),
+                subtitle: Text(
+                  tf('Cada {n} días', {'n': Preferencias.diasSensor}),
+                ),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => _elegirDias(
-                  titulo: 'Cambio de sensor',
-                  descripcion:
-                      'Depende del modelo: 7, 10, 14 o 15 días. Consulta la caja de tu sensor.',
+                  titulo: t('Cambio de sensor'),
+                  descripcion: t(
+                    'Depende del modelo: 7, 10, 14 o 15 días. Mira la caja de '
+                    'tu sensor.',
+                  ),
                   actual: Preferencias.diasSensor,
                   opciones: const [7, 10, 14, 15],
                   guardar: Preferencias.guardarDiasSensor,
@@ -236,7 +259,7 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
               ),
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                title: const Text('Hora del aviso'),
+                title: Text(t('Hora del aviso')),
                 subtitle: Text(
                   '${(horaAviso ~/ 60).toString().padLeft(2, '0')}:'
                   '${(horaAviso % 60).toString().padLeft(2, '0')}',
@@ -247,7 +270,7 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
             ],
 
             const SizedBox(height: 20),
-            _seccion(context, 'ROTACIÓN DE ZONAS'),
+            _seccion(context, t('ROTACIÓN DE ZONAS')),
             SwitchListTile(
               value: Preferencias.rotacionActiva,
               onChanged: (v) async {
@@ -255,10 +278,12 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
                 if (context.mounted) setState(() {});
               },
               contentPadding: EdgeInsets.zero,
-              title: const Text('Preguntar dónde me lo pongo'),
+              title: Text(t('Preguntarme dónde me lo pongo')),
               subtitle: Text(
-                'Al terminar una guía, anota la zona para ayudarte a rotar y '
-                'evitar que la piel se endurezca.',
+                t(
+                  'Al terminar una guía, apunta la zona para ayudarte a ir '
+                  'cambiando de sitio y evitar que la piel se endurezca.',
+                ),
                 style: TextStyle(
                   fontSize: 12,
                   height: 1.3,
@@ -269,7 +294,7 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
             if (Preferencias.rotacionActiva)
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                title: const Text('Ver historial y sugerencias'),
+                title: Text(t('Ver historial y sugerencias')),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => Navigator.push(
                   context,
@@ -278,7 +303,7 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
               ),
 
             const SizedBox(height: 20),
-            _seccion(context, 'APARIENCIA'),
+            _seccion(context, t('APARIENCIA')),
             RadioGroup<ThemeMode>(
               groupValue: Preferencias.tema,
               onChanged: (v) async {
@@ -293,9 +318,9 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
                         value: modo,
                         contentPadding: EdgeInsets.zero,
                         title: Text(switch (modo) {
-                          ThemeMode.system => 'Seguir al sistema',
-                          ThemeMode.light => 'Claro',
-                          ThemeMode.dark => 'Oscuro',
+                          ThemeMode.system => t('Seguir al sistema'),
+                          ThemeMode.light => t('Claro'),
+                          ThemeMode.dark => t('Oscuro'),
                         }),
                       ),
                     )
@@ -304,29 +329,26 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
             ),
 
             const SizedBox(height: 20),
-            _seccion(context, 'MIS DISPOSITIVOS'),
+            _seccion(context, t('MIS DISPOSITIVOS')),
             ListTile(
               contentPadding: EdgeInsets.zero,
-              title: const Text('Cambiar bomba, sensor o catéter'),
+              title: Text(t('Cambiar bomba, sensor o catéter')),
               subtitle: Text(
-                'Vuelve a ejecutar el asistente de configuración.',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: esquema.onSurfaceVariant,
-                ),
+                t('Vuelve a abrir el asistente de configuración.'),
+                style: TextStyle(fontSize: 12, color: esquema.onSurfaceVariant),
               ),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => confirmarCambioDeConfiguracion(context),
             ),
 
             const SizedBox(height: 20),
-            _seccion(context, 'REVISIÓN DE CONTENIDO'),
+            _seccion(context, t('REVISIÓN DE CONTENIDO')),
             if (!Preferencias.modoSugerencias)
               ListTile(
                 contentPadding: EdgeInsets.zero,
-                title: const Text('Modo sugerencias'),
+                title: Text(t('Modo sugerencias')),
                 subtitle: Text(
-                  'Para revisores. Requiere un código.',
+                  t('Para quienes revisan la app. Hace falta un código.'),
                   style: TextStyle(
                     fontSize: 12,
                     color: esquema.onSurfaceVariant,
@@ -339,11 +361,13 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
               SwitchListTile(
                 value: true,
                 contentPadding: EdgeInsets.zero,
-                title: const Text('Modo sugerencias activo'),
+                title: Text(t('Modo sugerencias activo')),
                 subtitle: Text(
-                  'En cada guía y cada alarma verás un botón para reportar '
-                  'errores. Se abre un formulario externo; nada se envía sin '
-                  'que lo confirmes.',
+                  t(
+                    'En cada guía y en cada alarma verás un botón para avisar '
+                    'de errores. Se abre un formulario externo; no se envía '
+                    'nada sin que tú lo confirmes.',
+                  ),
                   style: TextStyle(
                     fontSize: 12,
                     height: 1.3,
@@ -357,7 +381,7 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
               ),
 
             const SizedBox(height: 20),
-            _seccion(context, 'PRIVACIDAD'),
+            _seccion(context, t('PRIVACIDAD')),
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -370,12 +394,14 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(
-                      'La app funciona entera sin conexión. No hay cuentas, ni '
-                      'analítica: todo lo que anotas se queda en este '
-                      'dispositivo y no se envía nada por su cuenta.\n\n'
-                      'La única excepción es el modo sugerencias, y solo '
-                      'cuando tú pulsas el botón: entonces se abre un '
-                      'formulario externo donde ves y decides qué enviar.',
+                      t(
+                        'La app funciona entera sin conexión. No hay cuentas ni '
+                        'análisis de uso: todo lo que apuntas se queda en este '
+                        'dispositivo y no se envía nada por su cuenta.\n\n'
+                        'La única excepción es el modo sugerencias, y solo '
+                        'cuando tú pulsas el botón: entonces se abre un '
+                        'formulario externo donde ves y decides qué enviar.',
+                      ),
                       style: TextStyle(
                         fontSize: 13,
                         height: 1.4,
@@ -389,7 +415,7 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
             const SizedBox(height: 10),
             ListTile(
               contentPadding: EdgeInsets.zero,
-              title: const Text('Aviso médico'),
+              title: Text(t('Aviso médico')),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.push(
                 context,

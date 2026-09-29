@@ -1,6 +1,6 @@
 /// GUÍAS DE RECAMBIO DE SENSOR
 ///
-/// Contenido volcado de los manuales oficiales del fabricante:
+/// Contenido basado en los manuales oficiales del fabricante:
 ///
 ///   • Dexcom G6 — Guía de usuario, cap. 6, pp. 84-100 (español).
 ///   • Dexcom G7 — Guía del usuario, pp. 18-25 (español).
@@ -9,17 +9,17 @@
 ///     traducidos, no son la cadena literal del manual.
 ///   • FreeStyle Libre 3 — Guía de inicio rápido, pp. 22-25 (español).
 ///
-/// PENDIENTE DE FUENTE: los manuales de Guardian 4, Simplera Sync y Libre 3
-/// disponibles son prospectos del sensor y NO indican el tiempo de
-/// calentamiento. Los tiempos que aparecen aquí para esos tres vienen del
-/// contenido anterior de la app, no de estos manuales: hay que confirmarlos
-/// con la guía del sistema correspondiente.
+/// Los tiempos de calentamiento de Guardian 4 (2 h), Simplera Sync (2 h) y
+/// Libre 3 (60 min) se han contrastado con las webs oficiales de Medtronic y
+/// Abbott; los prospectos del sensor no los incluyen.
+///
+/// Estilo de redacción: pensado para una persona que empieza con el sensor.
+/// Frases cortas, sin jerga médica y sin dosis de insulina.
 library;
 
 import '../modelos/paso.dart';
 
-/// TODAS las guías están pendientes de validar por un profesional sanitario.
-/// Se muestran en rojo y con aviso de borrador.
+/// Guías pendientes de validar por un profesional sanitario.
 /// Cuando un endocrino valide una, borra su clave de este conjunto.
 const Set<String> guiasSensorPorRevisar = {
   'bmedtronic_sguardian',
@@ -36,70 +36,70 @@ const Set<String> guiasSensorPorRevisar = {
 // DEXCOM G6 (manual cap. 6)
 // ---------------------------------------------------------------------------
 
-const List<Paso> _dexcomG6 = [
+const List<Paso> _dexcomG6Base = [
   Paso(
     texto: '''
-Comprueba la fecha de caducidad en la bandeja del sensor. No uses un sensor caducado ni con el envase estéril dañado o abierto.
+Mira la fecha de caducidad en la bandeja del sensor. No uses un sensor caducado ni con el envase dañado o abierto.
 
-No abras la bandeja hasta que vayas a insertarlo.''',
+No abras la bandeja hasta que vayas a ponértelo.''',
   ),
   Paso(
     texto: '''
 ELIGE LA ZONA
 
 A partir de 18 años: solo el vientre (abdomen).
-Entre 2 y 17 años: abdomen o el cuadrante superior de los glúteos.''',
+De 2 a 17 años: el vientre o la parte de arriba de los glúteos.''',
     imagen: 'assets/images/sdexg6.png',
   ),
   Paso(
     texto: '''
-La zona debe estar a un mínimo de 8 cm del equipo de infusión de la bomba o del punto de inyección.
+La zona debe estar como mínimo a 8 cm del catéter de la bomba o del punto donde te inyectes.
 
-Evita costillas y zonas de hueso, la cinturilla, el recorrido del cinturón de seguridad y el lado sobre el que duermes. No pongas dos sensores seguidos en el mismo sitio.''',
+Evita las costillas y los huesos, la cintura, el recorrido del cinturón del coche y el lado sobre el que duermes. No pongas dos sensores seguidos en el mismo sitio.''',
   ),
   Paso(texto: 'Lávate bien las manos y sécalas.'),
   Paso(
     texto:
-        'Limpia el punto de inserción con alcohol y deja que se seque. La '
-        'zona debe quedar sin restos de lociones, perfumes ni medicamentos. '
-        'Aféitala si hace falta para que el adhesivo agarre.',
+        'Limpia la piel con alcohol y espera a que se seque. No debe quedar '
+        'nada de crema, perfume ni medicamentos. Si hay vello, aféitalo para '
+        'que el adhesivo se pegue bien.',
   ),
   Paso(
     texto: '''
-Coge el MISMO aplicador cuyo código introdujiste en el dispositivo. Revisa que el envase no esté dañado.
+Coge el MISMO aplicador cuyo código pusiste en el dispositivo. Comprueba que el envase no está dañado.
 
-Desprende la tapa y comprueba que el sensor no presenta daños.''',
+Quita la tapa y mira que el sensor no tiene daños.''',
   ),
   Paso(
     texto: '''
-Retira las dos etiquetas adhesivas sin tocar el adhesivo.
+Quita las dos etiquetas adhesivas sin tocar la parte pegajosa.
 
-CONSERVA la etiqueta con el código del sensor y guarda la caja hasta que termine la sesión.''',
+GUARDA la etiqueta con el código del sensor y no tires la caja hasta que termine la sesión.''',
   ),
   Paso(
     texto: '''
 Apoya el aplicador sobre la piel EN HORIZONTAL, no en vertical.
 
-Presiona con fuerza para pegar bien el adhesivo.''',
+Presiona con fuerza para que el adhesivo se pegue bien.''',
   ),
   Paso(
     texto: '''
-Dobla la protección de seguridad, rómpela y deséchala.
+Dobla la protección de seguridad, rómpela y tírala.
 
-PRECAUCIÓN: no la quites antes de apoyar el aplicador en la piel. Si la quitas antes, podrías pulsar el botón sin querer e insertar el sensor donde no toca.''',
+PRECAUCIÓN: no la quites antes de apoyar el aplicador en la piel. Si la quitas antes, podrías pulsar el botón sin querer y ponerte el sensor donde no toca.''',
   ),
   Paso(texto: 'Pulsa y suelta el botón para insertar el sensor.'),
   Paso(
     texto: '''
-Retira el aplicador. Deben quedarte en la piel el cable del sensor y el soporte del transmisor.
+Retira el aplicador. En la piel te tienen que quedar el sensor y el soporte del transmisor.
 
-Desecha el aplicador según la normativa local para material que ha estado en contacto con sangre.''',
+Tira el aplicador como indique la normativa de tu zona para material que ha estado en contacto con sangre.''',
   ),
   Paso(
     texto: '''
 ACOPLAR EL TRANSMISOR
 
-Limpia la parte posterior del transmisor con alcohol y deja que se seque. No toques ni arañes las partes metálicas.''',
+Limpia la parte de atrás del transmisor con alcohol y deja que se seque. No toques ni rayes las partes metálicas.''',
   ),
   Paso(
     texto: '''
@@ -109,28 +109,28 @@ Presiona el extremo ancho hasta que haga CLIC.''',
   ),
   Paso(
     texto:
-        'Frota con los dedos alrededor del parche tres veces para fijarlo '
-        'mejor. Si el parche empieza a despegarse, puedes reforzarlo con un '
-        'cubreparche o esparadrapo, sin taparlo por encima ni por debajo del '
-        'transmisor.',
+        'Frota con los dedos alrededor del parche tres veces para que se '
+        'fije mejor. Si el parche empieza a despegarse, puedes reforzarlo con '
+        'un cubreparche o esparadrapo, sin tapar el transmisor ni por encima '
+        'ni por debajo.',
   ),
   Paso(
     texto: '''
-El transmisor se emparejará solo con el dispositivo de visualización. Puede tardar hasta 30 minutos.
+El transmisor se emparejará solo con el dispositivo donde ves los datos (móvil o receptor). Puede tardar hasta 30 minutos.
 
-Manténlos a menos de 6 metros y sin paredes ni metal de por medio.''',
+Mantenlos a menos de 6 metros y sin paredes ni metal de por medio.''',
   ),
   Paso(
     texto: '''
 Cuando confirme el emparejamiento, toca "Iniciar sensor" para comenzar las 2 HORAS de calentamiento.
 
-Durante ese tiempo no habrá lecturas ni alertas: usa el medidor capilar para decidir tu tratamiento.''',
+Durante ese tiempo no hay lecturas ni alertas: usa el medidor de dedo para decidir tu tratamiento.''',
   ),
   Paso(
     texto: '''
-Si no introdujiste el código del sensor durante la configuración, al terminar el calentamiento se te pedirá calibrar dos veces, y después cada día.
+Si no pusiste el código del sensor al configurarlo, cuando termine el calentamiento te pedirá calibrar dos veces, y después cada día. (Calibrar es meter el valor de un pinchazo en el dedo.)
 
-Si sí lo introdujiste, no necesitas calibrar.''',
+Si sí pusiste el código, no necesitas calibrar.''',
   ),
 ];
 
@@ -138,41 +138,40 @@ Si sí lo introdujiste, no necesitas calibrar.''',
 // DEXCOM G7 (manual pp. 18-25)
 // ---------------------------------------------------------------------------
 
-const List<Paso> _dexcomG7 = [
+const List<Paso> _dexcomG7Base = [
   Paso(
     texto: '''
-Cada sesión del G7 dura hasta 10 días, con un periodo de gracia de 12 horas al final para que puedas cambiarlo cuando te venga bien.
+Cada sensor G7 dura hasta 10 días, más 12 horas de margen al final para que puedas cambiarlo cuando te venga bien.
 
-A diferencia del G6, el sensor y el transmisor son una sola pieza desechable: no se guarda nada.''',
+A diferencia del G6, el sensor y el transmisor son una sola pieza desechable: no hay que guardar nada.''',
   ),
   Paso(
     texto: '''
 ELIGE LA ZONA
 
-Brazo o glúteos. No lo uses en ningún otro sitio: fuera de esas zonas puede no funcionar como está previsto.
+Brazo o glúteos. No lo pongas en ningún otro sitio: fuera de esas zonas puede no funcionar bien.
 
-Si con el G6 usabas el abdomen, con el G7 debes pasar a la parte posterior de la parte superior del brazo. Los niños de 2 a 6 años también pueden usar la parte superior de los glúteos.''',
+Si con el G6 usabas el abdomen, con el G7 tienes que pasar a la parte de atrás de la parte superior del brazo. Los niños de 2 a 6 años también pueden usar la parte de arriba de los glúteos.''',
     imagen: 'assets/images/sdexg7.png',
   ),
   Paso(
-    texto:
-        'Retira el sensor anterior despegando el adhesivo y deséchalo entero.',
+    texto: 'Quita el sensor anterior despegando el adhesivo y tíralo entero.',
   ),
   Paso(
     texto:
-        'Lávate bien las manos. Limpia la zona con alcohol y deja que se '
+        'Lávate bien las manos. Limpia la piel con alcohol y espera a que se '
         'seque al aire antes de continuar.',
   ),
   Paso(
     texto:
-        'Comprueba que ningún componente esté dañado o agrietado. Si lo está, '
-        'no lo uses.',
+        'Comprueba que ninguna pieza está dañada o agrietada. Si lo está, no '
+        'la uses.',
   ),
   Paso(
     texto: '''
-Retira el aplicador del envase y quita el protector del adhesivo.
+Saca el aplicador del envase y quita el protector del adhesivo.
 
-Apoya el aplicador plano sobre la piel y presiona el botón para insertar el sensor.''',
+Apoya el aplicador plano sobre la piel y pulsa el botón para insertar el sensor.''',
   ),
   Paso(
     texto:
@@ -181,19 +180,19 @@ Apoya el aplicador plano sobre la piel y presiona el botón para insertar el sen
   ),
   Paso(
     texto: '''
-Coloca el SOBREPARCHE que viene en la caja.
+Pon el SOBREPARCHE que viene en la caja.
 
-No es opcional: el manual indica que debes usarlo para mantener el sensor en el cuerpo durante toda la sesión.''',
+No es opcional: el manual indica que hay que usarlo para que el sensor aguante puesto toda la sesión.''',
   ),
   Paso(
     texto: '''
-Empareja el sensor introduciendo el código de emparejamiento y el número de serie que vienen en el aplicador.''',
+Empareja el sensor con tu móvil: introduce el código de emparejamiento que viene en el aplicador.''',
   ),
   Paso(
     texto: '''
 El periodo de adaptación dura MENOS DE 30 MINUTOS.
 
-Durante ese tiempo no tomes decisiones de tratamiento con el sensor: usa el medidor capilar. Tampoco las tomes si no ves número ni flecha de tendencia.''',
+Durante ese tiempo no tomes decisiones de tratamiento con el sensor: usa el medidor de dedo. Tampoco las tomes si no ves el número ni la flecha de tendencia.''',
   ),
 ];
 
@@ -201,7 +200,21 @@ Durante ese tiempo no tomes decisiones de tratamiento con el sensor: usa el medi
 // MAPA DE GUÍAS
 // ---------------------------------------------------------------------------
 
-const Map<String, List<Paso>> instruccionesSensor = {
+final List<Paso> _dexcomG6 = [
+  ...enFase(Fases.preparacion, _dexcomG6Base.take(1).toList()),
+  ...enFase(Fases.zona, _dexcomG6Base.skip(1).take(4).toList()),
+  ...enFase(Fases.insercion, _dexcomG6Base.skip(5).take(6).toList()),
+  ...enFase(Fases.emparejar, _dexcomG6Base.skip(11).toList()),
+];
+
+final List<Paso> _dexcomG7 = [
+  ...enFase(Fases.preparacion, _dexcomG7Base.take(1).toList()),
+  ...enFase(Fases.zona, _dexcomG7Base.skip(1).take(4).toList()),
+  ...enFase(Fases.insercion, _dexcomG7Base.skip(5).take(3).toList()),
+  ...enFase(Fases.emparejar, _dexcomG7Base.skip(8).toList()),
+];
+
+final Map<String, List<Paso>> instruccionesSensor = {
   // ------------------------- DEXCOM G6 -------------------------
   'bypsopump_sdexg6': _dexcomG6,
   'bomnipod_sdexg6': _dexcomG6,
@@ -215,39 +228,38 @@ const Map<String, List<Paso>> instruccionesSensor = {
   'bmedtronic_sguardian': [
     Paso(
       texto: '''
-El sensor Guardian 4 se usa durante un máximo de siete días seguidos.
+El sensor Guardian 4 se usa como máximo siete días seguidos.
 
-El dispositivo de inserción One-press es el ÚNICO aprobado para este sensor. Con otro insertador la inserción puede salir mal y causar dolor o lesión.''',
+El insertador One-press es el ÚNICO aprobado para este sensor. Con otro insertador la colocación puede salir mal y causar dolor o lesión.''',
     ),
     Paso(
       texto: '''
 ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo, tanto en adultos como a partir de 7 años.
 
-PRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede provocarte una hipoglucemia o una hiperglucemia.''',
+PRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.''',
       imagen: 'assets/images/sguardian.png',
     ),
     Paso(
       texto:
-          'No lo insertes en músculo, piel dura o tejido cicatricial, ni en '
-          'zonas apretadas por la ropa o sometidas a mucho movimiento al '
-          'hacer ejercicio.',
+          'No lo pongas sobre músculo, piel dura o cicatrices, ni en zonas '
+          'apretadas por la ropa o que se muevan mucho al hacer ejercicio.',
     ),
     Paso(texto: 'Lávate bien las manos con agua y jabón.'),
     Paso(
       texto: '''
-Elige una zona con suficiente grasa subcutánea y límpiala con alcohol.
+Elige una zona con algo de grasa y límpiala con alcohol.
 
-Usa solo alcohol: así no quedan residuos en la piel. Deja que se seque al aire.''',
+Usa solo alcohol, para que no queden restos en la piel. Deja que se seque al aire.''',
     ),
     Paso(
       texto: '''
-Abre el envase, sujeta la peana y saca el conjunto de sensor. Apoya la peana en una superficie plana y limpia.
+Abre el envase, sujeta la peana y saca el conjunto del sensor. Apoya la peana en una superficie plana y limpia.
 
-Comprueba que la tira adhesiva del sensor esté metida DEBAJO del conector y de los enganches.''',
+Comprueba que la tira adhesiva del sensor está metida DEBAJO del conector y de los enganches.''',
     ),
     Paso(
       texto: '''
-Coloca el pulgar sobre la marca para el pulgar para sujetar el insertador. Los dedos no deben tocar los botones.
+Pon el pulgar sobre la marca del pulgar para sujetar el insertador. Los dedos no deben tocar los botones.
 
 Presiona el insertador sobre la peana hasta que su base quede plana sobre la mesa y oigas un clic.''',
     ),
@@ -255,7 +267,7 @@ Presiona el insertador sobre la peana hasta que su base quede plana sobre la mes
       texto: '''
 Pon dos dedos sobre la base de la peana y, con la otra mano, tira del insertador hacia arriba.
 
-ADVERTENCIA: nunca dirijas el insertador cargado hacia una parte del cuerpo donde no quieras insertar. Una pulsación accidental dispararía la aguja.''',
+ADVERTENCIA: nunca apuntes el insertador cargado hacia una parte del cuerpo donde no quieras ponerte el sensor. Un toque accidental dispararía la aguja.''',
     ),
     Paso(
       texto: '''
@@ -265,12 +277,12 @@ Presiona y suelta los DOS botones a la vez. Mantén el insertador apoyado cinco 
     ),
     Paso(
       texto:
-          'Levanta el insertador sin presionar los botones con los dedos '
+          'Levanta el insertador sin apretar los botones con los dedos '
           'mientras lo retiras.',
     ),
     Paso(
       texto: '''
-Sujeta la base del sensor contra la piel por el conector y por el extremo opuesto.
+Sujeta la base del sensor contra la piel por el conector y por el extremo contrario.
 
 Agarra la funda de la aguja por arriba y tira para separarla del sensor.''',
     ),
@@ -278,19 +290,19 @@ Agarra la funda de la aguja por arriba y tira para separarla del sensor.''',
       texto: '''
 Vigila si hay sangrado debajo, alrededor o encima del sensor.
 
-Si sangra, presiona con una gasa estéril hasta tres minutos. Si se detiene, conecta el transmisor. Si NO se detiene, no lo conectes: puede entrar sangre en el conector y dañarlo.''',
+Si sangra, presiona con una gasa estéril hasta tres minutos. Si para, conecta el transmisor. Si NO para, no lo conectes: puede entrar sangre en el conector y estropearlo.''',
     ),
     Paso(
       texto:
-          'Retira la lámina del adhesivo tirando de ella sin levantarla mucho '
-          'de la piel y sin tirar del sensor. No retires la lámina de la tira '
-          'rectangular: esa se usa después para fijar el transmisor.',
+          'Despega la lámina del adhesivo sin levantarla mucho de la piel y '
+          'sin tirar del sensor. No quites la lámina de la tira rectangular: '
+          'esa se usa después para fijar el transmisor.',
     ),
     Paso(
       texto: '''
-Conecta el transmisor y espera el periodo de calentamiento.
+Conecta el transmisor y espera el calentamiento: son 2 HORAS. En la pantalla verás una cuenta atrás.
 
-PENDIENTE DE CONFIRMAR: el prospecto del sensor no indica el tiempo de calentamiento. Consúltalo en la guía del sistema de tu bomba.''',
+Durante ese tiempo no hay lecturas: usa el medidor de dedo para decidir tu tratamiento.''',
     ),
   ],
 
@@ -298,44 +310,42 @@ PENDIENTE DE CONFIRMAR: el prospecto del sensor no indica el tiempo de calentami
   'bmedtronic_ssimplera': [
     Paso(
       texto: '''
-El Simplera Sync no se inserta igual que otros sensores de Medtronic: su insertador funciona de forma distinta.
+El Simplera Sync no se pone igual que otros sensores de Medtronic: su insertador funciona de otra manera.
 
 Lee sus instrucciones antes de usarlo por primera vez.''',
     ),
     Paso(
       texto: '''
-ZONA DE INSERCIÓN: la parte posterior de la parte superior del brazo, a partir de 7 años.
+ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo, a partir de 7 años.
 
-No se recomienda insertarlo en el abdomen ni en los glúteos.''',
+No se recomienda ponerlo en el abdomen ni en los glúteos.''',
       imagen: 'assets/images/ssimplera.png',
     ),
     Paso(
       texto: '''
-ANTES DE INSERTAR, anota el número de serie (SN) y el CÓDIGO que vienen en la etiqueta del insertador.
+ANTES DE PONERLO, apunta el número de serie (SN) y el CÓDIGO que vienen en la etiqueta del insertador.
 
-Los vas a necesitar después para emparejar el sensor con la bomba. También están en el interior de la tapa de la caja.''',
+Los necesitarás después para emparejar el sensor con la bomba. También están dentro de la tapa de la caja.''',
     ),
     Paso(
       texto: '''
-Comprueba la fecha de caducidad: no uses un sensor caducado.
+Mira la fecha de caducidad: no uses un sensor caducado.
 
-Revisa que la etiqueta del capuchón y la banda de seguridad estén intactas. Si falta alguna o está rota, no lo uses.''',
+Comprueba que la etiqueta del capuchón y la banda de seguridad están intactas. Si falta alguna o está rota, no lo uses.''',
     ),
     Paso(texto: 'Lávate bien las manos con agua y jabón.'),
     Paso(
       texto: '''
-Elige una zona con suficiente grasa.
+Elige una zona con algo de grasa.
 
-Evita músculo, piel dura o cicatrices, zonas apretadas por la ropa y zonas con mucho movimiento al hacer ejercicio.''',
+Evita el músculo, la piel dura o con cicatrices, las zonas apretadas por la ropa y las que se muevan mucho al hacer ejercicio.''',
     ),
-    Paso(
-      texto: 'Limpia la zona con alcohol y deja que se seque al aire.',
-    ),
+    Paso(texto: 'Limpia la zona con alcohol y deja que se seque al aire.'),
     Paso(
       texto: '''
 Desenrosca el capuchón del insertador: al hacerlo se rompe la banda de seguridad.
 
-No vuelvas a colocar el capuchón: podrías dañar la aguja e impedir una inserción correcta.''',
+No vuelvas a poner el capuchón: podrías dañar la aguja y el sensor no se pondría bien.''',
     ),
     Paso(
       texto: '''
@@ -343,9 +353,7 @@ Coloca el insertador sobre la zona preparada.
 
 Presiónalo con firmeza contra el cuerpo hasta que oigas un CLIC.''',
     ),
-    Paso(
-      texto: 'Separa el insertador del cuerpo tirando en línea recta.',
-    ),
+    Paso(texto: 'Separa el insertador del cuerpo tirando en línea recta.'),
     Paso(
       texto:
           'Alisa el adhesivo con un dedo para que el sensor aguante pegado '
@@ -355,19 +363,19 @@ Presiónalo con firmeza contra el cuerpo hasta que oigas un CLIC.''',
       texto: '''
 Vigila si hay sangrado sobre el sensor. Si lo hay, presiona con una gasa estéril hasta tres minutos.
 
-Si el sangrado continúa o hay dolor excesivo, retíralo y coloca uno nuevo en otro sitio.''',
+Si sigue sangrando o hay mucho dolor, quítalo y ponte uno nuevo en otro sitio.''',
     ),
     Paso(
       texto: '''
-Empareja el sensor con la bomba usando el SN y el CÓDIGO que anotaste al principio.
+Empareja el sensor con la bomba usando el SN y el CÓDIGO que apuntaste al principio.
 
 No compartas el CÓDIGO con nadie y haz el emparejamiento en un sitio privado.''',
     ),
     Paso(
       texto: '''
-Espera el periodo de calentamiento hasta las primeras lecturas.
+Espera el calentamiento: son 2 HORAS hasta las primeras lecturas.
 
-PENDIENTE DE CONFIRMAR: el manual del sensor no indica ese tiempo. Consúltalo en la guía del sistema de tu bomba.''',
+Mientras tanto, usa el medidor de dedo para decidir tu tratamiento.''',
     ),
   ],
 
@@ -375,20 +383,20 @@ PENDIENTE DE CONFIRMAR: el manual del sensor no indica ese tiempo. Consúltalo e
   'bypsopump_sfreelibre3': [
     Paso(
       texto: '''
-ZONA DE INSERCIÓN: la parte posterior del brazo, únicamente.
+ZONA DE INSERCIÓN: solo la parte posterior del brazo.
 
-No uses otros sitios: pueden dar lecturas de glucosa inexactas.''',
+No uses otros sitios: pueden dar lecturas de glucosa poco exactas.''',
       imagen: 'assets/images/sfreelibre3.png',
     ),
     Paso(
       texto:
-          'Evita cicatrices, lunares, estrías, bultos y puntos de inyección '
-          'de insulina. Cambia de sitio entre aplicaciones para no irritar la '
-          'piel.',
+          'Evita cicatrices, lunares, estrías, bultos y sitios donde te '
+          'inyectes insulina. Cambia de sitio en cada sensor para no irritar '
+          'la piel.',
     ),
     Paso(
       texto: '''
-Lava la zona con jabón corriente y sécala.
+Lava la zona con jabón normal y sécala.
 
 Después límpiala con una toallita de alcohol y deja que se seque al aire antes de continuar.''',
     ),
@@ -396,33 +404,33 @@ Después límpiala con una toallita de alcohol y deja que se seque al aire antes
       texto: '''
 Desenrosca el tapón del aplicador.
 
-PRECAUCIÓN: no vuelvas a ponerlo, podrías dañar el sensor. Y no toques el interior del aplicador: contiene una aguja.''',
+PRECAUCIÓN: no vuelvas a ponerlo, podrías dañar el sensor. Y no toques el interior del aplicador: tiene una aguja.''',
     ),
     Paso(
       texto: '''
-No lo uses si el kit o el aplicador parecen dañados, o si la etiqueta de manipulación indica que ya se había abierto.''',
+No lo uses si el kit o el aplicador parecen dañados, o si la etiqueta indica que ya se había abierto.''',
     ),
     Paso(
       texto: '''
 Coloca el aplicador sobre la zona preparada y empuja hacia abajo con firmeza.
 
-PRECAUCIÓN: no presiones el aplicador hasta tenerlo colocado sobre el sitio: podrías lesionarte.''',
+PRECAUCIÓN: no presiones el aplicador hasta tenerlo colocado sobre el sitio: podrías hacerte daño.''',
     ),
     Paso(
       texto: '''
-Retira suavemente el aplicador del cuerpo y comprueba que el sensor haya quedado firme.
+Retira suavemente el aplicador del cuerpo y comprueba que el sensor ha quedado firme.
 
-Vuelve a poner el tapón en el aplicador usado y deséchalo según la normativa local.''',
+Vuelve a poner el tapón al aplicador usado y tíralo como indique la normativa de tu zona.''',
     ),
     Paso(
       texto: '''
-Comprueba que el teléfono tenga conexión (wifi o datos) y arranca el sensor desde la aplicación, siguiendo el asistente en pantalla.''',
+Comprueba que el móvil tiene conexión (wifi o datos) e inicia el sensor desde la aplicación, siguiendo las indicaciones de la pantalla.''',
     ),
     Paso(
       texto: '''
-Espera el periodo de calentamiento hasta la primera lectura.
+Espera el calentamiento: son 60 MINUTOS hasta la primera lectura.
 
-PENDIENTE DE CONFIRMAR: la guía de inicio rápido disponible no indica ese tiempo. Consúltalo en el manual del usuario de la aplicación.''',
+Mientras tanto, usa el medidor de dedo para decidir tu tratamiento.''',
     ),
   ],
 };

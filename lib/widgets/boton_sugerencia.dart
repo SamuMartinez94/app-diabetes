@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../datos/sugerencias.dart';
+import '../l10n/idioma.dart';
 import '../servicios/preferencias.dart';
 import '../servicios/sugerencias.dart';
 import '../tema.dart';
@@ -21,19 +22,23 @@ class BotonSugerencia extends StatelessWidget {
 
     if (!formularioConfigurado) {
       mensajero.showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-            'Falta configurar el formulario en lib/datos/sugerencias.dart.',
+            t('Falta configurar el formulario en lib/datos/sugerencias.dart.'),
           ),
         ),
       );
       return;
     }
 
-    final abierto = await Sugerencias.abrir(ubicacion);
+    // Se añade el idioma en el que se estaba leyendo: quien revisa tiene que
+    // saber si el fallo está en el castellano o en una traducción.
+    final abierto = await Sugerencias.abrir(
+      '$ubicacion · idioma ${Traductor.actual.codigo}',
+    );
     if (!abierto) {
       mensajero.showSnackBar(
-        const SnackBar(content: Text('No se pudo abrir el formulario.')),
+        SnackBar(content: Text(t('No se pudo abrir el formulario.'))),
       );
     }
   }
@@ -42,20 +47,20 @@ class BotonSugerencia extends StatelessWidget {
   Widget build(BuildContext context) {
     if (!Preferencias.modoSugerencias) return const SizedBox.shrink();
 
-    final colores = context.colores;
+    final esquema = context.esquema;
 
     return Padding(
       padding: const EdgeInsets.only(top: 4),
       child: TextButton.icon(
         onPressed: () => _pulsar(context),
         style: TextButton.styleFrom(
-          foregroundColor: colores.porRevisar,
+          foregroundColor: esquema.primary,
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         ),
         icon: const Icon(Icons.rate_review_outlined, size: 18),
-        label: const Text(
-          'Sugerir un cambio aquí',
-          style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
+        label: Text(
+          t('Sugerir un cambio aquí'),
+          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
         ),
       ),
     );
@@ -86,7 +91,10 @@ class DistintivoModoSugerencias extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              'Modo sugerencias activo. Verás botones para reportar cambios.',
+              t(
+                'Modo sugerencias activo. Verás botones para reportar '
+                'cambios.',
+              ),
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,

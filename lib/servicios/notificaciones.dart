@@ -3,6 +3,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
+import '../l10n/idioma.dart';
 import 'preferencias.dart';
 
 /// Recordatorios de recambio. Se programan en el propio dispositivo: no hay
@@ -14,11 +15,13 @@ class Notificaciones {
   static final _plugin = FlutterLocalNotificationsPlugin();
   static bool _disponible = false;
 
-  static const _canal = AndroidNotificationDetails(
+  /// Se construye al programar cada aviso para que use el idioma activo.
+  static AndroidNotificationDetails get _canal => AndroidNotificationDetails(
     'recambios',
-    'Recordatorios de recambio',
-    channelDescription:
-        'Avisos para cambiar el catéter y el sensor a tiempo.',
+    t('Recordatorios de cambio'),
+    channelDescription: t(
+      'Avisos para cambiar el catéter y el sensor a tiempo.',
+    ),
     importance: Importance.high,
     priority: Priority.high,
   );
@@ -58,7 +61,11 @@ class Notificaciones {
           IOSFlutterLocalNotificationsPlugin
         >();
     if (ios != null) {
-      return await ios.requestPermissions(alert: true, badge: true, sound: true) ??
+      return await ios.requestPermissions(
+            alert: true,
+            badge: true,
+            sound: true,
+          ) ??
           false;
     }
     return false;
@@ -77,17 +84,19 @@ class Notificaciones {
     await _programar(
       id: _idCateter,
       dias: Preferencias.diasCateter,
-      titulo: 'Toca cambiar el catéter',
-      cuerpo:
-          'Han pasado ${Preferencias.diasCateter} días desde el último recambio.',
+      titulo: t('Toca cambiar el catéter'),
+      cuerpo: tf('Han pasado {n} días desde el último cambio.', {
+        'n': Preferencias.diasCateter,
+      }),
     );
 
     await _programar(
       id: _idSensor,
       dias: Preferencias.diasSensor,
-      titulo: 'Toca cambiar el sensor',
-      cuerpo:
-          'Han pasado ${Preferencias.diasSensor} días desde el último recambio.',
+      titulo: t('Toca cambiar el sensor'),
+      cuerpo: tf('Han pasado {n} días desde el último cambio.', {
+        'n': Preferencias.diasSensor,
+      }),
     );
   }
 
@@ -117,9 +126,9 @@ class Notificaciones {
         title: titulo,
         body: cuerpo,
         scheduledDate: cuando,
-        notificationDetails: const NotificationDetails(
+        notificationDetails: NotificationDetails(
           android: _canal,
-          iOS: DarwinNotificationDetails(),
+          iOS: const DarwinNotificationDetails(),
         ),
         // Inexacto a propósito: no necesita precisión de minuto y así evita
         // pedir el permiso restringido de alarmas exactas en Android 14+.

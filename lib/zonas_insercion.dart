@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'datos/zonas.dart';
+import 'l10n/idioma.dart';
 import 'modelos/registro_insercion.dart';
 import 'servicios/preferencias.dart';
 import 'tema.dart';
@@ -69,7 +70,7 @@ class _HojaZonas extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              '¿Dónde te lo has puesto?',
+              t('¿Dónde te lo has puesto?'),
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
@@ -79,7 +80,10 @@ class _HojaZonas extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Anotarlo te ayuda a rotar y evitar que la zona se endurezca.',
+              t(
+                'Anotarlo te ayuda a ir cambiando de sitio para que la piel '
+                'no se endurezca.',
+              ),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 13,
@@ -104,7 +108,7 @@ class _HojaZonas extends StatelessWidget {
             TextButton(
               onPressed: () => Navigator.pop(context),
               child: Text(
-                'Ahora no',
+                t('Ahora no'),
                 style: TextStyle(color: esquema.onSurfaceVariant),
               ),
             ),
@@ -138,7 +142,9 @@ class _Chip extends StatelessWidget {
               : esquema.surfaceContainerLow,
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-            color: reciente ? colores.aviso.withAlpha(90) : esquema.outlineVariant,
+            color: reciente
+                ? colores.aviso.withAlpha(90)
+                : esquema.outlineVariant,
           ),
         ),
         child: Column(
@@ -146,7 +152,7 @@ class _Chip extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              zona.nombre,
+              t(zona.nombre),
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
@@ -156,10 +162,10 @@ class _Chip extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               switch (diasDesdeUso) {
-                null => 'Sin usar',
-                0 => 'Usada hoy',
-                1 => 'Hace 1 día',
-                final d => 'Hace $d días',
+                null => t('Sin usar'),
+                0 => t('Usada hoy'),
+                1 => t('Hace 1 día'),
+                final d => tf('Hace {n} días', {'n': d}),
               },
               style: TextStyle(
                 fontSize: 11,
@@ -204,16 +210,16 @@ class _ZonasScreenState extends State<ZonasScreen> {
         .toList();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Rotación de zonas')),
+      appBar: AppBar(title: Text(t('Rotación de zonas'))),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           physics: const BouncingScrollPhysics(),
           children: [
             SegmentedButton<String>(
-              segments: const [
-                ButtonSegment(value: 'cateter', label: Text('Catéter')),
-                ButtonSegment(value: 'sensor', label: Text('Sensor')),
+              segments: [
+                ButtonSegment(value: 'cateter', label: Text(t('Catéter'))),
+                ButtonSegment(value: 'sensor', label: Text(t('Sensor'))),
               ],
               selected: {tipo},
               onSelectionChanged: (s) => setState(() => tipo = s.first),
@@ -238,20 +244,24 @@ class _ZonasScreenState extends State<ZonasScreen> {
                         color: colores.exito,
                       ),
                       const SizedBox(width: 8),
-                      Text(
-                        'PRÓXIMA ZONA SUGERIDA',
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.1,
-                          color: colores.exito,
+                      Expanded(
+                        child: Text(
+                          t('PRÓXIMA ZONA SUGERIDA'),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.1,
+                            color: colores.exito,
+                          ),
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    sugerida.nombre,
+                    t(sugerida.nombre),
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w800,
@@ -262,8 +272,8 @@ class _ZonasScreenState extends State<ZonasScreen> {
                   const SizedBox(height: 4),
                   Text(
                     usos[sugerida.id] == null
-                        ? 'Todavía no la has usado.'
-                        : 'Es la que lleva más tiempo en reposo.',
+                        ? t('Todavía no la has usado.')
+                        : t('Es la que lleva más tiempo sin usarse.'),
                     style: TextStyle(
                       fontSize: 13,
                       color: esquema.onSurfaceVariant,
@@ -274,7 +284,7 @@ class _ZonasScreenState extends State<ZonasScreen> {
             ),
             const SizedBox(height: 25),
             Text(
-              'ESTADO DE CADA ZONA',
+              t('ESTADO DE CADA ZONA'),
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
@@ -298,13 +308,17 @@ class _ZonasScreenState extends State<ZonasScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'HISTORIAL',
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.1,
-                    color: esquema.primary,
+                Expanded(
+                  child: Text(
+                    t('HISTORIAL'),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.1,
+                      color: esquema.primary,
+                    ),
                   ),
                 ),
                 if (registros.isNotEmpty)
@@ -313,7 +327,7 @@ class _ZonasScreenState extends State<ZonasScreen> {
                       await Preferencias.borrarRegistros();
                       if (context.mounted) setState(() {});
                     },
-                    child: const Text('Borrar'),
+                    child: Text(t('Borrar')),
                   ),
               ],
             ),
@@ -321,8 +335,10 @@ class _ZonasScreenState extends State<ZonasScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Text(
-                  'Todavía no has anotado ningún recambio. Al terminar una '
-                  'guía se te preguntará dónde te lo has puesto.',
+                  t(
+                    'Todavía no has anotado ningún cambio. Al terminar una '
+                    'guía se te preguntará dónde te lo has puesto.',
+                  ),
                   style: TextStyle(
                     fontSize: 14,
                     height: 1.4,
@@ -333,13 +349,8 @@ class _ZonasScreenState extends State<ZonasScreen> {
             ...registros.map((r) {
               final zona = zonas.firstWhere(
                 (z) => z.id == r.zona,
-                orElse: () => Zona(
-                  id: r.zona,
-                  nombre: r.zona,
-                  x: 0,
-                  y: 0,
-                  apto: 'ambos',
-                ),
+                orElse: () =>
+                    Zona(id: r.zona, nombre: r.zona, x: 0, y: 0, apto: 'ambos'),
               );
               final dias = DateTime.now().difference(r.fecha).inDays;
               return ListTile(
@@ -349,14 +360,14 @@ class _ZonasScreenState extends State<ZonasScreen> {
                   color: esquema.onSurfaceVariant,
                 ),
                 title: Text(
-                  zona.nombre,
+                  t(zona.nombre),
                   style: TextStyle(fontSize: 15, color: esquema.onSurface),
                 ),
                 subtitle: Text(
                   switch (dias) {
-                    0 => 'Hoy',
-                    1 => 'Ayer',
-                    final d => 'Hace $d días',
+                    0 => t('Hoy'),
+                    1 => t('Ayer'),
+                    final d => tf('Hace {n} días', {'n': d}),
                   },
                   style: TextStyle(
                     fontSize: 12,
