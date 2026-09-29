@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 /// Colores propios de la app que no encajan en el [ColorScheme] de Material.
 @immutable
 class ColoresApp extends ThemeExtension<ColoresApp> {
-  /// Avisos de contenido pendiente de revisión y modo sugerencias. Es un gris
-  /// azulado a propósito: no debe parecer una alarma.
+  /// Avisos de contenido en revisión y modo sugerencias.
   final Color porRevisar;
   final Color porRevisarFondo;
 
@@ -104,6 +103,29 @@ ThemeData _construir(ColorScheme esquema, ColoresApp colores) {
     progressIndicatorTheme: ProgressIndicatorThemeData(
       color: esquema.primary,
       linearTrackColor: esquema.surfaceContainerHighest,
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: esquema.surface,
+      surfaceTintColor: Colors.transparent,
+      indicatorColor: esquema.primary,
+      iconTheme: WidgetStateProperty.resolveWith(
+        (estados) => IconThemeData(
+          color: estados.contains(WidgetState.selected)
+              ? esquema.onPrimary
+              : esquema.onSurfaceVariant,
+        ),
+      ),
+      labelTextStyle: WidgetStateProperty.resolveWith(
+        (estados) => TextStyle(
+          fontSize: 12,
+          fontWeight: estados.contains(WidgetState.selected)
+              ? FontWeight.w700
+              : FontWeight.w500,
+          color: estados.contains(WidgetState.selected)
+              ? esquema.primary
+              : esquema.onSurfaceVariant,
+        ),
+      ),
     ),
     listTileTheme: ListTileThemeData(iconColor: esquema.onSurfaceVariant),
     dividerTheme: DividerThemeData(color: esquema.outlineVariant),

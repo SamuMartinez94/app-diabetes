@@ -3,15 +3,15 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:adiabetes/datos/alarmas.dart';
-import 'package:adiabetes/datos/guias_cateter.dart';
-import 'package:adiabetes/datos/guias_sensor.dart';
-import 'package:adiabetes/datos/kit.dart';
-import 'package:adiabetes/datos/zonas.dart';
-import 'package:adiabetes/l10n/idioma.dart';
-import 'package:adiabetes/modelos/alarma.dart';
-import 'package:adiabetes/modelos/gesto.dart';
-import 'package:adiabetes/modelos/paso.dart';
+import 'package:diaguia/datos/alarmas.dart';
+import 'package:diaguia/datos/guias_cateter.dart';
+import 'package:diaguia/datos/guias_sensor.dart';
+import 'package:diaguia/datos/kit.dart';
+import 'package:diaguia/datos/zonas.dart';
+import 'package:diaguia/l10n/idioma.dart';
+import 'package:diaguia/modelos/alarma.dart';
+import 'package:diaguia/modelos/gesto.dart';
+import 'package:diaguia/modelos/paso.dart';
 
 /// Textos en castellano que salen de los datos (guías, alarmas, kit…) y se
 /// traducen al mostrarlos con `t(variable)`.

@@ -1,24 +1,12 @@
 /// ALARMAS Y AVISOS
 ///
-/// Contrastado con los manuales oficiales:
-///   • mylife YpsoPump — cap. 8, pp. 148-173 (español).
-///   • Medtronic MiniMed 780G — pp. 110-124 y tablas de alertas (inglés).
-///   • Tandem t:slim X2 — cap. 6 y cap. 12 (español).
-///   • Omnipod 5 — pp. 24-29 (español).
-///
-/// El campo `codigo` solo se rellena cuando el fabricante numera la alarma de
-/// forma inequívoca. Ninguno de los manuales disponibles usa códigos
-/// numéricos para estas alarmas, así que están todos vacíos: inventar uno
-/// sería peor que no ponerlo.
-///
-/// Estilo de redacción: para una persona que empieza con la bomba. Frases
-/// cortas, sin jerga y sin cantidades de insulina ni dosis.
+/// Fuentes: manuales oficiales de mylife YpsoPump, Medtronic MiniMed 780G,
+/// Tandem t:slim X2 y Omnipod 5.
 library;
 
 import '../modelos/alarma.dart';
 
 /// Alarmas todavía sin contrastar con el manual oficial del fabricante.
-/// Cuando valides una, borra su id de este conjunto.
 const Set<String> alarmasPorRevisar = {
   'oclusion',
   'reservorio_bajo',

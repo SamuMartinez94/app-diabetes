@@ -6,8 +6,7 @@ import 'package:timezone/timezone.dart' as tz;
 import '../l10n/idioma.dart';
 import 'preferencias.dart';
 
-/// Recordatorios de recambio. Se programan en el propio dispositivo: no hay
-/// push, ni servidor, ni token de usuario.
+/// Recordatorios de cambio programados en el propio dispositivo.
 class Notificaciones {
   static const _idCateter = 1001;
   static const _idSensor = 1002;
@@ -15,7 +14,6 @@ class Notificaciones {
   static final _plugin = FlutterLocalNotificationsPlugin();
   static bool _disponible = false;
 
-  /// Se construye al programar cada aviso para que use el idioma activo.
   static AndroidNotificationDetails get _canal => AndroidNotificationDetails(
     'recambios',
     t('Recordatorios de cambio'),
@@ -27,7 +25,6 @@ class Notificaciones {
   );
 
   static Future<void> inicializar() async {
-    // En web no hay notificaciones programadas; la app funciona igual.
     if (kIsWeb) return;
 
     try {
@@ -72,9 +69,6 @@ class Notificaciones {
   }
 
   /// Reprograma los dos avisos según los ajustes actuales.
-  ///
-  /// Se llama al cambiar cualquier ajuste y al anotar un recambio, de forma
-  /// que el aviso siempre cuenta desde el último cambio real.
   static Future<void> reprogramar() async {
     if (!_disponible) return;
 
@@ -130,8 +124,6 @@ class Notificaciones {
           android: _canal,
           iOS: const DarwinNotificationDetails(),
         ),
-        // Inexacto a propósito: no necesita precisión de minuto y así evita
-        // pedir el permiso restringido de alarmas exactas en Android 14+.
         androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       );
     } catch (e) {

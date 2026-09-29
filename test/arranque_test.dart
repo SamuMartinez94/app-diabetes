@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:adiabetes/main.dart';
-import 'package:adiabetes/servicios/preferencias.dart';
+import 'package:diaguia/main.dart';
+import 'package:diaguia/servicios/preferencias.dart';
 
 Future<void> arrancarCon(Map<String, Object> valores) async {
   SharedPreferences.setMockInitialValues(valores);
@@ -50,7 +50,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Entiendo y continúo'));
     await tester.pumpAndSettle();
-    expect(find.text('Panel de Control'), findsOneWidget);
+    expect(find.byType(NavigationBar), findsOneWidget);
 
     // Desmontar el árbol simula cerrar la app: sin esto, pumpWidget reutiliza
     // el State existente y `_aceptado` seguiría en true.
@@ -62,7 +62,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Entiendo y continúo'), findsOneWidget);
-    expect(find.text('Panel de Control'), findsNothing);
+    expect(find.byType(NavigationBar), findsNothing);
   });
 
   testWidgets('La aceptación no se guarda en disco', (tester) async {
@@ -85,7 +85,7 @@ void main() {
     await tester.tap(find.text('Entiendo y continúo'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Panel de Control'), findsOneWidget);
+    expect(find.byType(NavigationBar), findsOneWidget);
     expect(find.text('Comenzar'), findsNothing);
   });
 

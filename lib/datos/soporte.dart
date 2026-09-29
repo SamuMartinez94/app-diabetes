@@ -1,8 +1,4 @@
 /// Fabricante con su web oficial de soporte.
-///
-/// A propósito no se incluyen números de teléfono precargados: un número
-/// equivocado en una urgencia es peor que no tener ninguno. Cada usuario
-/// guarda el suyo desde la app (se almacena solo en el dispositivo).
 class Fabricante {
   final String id;
   final String nombre;

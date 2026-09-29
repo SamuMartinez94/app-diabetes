@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:adiabetes/resultado.dart';
-import 'package:adiabetes/servicios/preferencias.dart';
-import 'package:adiabetes/tema.dart';
+import 'package:diaguia/resultado.dart';
+import 'package:diaguia/servicios/preferencias.dart';
+import 'package:diaguia/tema.dart';
 
 Future<void> conConfiguracion() async {
   SharedPreferences.setMockInitialValues({});
@@ -59,7 +59,7 @@ void main() {
 
     expect(find.text('¿Elegir otra configuración?'), findsNothing);
     expect(Preferencias.hayConfiguracion, isTrue);
-    expect(find.text('Panel de Control'), findsOneWidget);
+    expect(find.byType(NavigationBar), findsOneWidget);
   });
 
   testWidgets('Confirmar borra la configuración y abre el asistente', (

@@ -91,9 +91,6 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
   }
 
   Future<void> _pedirCodigo() async {
-    // Sin TextEditingController a propósito: el TextField sigue vivo durante
-    // la animación de cierre del diálogo, así que liberarlo al recibir el
-    // valor provocaba un "used after being disposed".
     var introducido = '';
 
     final codigo = await showDialog<String>(

@@ -3,12 +3,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:adiabetes/bombas.dart';
-import 'package:adiabetes/buscador.dart';
-import 'package:adiabetes/l10n/idioma.dart';
-import 'package:adiabetes/servicios/preferencias.dart';
-import 'package:adiabetes/tema.dart';
-import 'package:adiabetes/widgets/selector_idioma.dart';
+import 'package:diaguia/bombas.dart';
+import 'package:diaguia/buscador.dart';
+import 'package:diaguia/l10n/idioma.dart';
+import 'package:diaguia/servicios/preferencias.dart';
+import 'package:diaguia/tema.dart';
+import 'package:diaguia/widgets/selector_idioma.dart';
 
 Future<void> prefsVacias() async {
   SharedPreferences.setMockInitialValues({});

@@ -1,17 +1,8 @@
 /// VOCABULARIO DE GESTOS
 ///
-/// Los 172 pasos de las guías repiten un puñado de acciones. En vez de una
-/// ilustración por paso —inviable, y con los diagramas del fabricante bajo
-/// copyright— cada paso se marca con el icono del gesto que pide.
-///
-/// El gesto se deduce del texto. El orden de la lista ES la prioridad: gana
-/// la primera regla que encaja, así que las de seguridad van primero. Un paso
-/// que empieza por "ADVERTENCIA" o por "NO ..." se marca como advertencia
-/// aunque también hable de llenar o de insertar; poner ahí el icono de la
-/// acción sería justo lo contrario de lo que dice el paso.
-///
-/// Si alguna deducción sale mal, el paso puede fijar su gesto a mano con
-/// `Paso(gesto: Gesto.x)`.
+/// El gesto de cada paso se deduce de su texto en castellano con las reglas de
+/// esta lista: gana la primera que encaja, así que las de seguridad van primero.
+/// Un paso puede fijar su gesto a mano con `Paso(gesto: ...)`.
 library;
 
 import '../modelos/gesto.dart';
@@ -19,8 +10,6 @@ import '../modelos/paso.dart';
 
 /// Reglas en orden de prioridad. La primera que encaja decide.
 final List<(Gesto, RegExp)> _reglas = [
-  // Solo las advertencias reales del fabricante y las prohibiciones de
-  // seguridad. Si esto abarca demasiado, el triangulo deja de significar nada.
   (
     Gesto.advertencia,
     RegExp(
@@ -28,8 +17,6 @@ final List<(Gesto, RegExp)> _reglas = [
       r'no dejes|sangrado|vigila si)\b',
     ),
   ),
-  // Omisiones del procedimiento: pasos que dicen que algo NO se hace. Llevan
-  // icono propio para no confundirse con una advertencia de seguridad.
   (
     Gesto.omitir,
     RegExp(
@@ -80,8 +67,7 @@ final List<(Gesto, RegExp)> _reglas = [
   ),
 ];
 
-/// Quita tildes y pasa a minúsculas, para que las reglas no dependan de la
-/// acentuación del texto.
+/// Quita tildes y pasa a minúsculas.
 String _normalizar(String texto) {
   const con = 'áàäâéèëêíìïîóòöôúùüûñç';
   const sin = 'aaaaeeeeiiiioooouuuunc';

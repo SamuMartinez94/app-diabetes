@@ -1,7 +1,4 @@
-/// Nombre comercial de cada dispositivo, a partir de su identificador interno.
-///
-/// Los identificadores (`btandem`, `sdexg7`…) son los que se usan como clave
-/// en las guías y en las preferencias; esto es solo lo que ve el usuario.
+/// Nombre comercial de cada dispositivo, a partir de su identificador.
 const Map<String, String> nombresDispositivos = {
   // --- BOMBAS ---
   'bmedtronic': 'Medtronic',
@@ -31,6 +28,5 @@ const Map<String, String> nombresDispositivos = {
   'ctrusteel': 'TruSteel',
 };
 
-/// Devuelve el nombre comercial, o el propio identificador si no está en el
-/// mapa: es preferible mostrar `sdexg9` que dejar el hueco vacío.
+/// Devuelve el nombre comercial, o el propio identificador si no está en el mapa.
 String nombreDispositivo(String id) => nombresDispositivos[id] ?? id;

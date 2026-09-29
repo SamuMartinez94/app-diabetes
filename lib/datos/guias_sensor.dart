@@ -1,26 +1,12 @@
-/// GUÍAS DE RECAMBIO DE SENSOR
+/// GUÍAS DE CAMBIO DE SENSOR
 ///
-/// Contenido basado en los manuales oficiales del fabricante:
-///
-///   • Dexcom G6 — Guía de usuario, cap. 6, pp. 84-100 (español).
-///   • Dexcom G7 — Guía del usuario, pp. 18-25 (español).
-///   • Guardian 4 — Guía del usuario del sensor, pp. 19-30 (español).
-///   • Simplera Sync — User Guide, pp. 13-17. En INGLÉS: los pasos están
-///     traducidos, no son la cadena literal del manual.
-///   • FreeStyle Libre 3 — Guía de inicio rápido, pp. 22-25 (español).
-///
-/// Los tiempos de calentamiento de Guardian 4 (2 h), Simplera Sync (2 h) y
-/// Libre 3 (60 min) se han contrastado con las webs oficiales de Medtronic y
-/// Abbott; los prospectos del sensor no los incluyen.
-///
-/// Estilo de redacción: pensado para una persona que empieza con el sensor.
-/// Frases cortas, sin jerga médica y sin dosis de insulina.
+/// Fuentes: manuales oficiales de Dexcom G6 y G7, Guardian 4, Simplera Sync y
+/// FreeStyle Libre 3.
 library;
 
 import '../modelos/paso.dart';
 
 /// Guías pendientes de validar por un profesional sanitario.
-/// Cuando un endocrino valide una, borra su clave de este conjunto.
 const Set<String> guiasSensorPorRevisar = {
   'bmedtronic_sguardian',
   'bmedtronic_ssimplera',

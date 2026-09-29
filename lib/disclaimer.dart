@@ -4,7 +4,7 @@ import 'l10n/idioma.dart';
 import 'tema.dart';
 import 'widgets/selector_idioma.dart';
 
-/// Un apartado del aviso médico, ya traducido.
+/// Un apartado del aviso médico.
 class _Apartado {
   final String titulo;
   final String texto;
@@ -12,7 +12,7 @@ class _Apartado {
   const _Apartado(this.titulo, this.texto);
 }
 
-/// Se construye en cada `build` para que siga al idioma activo.
+/// Apartados del aviso médico.
 List<_Apartado> _apartados() => [
   _Apartado(
     t('Proyecto informativo'),
@@ -56,8 +56,7 @@ List<_Apartado> _apartados() => [
 ];
 
 class DisclaimerScreen extends StatelessWidget {
-  /// Cuando es `true` la pantalla exige aceptar para continuar (primer
-  /// arranque). Cuando es `false` es solo de lectura.
+  /// `true` en el primer arranque: exige aceptar para continuar.
   final bool requiereAceptacion;
   final VoidCallback? alAceptar;
 

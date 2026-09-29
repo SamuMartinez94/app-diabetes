@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:adiabetes/buscador.dart';
-import 'package:adiabetes/cambio_cateter.dart';
-import 'package:adiabetes/datos/guias_cateter.dart';
-import 'package:adiabetes/datos/guias_sensor.dart';
-import 'package:adiabetes/modelos/paso.dart';
-import 'package:adiabetes/servicios/preferencias.dart';
-import 'package:adiabetes/tema.dart';
-import 'package:adiabetes/widgets/pantalla_guia.dart';
+import 'package:diaguia/buscador.dart';
+import 'package:diaguia/cambio_cateter.dart';
+import 'package:diaguia/datos/guias_cateter.dart';
+import 'package:diaguia/datos/guias_sensor.dart';
+import 'package:diaguia/modelos/paso.dart';
+import 'package:diaguia/servicios/preferencias.dart';
+import 'package:diaguia/tema.dart';
+import 'package:diaguia/widgets/pantalla_guia.dart';
 
 Widget conTema(Widget hijo) =>
     MaterialApp(theme: temaClaro, darkTheme: temaOscuro, home: hijo);

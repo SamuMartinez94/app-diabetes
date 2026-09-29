@@ -13,7 +13,6 @@ import 'widgets/comunes.dart';
 import 'widgets/pantalla_guia.dart';
 
 /// Un apartado de la app que el buscador puede encontrar.
-/// Título y subtítulo llegan ya traducidos; las palabras clave, en castellano.
 class Apartado {
   final String titulo;
   final String subtitulo;
@@ -50,8 +49,7 @@ class PasoEncontrado {
   });
 }
 
-/// Recorre solo las guías de los dispositivos del usuario: no tiene sentido
-/// devolverle pasos de una bomba que no usa.
+/// Busca en las guías de los dispositivos del usuario.
 List<PasoEncontrado> buscarEnGuias(String consulta) {
   if (consulta.trim().isEmpty) return const [];
 
@@ -95,7 +93,6 @@ List<PasoEncontrado> buscarEnGuias(String consulta) {
   fuentes.forEach((clave, fuente) {
     for (var i = 0; i < fuente.pasos.length; i++) {
       final paso = fuente.pasos[i];
-      // Se busca en castellano y en el idioma activo.
       if (normalizar('${paso.texto} ${t(paso.texto)}').contains(q)) {
         resultados.add(
           PasoEncontrado(
@@ -127,7 +124,14 @@ class BuscadorScreen extends StatefulWidget {
   /// Apartados navegables de la app, inyectados desde el panel de control.
   final List<Apartado> apartados;
 
-  const BuscadorScreen({super.key, required this.apartados});
+  /// `true` si se muestra como pestaña de la pantalla principal.
+  final bool esPestana;
+
+  const BuscadorScreen({
+    super.key,
+    required this.apartados,
+    this.esPestana = false,
+  });
 
   @override
   State<BuscadorScreen> createState() => _BuscadorScreenState();
@@ -177,7 +181,10 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
     final vacio = apartados.isEmpty && resultados.isEmpty && pasos.isEmpty;
 
     return Scaffold(
-      appBar: AppBar(title: Text(t('Buscar'))),
+      appBar: AppBar(
+        title: Text(t('Buscar')),
+        automaticallyImplyLeading: !widget.esPestana,
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -185,7 +192,7 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
               padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
               child: TextField(
                 controller: _controlador,
-                autofocus: true,
+                autofocus: !widget.esPestana,
                 textInputAction: TextInputAction.search,
                 onChanged: (v) => setState(() => consulta = v.trim()),
                 decoration: InputDecoration(
@@ -313,16 +320,14 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
   );
 }
 
-/// Resultado de búsqueda dentro de una guía: muestra el fragmento y lleva
-/// a la pantalla de la guía abierta por ese paso.
+/// Resultado de búsqueda dentro de una guía.
 class _FilaPaso extends StatelessWidget {
   final PasoEncontrado resultado;
   final String consulta;
 
   const _FilaPaso({required this.resultado, required this.consulta});
 
-  /// Recorta el texto alrededor de la coincidencia para no volcar el paso
-  /// entero en la lista de resultados.
+  /// Recorta el texto alrededor de la coincidencia.
   String get _fragmento {
     final texto = t(resultado.paso.texto).replaceAll('\n', ' ');
     final pos = normalizar(texto).indexOf(normalizar(consulta));

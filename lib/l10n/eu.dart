@@ -989,12 +989,9 @@ const Map<String, String> traduccionesEu = {
   'Dónde ponértelo la próxima vez.': 'Non jarri hurrengo aldian.',
   'Idioma, recordatorios, tema y dispositivos.':
       'Hizkuntza, gogorarazleak, gaia eta gailuak.',
-  'Panel de Control': 'Kontrol-panela',
-  'Buscar alarma o apartado…': 'Bilatu alarma edo atala…',
   '¿Qué necesitas hacer?': 'Zer egin behar duzu?',
   'Instrucciones para poner un Pod nuevo.':
       'Pod berri bat jartzeko jarraibideak.',
-  'MÁS': 'GEHIAGO',
   'Recordatorios de cambio': 'Aldaketa-gogorarazleak',
   'Avisos para cambiar el catéter y el sensor a tiempo.':
       'Kateterra eta sentsorea garaiz aldatzeko abisuak.',
@@ -1052,4 +1049,6 @@ const Map<String, String> traduccionesEu = {
       'Oraindik ez duzu aldaketarik idatzi. Gida bat amaitzean non jarri duzun galdetuko zaizu.',
   'Hoy': 'Gaur',
   'Ayer': 'Atzo',
+  'Inicio': 'Hasiera',
+  'Más': 'Gehiago',
 };

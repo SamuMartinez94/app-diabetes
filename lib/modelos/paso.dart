@@ -9,8 +9,6 @@ class Paso {
   final Gesto? gesto;
 
   /// Bloque al que pertenece el paso ("Preparación", "Inserción"…).
-  /// Sirve para orientar al usuario en guías largas y viaja en las
-  /// sugerencias para localizar el reporte.
   final String? fase;
 
   const Paso({required this.texto, this.imagen, this.fase, this.gesto});
@@ -30,8 +28,6 @@ List<Paso> enFase(String fase, List<Paso> pasos) =>
     pasos.map((p) => p.conFase(fase)).toList();
 
 /// Reparte una lista de pasos en fases consecutivas.
-/// Cada tramo es (nombre de fase, cuántos pasos). Lo que sobre al final se
-/// asigna a la última fase indicada.
 List<Paso> porTramos(List<Paso> pasos, List<(String, int)> tramos) {
   final salida = <Paso>[];
   var i = 0;

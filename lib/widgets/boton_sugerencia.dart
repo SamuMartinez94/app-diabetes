@@ -7,12 +7,8 @@ import '../servicios/sugerencias.dart';
 import '../tema.dart';
 
 /// Botón "Sugerir un cambio", visible solo en modo sugerencias.
-///
-/// Se dibuja como un `SizedBox.shrink()` cuando el modo está desactivado, así
-/// que se puede colocar sin condicionales en el sitio donde toque.
 class BotonSugerencia extends StatelessWidget {
-  /// Dónde está el usuario, tal y como llegará al correo.
-  /// Por ejemplo: `Guía bmedtronic_cmio30 — paso 4 de 12`.
+  /// Dónde está el usuario, tal y como llegará al formulario.
   final String ubicacion;
 
   const BotonSugerencia({super.key, required this.ubicacion});
@@ -31,8 +27,6 @@ class BotonSugerencia extends StatelessWidget {
       return;
     }
 
-    // Se añade el idioma en el que se estaba leyendo: quien revisa tiene que
-    // saber si el fallo está en el castellano o en una traducción.
     final abierto = await Sugerencias.abrir(
       '$ubicacion · idioma ${Traductor.actual.codigo}',
     );

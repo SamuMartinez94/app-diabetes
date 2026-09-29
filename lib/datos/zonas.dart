@@ -21,9 +21,7 @@ class Zona {
   bool admite(String tipo) => apto == 'ambos' || apto == tipo;
 }
 
-/// Zonas habituales de inserción. La rotación evita la lipohipertrofia:
-/// insertar siempre en el mismo sitio endurece la piel (aparecen bultos) y hace
-/// que la insulina se absorba peor.
+/// Zonas habituales de inserción.
 const List<Zona> zonas = [
   Zona(
     id: 'brazo_izq',

@@ -32,9 +32,7 @@ class CambioCateterScreen extends StatelessWidget {
     required this.cateter,
   });
 
-  /// Los manuales de Medtronic, Tandem y YpsoPump permiten cambiar el
-  /// reservorio sin tocar el catéter. En Omnipod no aplica: el Pod integra el
-  /// catéter.
+  /// Indica si la bomba permite cambiar solo el reservorio o el cartucho.
   bool get _admiteSoloReservorio =>
       instruccionesSoloReservorio.containsKey(bomba);
 
@@ -45,9 +43,7 @@ class CambioCateterScreen extends StatelessWidget {
   }
 }
 
-/// Pregunta qué se va a cambiar antes de abrir la guía: hacer el proceso
-/// completo cuando solo tocaba el reservorio añade pasos que el manual dice
-/// expresamente que no hay que hacer, como llenar la cánula.
+/// Pregunta qué se va a cambiar antes de abrir la guía.
 class _SelectorTipoCambio extends StatelessWidget {
   final String bomba;
   final String cateter;

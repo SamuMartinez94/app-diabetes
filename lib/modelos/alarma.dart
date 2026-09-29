@@ -43,12 +43,10 @@ class Alarma {
     this.sinonimos = const [],
   });
 
-  /// Los sinónimos juntos, tal y como se traducen (una sola entrada por alarma).
+  /// Los sinónimos en una sola cadena (es la clave de su traducción).
   String get textoSinonimos => sinonimos.join(', ');
 
-  /// Texto por el que se puede encontrar la alarma. Incluye siempre el
-  /// castellano (los sinónimos se buscan también en el idioma de origen) y,
-  /// si la app está en otro idioma, también su traducción.
+  /// Texto por el que se puede encontrar la alarma.
   String get textoBuscable =>
       '$titulo ${codigo ?? ''} $significado $textoSinonimos '
               '${t(titulo)} ${t(significado)} ${t(textoSinonimos)}'

@@ -6,8 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../l10n/idioma.dart';
 import '../modelos/registro_insercion.dart';
 
-/// Almacenamiento local del dispositivo. No sale nada de aquí: sin cuentas,
-/// sin servidor, sin analítica y sin identificadores de usuario.
+/// Almacenamiento local del dispositivo (ajustes, configuración e historial).
 class Preferencias {
   static const _kBomba = 'config_bomba';
   static const _kSensor = 'config_sensor';
@@ -37,8 +36,7 @@ class Preferencias {
 
   // --- IDIOMA ---
 
-  /// `true` si la persona ya eligió idioma alguna vez. Si no, la app arranca
-  /// en el idioma del sistema (ver `main`).
+  /// `true` si ya se eligió idioma alguna vez.
   static bool get hayIdiomaGuardado => _prefs.getString(_kIdioma) != null;
 
   static Future<void> guardarIdioma(Idioma idioma) async {
@@ -134,8 +132,7 @@ class Preferencias {
 
   // --- PROGRESO DENTRO DE UNA GUÍA ---
 
-  /// Paso en el que se quedó el usuario, para poder retomar el recambio si
-  /// la app se cierra a mitad. 0 = sin progreso guardado.
+  /// Paso en el que se quedó el usuario (0 = sin progreso).
   static int progresoGuia(String clave) =>
       _prefs.getInt('$_kProgreso$clave') ?? 0;
 

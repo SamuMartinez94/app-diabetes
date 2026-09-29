@@ -1,30 +1,12 @@
-/// GUÍAS DE RECAMBIO DE CATÉTER / EQUIPO DE INFUSIÓN
+/// GUÍAS DE CAMBIO DE CATÉTER Y RESERVORIO
 ///
-/// Contenido basado en los manuales oficiales del fabricante:
-///
-///   • Medtronic MiniMed 780G — System User Guide, pp. 110-125.
-///     ATENCIÓN: ese manual está en INGLÉS. Los nombres de menú en español
-///     son una traducción, no la cadena literal que muestra la bomba. Hay
-///     que contrastarlos con el dispositivo.
-///   • Tandem t:slim X2 — Guía del usuario, cap. 6, pp. 96-105 (español).
-///   • Omnipod 5 — Guía del usuario, pp. 24-29 (español).
-///   • mylife YpsoPump — Guía del usuario, cap. 5, pp. 96-113 (español).
-///
-/// Estilo de redacción: pensado para una persona que empieza con la bomba.
-/// Frases cortas, sin jerga médica y SIN cantidades de insulina: la app no
-/// indica ni calcula dosis ni volúmenes. Donde el manual da un número de
-/// insulina, aquí se remite a las instrucciones del catéter o al equipo médico.
-///
-/// Los manuales de bomba describen el lado de la BOMBA (reservorio, cebado,
-/// llenado de cánula). Los pasos de inserción propios de cada catéter vienen
-/// en las instrucciones de uso de ese catéter, que no están entre los
-/// manuales disponibles: siguen pendientes de contrastar.
+/// Fuentes: manuales oficiales de Medtronic MiniMed 780G, Tandem t:slim X2,
+/// Omnipod 5 y mylife YpsoPump.
 library;
 
 import '../modelos/paso.dart';
 
 /// Guías pendientes de validar por un profesional sanitario.
-/// Cuando un endocrino valide una, borra su clave de este conjunto.
 const Set<String> guiasCateterPorRevisar = {
   'bmedtronic_cextended',
   'bmedtronic_cmio',
@@ -178,8 +160,7 @@ List<Paso> _medtronic(List<Paso> insercion, {bool llenarCanula = true}) => [
   ),
 ];
 
-/// Cambio de solo reservorio: el manual indica que en ese caso NO se llena
-/// cánula, se elige "Hecho" en esa pantalla (p. 122).
+/// Cambio de solo reservorio: no se llena la cánula.
 final List<Paso> _medtronicSoloReservorio = [
   ...enFase(Fases.preparacion, _medtronicPreparacion),
   ...enFase(Fases.reservorio, _medtronicLlenado),
@@ -291,15 +272,13 @@ Si no ves las gotas, pulsa LLENAR y repite.''',
   ),
 ];
 
-/// Los 9 primeros pasos son preparar y llenar el cartucho; el resto, cargarlo
-/// en la bomba y llenar el tubo.
+/// Los 9 primeros pasos preparan el cartucho; el resto lo cargan y llenan el tubo.
 final List<Paso> _tandemConFases = [
   ...enFase(Fases.preparacion, _tandemComun.take(9).toList()),
   ...enFase(Fases.cebado, _tandemComun.skip(9).toList()),
 ];
 
-/// Cambio de solo cartucho: se salta la inserción del catéter y el llenado de
-/// cánula. El manual permite cambiarlos por separado.
+/// Cambio de solo cartucho: sin inserción de catéter ni llenado de cánula.
 final List<Paso> _tandemSoloCartucho = [
   ..._tandemConFases,
   ...enFase(Fases.cierre, const [
@@ -765,12 +744,6 @@ Elige la cantidad que indican las instrucciones de tu catéter y confirma.''',
   ),
 ];
 
-// NOTA PENDIENTE: el manual de la YpsoPump solo reconoce como compatibles
-// los kits Orbit soft y Orbit micro; no menciona el Inset. Esta entrada
-// conserva el identificador 'cinset' para no romper el asset, pero el
-// contenido es el del Orbit micro, que es el kit de aguja de acero del
-// sistema. Hay que decidir si se renombra el identificador y se sustituye
-// la imagen.
 const List<Paso> _orbitMicroBase = [
   Paso(
     texto: '''
@@ -845,9 +818,7 @@ Elige la cantidad que indican las instrucciones de tu catéter.''',
   ),
 ];
 
-/// Variante de cambio de SOLO reservorio o cartucho, sin tocar el catéter.
-/// Los manuales de Medtronic, Tandem y YpsoPump contemplan expresamente
-/// cambiarlos por separado; el Omnipod no, porque el Pod integra el catéter.
+/// Variante de cambio de solo reservorio o cartucho, sin tocar el catéter.
 final Map<String, List<Paso>> instruccionesSoloReservorio = {
   'bmedtronic': _medtronicSoloReservorio,
   'btandem': _tandemSoloCartucho,

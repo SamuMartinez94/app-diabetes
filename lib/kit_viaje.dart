@@ -5,8 +5,7 @@ import 'l10n/idioma.dart';
 import 'tema.dart';
 import 'widgets/comunes.dart';
 
-/// Checklist de viaje. Las marcas son de un solo uso: no se guardan, porque
-/// cada viaje se prepara de cero.
+/// Checklist de viaje (las marcas no se guardan).
 class KitViajeScreen extends StatefulWidget {
   const KitViajeScreen({super.key});
 
@@ -15,8 +14,6 @@ class KitViajeScreen extends StatefulWidget {
 }
 
 class _KitViajeScreenState extends State<KitViajeScreen> {
-  /// Las marcas se guardan por el texto en castellano (la clave), no por el
-  /// traducido: así siguen marcadas si cambias de idioma a mitad.
   final Set<String> marcados = {};
 
   int get _total =>

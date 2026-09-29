@@ -987,12 +987,9 @@ const Map<String, String> traduccionesCa = {
   'Dónde ponértelo la próxima vez.': 'On posar-t\'ho la propera vegada.',
   'Idioma, recordatorios, tema y dispositivos.':
       'Idioma, recordatoris, tema i dispositius.',
-  'Panel de Control': 'Tauler de control',
-  'Buscar alarma o apartado…': 'Cercar alarma o apartat…',
   '¿Qué necesitas hacer?': 'Què necessites fer?',
   'Instrucciones para poner un Pod nuevo.':
       'Instruccions per posar un Pod nou.',
-  'MÁS': 'MÉS',
   'Recordatorios de cambio': 'Recordatoris de canvi',
   'Avisos para cambiar el catéter y el sensor a tiempo.':
       'Avisos per canviar el catèter i el sensor a temps.',
@@ -1050,4 +1047,6 @@ const Map<String, String> traduccionesCa = {
       'Encara no has apuntat cap canvi. En acabar una guia se\'t preguntarà on te l\'has posat.',
   'Hoy': 'Avui',
   'Ayer': 'Ahir',
+  'Inicio': 'Inici',
+  'Más': 'Més',
 };

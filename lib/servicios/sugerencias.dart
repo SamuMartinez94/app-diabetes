@@ -5,14 +5,10 @@ import 'package:url_launcher/url_launcher.dart';
 import '../datos/sugerencias.dart';
 
 /// Abre el formulario de sugerencias con el contexto ya relleno.
-///
-/// La app no envía nada por su cuenta: construye una URL y la abre en el
-/// navegador. Quien decide enviar, y qué texto envía, es siempre la persona.
 class Sugerencias {
   static String _version = '';
 
-  /// Se llama una vez al arrancar. Si falla, el campo queda vacío y el
-  /// formulario se abre igual.
+  /// Lee la versión de la app; se llama una vez al arrancar.
   static Future<void> inicializar() async {
     try {
       final info = await PackageInfo.fromPlatform();

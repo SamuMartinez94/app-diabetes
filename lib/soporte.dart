@@ -29,7 +29,6 @@ class _SoporteScreenState extends State<SoporteScreen> {
     final colores = context.colores;
     final miBomba = Preferencias.bomba ?? '';
 
-    // Primero el fabricante de la bomba del usuario.
     final ordenados = [...fabricantes]
       ..sort((a, b) {
         final ma = a.bombas.contains(miBomba) ? 0 : 1;

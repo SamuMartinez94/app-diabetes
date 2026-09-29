@@ -14,10 +14,8 @@ import 'widgets/selector_idioma.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // La app es 100% offline: no hay red, ni cuentas, ni analítica.
   await Preferencias.inicializar();
 
-  // Primer arranque: se usa el idioma del móvil si la app lo tiene.
   if (!Preferencias.hayIdiomaGuardado) Traductor.actual = Idioma.delSistema();
 
   await Notificaciones.inicializar();
@@ -32,13 +30,11 @@ class MiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Reconstruye el MaterialApp para que `themeMode` y el idioma sigan a las
-    // preferencias.
     return ValueListenableBuilder<int>(
       valueListenable: Preferencias.revision,
       builder: (context, _, _) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'ADiABETES',
+        title: 'DiaGuía',
         theme: temaClaro,
         darkTheme: temaOscuro,
         themeMode: Preferencias.tema,
@@ -55,11 +51,7 @@ class MiApp extends StatelessWidget {
   }
 }
 
-/// Decide la pantalla inicial.
-///
-/// El aviso médico se muestra en CADA arranque: la aceptación vive solo en
-/// memoria, no se guarda. Así queda constancia de que el usuario acepta las
-/// condiciones cada vez que abre la app, no una única vez al instalarla.
+/// Decide la pantalla inicial. El aviso médico se muestra en cada arranque.
 class PuntoDeEntrada extends StatefulWidget {
   const PuntoDeEntrada({super.key});
 
@@ -125,7 +117,7 @@ class PantallaBienvenida extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'ADiABETES',
+                      Traductor.actual == Idioma.gl ? 'A DiaGuía' : 'DiaGuía',
                       style: TextStyle(
                         color: esquema.primary,
                         fontSize: 40,

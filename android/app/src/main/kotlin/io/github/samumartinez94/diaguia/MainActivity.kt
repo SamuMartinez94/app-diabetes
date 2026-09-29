@@ -1,4 +1,4 @@
-package io.github.samumartinez94.adiabetes
+package io.github.samumartinez94.diaguia
 
 import io.flutter.embedding.android.FlutterActivity
 

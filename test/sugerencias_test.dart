@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:adiabetes/cambio_cateter.dart';
-import 'package:adiabetes/configuracion.dart';
-import 'package:adiabetes/datos/sugerencias.dart';
-import 'package:adiabetes/servicios/preferencias.dart';
-import 'package:adiabetes/servicios/sugerencias.dart';
-import 'package:adiabetes/tema.dart';
+import 'package:diaguia/cambio_cateter.dart';
+import 'package:diaguia/configuracion.dart';
+import 'package:diaguia/datos/sugerencias.dart';
+import 'package:diaguia/servicios/preferencias.dart';
+import 'package:diaguia/servicios/sugerencias.dart';
+import 'package:diaguia/tema.dart';
 
 Future<void> prefs({bool modoSugerencias = false}) async {
   SharedPreferences.setMockInitialValues({});

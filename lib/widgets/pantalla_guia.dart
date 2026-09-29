@@ -12,28 +12,21 @@ import 'boton_sugerencia.dart';
 import 'comunes.dart';
 
 /// Recorrido paso a paso, compartido por las guías de catéter y de sensor.
-///
-/// Mantiene la pantalla encendida mientras está abierta: durante un recambio
-/// tienes las manos ocupadas y no puedes ir despertando el móvil.
 class PantallaGuia extends StatefulWidget {
-  /// Ya traducido.
   final String titulo;
 
-  /// Clave de la guía (`bmedtronic_cmio30`). Identifica el progreso guardado
-  /// y viaja en las sugerencias.
+  /// Clave de la guía (`bmedtronic_cmio30`); identifica el progreso guardado.
   final String clave;
 
   final List<Paso> pasos;
 
-  /// Si la guía todavía no la ha validado un profesional, se muestra un aviso
-  /// discreto arriba.
+  /// Muestra el aviso de contenido en revisión.
   final bool porRevisar;
 
   /// Se llama al pulsar "Finalizar", para anotar la zona de inserción.
   final Future<void> Function(BuildContext context)? alFinalizar;
 
-  /// Paso por el que abrir la guía. Lo usa el buscador para saltar
-  /// directamente al resultado; en ese caso no se pregunta por retomar.
+  /// Paso por el que abrir la guía (lo usa el buscador).
   final int? pasoInicial;
 
   const PantallaGuia({
@@ -71,9 +64,7 @@ class _PantallaGuiaState extends State<PantallaGuia> {
     super.dispose();
   }
 
-  /// Si quedó un recambio a medias, pregunta antes de continuar. No se retoma
-  /// en silencio: caer de golpe en el paso 14 de un procedimiento que crees
-  /// que estás empezando es peligroso.
+  /// Si quedó un cambio a medias, pregunta si se quiere retomar.
   Future<void> _ofrecerRetomar() async {
     final guardado = Preferencias.progresoGuia(widget.clave);
     if (guardado <= 0 || guardado >= widget.pasos.length || !mounted) return;
@@ -222,8 +213,6 @@ class _PantallaGuiaState extends State<PantallaGuia> {
                             ),
                             const SizedBox(height: 30),
                           ],
-                          // El gesto se deduce del texto en castellano (el
-                          // idioma de origen), no del traducido.
                           _EtiquetaGesto(gesto: gestoDe(paso), acento: acento),
                           const SizedBox(height: 18),
                           Text(
@@ -309,8 +298,7 @@ class _PantallaGuiaState extends State<PantallaGuia> {
   }
 }
 
-/// Icono y nombre del gesto que pide el paso. Sustituye al icono genérico:
-/// da una pista visual de qué hay que hacer antes de leer el texto.
+/// Icono y nombre del gesto que pide el paso.
 class _EtiquetaGesto extends StatelessWidget {
   final Gesto gesto;
   final Color acento;
@@ -319,8 +307,6 @@ class _EtiquetaGesto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Las advertencias se salen del color de la guía: son lo único que debe
-    // destacar.
     final color = gesto == Gesto.advertencia ? context.colores.aviso : acento;
 
     return Container(

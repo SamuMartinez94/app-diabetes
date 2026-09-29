@@ -5,17 +5,14 @@ import '../servicios/notificaciones.dart';
 import '../servicios/preferencias.dart';
 import '../tema.dart';
 
-/// Cambia el idioma de la app al instante y lo recuerda para el próximo
-/// arranque. También reprograma los avisos, para que lleguen en el idioma nuevo.
+/// Cambia el idioma al instante, lo guarda y reprograma los avisos.
 Future<void> elegirIdioma(Idioma idioma) async {
   if (idioma == Traductor.actual) return;
   await Preferencias.guardarIdioma(idioma);
   await Notificaciones.reprogramar();
 }
 
-/// Bandera de un idioma dibujada con código: así se ve igual en todos los
-/// dispositivos (las banderas emoji no existen en Windows y Galicia, Cataluña
-/// y Euskadi no tienen emoji propio).
+/// Bandera de un idioma dibujada con código.
 class Bandera extends StatelessWidget {
   final Idioma idioma;
   final double ancho;
@@ -162,7 +159,6 @@ class _PintorBandera extends CustomPainter {
       Offset(0, s.height),
       _trazo(verde, s.height * 0.1),
     );
-    // La cruz blanca va por encima del aspa verde.
     canvas.drawLine(
       Offset(0, medio.dy),
       Offset(s.width, medio.dy),
@@ -179,70 +175,114 @@ class _PintorBandera extends CustomPainter {
   bool shouldRepaint(_PintorBandera viejo) => viejo.idioma != idioma;
 }
 
-/// Fila de banderas para elegir idioma de un toque. Cabe en una pantalla
-/// estrecha porque las banderas se reparten en varias líneas.
+/// Fila de banderas para elegir idioma; caben las cinco en una sola fila.
 class SelectorIdioma extends StatelessWidget {
   /// Si es `true`, cada bandera lleva debajo el nombre del idioma.
   final bool conNombre;
 
   const SelectorIdioma({super.key, this.conNombre = true});
 
+  static const double _separacion = 6;
+
   @override
   Widget build(BuildContext context) {
     final esquema = context.esquema;
+    final idiomas = Idioma.values;
 
-    return Wrap(
-      spacing: 10,
-      runSpacing: 10,
-      children: Idioma.values.map((idioma) {
-        final activo = idioma == Traductor.actual;
-        return Semantics(
-          button: true,
-          selected: activo,
-          label: idioma.nombre,
-          child: InkWell(
-            onTap: () => elegirIdioma(idioma),
-            borderRadius: BorderRadius.circular(14),
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 180),
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-              decoration: BoxDecoration(
-                color: activo
-                    ? esquema.primary.withAlpha(26)
-                    : esquema.surfaceContainerLow,
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(
-                  color: activo ? esquema.primary : esquema.outlineVariant,
-                  width: activo ? 2 : 1,
+    return LayoutBuilder(
+      builder: (context, restricciones) {
+        final casilla =
+            (restricciones.maxWidth - _separacion * (idiomas.length - 1)) /
+            idiomas.length;
+        final ancho = (casilla - 12).clamp(20.0, 44.0);
+
+        return Row(
+          children: [
+            for (var i = 0; i < idiomas.length; i++) ...[
+              if (i > 0) const SizedBox(width: _separacion),
+              SizedBox(
+                width: casilla,
+                child: _Casilla(
+                  idioma: idiomas[i],
+                  activo: idiomas[i] == Traductor.actual,
+                  ancho: ancho,
+                  conNombre: conNombre,
+                  esquema: esquema,
                 ),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Bandera(idioma: idioma, ancho: 40),
-                  if (conNombre) ...[
-                    const SizedBox(height: 5),
-                    Text(
-                      idioma.nombre,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: activo ? FontWeight.w700 : FontWeight.w500,
-                        color: activo ? esquema.primary : esquema.onSurface,
-                      ),
-                    ),
-                  ],
-                ],
-              ),
+            ],
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _Casilla extends StatelessWidget {
+  final Idioma idioma;
+  final bool activo;
+  final double ancho;
+  final bool conNombre;
+  final ColorScheme esquema;
+
+  const _Casilla({
+    required this.idioma,
+    required this.activo,
+    required this.ancho,
+    required this.conNombre,
+    required this.esquema,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      selected: activo,
+      label: idioma.nombre,
+      child: InkWell(
+        onTap: () => elegirIdioma(idioma),
+        borderRadius: BorderRadius.circular(14),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 180),
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+          decoration: BoxDecoration(
+            color: activo
+                ? esquema.primary.withAlpha(26)
+                : esquema.surfaceContainerLow,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              color: activo ? esquema.primary : esquema.outlineVariant,
+              width: 2,
             ),
           ),
-        );
-      }).toList(),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Bandera(idioma: idioma, ancho: ancho),
+              if (conNombre) ...[
+                const SizedBox(height: 5),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    idioma.nombre,
+                    maxLines: 1,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: activo ? FontWeight.w700 : FontWeight.w500,
+                      color: activo ? esquema.primary : esquema.onSurface,
+                    ),
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
 
 /// Botón compacto con la bandera del idioma activo; abre el selector.
-/// Pensado para la barra superior de las pantallas principales.
 class BotonIdioma extends StatelessWidget {
   const BotonIdioma({super.key});
 

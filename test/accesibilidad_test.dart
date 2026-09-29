@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:adiabetes/bombas.dart';
-import 'package:adiabetes/servicios/preferencias.dart';
-import 'package:adiabetes/buscador.dart';
-import 'package:adiabetes/cambio_cateter.dart';
-import 'package:adiabetes/cambio_sensor.dart';
-import 'package:adiabetes/configuracion.dart';
-import 'package:adiabetes/disclaimer.dart';
-import 'package:adiabetes/errores.dart';
-import 'package:adiabetes/kit_viaje.dart';
-import 'package:adiabetes/resultado.dart';
-import 'package:adiabetes/soporte.dart';
-import 'package:adiabetes/tema.dart';
-import 'package:adiabetes/zonas_insercion.dart';
+import 'package:diaguia/bombas.dart';
+import 'package:diaguia/servicios/preferencias.dart';
+import 'package:diaguia/buscador.dart';
+import 'package:diaguia/cambio_cateter.dart';
+import 'package:diaguia/cambio_sensor.dart';
+import 'package:diaguia/configuracion.dart';
+import 'package:diaguia/disclaimer.dart';
+import 'package:diaguia/errores.dart';
+import 'package:diaguia/kit_viaje.dart';
+import 'package:diaguia/resultado.dart';
+import 'package:diaguia/soporte.dart';
+import 'package:diaguia/tema.dart';
+import 'package:diaguia/zonas_insercion.dart';
 
 /// Envuelve la pantalla forzando un escalado de texto y un móvil pequeño.
 /// Cualquier desbordamiento de layout hace fallar el test.

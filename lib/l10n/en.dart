@@ -987,12 +987,9 @@ const Map<String, String> traduccionesEn = {
   'Dónde ponértelo la próxima vez.': 'Where to put it next time.',
   'Idioma, recordatorios, tema y dispositivos.':
       'Language, reminders, theme and devices.',
-  'Panel de Control': 'Control Panel',
-  'Buscar alarma o apartado…': 'Search alarm or section…',
   '¿Qué necesitas hacer?': 'What do you need to do?',
   'Instrucciones para poner un Pod nuevo.':
       'Instructions for putting on a new Pod.',
-  'MÁS': 'MORE',
   'Recordatorios de cambio': 'Change reminders',
   'Avisos para cambiar el catéter y el sensor a tiempo.':
       'Reminders to change the infusion set and the sensor on time.',
@@ -1050,4 +1047,6 @@ const Map<String, String> traduccionesEn = {
       'You haven\'t noted any change yet. When you finish a guide you will be asked where you put it.',
   'Hoy': 'Today',
   'Ayer': 'Yesterday',
+  'Inicio': 'Home',
+  'Más': 'More',
 };

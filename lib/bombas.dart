@@ -8,14 +8,10 @@ import 'tema.dart';
 import 'widgets/comunes.dart';
 import 'widgets/selector_idioma.dart';
 
-/// El Omnipod integra el catéter en el propio Pod, así que no es una pieza
-/// que el usuario elija: se asigna sola al saltarse el paso 3.
+/// Identificador del catéter integrado del Omnipod (no se elige).
 const String kCateterPod = 'cpod';
 
 /// Pregunta antes de reiniciar el asistente y, si se confirma, lo abre.
-///
-/// Lo usan tanto el panel de control como la pantalla de configuración, para
-/// que el aviso sea el mismo desde los dos sitios.
 Future<void> confirmarCambioDeConfiguracion(BuildContext context) async {
   final confirmado = await showDialog<bool>(
     context: context,
@@ -120,14 +116,11 @@ class _BombasScreenState extends State<BombasScreen> {
       sensor: sensorSeleccionado!,
       cateter: ultimoCateter,
     );
-    // Los intervalos por defecto pueden haber cambiado con la nueva bomba.
     await Notificaciones.reprogramar();
 
     Future.delayed(const Duration(milliseconds: 250), () {
       if (!mounted) return;
 
-      // Se sustituye toda la pila: desde el panel de control, "atrás" debe
-      // salir de la app, no volver a repetir el asistente.
       Navigator.pushAndRemoveUntil(
         context,
         PageRouteBuilder(
@@ -301,9 +294,7 @@ class _BombasScreenState extends State<BombasScreen> {
                 height: 140,
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: isSelected
-                      ? esquema.primary.withAlpha(20)
-                      : esquema.surfaceContainerLow,
+                  color: fondoDispositivo,
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
                     color: isSelected ? esquema.primary : Colors.transparent,
@@ -326,7 +317,7 @@ class _BombasScreenState extends State<BombasScreen> {
       margin: const EdgeInsets.symmetric(horizontal: 4),
       padding: const EdgeInsets.all(6),
       decoration: BoxDecoration(
-        color: esquema.surface,
+        color: fondoDispositivo,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: esquema.outlineVariant),
       ),

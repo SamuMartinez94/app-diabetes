@@ -33,7 +33,6 @@ Map<String, int> _diasDesdeUso(String tipo) {
   for (final registro in Preferencias.registros) {
     if (registro.tipo != tipo) continue;
     final dias = ahora.difference(registro.fecha).inDays;
-    // Los registros vienen del más reciente al más antiguo.
     resultado.putIfAbsent(registro.zona, () => dias);
   }
   return resultado;
@@ -198,7 +197,6 @@ class _ZonasScreenState extends State<ZonasScreen> {
     final disponibles = zonas.where((z) => z.admite(tipo)).toList();
     final usos = _diasDesdeUso(tipo);
 
-    // La mejor zona es la que lleva más tiempo sin usarse.
     final sugerida = disponibles.reduce((a, b) {
       final da = usos[a.id] ?? 9999;
       final db = usos[b.id] ?? 9999;

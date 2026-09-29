@@ -6,7 +6,7 @@
 
 ---
 
-# ADiABETES
+# DiaGuía
 
 *Guía para usuarios de bombas de insulina y sensores de glucosa.*
 

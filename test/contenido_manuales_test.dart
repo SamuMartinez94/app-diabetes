@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:adiabetes/datos/alarmas.dart';
-import 'package:adiabetes/datos/guias_cateter.dart';
-import 'package:adiabetes/datos/guias_sensor.dart';
-import 'package:adiabetes/modelos/paso.dart';
+import 'package:diaguia/datos/alarmas.dart';
+import 'package:diaguia/datos/guias_cateter.dart';
+import 'package:diaguia/datos/guias_sensor.dart';
+import 'package:diaguia/modelos/paso.dart';
 
 String textoDe(List<Paso> pasos) => pasos.map((p) => p.texto).join(' ');
 

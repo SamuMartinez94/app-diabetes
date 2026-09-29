@@ -11,9 +11,7 @@ class GrupoKit {
   });
 }
 
-/// Checklist para viajes y para el kit de emergencia del día a día.
-/// Sin cantidades de insulina: cuánto llevar lo decide cada persona con su
-/// equipo médico. Pendiente de revisar con un profesional.
+/// Checklist de viaje y kit de emergencia.
 const List<GrupoKit> kitViaje = [
   GrupoKit(
     titulo: 'Insulina y material de repuesto',

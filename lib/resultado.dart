@@ -15,7 +15,8 @@ import 'widgets/comunes.dart';
 import 'widgets/selector_idioma.dart';
 import 'zonas_insercion.dart';
 
-class ResultadoScreen extends StatelessWidget {
+/// Pantalla principal, con tres pestañas abajo: Inicio, Buscar y Más.
+class ResultadoScreen extends StatefulWidget {
   final String bomba;
   final String sensor;
   final String cateter;
@@ -27,11 +28,16 @@ class ResultadoScreen extends StatelessWidget {
     required this.cateter,
   });
 
-  bool get esOmnipod => bomba == 'bomnipod';
+  @override
+  State<ResultadoScreen> createState() => _ResultadoScreenState();
+}
+
+class _ResultadoScreenState extends State<ResultadoScreen> {
+  int _pestana = 0;
+
+  bool get esOmnipod => widget.bomba == 'bomnipod';
 
   /// Apartados que el buscador puede encontrar, además de las alarmas.
-  /// Las palabras clave están en castellano y se buscan siempre, sea cual sea
-  /// el idioma de la app.
   List<Apartado> _apartados() => [
     Apartado(
       titulo: esOmnipod ? t('Recambio de Pod') : t('Recambio de catéter'),
@@ -46,7 +52,8 @@ class ResultadoScreen extends StatelessWidget {
         'cambiar',
         'recambio',
       ],
-      construir: (_) => CambioCateterScreen(bomba: bomba, cateter: cateter),
+      construir: (_) =>
+          CambioCateterScreen(bomba: widget.bomba, cateter: widget.cateter),
     ),
     Apartado(
       titulo: t('Recambio de sensor'),
@@ -62,15 +69,19 @@ class ResultadoScreen extends StatelessWidget {
         'guardian',
         'calentamiento',
       ],
-      construir: (_) => CambioSensorScreen(bomba: bomba, sensor: sensor),
+      construir: (_) =>
+          CambioSensorScreen(bomba: widget.bomba, sensor: widget.sensor),
     ),
     Apartado(
       titulo: t('Resolver problemas'),
       subtitulo: t('Te hacemos unas preguntas y te ayudamos.'),
       icono: Icons.warning_amber_rounded,
       palabras: ['error', 'problema', 'fallo', 'diagnostico', 'ayuda'],
-      construir: (_) =>
-          ErroresScreen(bomba: bomba, sensor: sensor, cateter: cateter),
+      construir: (_) => ErroresScreen(
+        bomba: widget.bomba,
+        sensor: widget.sensor,
+        cateter: widget.cateter,
+      ),
     ),
     Apartado(
       titulo: t('Kit de viaje'),
@@ -142,12 +153,68 @@ class ResultadoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: IndexedStack(
+        index: _pestana,
+        children: [
+          _Inicio(
+            bomba: widget.bomba,
+            sensor: widget.sensor,
+            cateter: widget.cateter,
+          ),
+          BuscadorScreen(apartados: _apartados(), esPestana: true),
+          const _Mas(),
+        ],
+      ),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _pestana,
+        onDestinationSelected: (i) {
+          FocusManager.instance.primaryFocus?.unfocus();
+          setState(() => _pestana = i);
+        },
+        destinations: [
+          NavigationDestination(
+            icon: const Icon(Icons.home_outlined),
+            selectedIcon: const Icon(Icons.home),
+            label: t('Inicio'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.search),
+            label: t('Buscar'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.apps_outlined),
+            selectedIcon: const Icon(Icons.apps),
+            label: t('Más'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Pestaña de inicio: tu configuración y lo que necesitas hacer.
+class _Inicio extends StatelessWidget {
+  final String bomba;
+  final String sensor;
+  final String cateter;
+
+  const _Inicio({
+    required this.bomba,
+    required this.sensor,
+    required this.cateter,
+  });
+
+  bool get esOmnipod => bomba == 'bomnipod';
+
+  @override
+  Widget build(BuildContext context) {
     final esquema = context.esquema;
     final colores = context.colores;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t('Panel de Control')),
+        title: const Text('DiaGuía'),
         actions: [
           const BotonIdioma(),
           IconButton(
@@ -166,46 +233,6 @@ class ResultadoScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           children: [
             const DistintivoModoSugerencias(),
-            // El buscador va arriba del todo: es la vía rápida cuando ya te
-            // está pitando algo y no quieres navegar por menús.
-            InkWell(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => BuscadorScreen(apartados: _apartados()),
-                ),
-              ),
-              borderRadius: BorderRadius.circular(16),
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 14,
-                ),
-                decoration: BoxDecoration(
-                  color: esquema.surfaceContainerLow,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Row(
-                  children: [
-                    Icon(Icons.search, color: esquema.onSurfaceVariant),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        t('Buscar alarma o apartado…'),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: esquema.onSurfaceVariant,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 22),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -303,11 +330,40 @@ class ResultadoScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
 
-            const SizedBox(height: 15),
-            _rotulo(context, t('MÁS')),
-            const SizedBox(height: 12),
+  Widget _rotulo(BuildContext context, String texto) => Text(
+    texto,
+    style: TextStyle(
+      fontSize: 11,
+      fontWeight: FontWeight.bold,
+      color: context.esquema.primary,
+      letterSpacing: 1.1,
+    ),
+  );
+}
 
+/// Pestaña "Más": lo que no se usa cada día.
+class _Mas extends StatelessWidget {
+  const _Mas();
+
+  @override
+  Widget build(BuildContext context) {
+    final esquema = context.esquema;
+    final colores = context.colores;
+
+    return Scaffold(
+      appBar: AppBar(title: Text(t('Más'))),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          physics: const BouncingScrollPhysics(),
+          children: [
             TarjetaMenu(
               titulo: t('Kit de viaje'),
               subtitulo: t('Qué llevar y qué papeles necesitas.'),
@@ -344,14 +400,4 @@ class ResultadoScreen extends StatelessWidget {
       ),
     );
   }
-
-  Widget _rotulo(BuildContext context, String texto) => Text(
-    texto,
-    style: TextStyle(
-      fontSize: 11,
-      fontWeight: FontWeight.bold,
-      color: context.esquema.primary,
-      letterSpacing: 1.1,
-    ),
-  );
 }

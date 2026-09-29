@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:adiabetes/datos/dispositivos.dart';
-import 'package:adiabetes/datos/guias_cateter.dart';
-import 'package:adiabetes/datos/guias_sensor.dart';
-import 'package:adiabetes/resultado.dart';
-import 'package:adiabetes/servicios/preferencias.dart';
-import 'package:adiabetes/tema.dart';
+import 'package:diaguia/datos/dispositivos.dart';
+import 'package:diaguia/datos/guias_cateter.dart';
+import 'package:diaguia/datos/guias_sensor.dart';
+import 'package:diaguia/resultado.dart';
+import 'package:diaguia/servicios/preferencias.dart';
+import 'package:diaguia/tema.dart';
 
 Widget panel({
   required String bomba,

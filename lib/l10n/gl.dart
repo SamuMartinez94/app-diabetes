@@ -967,7 +967,7 @@ const Map<String, String> traduccionesGl = {
       'Lista orientativa en revisión. Axústaa co teu equipo médico segundo o teu tratamento e o teu destino.',
   'Todo listo. Buen viaje.': 'Todo listo. Boa viaxe.',
   '{n} de {total} preparados': '{n} de {total} preparados',
-  'Bienvenido a': 'Benvido a',
+  'Bienvenido a': 'Benvido',
   'Guía para bombas de insulina y sensores de glucosa.':
       'Guía para bombas de insulina e sensores de glicosa.',
   'Comenzar': 'Comezar',
@@ -983,12 +983,9 @@ const Map<String, String> traduccionesGl = {
   'Dónde ponértelo la próxima vez.': 'Onde poñelo a próxima vez.',
   'Idioma, recordatorios, tema y dispositivos.':
       'Idioma, recordatorios, tema e dispositivos.',
-  'Panel de Control': 'Panel de Control',
-  'Buscar alarma o apartado…': 'Buscar alarma ou apartado…',
   '¿Qué necesitas hacer?': 'Que necesitas facer?',
   'Instrucciones para poner un Pod nuevo.':
       'Instrucións para poñer un Pod novo.',
-  'MÁS': 'MÁIS',
   'Recordatorios de cambio': 'Recordatorios de cambio',
   'Avisos para cambiar el catéter y el sensor a tiempo.':
       'Avisos para cambiar o catéter e o sensor a tempo.',
@@ -1046,4 +1043,6 @@ const Map<String, String> traduccionesGl = {
       'Aínda non anotaches ningún cambio. Ao terminar unha guía preguntarásche onde o puxeches.',
   'Hoy': 'Hoxe',
   'Ayer': 'Onte',
+  'Inicio': 'Inicio',
+  'Más': 'Máis',
 };

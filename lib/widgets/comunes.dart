@@ -4,10 +4,10 @@ import '../datos/dispositivos.dart';
 import '../l10n/idioma.dart';
 import '../tema.dart';
 
+/// Fondo blanco fijo de los recuadros de dispositivos, en modo claro y oscuro.
+const Color fondoDispositivo = Colors.white;
+
 /// Imagen de un dispositivo por su identificador.
-///
-/// Si el asset no existe muestra un icono neutro en vez del recuadro de error
-/// de Flutter: algunas combinaciones (como el Pod) no tienen ilustración.
 class ImagenDispositivo extends StatelessWidget {
   final String id;
   final double? ancho;
@@ -31,10 +31,8 @@ class ImagenDispositivo extends StatelessWidget {
   }
 }
 
-/// Aviso discreto de contenido todavía no validado por un profesional
-/// sanitario. Color neutro a propósito: informa, no alarma.
+/// Aviso de contenido pendiente de revisión.
 class BannerRevision extends StatelessWidget {
-  /// Ya traducido. Si es `null` se usa el aviso genérico de las guías.
   final String? mensaje;
 
   const BannerRevision({super.key, this.mensaje});
@@ -77,7 +75,6 @@ class BannerRevision extends StatelessWidget {
 }
 
 /// Tarjeta de navegación con icono, título y subtítulo.
-/// Los textos llegan ya traducidos.
 class TarjetaMenu extends StatelessWidget {
   final String titulo;
   final String subtitulo;
@@ -172,7 +169,6 @@ class ResumenConfiguracion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // El Pod integra el catéter: no se muestra como pieza aparte.
     final esOmnipod = bomba == 'bomnipod';
 
     return Container(
@@ -186,8 +182,6 @@ class ResumenConfiguracion extends StatelessWidget {
         children: [
           if (bomba.isNotEmpty) _item(context, bomba, t('Bomba')),
           if (sensor.isNotEmpty) _item(context, sensor, t('Sensor')),
-          // El catéter va sin nombre: los modelos son crípticos y ocupan
-          // demasiado al lado de la bomba y el sensor.
           if (cateter.isNotEmpty && !esOmnipod)
             _item(context, cateter, t('Catéter'), conNombre: false),
         ],
@@ -209,7 +203,7 @@ class ResumenConfiguracion extends StatelessWidget {
             height: 65,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: context.esquema.surface,
+              color: fondoDispositivo,
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(

@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:adiabetes/datos/gestos.dart';
-import 'package:adiabetes/datos/guias_cateter.dart';
-import 'package:adiabetes/datos/guias_sensor.dart';
-import 'package:adiabetes/modelos/gesto.dart';
-import 'package:adiabetes/modelos/paso.dart';
+import 'package:diaguia/datos/gestos.dart';
+import 'package:diaguia/datos/guias_cateter.dart';
+import 'package:diaguia/datos/guias_sensor.dart';
+import 'package:diaguia/modelos/gesto.dart';
+import 'package:diaguia/modelos/paso.dart';
 
 /// Pasos únicos POR TEXTO: los bloques compartidos se copian en cada guía
 /// que los usa, así que contarlos por instancia inflaría las cifras.

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Acción que pide un paso. Los 172 pasos de las guías repiten un puñado de
-/// gestos; marcarlos con un icono da un ancla visual sin necesitar una
-/// ilustración por paso.
-///
-/// Las reglas que deducen el gesto a partir del texto están en
-/// `datos/gestos.dart`.
+/// Acción que pide un paso; se muestra como icono junto al texto.
+/// Las reglas que la deducen están en `datos/gestos.dart`.
 enum Gesto {
   advertencia('Atención', Icons.warning_amber_rounded),
   omitir('Esto no se hace', Icons.do_not_disturb_on_outlined),

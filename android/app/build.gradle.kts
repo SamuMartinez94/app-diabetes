@@ -3,17 +3,15 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
-    namespace = "io.github.samumartinez94.adiabetes"
+    namespace = "io.github.samumartinez94.diaguia"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        // Requerido por flutter_local_notifications para programar avisos.
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -24,19 +22,15 @@ android {
     }
 
     defaultConfig {
-        applicationId = "io.github.samumartinez94.adiabetes"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        applicationId = "io.github.samumartinez94.diaguia"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
-    // Firma de release. Los datos vienen de `android/key.properties` (en local)
-    // o de variables de entorno (en CI). Ninguno de los dos se sube a git.
-    // Sin ellos, se firma con la clave de debug para que `flutter run --release`
-    // siga funcionando; ese APK NO sirve para publicar.
+    // Firma de release: `android/key.properties` o variables de entorno.
+    // Sin ellas se firma con la clave de debug (no sirve para publicar).
     val propiedadesFirma = Properties().apply {
         val fichero = rootProject.file("key.properties")
         if (fichero.exists()) fichero.inputStream().use { load(it) }
