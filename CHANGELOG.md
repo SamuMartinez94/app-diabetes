@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/SamuMartinez94/app-diabetes/compare/v1.1.0...v2.0.0) (2026-09-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* DiaGuía, idiomas, pestañas y firma de release
+
+### Features
+
+* DiaGuía, idiomas, pestañas y firma de release ([c8c5465](https://github.com/SamuMartinez94/app-diabetes/commit/c8c54652a9a70f17f2b9735fb3abeb65289cbdea))
+
 ## [1.1.0](https://github.com/SamuMartinez94/app-diabetes/compare/v1.0.0...v1.1.0) (2026-04-22)
 
 
