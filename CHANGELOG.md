@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/SamuMartinez94/app-diabetes/compare/v2.0.0...v2.1.0) (2026-09-30)
+
+
+### Features
+
+* avisos oficiales de los manuales, asistente en chat y nuevo diseño ([be65fcd](https://github.com/SamuMartinez94/app-diabetes/commit/be65fcd7afc55d1c0f724a8ac3239529328dfb13))
+
 ## [2.0.0](https://github.com/SamuMartinez94/app-diabetes/compare/v1.1.0...v2.0.0) (2026-09-29)
 
 
