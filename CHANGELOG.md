@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.1](https://github.com/SamuMartinez94/app-diabetes/compare/v2.1.0...v2.1.1) (2026-09-30)
+
+
+### Bug Fixes
+
+* nuevo icono, tarjeta de configuración y ajustes del asistente ([e76c974](https://github.com/SamuMartinez94/app-diabetes/commit/e76c97488308844ec11b9c0dfb57b7e9645eafb2))
+* pantalla principal en cuadrícula y búsqueda en el asistente ([49898f5](https://github.com/SamuMartinez94/app-diabetes/commit/49898f52168b07b323e48b9101b193b2502b2b3a))
+
 ## [2.1.0](https://github.com/SamuMartinez94/app-diabetes/compare/v2.0.0...v2.1.0) (2026-09-30)
 
 
