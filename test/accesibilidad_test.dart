@@ -4,7 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:diaguia/bombas.dart';
 import 'package:diaguia/servicios/preferencias.dart';
-import 'package:diaguia/buscador.dart';
 import 'package:diaguia/cambio_cateter.dart';
 import 'package:diaguia/cambio_sensor.dart';
 import 'package:diaguia/configuracion.dart';
@@ -65,7 +64,6 @@ void main() {
       sensor: 'sguardian',
       cateter: 'cmio30',
     ),
-    'Buscador': () => const BuscadorScreen(apartados: []),
     'Configuración': () => const ConfiguracionScreen(),
     'Kit de viaje': () => const KitViajeScreen(),
     'Soporte': () => const SoporteScreen(),

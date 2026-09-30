@@ -68,7 +68,7 @@ void main() {
 
     expect(find.text('¿Elegir otra configuración?'), findsNothing);
     expect(Preferencias.hayConfiguracion, isTrue);
-    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.text('Recambio de catéter'), findsOneWidget);
   });
 
   testWidgets('Confirmar borra la configuración y abre el asistente', (

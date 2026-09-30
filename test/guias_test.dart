@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:diaguia/buscador.dart';
 import 'package:diaguia/cambio_cateter.dart';
 import 'package:diaguia/datos/guias_cateter.dart';
 import 'package:diaguia/datos/guias_sensor.dart';
@@ -186,36 +185,6 @@ void main() {
 
     test('Omnipod no tiene variante de solo reservorio', () {
       expect(instruccionesSoloReservorio.containsKey('bomnipod'), isFalse);
-    });
-  });
-
-  group('Buscador dentro de las guías', () {
-    setUp(configurar);
-
-    test('Encuentra un paso por su texto', () {
-      final r = buscarEnGuias('burbujas');
-      expect(r, isNotEmpty);
-      expect(r.first.paso.texto.toLowerCase(), contains('burbuja'));
-    });
-
-    test('Funciona sin tildes', () {
-      expect(buscarEnGuias('canula'), isNotEmpty);
-    });
-
-    test('Solo devuelve guías de los dispositivos del usuario', () {
-      for (final r in buscarEnGuias('insulina')) {
-        expect(r.claveGuia, startsWith('bmedtronic'));
-      }
-    });
-
-    test('Sin configuración no devuelve nada', () async {
-      SharedPreferences.setMockInitialValues({});
-      await Preferencias.inicializar();
-      expect(buscarEnGuias('insulina'), isEmpty);
-    });
-
-    test('Una consulta vacía no devuelve nada', () {
-      expect(buscarEnGuias('   '), isEmpty);
     });
   });
 }

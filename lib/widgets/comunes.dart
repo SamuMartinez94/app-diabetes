@@ -161,7 +161,10 @@ class TarjetaMenu extends StatelessWidget {
 class BloqueAccion extends StatelessWidget {
   final String titulo;
   final String subtitulo;
-  final String emoji;
+  final String? emoji;
+
+  /// Icono en lugar del emoji: toma el color del texto y se integra en el bloque.
+  final IconData? icono;
   final Color color;
   final bool destacado;
   final double alto;
@@ -171,7 +174,8 @@ class BloqueAccion extends StatelessWidget {
     super.key,
     required this.titulo,
     required this.subtitulo,
-    required this.emoji,
+    this.emoji,
+    this.icono,
     required this.color,
     required this.alPulsar,
     this.destacado = false,
@@ -195,6 +199,7 @@ class BloqueAccion extends StatelessWidget {
       child: InkWell(
         onTap: alPulsar,
         child: Stack(
+          fit: StackFit.expand,
           children: [
             Positioned(
               right: -30,
@@ -211,7 +216,9 @@ class BloqueAccion extends StatelessWidget {
             Positioned(
               right: 18,
               top: 14,
-              child: Text(emoji, style: const TextStyle(fontSize: 38)),
+              child: icono != null
+                  ? Icon(icono, size: 42, color: texto)
+                  : Text(emoji!, style: const TextStyle(fontSize: 38)),
             ),
             ConstrainedBox(
               constraints: BoxConstraints(minHeight: alto),
@@ -226,7 +233,7 @@ class BloqueAccion extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: destacado ? 22 : 17,
+                        fontSize: 17,
                         height: 1.15,
                         fontWeight: FontWeight.w800,
                         color: texto,

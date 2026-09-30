@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:diaguia/bombas.dart';
-import 'package:diaguia/buscador.dart';
+import 'package:diaguia/errores.dart';
 import 'package:diaguia/l10n/idioma.dart';
 import 'package:diaguia/servicios/preferencias.dart';
 import 'package:diaguia/tema.dart';
@@ -115,9 +115,17 @@ void main() {
     testWidgets('Las pantallas que quedan debajo también se actualizan', (
       tester,
     ) async {
-      await tester.pumpWidget(app(const BuscadorScreen(apartados: [])));
-      // Se abre una pantalla encima del buscador y se cambia el idioma desde
-      // ella: al volver, el buscador ya tiene que estar en el idioma nuevo.
+      await tester.pumpWidget(
+        app(
+          const ErroresScreen(
+            bomba: 'btandem',
+            sensor: 'sdexg7',
+            cateter: 'cautosoft90',
+          ),
+        ),
+      );
+      // Se abre una pantalla encima y se cambia el idioma desde ella: al
+      // volver, la de debajo ya tiene que estar en el idioma nuevo.
       final navegador = tester.state<NavigatorState>(find.byType(Navigator));
       navegador.push(MaterialPageRoute<void>(builder: (_) => const Scaffold()));
       await tester.pumpAndSettle();
@@ -128,7 +136,7 @@ void main() {
       navegador.pop();
       await tester.pumpAndSettle();
 
-      expect(find.text('Cercar'), findsOneWidget);
+      expect(find.text('Resoldre problemes'), findsOneWidget);
     });
 
     testWidgets('Elegir un idioma lo guarda', (tester) async {

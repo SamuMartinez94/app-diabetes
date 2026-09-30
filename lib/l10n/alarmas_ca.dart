@@ -898,4 +898,6 @@ const Map<String, String> traduccionesAlarmasCa = {
   'Ver otro aviso': 'Veure un altre avís',
   '¡Hola! Cuéntame qué problema tienes y te ayudo a resolverlo.':
       'Hola! Explica\'m quin problema tens i t\'ajudo a resoldre\'l.',
+  'Escribe lo que ves en la pantalla…': 'Escriu el que veus a la pantalla…',
+  'Viaje, zonas y soporte.': 'Viatge, zones i suport.',
 };

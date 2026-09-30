@@ -896,4 +896,6 @@ const Map<String, String> traduccionesAlarmasGl = {
   'Ver otro aviso': 'Ver outro aviso',
   '¡Hola! Cuéntame qué problema tienes y te ayudo a resolverlo.':
       'Ola! Cóntame que problema tes e axúdote a resolvelo.',
+  'Escribe lo que ves en la pantalla…': 'Escribe o que ves na pantalla…',
+  'Viaje, zonas y soporte.': 'Viaxe, zonas e soporte.',
 };

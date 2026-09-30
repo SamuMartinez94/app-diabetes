@@ -29,8 +29,7 @@ Indicas qué bomba, sensor y catéter usas y la app adapta todo el contenido a t
 - **Adaptada a tus dispositivos:** eliges tu bomba, sensor y catéter y solo ves lo que te afecta.
 - **Guías de recambio paso a paso:** tutoriales ilustrados de catéter y de sensor. La pantalla se mantiene encendida mientras dura el proceso.
 - **Alarmas y avisos de tus dispositivos:** el significado de cada aviso de tu bomba y tu sensor y qué hacer, basado en los manuales oficiales de los fabricantes (cada aviso indica de qué manual y página sale).
-- **Buscador:** encuentra un aviso por su nombre o por lo que te está pasando ("no pasa insulina", "pitido"). Funciona sin tildes.
-- **Asistente para resolver problemas:** una conversación guiada, sin inteligencia artificial y sin conexión: eliges qué te avisa (bomba o sensor) y qué aviso ves en la pantalla, y te explica qué significa y qué hacer.
+- **Asistente para resolver problemas:** una conversación guiada, sin inteligencia artificial y sin conexión: eliges si el problema es de la bomba o del sensor y qué aviso ves en la pantalla (o lo buscas escribiéndolo, sin importar las tildes), y te explica qué significa y qué hacer.
 - **Rotación de zonas:** anota dónde te has puesto el catéter o el sensor y la app te sugiere la próxima zona, para cuidar tu piel. Puedes desactivarla.
 - **Recordatorios de recambio:** avisos configurables en tu propio móvil. Vienen desactivados por defecto.
 - **Kit de viaje:** lista de comprobación de material y documentación.

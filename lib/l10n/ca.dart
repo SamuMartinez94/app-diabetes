@@ -592,17 +592,7 @@ const Map<String, String> traduccionesCa = {
   'Recambio de catéter': 'Canvi de catèter',
   'Solo reservorio': 'Només reservori',
   'Recambio de sensor': 'Canvi de sensor',
-  'Buscar': 'Cercar',
-  'Alarma, síntoma o apartado…': 'Alarma, símptoma o apartat…',
-  'APARTADOS DE LA APP': 'APARTATS DE L\'APP',
-  'PASOS DE TUS GUÍAS ({n})': 'PASSOS DE LES TEVES GUIES ({n})',
-  'ALARMAS Y AVISOS ({n})': 'ALARMES I AVISOS ({n})',
   'Nada coincide con "{consulta}".': 'Res no coincideix amb "{consulta}".',
-  'Prueba con el texto que muestra tu dispositivo, o con lo que te está pasando: "no pasa insulina", "pitido", "batería".':
-      'Prova amb el text que mostra el teu dispositiu, o amb el que t\'està passant: "no passa insulina", "pitit", "bateria".',
-  '{titulo} · paso {i} de {total}': '{titulo} · pas {i} de {total}',
-  'Alarma': 'Alarma',
-  'Código {codigo}': 'Codi {codigo}',
   'QUÉ SIGNIFICA': 'QUÈ SIGNIFICA',
   'QUÉ HACER': 'QUÈ FER',
   'Instrucciones': 'Instruccions',
@@ -714,8 +704,6 @@ const Map<String, String> traduccionesCa = {
   'Webs oficiales y urgencias.': 'Webs oficials i urgències.',
   'Rotación de zonas': 'Rotació de zones',
   'Dónde ponértelo la próxima vez.': 'On posar-t\'ho la propera vegada.',
-  'Idioma, recordatorios, tema y dispositivos.':
-      'Idioma, recordatoris, tema i dispositius.',
   '¿Qué necesitas hacer?': 'Què necessites fer?',
   'Instrucciones para poner un Pod nuevo.':
       'Instruccions per posar un Pod nou.',
@@ -776,6 +764,5 @@ const Map<String, String> traduccionesCa = {
       'Encara no has apuntat cap canvi. En acabar una guia se\'t preguntarà on te l\'has posat.',
   'Hoy': 'Avui',
   'Ayer': 'Ahir',
-  'Inicio': 'Inici',
   'Más': 'Més',
 };

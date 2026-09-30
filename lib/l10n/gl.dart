@@ -590,17 +590,7 @@ const Map<String, String> traduccionesGl = {
   'Recambio de catéter': 'Cambio de catéter',
   'Solo reservorio': 'Só reservorio',
   'Recambio de sensor': 'Cambio de sensor',
-  'Buscar': 'Buscar',
-  'Alarma, síntoma o apartado…': 'Alarma, síntoma ou apartado…',
-  'APARTADOS DE LA APP': 'APARTADOS DA APP',
-  'PASOS DE TUS GUÍAS ({n})': 'PASOS DAS TÚAS GUÍAS ({n})',
-  'ALARMAS Y AVISOS ({n})': 'ALARMAS E AVISOS ({n})',
   'Nada coincide con "{consulta}".': 'Nada coincide con "{consulta}".',
-  'Prueba con el texto que muestra tu dispositivo, o con lo que te está pasando: "no pasa insulina", "pitido", "batería".':
-      'Proba co texto que mostra o teu dispositivo, ou co que che está pasando: "non pasa insulina", "pitido", "batería".',
-  '{titulo} · paso {i} de {total}': '{titulo} · paso {i} de {total}',
-  'Alarma': 'Alarma',
-  'Código {codigo}': 'Código {codigo}',
   'QUÉ SIGNIFICA': 'QUE SIGNIFICA',
   'QUÉ HACER': 'QUE FACER',
   'Instrucciones': 'Instrucións',
@@ -711,8 +701,6 @@ const Map<String, String> traduccionesGl = {
   'Webs oficiales y urgencias.': 'Webs oficiais e urxencias.',
   'Rotación de zonas': 'Rotación de zonas',
   'Dónde ponértelo la próxima vez.': 'Onde poñelo a próxima vez.',
-  'Idioma, recordatorios, tema y dispositivos.':
-      'Idioma, recordatorios, tema e dispositivos.',
   '¿Qué necesitas hacer?': 'Que necesitas facer?',
   'Instrucciones para poner un Pod nuevo.':
       'Instrucións para poñer un Pod novo.',
@@ -773,6 +761,5 @@ const Map<String, String> traduccionesGl = {
       'Aínda non anotaches ningún cambio. Ao terminar unha guía preguntarásche onde o puxeches.',
   'Hoy': 'Hoxe',
   'Ayer': 'Onte',
-  'Inicio': 'Inicio',
   'Más': 'Máis',
 };

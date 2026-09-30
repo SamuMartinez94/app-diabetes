@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:diaguia/bombas.dart';
-import 'package:diaguia/buscador.dart';
+import 'package:diaguia/servicios/busqueda.dart';
 import 'package:diaguia/cambio_sensor.dart';
 import 'package:diaguia/datos/alarmas.dart';
 import 'package:diaguia/datos/guias_cateter.dart';
@@ -256,79 +256,6 @@ void main() {
     test('normalizar quita tildes y mayúsculas', () {
       expect(normalizar('Oclusión'), 'oclusion');
       expect(normalizar('BATERÍA'), 'bateria');
-    });
-
-    testWidgets('Encuentra una alarma escribiendo sin tildes', (tester) async {
-      await Preferencias.guardarConfiguracion(
-        bomba: 'btandem',
-        sensor: 'sdexg7',
-        cateter: 'cautosoft90',
-      );
-      await tester.pumpWidget(conTema(const BuscadorScreen(apartados: [])));
-
-      await tester.enterText(find.byType(TextField), 'oclusion');
-      await tester.pumpAndSettle();
-
-      expect(find.text('Bloqueo de insulina (oclusión)'), findsOneWidget);
-    });
-
-    testWidgets('Encuentra una alarma por su sinónimo', (tester) async {
-      await Preferencias.guardarConfiguracion(
-        bomba: 'btandem',
-        sensor: 'sdexg7',
-        cateter: 'cautosoft90',
-      );
-      await tester.pumpWidget(conTema(const BuscadorScreen(apartados: [])));
-
-      await tester.enterText(find.byType(TextField), 'no pasa insulina');
-      await tester.pumpAndSettle();
-
-      expect(find.text('Bloqueo de insulina (oclusión)'), findsOneWidget);
-    });
-
-    testWidgets('Encuentra apartados de la app, no solo alarmas', (
-      tester,
-    ) async {
-      final apartados = [
-        Apartado(
-          titulo: 'Kit de viaje',
-          subtitulo: 'Qué llevar.',
-          icono: Icons.luggage_outlined,
-          palabras: const ['viaje', 'maleta', 'aeropuerto'],
-          construir: (_) => const SizedBox.shrink(),
-        ),
-      ];
-
-      await tester.pumpWidget(conTema(BuscadorScreen(apartados: apartados)));
-
-      await tester.enterText(find.byType(TextField), 'aeropuerto');
-      await tester.pumpAndSettle();
-
-      expect(find.text('Kit de viaje'), findsOneWidget);
-    });
-
-    testWidgets('Solo ofrece alarmas de la bomba del usuario', (tester) async {
-      await Preferencias.guardarConfiguracion(
-        bomba: 'bmedtronic',
-        sensor: 'sguardian',
-        cateter: 'cmio',
-      );
-
-      await tester.pumpWidget(conTema(const BuscadorScreen(apartados: [])));
-      await tester.enterText(find.byType(TextField), 'pod');
-      await tester.pumpAndSettle();
-
-      // "Pod caducado" es de Omnipod: no debe aparecer con una Medtronic.
-      expect(find.text('Pod caducado'), findsNothing);
-    });
-
-    testWidgets('Sin resultados muestra una explicación', (tester) async {
-      await tester.pumpWidget(conTema(const BuscadorScreen(apartados: [])));
-
-      await tester.enterText(find.byType(TextField), 'zzzzqqq');
-      await tester.pumpAndSettle();
-
-      expect(find.textContaining('Nada coincide'), findsOneWidget);
     });
   });
 

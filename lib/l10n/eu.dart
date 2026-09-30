@@ -593,17 +593,7 @@ const Map<String, String> traduccionesEu = {
   'Recambio de catéter': 'Kateterraren aldaketa',
   'Solo reservorio': 'Biltegia bakarrik',
   'Recambio de sensor': 'Sentsorearen aldaketa',
-  'Buscar': 'Bilatu',
-  'Alarma, síntoma o apartado…': 'Alarma, sintoma edo atala…',
-  'APARTADOS DE LA APP': 'APPEKO ATALAK',
-  'PASOS DE TUS GUÍAS ({n})': 'ZURE GIDETAKO URRATSAK ({n})',
-  'ALARMAS Y AVISOS ({n})': 'ALARMAK ETA ABISUAK ({n})',
   'Nada coincide con "{consulta}".': 'Ez dago "{consulta}" duenik.',
-  'Prueba con el texto que muestra tu dispositivo, o con lo que te está pasando: "no pasa insulina", "pitido", "batería".':
-      'Saiatu zure gailuak erakusten duen testuarekin, edo gertatzen zaizunarekin: "intsulinak ez du pasatzen", "bipa", "bateria".',
-  '{titulo} · paso {i} de {total}': '{titulo} · {i}. urratsa, {total}tik',
-  'Alarma': 'Alarma',
-  'Código {codigo}': '{codigo} kodea',
   'QUÉ SIGNIFICA': 'ZER ESAN NAHI DUEN',
   'QUÉ HACER': 'ZER EGIN',
   'Instrucciones': 'Jarraibideak',
@@ -715,8 +705,6 @@ const Map<String, String> traduccionesEu = {
   'Webs oficiales y urgencias.': 'Web ofizialak eta larrialdiak.',
   'Rotación de zonas': 'Guneen rotazioa',
   'Dónde ponértelo la próxima vez.': 'Non jarri hurrengo aldian.',
-  'Idioma, recordatorios, tema y dispositivos.':
-      'Hizkuntza, gogorarazleak, gaia eta gailuak.',
   '¿Qué necesitas hacer?': 'Zer egin behar duzu?',
   'Instrucciones para poner un Pod nuevo.':
       'Pod berri bat jartzeko jarraibideak.',
@@ -777,6 +765,5 @@ const Map<String, String> traduccionesEu = {
       'Oraindik ez duzu aldaketarik idatzi. Gida bat amaitzean non jarri duzun galdetuko zaizu.',
   'Hoy': 'Gaur',
   'Ayer': 'Atzo',
-  'Inicio': 'Hasiera',
   'Más': 'Gehiago',
 };

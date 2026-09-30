@@ -123,6 +123,51 @@ void main() {
       expect(find.text('Ver otro aviso'), findsOneWidget);
     });
 
+    testWidgets('Se busca escribiendo lo que se ve, sin tildes', (
+      tester,
+    ) async {
+      await abrir(tester);
+
+      await tester.tap(find.textContaining('Problema con la bomba'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'oclusion');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Bloqueo de insulina (oclusión)'), findsOneWidget);
+      expect(find.textContaining('Cartucho vacío'), findsNothing);
+
+      await tester.enterText(find.byType(TextField), 'zzzzqqq');
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Nada coincide'), findsOneWidget);
+    });
+
+    testWidgets('Se puede buscar sin decir si es de la bomba o del sensor', (
+      tester,
+    ) async {
+      await abrir(tester);
+
+      await tester.enterText(find.byType(TextField), 'senal');
+      await tester.pumpAndSettle();
+
+      // Con Tandem y Dexcom G7, "señal" sale en la bomba (Control-IQ) y en el
+      // sensor (pérdida de señal): aparecen los dos con su etiqueta.
+      expect(find.text('BOMBA'), findsWidgets);
+      expect(find.text('SENSOR'), findsWidgets);
+
+      final perdida = find.textContaining('Pérdida de señal').first;
+      await tester.ensureVisible(perdida);
+      await tester.tap(perdida);
+      await tester.pumpAndSettle();
+
+      expect(find.text('QUÉ HACER'), findsOneWidget);
+      // Llegó buscando: no hay burbuja de "Problema con el sensor".
+      expect(find.text('Problema con el sensor'), findsNothing);
+
+      await tester.tap(find.text('Ver otro aviso'));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Problema con la bomba'), findsOneWidget);
+    });
+
     testWidgets('Entendido vuelve al principio', (tester) async {
       await abrir(tester);
 

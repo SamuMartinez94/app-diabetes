@@ -96,23 +96,20 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('Hay tres: Inicio, Buscar y Más', (tester) async {
+    testWidgets('No hay barra de pestañas', (tester) async {
       await abrir(tester);
 
-      final barra = find.byType(NavigationBar);
-      expect(barra, findsOneWidget);
-      expect(
-        find.descendant(of: barra, matching: find.text('Inicio')),
-        findsOneWidget,
-      );
-      expect(
-        find.descendant(of: barra, matching: find.text('Buscar')),
-        findsOneWidget,
-      );
-      expect(
-        find.descendant(of: barra, matching: find.text('Más')),
-        findsOneWidget,
-      );
+      expect(find.byType(NavigationBar), findsNothing);
+    });
+
+    testWidgets('Hay cuatro accesos y la configuración', (tester) async {
+      await abrir(tester);
+
+      expect(find.text('Recambio de catéter'), findsOneWidget);
+      expect(find.text('Recambio de sensor'), findsOneWidget);
+      expect(find.text('Resolver problemas'), findsOneWidget);
+      expect(find.text('Más'), findsOneWidget);
+      expect(find.text('TU CONFIGURACIÓN'), findsOneWidget);
     });
 
     testWidgets('Inicio solo tiene tu configuración y qué necesitas hacer', (
@@ -130,12 +127,7 @@ void main() {
 
     testWidgets('Más contiene kit de viaje, zonas y soporte', (tester) async {
       await abrir(tester);
-      await tester.tap(
-        find.descendant(
-          of: find.byType(NavigationBar),
-          matching: find.text('Más'),
-        ),
-      );
+      await tester.tap(find.text('Más'));
       await tester.pumpAndSettle();
 
       expect(find.text('Kit de viaje'), findsOneWidget);
@@ -143,59 +135,12 @@ void main() {
       expect(find.text('Soporte y manuales'), findsOneWidget);
     });
 
-    testWidgets('Buscar muestra el buscador sin abrir el teclado solo', (
-      tester,
-    ) async {
-      await abrir(tester);
-      await tester.tap(
-        find.descendant(
-          of: find.byType(NavigationBar),
-          matching: find.text('Buscar'),
-        ),
-      );
-      await tester.pumpAndSettle();
-
-      expect(find.byType(TextField), findsOneWidget);
-      expect(find.byType(BackButton), findsNothing);
-    });
-
-    testWidgets('Se conserva lo escrito al cambiar de pestaña', (tester) async {
-      await abrir(tester);
-      final barra = find.byType(NavigationBar);
-
-      await tester.tap(
-        find.descendant(of: barra, matching: find.text('Buscar')),
-      );
-      await tester.pumpAndSettle();
-      await tester.enterText(find.byType(TextField), 'batería');
-      await tester.pumpAndSettle();
-
-      await tester.tap(
-        find.descendant(of: barra, matching: find.text('Inicio')),
-      );
-      await tester.pumpAndSettle();
-      await tester.tap(
-        find.descendant(of: barra, matching: find.text('Buscar')),
-      );
-      await tester.pumpAndSettle();
-
-      expect(find.text('batería'), findsOneWidget);
-    });
-
-    testWidgets('Las pestañas siguen el idioma', (tester) async {
+    testWidgets('Los accesos siguen el idioma', (tester) async {
       await abrir(tester);
       await Preferencias.guardarIdioma(Idioma.en);
       await tester.pumpAndSettle();
 
-      final barra = find.byType(NavigationBar);
-      expect(
-        find.descendant(of: barra, matching: find.text('Home')),
-        findsOneWidget,
-      );
-      expect(
-        find.descendant(of: barra, matching: find.text('More')),
-        findsOneWidget,
-      );
+      expect(find.text('More'), findsOneWidget);
       Traductor.actual = Idioma.es;
     });
   });

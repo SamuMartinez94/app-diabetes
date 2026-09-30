@@ -903,4 +903,6 @@ const Map<String, String> traduccionesAlarmasEu = {
   'Ver otro aviso': 'Ikusi beste abisu bat',
   '¡Hola! Cuéntame qué problema tienes y te ayudo a resolverlo.':
       'Kaixo! Kontatu iezadazu zer arazo duzun eta konpontzen lagunduko dizut.',
+  'Escribe lo que ves en la pantalla…': 'Idatzi pantailan ikusten duzuna…',
+  'Viaje, zonas y soporte.': 'Bidaia, guneak eta laguntza.',
 };

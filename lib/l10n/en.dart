@@ -592,17 +592,7 @@ const Map<String, String> traduccionesEn = {
   'Recambio de catéter': 'Infusion set change',
   'Solo reservorio': 'Reservoir only',
   'Recambio de sensor': 'Sensor change',
-  'Buscar': 'Search',
-  'Alarma, síntoma o apartado…': 'Alarm, symptom or section…',
-  'APARTADOS DE LA APP': 'APP SECTIONS',
-  'PASOS DE TUS GUÍAS ({n})': 'STEPS IN YOUR GUIDES ({n})',
-  'ALARMAS Y AVISOS ({n})': 'ALARMS AND ALERTS ({n})',
   'Nada coincide con "{consulta}".': 'Nothing matches "{consulta}".',
-  'Prueba con el texto que muestra tu dispositivo, o con lo que te está pasando: "no pasa insulina", "pitido", "batería".':
-      'Try the text your device shows, or what is happening to you: "no insulin flowing", "beep", "battery".',
-  '{titulo} · paso {i} de {total}': '{titulo} · step {i} of {total}',
-  'Alarma': 'Alarm',
-  'Código {codigo}': 'Code {codigo}',
   'QUÉ SIGNIFICA': 'WHAT IT MEANS',
   'QUÉ HACER': 'WHAT TO DO',
   'Instrucciones': 'Instructions',
@@ -714,8 +704,6 @@ const Map<String, String> traduccionesEn = {
   'Webs oficiales y urgencias.': 'Official websites and emergencies.',
   'Rotación de zonas': 'Site rotation',
   'Dónde ponértelo la próxima vez.': 'Where to put it next time.',
-  'Idioma, recordatorios, tema y dispositivos.':
-      'Language, reminders, theme and devices.',
   '¿Qué necesitas hacer?': 'What do you need to do?',
   'Instrucciones para poner un Pod nuevo.':
       'Instructions for putting on a new Pod.',
@@ -776,6 +764,5 @@ const Map<String, String> traduccionesEn = {
       'You haven\'t noted any change yet. When you finish a guide you will be asked where you put it.',
   'Hoy': 'Today',
   'Ayer': 'Yesterday',
-  'Inicio': 'Home',
   'Más': 'More',
 };

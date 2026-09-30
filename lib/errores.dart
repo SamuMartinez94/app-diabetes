@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'datos/alarmas.dart';
 import 'l10n/idioma.dart';
 import 'modelos/alarma.dart';
+import 'servicios/busqueda.dart';
 import 'tema.dart';
 import 'widgets/comunes.dart';
 
@@ -28,14 +29,20 @@ class ErroresScreen extends StatefulWidget {
 
 class _ErroresScreenState extends State<ErroresScreen> {
   final _scroll = ScrollController();
+  final _busqueda = TextEditingController();
+  String _consulta = '';
 
   /// Qué se ha elegido hasta ahora: el tipo de aviso y, dentro de él, el aviso.
   bool? _deSensor;
   Alarma? _alarma;
 
+  /// El aviso se ha elegido escribiendo, sin pasar por bomba o sensor.
+  bool _porBusqueda = false;
+
   @override
   void dispose() {
     _scroll.dispose();
+    _busqueda.dispose();
     super.dispose();
   }
 
@@ -55,8 +62,22 @@ class _ErroresScreenState extends State<ErroresScreen> {
     return lista;
   }
 
+  /// Los avisos de un tipo que encajan con lo que se ha escrito en el buscador.
+  List<Alarma> _visibles(bool deSensor) {
+    final q = normalizar(_consulta.trim());
+    final todos = _avisos(deSensor);
+    if (q.isEmpty) return todos;
+    return todos.where((a) => normalizar(a.textoBuscable).contains(q)).toList();
+  }
+
+  /// Los avisos que encajan con lo escrito, de la bomba y del sensor a la vez.
+  List<Alarma> _coincidencias() => [..._visibles(false), ..._visibles(true)];
+
   void _cambiar(VoidCallback cambio) {
     HapticFeedback.selectionClick();
+    FocusManager.instance.primaryFocus?.unfocus();
+    _busqueda.clear();
+    _consulta = '';
     setState(cambio);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!_scroll.hasClients) return;
@@ -68,9 +89,18 @@ class _ErroresScreenState extends State<ErroresScreen> {
     });
   }
 
+  /// Vuelve a la lista de avisos (o al principio si se llegó buscando).
+  void _verOtro() => _cambiar(() {
+    _alarma = null;
+    if (_porBusqueda) {
+      _deSensor = null;
+      _porBusqueda = false;
+    }
+  });
+
   void _atras() {
     if (_alarma != null) {
-      _cambiar(() => _alarma = null);
+      _verOtro();
     } else if (_deSensor != null) {
       _cambiar(() => _deSensor = null);
     } else {
@@ -81,6 +111,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
   void _reiniciar() => _cambiar(() {
     _deSensor = null;
     _alarma = null;
+    _porBusqueda = false;
   });
 
   Color _colorGravedad(BuildContext context, Gravedad g) => switch (g) {
@@ -104,7 +135,21 @@ class _ErroresScreenState extends State<ErroresScreen> {
     final deSensor = _deSensor;
     final alarma = _alarma;
 
-    if (deSensor == null) {
+    if (deSensor == null && _consulta.trim().isNotEmpty) {
+      opciones = [
+        for (final a in _coincidencias())
+          _Opcion(
+            t(a.titulo),
+            () => _cambiar(() {
+              _deSensor = a.deSensor;
+              _alarma = a;
+              _porBusqueda = true;
+            }),
+            color: _colorGravedad(context, a.gravedad),
+            etiqueta: a.deSensor ? t('Sensor') : t('Bomba'),
+          ),
+      ];
+    } else if (deSensor == null) {
       opciones = [
         if (_avisos(false).isNotEmpty)
           _Opcion(
@@ -118,13 +163,15 @@ class _ErroresScreenState extends State<ErroresScreen> {
           ),
       ];
     } else {
-      burbujas.add(
-        _Burbuja.usuario(
-          texto: deSensor
-              ? t('Problema con el sensor')
-              : t('Problema con la bomba'),
-        ),
-      );
+      if (!_porBusqueda) {
+        burbujas.add(
+          _Burbuja.usuario(
+            texto: deSensor
+                ? t('Problema con el sensor')
+                : t('Problema con la bomba'),
+          ),
+        );
+      }
 
       if (alarma == null) {
         burbujas.add(
@@ -136,7 +183,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
           ),
         );
         opciones = [
-          for (final a in _avisos(deSensor))
+          for (final a in _visibles(deSensor))
             _Opcion(
               t(a.titulo),
               () => _cambiar(() => _alarma = a),
@@ -148,7 +195,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
           ..add(_Burbuja.usuario(texto: t(alarma.titulo)))
           ..add(_RespuestaAlarma(alarma: alarma));
         opciones = [
-          _Opcion(t('Ver otro aviso'), () => _cambiar(() => _alarma = null)),
+          _Opcion(t('Ver otro aviso'), _verOtro),
           _Opcion(t('Entendido'), _reiniciar),
         ];
       }
@@ -163,23 +210,54 @@ class _ErroresScreenState extends State<ErroresScreen> {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.separated(
-                controller: _scroll,
-                physics: const BouncingScrollPhysics(),
-                padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
-                itemCount: burbujas.length,
-                separatorBuilder: (_, _) => const SizedBox(height: 12),
-                itemBuilder: (_, i) => burbujas[i],
+        child: LayoutBuilder(
+          builder: (context, cabida) => Column(
+            children: [
+              Expanded(
+                child: ListView.separated(
+                  controller: _scroll,
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+                  itemCount: burbujas.length,
+                  separatorBuilder: (_, _) => const SizedBox(height: 12),
+                  itemBuilder: (_, i) => burbujas[i],
+                ),
               ),
-            ),
-            _PanelRespuestas(
-              opciones: opciones,
-              destacarPrimera: alarma != null,
-            ),
-          ],
+              _PanelRespuestas(
+                opciones: opciones,
+                destacarPrimera: alarma != null,
+                maxAlto: cabida.maxHeight * 0.55,
+                buscador: alarma == null ? _campoBusqueda(context) : null,
+                sinResultados: alarma == null
+                    ? tf('Nada coincide con "{consulta}".', {
+                        'consulta': _consulta.trim(),
+                      })
+                    : null,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Campo para escribir lo que se ve en la pantalla del dispositivo.
+  Widget _campoBusqueda(BuildContext context) {
+    final esquema = context.esquema;
+    return TextField(
+      controller: _busqueda,
+      onChanged: (v) => setState(() => _consulta = v),
+      textInputAction: TextInputAction.search,
+      decoration: InputDecoration(
+        hintText: t('Escribe lo que ves en la pantalla…'),
+        prefixIcon: const Icon(Icons.search),
+        isDense: true,
+        filled: true,
+        fillColor: esquema.surfaceContainerLow,
+        contentPadding: const EdgeInsets.symmetric(vertical: 14),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: BorderSide.none,
         ),
       ),
     );
@@ -203,7 +281,10 @@ class _Opcion {
   /// Color suave del marco (por ejemplo, el de la gravedad de un aviso).
   final Color? color;
 
-  const _Opcion(this.texto, this.alPulsar, {this.color});
+  /// Texto pequeño sobre el título (por ejemplo, si el aviso es de la bomba).
+  final String? etiqueta;
+
+  const _Opcion(this.texto, this.alPulsar, {this.color, this.etiqueta});
 }
 
 class _Burbuja extends StatelessWidget {
@@ -412,63 +493,104 @@ class _RespuestaAlarma extends StatelessWidget {
 class _PanelRespuestas extends StatelessWidget {
   final List<_Opcion> opciones;
   final bool destacarPrimera;
+  final double maxAlto;
+
+  /// Campo de búsqueda fijo sobre las opciones y texto si nada coincide.
+  final Widget? buscador;
+  final String? sinResultados;
 
   const _PanelRespuestas({
     required this.opciones,
     required this.destacarPrimera,
+    required this.maxAlto,
+    this.buscador,
+    this.sinResultados,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (opciones.isEmpty) return const SizedBox.shrink();
+    if (opciones.isEmpty && buscador == null) return const SizedBox.shrink();
     final esquema = context.esquema;
 
     return Container(
       width: double.infinity,
-      constraints: BoxConstraints(
-        maxHeight: MediaQuery.sizeOf(context).height * 0.5,
-      ),
+      constraints: BoxConstraints(maxHeight: maxAlto),
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
       decoration: BoxDecoration(
         color: esquema.surface,
         border: Border(top: BorderSide(color: esquema.outlineVariant)),
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            for (var i = 0; i < opciones.length; i++) ...[
-              if (i > 0) const SizedBox(height: 10),
-              SizedBox(
-                width: double.infinity,
-                child: (destacarPrimera && i == 0)
-                    ? FilledButton(
-                        onPressed: opciones[i].alPulsar,
-                        style: FilledButton.styleFrom(
-                          minimumSize: const Size.fromHeight(52),
-                        ),
-                        child: _texto(opciones[i].texto),
-                      )
-                    : OutlinedButton(
-                        onPressed: opciones[i].alPulsar,
-                        style: OutlinedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(52),
-                          foregroundColor: opciones[i].color == null
-                              ? esquema.primary
-                              : esquema.onSurface,
-                          backgroundColor: opciones[i].color?.withAlpha(16),
-                          side: BorderSide(
-                            color:
-                                opciones[i].color?.withAlpha(120) ??
-                                esquema.primary,
-                            width: 1.5,
-                          ),
-                        ),
-                        child: _texto(opciones[i].texto),
-                      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (opciones.isEmpty && sinResultados != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              child: Text(
+                sinResultados!,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: esquema.onSurfaceVariant),
               ),
-            ],
-          ],
-        ),
+            ),
+          Flexible(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  for (var i = 0; i < opciones.length; i++) ...[
+                    if (i > 0) const SizedBox(height: 10),
+                    SizedBox(
+                      width: double.infinity,
+                      child: (destacarPrimera && i == 0)
+                          ? FilledButton(
+                              onPressed: opciones[i].alPulsar,
+                              style: FilledButton.styleFrom(
+                                minimumSize: const Size.fromHeight(52),
+                              ),
+                              child: _texto(opciones[i].texto),
+                            )
+                          : OutlinedButton(
+                              onPressed: opciones[i].alPulsar,
+                              style: OutlinedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(52),
+                                foregroundColor: opciones[i].color == null
+                                    ? esquema.primary
+                                    : esquema.onSurface,
+                                backgroundColor: opciones[i].color?.withAlpha(
+                                  16,
+                                ),
+                                side: BorderSide(
+                                  color:
+                                      opciones[i].color?.withAlpha(120) ??
+                                      esquema.primary,
+                                  width: 1.5,
+                                ),
+                              ),
+                              child: opciones[i].etiqueta == null
+                                  ? _texto(opciones[i].texto)
+                                  : Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          opciones[i].etiqueta!.toUpperCase(),
+                                          style: TextStyle(
+                                            fontSize: 10,
+                                            letterSpacing: 1,
+                                            fontWeight: FontWeight.bold,
+                                            color: esquema.onSurfaceVariant,
+                                          ),
+                                        ),
+                                        _texto(opciones[i].texto),
+                                      ],
+                                    ),
+                            ),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+          if (buscador != null) ...[const SizedBox(height: 10), buscador!],
+        ],
       ),
     );
   }

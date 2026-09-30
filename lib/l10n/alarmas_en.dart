@@ -898,4 +898,6 @@ const Map<String, String> traduccionesAlarmasEn = {
   'Ver otro aviso': 'See another notice',
   '¡Hola! Cuéntame qué problema tienes y te ayudo a resolverlo.':
       'Hi! Tell me what problem you have and I\'ll help you sort it out.',
+  'Escribe lo que ves en la pantalla…': 'Type what you see on the screen…',
+  'Viaje, zonas y soporte.': 'Travel, sites and support.',
 };
