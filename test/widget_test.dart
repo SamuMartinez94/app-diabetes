@@ -187,13 +187,16 @@ void main() {
       }
     });
 
-    test('Todas las alarmas están marcadas para revisión', () {
+    test('Solo están por revisar las alarmas sin manual de origen', () {
       for (final alarma in alarmas) {
         expect(
           alarmasPorRevisar.contains(alarma.id),
-          isTrue,
-          reason: 'La alarma "${alarma.id}" no está marcada para revisar',
+          alarma.manual == null,
+          reason: 'La alarma "${alarma.id}" tiene mal su estado de revisión',
         );
+        if (alarma.manual != null) {
+          expect(alarma.pagina, isNotNull, reason: alarma.id);
+        }
       }
     });
 
@@ -256,21 +259,31 @@ void main() {
     });
 
     testWidgets('Encuentra una alarma escribiendo sin tildes', (tester) async {
+      await Preferencias.guardarConfiguracion(
+        bomba: 'btandem',
+        sensor: 'sdexg7',
+        cateter: 'cautosoft90',
+      );
       await tester.pumpWidget(conTema(const BuscadorScreen(apartados: [])));
 
       await tester.enterText(find.byType(TextField), 'oclusion');
       await tester.pumpAndSettle();
 
-      expect(find.text('Bloqueo (oclusión)'), findsOneWidget);
+      expect(find.text('Bloqueo de insulina (oclusión)'), findsOneWidget);
     });
 
     testWidgets('Encuentra una alarma por su sinónimo', (tester) async {
+      await Preferencias.guardarConfiguracion(
+        bomba: 'btandem',
+        sensor: 'sdexg7',
+        cateter: 'cautosoft90',
+      );
       await tester.pumpWidget(conTema(const BuscadorScreen(apartados: [])));
 
       await tester.enterText(find.byType(TextField), 'no pasa insulina');
       await tester.pumpAndSettle();
 
-      expect(find.text('Bloqueo (oclusión)'), findsOneWidget);
+      expect(find.text('Bloqueo de insulina (oclusión)'), findsOneWidget);
     });
 
     testWidgets('Encuentra apartados de la app, no solo alarmas', (

@@ -19,6 +19,17 @@ class Alarma {
   /// Bomba a la que aplica, o cadena vacía si es común a todas.
   final String bomba;
 
+  /// Sensores a los que aplica, o lista vacía si vale para cualquiera.
+  final List<String> sensores;
+
+  /// Aviso del sensor o de la glucosa, no de la bomba.
+  final bool deSensor;
+
+  /// Manual oficial del que sale y página, para poder comprobarlo. Si falta,
+  /// el texto aún no está contrastado con ningún manual.
+  final String? manual;
+  final String? pagina;
+
   /// Texto tal y como lo muestra el dispositivo.
   final String titulo;
 
@@ -39,9 +50,15 @@ class Alarma {
     required this.significado,
     required this.queHacer,
     required this.gravedad,
+    this.sensores = const [],
+    this.deSensor = false,
+    this.manual,
+    this.pagina,
     this.codigo,
     this.sinonimos = const [],
   });
+
+  bool get porRevisar => manual == null;
 
   /// Los sinónimos en una sola cadena (es la clave de su traducción).
   String get textoSinonimos => sinonimos.join(', ');

@@ -30,183 +30,36 @@ const Map<String, String> traduccionesEu = {
   'Inserción': 'Sartzea',
   'Finalizar': 'Amaitu',
   'Elegir zona': 'Gunea aukeratu',
-  'Bloqueo (oclusión)': 'Blokeoa (oklusioa)',
-  'La bomba nota que algo bloquea el paso y la insulina no está llegando a tu cuerpo. Puede ser un catéter doblado, una cánula atascada o un cristal de insulina.':
-      'Ponpak nabaritzen du zerbaitek bidea blokeatzen duela eta intsulina ez dela zure gorputzera iristen. Kateter tolestua, kanula buxatua edo intsulina-kristal bat izan daiteke.',
   'oclusion, obstruido, atasco, no pasa insulina, bloqueo, acodado':
       'oklusioa, buxatuta, blokeoa, intsulinak ez du pasatzen, tolestuta',
   'Confirma la alarma y desconecta el catéter de tu cuerpo.':
       'Berretsi alarma eta deskonektatu kateterra zure gorputzetik.',
-  'Cambia el catéter entero y llena el tubo (cebar) como indica su guía.':
-      'Aldatu kateter osoa eta bete hodia (garbitu) bere gidak dioen bezala.',
   'Si el llenado termina sin que vuelva a saltar el bloqueo, ya puedes seguir con normalidad.':
       'Betetzea amaitzen bada blokeoak berriro jo gabe, ohi bezala jarraitu dezakezu.',
-  'Si el bloqueo salta otra vez al llenar el catéter nuevo, cambia también el cartucho o reservorio y vuelve a llenar.':
-      'Kateter berria betetzean blokeoak berriro jotzen badu, aldatu kartutxoa edo biltegia ere eta bete berriro.',
-  'Si sigue saltando aun con cartucho nuevo, la bomba puede estar averiada: contacta con el fabricante.':
-      'Kartutxo berriarekin ere jotzen badu, agian ponpa hondatuta dago: jarri harremanetan fabrikatzailearekin.',
   'Mide tu glucosa y, si está alta, comprueba las cetonas.':
       'Neurtu zure glukosa eta, altua badago, egiaztatu ketonak.',
   'Queda poca insulina': 'Intsulina gutxi geratzen da',
-  'Queda poca insulina en el cartucho. Es solo un aviso: la bomba sigue funcionando con normalidad.':
-      'Kartutxoan intsulina gutxi geratzen da. Abisu bat baino ez da: ponpak ohi bezala jarraitzen du.',
-  'poca insulina, queda poco, cartucho bajo, reservorio':
-      'intsulina gutxi, gutxi geratzen da, kartutxoa baxu, biltegia',
-  'Prepara un reservorio nuevo y ten insulina a mano.':
-      'Prestatu biltegi berri bat eta izan intsulina eskura.',
-  'Haz el cambio antes de que se vacíe del todo.':
-      'Egin aldaketa erabat hustu baino lehen.',
-  'Sin insulina (reservorio vacío)': 'Intsulinarik gabe (biltegi hutsa)',
-  'Ya no queda insulina. La bomba ha dejado de darte insulina, también la de fondo (basal).':
-      'Ez da intsulinarik geratzen. Ponpak intsulina ematen utzi du, baita oinarrizkoa (basala) ere.',
-  'sin insulina, cartucho vacio, se acabo, vacio':
-      'intsulinarik gabe, kartutxo hutsa, amaitu da, hutsik',
-  'Cambia el reservorio cuanto antes.': 'Aldatu biltegia ahalik eta lasterren.',
   'Mide tu glucosa: llevas un rato sin insulina de fondo.':
       'Neurtu zure glukosa: oinarrizko intsulinarik gabe zaude denbora pixka batez.',
-  'Si no puedes cambiarlo ya, usa la pluma de respaldo.':
-      'Ezin baduzu orain aldatu, erabili ordezko luma.',
-  'Batería baja': 'Bateria baxua',
-  'Queda poca carga. La bomba sigue funcionando con normalidad.':
-      'Karga gutxi geratzen da. Ponpak ohi bezala jarraitzen du.',
-  'pila baja, poca bateria, cargar, pila':
-      'pila baxua, bateria gutxi, kargatu, pila',
-  'Carga la bomba o ten una pila de repuesto preparada.':
-      'Kargatu ponpa edo izan ordezko pila bat prest.',
-  'No dejes que se agote: si se apaga, dejas de recibir insulina.':
-      'Ez utzi amaitzen: itzaltzen bada, intsulina jasotzeari uzten diozu.',
-  'Batería agotada / Cambiar pila': 'Bateria amaituta / Aldatu pila',
-  'La bomba se va a apagar o ya se ha apagado, y no te está dando insulina.':
-      'Ponpa itzaltzear dago edo dagoeneko itzali da, eta ez dizu intsulinarik ematen.',
-  'sin bateria, apagada, no enciende, sin pila':
-      'bateriarik gabe, itzalita, ez da pizten, pilarik gabe',
-  'Cambia la pila o conecta el cargador enseguida.':
-      'Aldatu pila edo konektatu kargagailua berehala.',
-  'Cuando se reinicie, comprueba que la hora y tu programa de insulina de fondo (basal) son correctos.':
-      'Berrabiaraztean, egiaztatu ordua eta zure oinarrizko intsulina-programa (basala) zuzenak direla.',
   'Mide tu glucosa para saber cuánto tiempo has estado sin insulina.':
       'Neurtu zure glukosa jakiteko zenbat denbora egon zaren intsulinarik gabe.',
-  'Bomba parada': 'Ponpa geldituta',
-  'La bomba no te está dando insulina, porque la has parado tú o por un error.':
-      'Ponpak ez dizu intsulinarik ematen, zuk gelditu duzulako edo akats bat dagoelako.',
-  'parada, suspendida, no administra, stop, detenida':
-      'geldituta, etenda, ez du ematen, stop, geldirik',
-  'Mira en la pantalla por qué se ha parado.':
-      'Begiratu pantailan zergatik gelditu den.',
-  'Si el motivo ya está resuelto, reanuda la insulina.':
-      'Arrazoia konponduta badago, berrekin intsulinari.',
   'Mide tu glucosa: sin insulina de fondo, sube rápido.':
       'Neurtu zure glukosa: oinarrizko intsulinarik gabe, azkar igotzen da.',
   'Demasiado frío o demasiado calor': 'Hotz edo bero gehiegi',
-  'La bomba está demasiado fría o demasiado caliente para funcionar con seguridad. Además, la insulina se estropea con el calor.':
-      'Ponpa hotzegia edo beroegia dago segurtasunez funtzionatzeko. Gainera, intsulina beroarekin hondatzen da.',
   'calor, frio, sol, playa, temperatura':
       'beroa, hotza, eguzkia, hondartza, tenperatura',
   'Aleja la bomba del calor o del frío directo (sol, coche, nevera).':
       'Urrundu ponpa bero edo hotz zuzenetik (eguzkia, kotxea, hozkailua).',
-  'Espera a que vuelva a temperatura ambiente.':
-      'Itxaron giro-tenperaturara itzul dadin.',
-  'Si ha estado expuesta mucho rato, cambia la insulina: puede haber perdido efecto.':
-      'Denbora luzez egon bada, aldatu intsulina: efektua galdu dezake.',
-  'Cánula sin llenar': 'Kanula betetzeke',
-  'Has terminado el cambio pero no se ha llenado la cánula (el tubito que queda bajo la piel). Hay aire al final y no está entrando insulina.':
-      'Aldaketa amaitu duzu baina kanula ez da bete (azalaren azpian geratzen den hodi txikia). Airea dago amaieran eta ez da intsulinarik sartzen.',
-  'cebar, purgar, llenar canula, aire, canula':
-      'garbitu, kanula bete, airea, kanula',
-  'Elige "Llenar cánula" y pon la cantidad que indica la caja de tu catéter.':
-      'Aukeratu "Kanula bete" eta jarri zure kateterraren kutxak adierazten duen kantitatea.',
-  'Excepción: los catéteres con aguja de acero (Sure-T, TruSteel, Orbit micro) NO tienen cánula y no se llenan.':
-      'Salbuespena: altzairuzko orratza duten kateterrek (Sure-T, TruSteel, Orbit micro) EZ dute kanularik eta ez dira betetzen.',
-  'No dejes la bomba parada en la pantalla de llenar cánula: mientras esté ahí, no te da insulina.':
-      'Ez utzi ponpa geldirik kanula betetzeko pantailan: bertan dagoen bitartean, ez dizu intsulinarik ematen.',
   'Insulina suspendida por glucosa baja':
       'Intsulina etenda glukosa baxua delako',
-  'El sensor ha detectado que tu glucosa está baja y la bomba ha parado sola la insulina de fondo (basal).':
-      'Sentsoreak zure glukosa baxua dela detektatu du eta ponpak oinarrizko intsulina (basala) gelditu du berez.',
-  'hipo, suspension, smartguard, parada por baja':
-      'hipo, etena, smartguard, baxua delako geldialdia',
   'Confírmalo con un pinchazo en el dedo.':
       'Berretsi hatzeko zulaketa batekin.',
-  'Si de verdad está baja, trátala como te haya enseñado tu equipo médico.':
-      'Benetan baxua badago, artatu ezazu zure mediku-taldeak irakatsi dizun bezala.',
-  'La insulina se reanuda sola cuando te recuperas; también puedes reanudarla tú.':
-      'Intsulina berez berrabiatzen da errekuperatzen zarenean; zuk ere berrabiaraz dezakezu.',
-  'Insulina suspendida por si baja la glucosa':
-      'Intsulina etenda glukosa jaits ez dadin',
-  'El sensor prevé que tu glucosa va a bajar y la bomba ha parado la insulina de fondo (basal) para evitarlo.':
-      'Sentsoreak aurreikusten du zure glukosa jaitsiko dela eta ponpak oinarrizko intsulina (basala) gelditu du hori saihesteko.',
-  'prediccion, preventiva, smartguard': 'iragarpena, prebentiboa, smartguard',
-  'Si todavía estás en rango, no hace falta que tomes nada: la parada es preventiva.':
-      'Oraindik tartean bazaude, ez duzu ezer hartu beharrik: geldialdia prebentiboa da.',
-  'Vigila cómo evoluciona tu glucosa durante la siguiente media hora.':
-      'Zaindu zure glukosa nola eboluzionatzen duen hurrengo ordu erdian.',
-  'Salida del modo automático': 'Modu automatikotik irtetea',
-  'La bomba ha vuelto al modo manual. Suele pasar porque el sensor no da lecturas o porque la bomba lleva mucho rato dando la insulina máxima o mínima.':
-      'Ponpa modu eskurakora itzuli da. Normalean sentsoreak neurketarik ematen ez duelako edo ponpak denbora luzez intsulina maximoa edo minimoa ematen ari delako gertatzen da.',
-  'modo manual, smartguard, automatico, auto mode':
-      'eskuzko modua, smartguard, automatikoa, auto mode',
-  'Comprueba que el sensor está dando lecturas.':
-      'Egiaztatu sentsoreak neurketak ematen dituela.',
-  'Sigue las indicaciones de la pantalla para volver al modo automático.':
-      'Jarraitu pantailako jarraibideei modu automatikora itzultzeko.',
   'Mientras estés en manual, vigila más tu glucosa.':
       'Eskuzko moduan zauden bitartean, zaindu gehiago zure glukosa.',
-  'Error al cargar el reservorio': 'Errorea biltegia kargatzean',
-  'La bomba no ha podido terminar de cargar el reservorio o de mover el pistón.':
-      'Ponpak ezin izan du biltegia kargatzen edo pistoia mugitzen amaitu.',
-  'error carga, piston, rebobinar, error de administracion':
-      'karga errorea, pistoia, atzera bobinatu, administrazio errorea',
-  'Saca el reservorio y repite "Nuevo reservorio y equipo" desde el principio.':
-      'Atera biltegia eta errepikatu "Biltegi eta ekipo berria" hasieratik.',
-  'Comprueba que el reservorio está bien puesto y girado hasta el tope.':
-      'Egiaztatu biltegia ondo jarrita dagoela eta amaierara arte biratuta.',
-  'Si el error se repite, llama al soporte del fabricante.':
-      'Errorea errepikatzen bada, deitu fabrikatzailearen laguntza-zerbitzuari.',
   'Pod caducado': 'Pod iraungita',
-  'El Pod ha llegado al final de su vida útil y ha dejado de dar insulina.':
-      'Podak bere bizitza baliagarriaren amaierara iritsi da eta intsulina ematen utzi du.',
-  'caducado, expirado, pod viejo': 'iraungita, muga pasata, pod zaharra',
-  'INFORMACIÓN DEL POD → VER DETALLES DEL POD → CAMBIAR EL POD → DESACTIVAR POD.':
-      'PODAREN INFORMAZIOA → IKUSI PODAREN XEHETASUNAK → ALDATU PODA → DESAKTIBATU PODA.',
-  'Despega despacio los bordes del adhesivo y quita el Pod.':
-      'Askatu poliki itsasgarriaren ertzak eta kendu poda.',
-  'No pongas el Pod nuevo hasta haber desactivado y quitado el viejo.':
-      'Ez jarri pod berria lehengoa desaktibatu eta kendu arte.',
-  'Error del Pod (alarma de peligro)': 'Podaren errorea (arriskuaren alarma)',
-  'El Pod ha detectado un fallo interno y ha dejado de dar insulina. Suele sonar un pitido continuo.':
-      'Podak barne-hutsegite bat detektatu du eta intsulina ematen utzi du. Normalean bip jarraitu bat entzuten da.',
-  'pitido, alarma continua, fallo pod':
-      'bipa, alarma jarraitua, pod hutsegitea',
-  'Desactiva el Pod desde el Controlador y quítalo de la piel.':
-      'Desaktibatu poda Kontrolagailutik eta kendu azaletik.',
   'Pon un Pod nuevo.': 'Jarri pod berri bat.',
-  'Guarda el Pod estropeado: el soporte puede pedírtelo.':
-      'Gorde hondatutako poda: laguntza-zerbitzuak eskatu diezazuke.',
   'Mide tu glucosa y comprueba las cetonas.':
       'Neurtu zure glukosa eta egiaztatu ketonak.',
-  'No se puede desactivar el Pod': 'Ezin da poda desaktibatu',
-  'El Controlador no consigue comunicarse con el Pod para desactivarlo.':
-      'Kontrolagailuak ezin du podarekin komunikatu hura desaktibatzeko.',
-  'no desactiva, no se apaga, quitar pod':
-      'ez da desaktibatzen, ez da itzaltzen, pod kendu',
-  'Acerca el Controlador al Pod para que puedan comunicarse.':
-      'Hurbildu Kontrolagailua podera komunikatu ahal izan dezaten.',
-  'Si sigue sin desactivarse, usa la opción de descartar el Pod en el Controlador.':
-      'Oraindik desaktibatzen ez bada, erabili podari uko egiteko aukera Kontrolagailuan.',
-  'Quita el Pod de la piel con la mano y ponte uno nuevo.':
-      'Kendu poda azaletik eskuz eta jarri beste bat.',
-  'Recuerda que el Pod y el sensor deben ir en el mismo lado del cuerpo para verse entre sí.':
-      'Gogoratu podak eta sentsoreak gorputzaren alde berean egon behar dutela elkar ikusteko.',
-  'El Controlador no encuentra el Pod': 'Kontrolagailuak ez du poda aurkitzen',
-  'El Controlador no localiza el Pod. El Pod sigue dando la insulina de fondo (basal) que tenía programada.':
-      'Kontrolagailuak ezin du poda kokatu. Podak programatuta zuen oinarrizko intsulina (basala) ematen jarraitzen du.',
-  'sin señal pod, no conecta, fuera de alcance, sin comunicacion':
-      'podaren seinalerik ez, ez da konektatzen, irismenetik kanpo, komunikaziorik ez',
-  'Acerca el Controlador al Pod.': 'Hurbildu Kontrolagailua podera.',
-  'Aléjate de cosas que puedan interferir (otros aparatos, paredes gruesas).':
-      'Urrundu interferentziak sor ditzaketen gauzetatik (beste aparatu batzuk, horma lodiak).',
-  'Si no se recupera, el Pod seguirá con su última insulina de fondo: planifica el cambio.':
-      'Errekuperatzen ez bada, podak azken oinarrizko intsulinarekin jarraituko du: planifikatu aldaketa.',
   'Cartucho vacío': 'Kartutxo hutsa',
   'A la YpsoPump se le ha acabado la insulina del cartucho y ha dejado de darte insulina.':
       'YpsoPumpari kartutxoko intsulina amaitu zaio eta intsulina ematen utzi du.',
@@ -218,18 +71,10 @@ const Map<String, String> traduccionesEu = {
   'Mide tu glucosa.': 'Neurtu zure glukosa.',
   'La varilla no ha terminado de retraerse':
       'Hagaxka ez da atzera egiten amaitu',
-  'Has puesto el cartucho antes de que la varilla roscada terminara de retraerse y de que la bomba acabara su autocomprobación.':
-      'Kartutxoa jarri duzu hagaxka hariduna atzera egiten amaitu baino lehen eta ponpak bere autoegiaztapena osatu baino lehen.',
   'varilla, roscada, retraccion, cartucho antes':
       'hagaxka, hariduna, atzera egitea, kartutxoa lehenago',
-  'Repite el cambio de cartucho desde el principio.':
-      'Errepikatu kartutxoaren aldaketa hasieratik.',
-  'Espera a que el porcentaje baje al 0 % y a que termine la autocomprobación antes de poner el cartucho.':
-      'Itxaron ehunekoa % 0ra jaitsi arte eta autoegiaztapena amaitu arte, kartutxoa jarri aurretik.',
   'No hay insulina / Falta llenar el tubo (cebado)':
       'Ez dago intsulinarik / Hodia betetzeke (garbiketa)',
-  'Después de retraer la varilla roscada pasaron 5 minutos sin llenar el tubo (cebar), o el llenado ha fallado. La bomba no te está dando insulina.':
-      'Hagaxka haridunari atzera eragin ondoren 5 minutu igaro dira hodia bete gabe (garbitu), edo betetzeak huts egin du. Ponpak ez dizu intsulinarik ematen.',
   'no hay insulina, cebado, purgar, sin cebar':
       'ez dago intsulinarik, garbiketa, garbitu, garbitu gabe',
   'Confirma la alarma.': 'Berretsi alarma.',
@@ -279,28 +124,7 @@ const Map<String, String> traduccionesEu = {
       'Berretsi alarma eta jarri AAA (LR03) pila alkalino berri bat.',
   'Mide tu glucosa: puede que hayas estado sin insulina de fondo.':
       'Neurtu zure glukosa: agian oinarrizko intsulinarik gabe egon zara.',
-  'La bomba se ha reiniciado': 'Ponpa berrabiarazi da',
-  'La bomba se ha reiniciado por un error del programa. Puede que tengas que confirmar algunos ajustes.':
-      'Ponpa berrabiarazi da programaren errore batengatik. Ezarpen batzuk berretsi beharko dituzu agian.',
-  'reinicio, se reinicio, error software':
-      'berrabiaraztea, berrabiarazi da, software errorea',
-  'Comprueba que la hora y la fecha son correctas.':
-      'Egiaztatu ordua eta data zuzenak direla.',
-  'Mira que tu programa de insulina de fondo (basal) sigue activo.':
-      'Begiratu zure oinarrizko intsulina-programa (basala) aktibo jarraitzen duela.',
-  'Comprueba la insulina activa (la que aún te está haciendo efecto): puede haberse perdido el registro.':
-      'Egiaztatu intsulina aktiboa (oraindik efektua egiten ari zaizuna): erregistroa galdu daiteke.',
   'Se ha perdido la señal del sensor': 'Sentsorearen seinalea galdu da',
-  'Tu móvil o tu bomba no reciben lecturas del sensor. La bomba sigue dando tu insulina de fondo (basal), pero sin ajustes automáticos.':
-      'Zure telefonoak edo ponpak ez dute sentsorearen neurketarik jasotzen. Ponpak zure oinarrizko intsulina (basala) ematen jarraitzen du, baina doikuntza automatikorik gabe.',
-  'no conecta, sin señal, bluetooth, sin lecturas':
-      'ez da konektatzen, seinalerik ez, bluetooth, neurketarik ez',
-  'Acerca el móvil o el receptor al sensor.':
-      'Hurbildu telefonoa edo hargailua sentsorera.',
-  'Si tu modelo lleva transmisor, comprueba que está bien encajado.':
-      'Zure ereduak transmisorea badu, egiaztatu ondo txertatuta dagoela.',
-  'Apaga y enciende el Bluetooth del dispositivo y espera 15 minutos.':
-      'Itzali eta piztu gailuaren Bluetooth-a eta itxaron 15 minutu.',
   'Mientras no haya lecturas, mídete con un pinchazo en el dedo.':
       'Neurketarik ez dagoen bitartean, neurtu hatzeko zulaketa batekin.',
   'Sensor caducado / Cambiar sensor': 'Sentsorea iraungita / Aldatu sentsorea',
@@ -311,30 +135,6 @@ const Map<String, String> traduccionesEu = {
   'Quita el sensor y ponte uno nuevo.': 'Kendu sentsorea eta jarri berri bat.',
   'Mira la guía de cambio de sensor de esta app.':
       'Begiratu app honetako sentsorea aldatzeko gida.',
-  'Recuerda que hay un tiempo de calentamiento antes de las primeras lecturas.':
-      'Gogoratu berotze-denbora bat dagoela lehen neurketak izan aurretik.',
-  'Toca calibrar': 'Kalibratzeko unea',
-  'El sensor necesita que le des el valor de un pinchazo en el dedo para seguir dando lecturas fiables.':
-      'Sentsoreak hatzeko zulaketa baten balioa eman diozula behar du neurketa fidagarriak ematen jarraitzeko.',
-  'calibracion, calibrar, capilar, referencia':
-      'kalibrazioa, kalibratu, kapilarra, erreferentzia',
-  'Lávate y sécate bien las manos antes de pincharte.':
-      'Garbitu eta lehortu ondo eskuak zulatu aurretik.',
-  'Mete el valor del dedo en cuanto lo tengas.':
-      'Sartu hatzaren balioa lortu bezain laster.',
-  'No calibres si tu glucosa está cambiando rápido: espera a un momento estable.':
-      'Ez kalibratu zure glukosa azkar aldatzen ari bada: itxaron une egonkor bat.',
-  'Sensor calentando': 'Sentsorea berotzen',
-  'El sensor recién puesto se está estabilizando y todavía no da lecturas.':
-      'Jarri berri den sentsorea egonkortzen ari da eta oraindik ez du neurketarik ematen.',
-  'calentamiento, iniciando, sin lecturas aun, actualizando':
-      'berotzea, hasten, oraindik neurketarik ez, eguneratzen',
-  'Espera el tiempo de calentamiento de tu modelo: entre 30 minutos y 2 horas.':
-      'Itxaron zure ereduaren berotze-denbora: 30 minutu eta 2 ordu artean.',
-  'Mientras tanto, mídete con un pinchazo en el dedo.':
-      'Bitartean, neurtu hatzeko zulaketa batekin.',
-  'Si al terminar sigue sin dar lecturas, revisa el emparejamiento.':
-      'Amaitzean neurketarik ematen ez badu, berrikusi parekatzea.',
   'Aviso de glucosa alta': 'Glukosa altuaren abisua',
   'El sensor ha detectado un valor por encima del límite que tienes configurado.':
       'Sentsoreak konfiguratuta duzun mugaren gainetik dagoen balio bat detektatu du.',
@@ -894,77 +694,6 @@ const Map<String, String> traduccionesEu = {
   'Resolver problemas': 'Arazoak konpondu',
   'TU CONFIGURACIÓN': 'ZURE KONFIGURAZIOA',
   '¿Qué está pasando?': 'Zer gertatzen ari da?',
-  'El sensor no conecta': 'Sentsorea ez da konektatzen',
-  'Problemas de señal o de conexión.': 'Seinale- edo konexio-arazoak.',
-  'Aviso de bloqueo en el Pod': 'Podeko blokeo-abisua',
-  'Aviso de insulina bloqueada': 'Intsulina blokeatuaren abisua',
-  'El Pod ha detectado un problema.': 'Podak arazo bat detektatu du.',
-  'La insulina no pasa bien.': 'Intsulinak ez du ondo pasatzen.',
-  'No me fío de las lecturas': 'Ez naiz neurketez fidatzen',
-  'El sensor y el dedo no coinciden.': 'Sentsoreak eta hatzak ez datoz bat.',
-  'Comprueba que está bien encajado': 'Egiaztatu ondo txertatuta dagoela',
-  'Presiona el transmisor sobre el soporte del sensor. ¿Notas que está bien colocado y ha hecho clic?':
-      'Sakatu transmisorea sentsorearen euskarriaren gainean. Nabaritzen duzu ondo jarrita dagoela eta klik egin duela?',
-  'Sí, está bien puesto': 'Bai, ondo jarrita dago',
-  'No, se mueve o no encaja': 'Ez, mugitzen da edo ez da txertatzen',
-  'Quita el transmisor, limpia los contactos y el soporte con un paño seco y vuelve a encajarlo hasta oír los clics. Si el soporte está dañado, tendrás que cambiar el sensor.':
-      'Kendu transmisorea, garbitu kontaktuak eta euskarria zapi lehor batekin eta txertatu berriro klikak entzun arte. Euskarria hondatuta badago, sentsorea aldatu beharko duzu.',
-  '¿Cuánto tiempo lleva puesto?': 'Zenbat denbora daramazu jarrita?',
-  '¿Llevas más de 7 o 10 días con este sensor, según tu modelo?':
-      '7 edo 10 egun baino gehiago daramatzazu sentsore honekin, zure ereduaren arabera?',
-  'Sí, ya lleva tiempo': 'Bai, denbora daramat',
-  'No, es reciente': 'Ez, berria da',
-  'El sensor ha caducado o está a punto de hacerlo. Hay que cambiarlo.':
-      'Sentsorea iraungita dago edo iraungitzear dago. Aldatu behar da.',
-  'Reinicia la conexión': 'Berrabiarazi konexioa',
-  'Apaga y vuelve a encender el Bluetooth del móvil o del receptor, acércalo al sensor y espera 15 minutos sin alejarte.':
-      'Itzali eta piztu berriro mugikorreko edo hargailuko Bluetooth-a, hurbildu sentsorera eta itxaron 15 minutu urrundu gabe.',
-  'Ya vuelve a dar lecturas': 'Berriro ematen ditu neurketak',
-  'Sigue sin conectar': 'Oraindik ez da konektatzen',
-  'Perfecto. Si te pasa a menudo, evita llevar el móvil o el receptor en el lado contrario del cuerpo: el propio cuerpo tapa la señal.':
-      'Primeran. Askotan gertatzen bazaizu, saihestu mugikorra edo hargailua gorputzaren alde kontrakoan eramatea: gorputzak berak seinalea estaltzen du.',
-  'Cambia el sensor y, si el problema se repite con el nuevo, contacta con el soporte del fabricante: puede ser el transmisor.':
-      'Aldatu sentsorea eta, berriarekin arazoa errepikatzen bada, jarri harremanetan fabrikatzailearen laguntzarekin: transmisorea izan daiteke.',
-  '¿Suena una alarma?': 'Alarma bat jotzen ari da?',
-  '¿Hay algo doblado?': 'Zerbait tolestuta dago?',
-  'Si el Pod pita sin parar, es un bloqueo dentro del propio Pod.':
-      'Podak etenik gabe bip egiten badu, podaren beraren barruko blokeo bat da.',
-  'Mira si el tubo tiene burbujas o si el catéter parece doblado.':
-      'Begiratu hodiak burbuilarik duen edo kateterra tolestuta dagoen.',
-  'Veo algún problema': 'Arazoren bat ikusten dut',
-  'Todo parece normal': 'Dena normal dirudi',
-  'El Pod está bloqueado. Desactívalo y pon uno nuevo. Mide tu glucosa: llevas un rato sin insulina de fondo.':
-      'Poda blokeatuta dago. Desaktibatu eta jarri berri bat. Neurtu zure glukosa: oinarrizko intsulinarik gabe zaude denbora pixka batez.',
-  'Cambia el catéter entero (catéter y reservorio) y mide tu glucosa.':
-      'Aldatu kateter osoa (kateterra eta biltegia) eta neurtu zure glukosa.',
-  '¿Cómo tienes la glucosa?': 'Nolakoa da zure glukosa?',
-  'Un bloqueo que no se ve se nota en la glucosa: sin insulina, sube y no baja aunque te corrijas.':
-      'Ikusten ez den blokeo bat glukosan nabaritzen da: intsulinarik gabe, igo egiten da eta ez da jaisten zuzentzen baduzu ere.',
-  'Alta y no baja': 'Altua eta ez da jaisten',
-  'En rango': 'Tartean',
-  'Trátalo como un bloqueo de verdad: cambia todo el catéter, corrige con la pluma si tu equipo médico te lo ha indicado y comprueba las cetonas.':
-      'Artatu benetako blokeo bat bezala: aldatu kateter osoa, zuzendu lumarekin zure mediku-taldeak esan badizu, eta egiaztatu ketonak.',
-  'Puede haber sido una falsa alarma. Vigila tu glucosa las próximas 2 horas y cambia el catéter si el aviso se repite.':
-      'Alarma faltsua izan daiteke. Zaindu zure glukosa hurrengo 2 orduetan eta aldatu kateterra abisua errepikatzen bada.',
-  '¿Cuánto lleva puesto el sensor?':
-      'Zenbat denbora darama jarrita sentsoreak?',
-  'Durante las primeras horas tras ponerlo, las lecturas suelen ser menos precisas.':
-      'Jarri ondorengo lehen orduetan, neurketak zehatzak ez izaten dira normalean.',
-  'Menos de 24 horas': '24 ordu baino gutxiago',
-  'Más de 24 horas': '24 ordu baino gehiago',
-  'Es normal que al principio sea menos exacto. Guíate por el pinchazo en el dedo para tomar decisiones y espera a que se estabilice.':
-      'Normala da hasieran ez hain zehatza izatea. Gidatu zaitez hatzeko zulaketaren bidez erabakiak hartzeko eta itxaron egonkortu arte.',
-  '¿La diferencia es grande?': 'Alde handia da?',
-  'Compara la lectura del sensor con un pinchazo en el dedo hecho con las manos limpias y secas.':
-      'Konparatu sentsorearen neurketa esku garbi eta lehorrekin egindako hatzeko zulaketa batekin.',
-  'Sí, se desvía mucho': 'Bai, asko aldentzen da',
-  'No, es una diferencia pequeña': 'Ez, alde txikia da',
-  'Calibra el sensor si tu modelo lo permite. Si después sigue desviado, cámbialo y contacta con el fabricante.':
-      'Kalibratu sentsorea zure ereduak uzten badu. Gero ere aldenduta jarraitzen badu, aldatu eta jarri harremanetan fabrikatzailearekin.',
-  'Una diferencia pequeña es normal: el sensor mide la glucosa que hay entre las células y va unos minutos por detrás de la sangre.':
-      'Alde txikia normala da: sentsoreak zelulen artean dagoen glukosa neurtzen du eta odola baino minutu batzuk atzerago doa.',
-  'Cargando pasos...': 'Urratsak kargatzen...',
-  'Recomendación': 'Gomendioa',
   'Entendido': 'Ulertuta',
   'Kit de viaje': 'Bidaia-kita',
   'Reiniciar': 'Berrezarri',

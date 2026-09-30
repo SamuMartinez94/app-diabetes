@@ -73,6 +73,7 @@ void main() {
         panel(bomba: 'bypsopump', sensor: 'sfreelibre3', cateter: 'corbit'),
       );
 
+      await tester.scrollUntilVisible(find.text('YpsoPump'), 200);
       expect(find.text('YpsoPump'), findsOneWidget);
       expect(find.text('FreeStyle Libre 3'), findsOneWidget);
     });

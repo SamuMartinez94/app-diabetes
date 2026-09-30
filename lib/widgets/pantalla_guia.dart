@@ -45,6 +45,7 @@ class PantallaGuia extends StatefulWidget {
 
 class _PantallaGuiaState extends State<PantallaGuia> {
   int pasoActual = 0;
+  bool _avanzando = true;
 
   @override
   void initState() {
@@ -103,7 +104,10 @@ class _PantallaGuiaState extends State<PantallaGuia> {
 
   Future<void> _irA(int paso) async {
     HapticFeedback.selectionClick();
-    setState(() => pasoActual = paso);
+    setState(() {
+      _avanzando = paso > pasoActual;
+      pasoActual = paso;
+    });
     await Preferencias.guardarProgresoGuia(widget.clave, paso);
   }
 
@@ -154,13 +158,12 @@ class _PantallaGuiaState extends State<PantallaGuia> {
           child: Column(
             children: [
               const SizedBox(height: 10),
-              LinearProgressIndicator(
-                value: (pasoActual + 1) / widget.pasos.length,
-                color: acento,
-                minHeight: 6,
-                borderRadius: BorderRadius.circular(10),
+              _ProgresoSegmentos(
+                total: widget.pasos.length,
+                actual: pasoActual,
+                acento: acento,
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 14),
               _Cabecera(
                 fase: paso.fase,
                 indiceFase: pos.indice,
@@ -174,54 +177,86 @@ class _PantallaGuiaState extends State<PantallaGuia> {
                 const BannerRevision(),
               ],
               Expanded(
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 300),
-                  transitionBuilder: (child, animacion) => FadeTransition(
-                    opacity: animacion,
-                    child: SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(0.05, 0),
-                        end: Offset.zero,
-                      ).animate(animacion),
-                      child: child,
-                    ),
-                  ),
-                  child: SingleChildScrollView(
-                    key: ValueKey(pasoActual),
-                    physics: const BouncingScrollPhysics(),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(vertical: 20),
-                      padding: const EdgeInsets.all(25),
-                      decoration: BoxDecoration(
-                        color: esquema.surfaceContainerLow,
-                        borderRadius: BorderRadius.circular(24),
-                        border: Border.all(color: esquema.outlineVariant),
-                      ),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onHorizontalDragEnd: (d) {
+                    final v = d.primaryVelocity ?? 0;
+                    if (v < -300 && !esUltimo) siguientePaso();
+                    if (v > 300) pasoAnterior();
+                  },
+                  child: AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 280),
+                    switchInCurve: Curves.easeOutCubic,
+                    switchOutCurve: Curves.easeInCubic,
+                    transitionBuilder: (child, animacion) {
+                      final entrando = child.key == ValueKey(pasoActual);
+                      final signo =
+                          (_avanzando ? 1.0 : -1.0) * (entrando ? 1.0 : -1.0);
+                      return FadeTransition(
+                        opacity: animacion,
+                        child: SlideTransition(
+                          position: Tween<Offset>(
+                            begin: Offset(0.08 * signo, 0),
+                            end: Offset.zero,
+                          ).animate(animacion),
+                          child: child,
+                        ),
+                      );
+                    },
+                    child: SingleChildScrollView(
+                      key: ValueKey(pasoActual),
+                      physics: const BouncingScrollPhysics(),
+                      padding: const EdgeInsets.symmetric(vertical: 18),
                       child: Column(
-                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           if (tieneImagen) ...[
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(18),
+                            Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(14),
+                              decoration: BoxDecoration(
+                                color: fondoDispositivo,
+                                borderRadius: BorderRadius.circular(28),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: acento.withAlpha(30),
+                                    blurRadius: 18,
+                                    offset: const Offset(0, 6),
+                                  ),
+                                ],
+                              ),
                               child: Image.asset(
                                 paso.imagen!,
-                                height: 180,
+                                height: 190,
                                 fit: BoxFit.contain,
                                 errorBuilder: (_, _, _) =>
-                                    const SizedBox.shrink(),
+                                    const SizedBox(height: 60),
                               ),
                             ),
-                            const SizedBox(height: 30),
+                            const SizedBox(height: 24),
                           ],
-                          _EtiquetaGesto(gesto: gestoDe(paso), acento: acento),
-                          const SizedBox(height: 18),
+                          Row(
+                            children: [
+                              _NumeroPaso(
+                                numero: pasoActual + 1,
+                                acento: acento,
+                              ),
+                              const SizedBox(width: 10),
+                              Flexible(
+                                child: _EtiquetaGesto(
+                                  gesto: gestoDe(paso),
+                                  acento: acento,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
                           Text(
                             t(paso.texto),
-                            textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 19,
-                              height: 1.5,
-                              fontWeight: FontWeight.w500,
+                              fontSize: 22,
+                              height: 1.4,
+                              fontWeight: FontWeight.w600,
                               color: esquema.onSurface,
                             ),
                           ),
@@ -242,25 +277,12 @@ class _PantallaGuiaState extends State<PantallaGuia> {
                 child: Row(
                   children: [
                     if (pasoActual > 0) ...[
-                      Expanded(
-                        child: OutlinedButton(
-                          onPressed: pasoAnterior,
-                          style: OutlinedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 15),
-                            side: BorderSide(color: esquema.outline),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(14),
-                            ),
-                          ),
-                          child: Text(
-                            t('Anterior'),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: esquema.onSurfaceVariant,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                      IconButton.filledTonal(
+                        onPressed: pasoAnterior,
+                        tooltip: t('Anterior'),
+                        icon: const Icon(Icons.arrow_back_rounded),
+                        style: IconButton.styleFrom(
+                          minimumSize: const Size(56, 56),
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -269,19 +291,15 @@ class _PantallaGuiaState extends State<PantallaGuia> {
                       child: FilledButton(
                         onPressed: esUltimo ? _finalizar : siguientePaso,
                         style: FilledButton.styleFrom(
-                          backgroundColor: esquema.primary,
-                          foregroundColor: esquema.onPrimary,
-                          padding: const EdgeInsets.symmetric(vertical: 15),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
-                          ),
+                          minimumSize: const Size.fromHeight(56),
+                          shape: const StadiumBorder(),
                         ),
                         child: Text(
                           esUltimo ? t('Finalizar') : t('Siguiente'),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                            fontSize: 15,
+                            fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -310,25 +328,24 @@ class _EtiquetaGesto extends StatelessWidget {
     final color = gesto == Gesto.advertencia ? context.colores.aviso : acento;
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: color.withAlpha(26),
+        color: color.withAlpha(30),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(gesto.icono, color: color, size: 18),
+          Icon(gesto.icono, color: color, size: 20),
           const SizedBox(width: 7),
           Flexible(
             child: Text(
-              t(gesto.etiqueta).toUpperCase(),
+              t(gesto.etiqueta),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: 10.5,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 0.9,
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
                 color: color,
               ),
             ),
@@ -395,6 +412,69 @@ class _Cabecera extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _ProgresoSegmentos extends StatelessWidget {
+  final int total;
+  final int actual;
+  final Color acento;
+
+  const _ProgresoSegmentos({
+    required this.total,
+    required this.actual,
+    required this.acento,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final vacio = context.esquema.surfaceContainerHighest;
+    return Row(
+      children: [
+        for (var i = 0; i < total; i++) ...[
+          if (i > 0) const SizedBox(width: 3),
+          Expanded(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 250),
+              height: 6,
+              decoration: BoxDecoration(
+                color: i <= actual ? acento : vacio,
+                borderRadius: BorderRadius.circular(3),
+              ),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+class _NumeroPaso extends StatelessWidget {
+  final int numero;
+  final Color acento;
+
+  const _NumeroPaso({required this.numero, required this.acento});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: const BoxConstraints(minWidth: 34),
+      height: 34,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: acento,
+        borderRadius: BorderRadius.circular(17),
+      ),
+      child: Text(
+        '$numero',
+        style: TextStyle(
+          color: context.esquema.onPrimary,
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+        ),
+      ),
     );
   }
 }

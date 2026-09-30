@@ -1,5 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+import 'alarmas_ca.dart';
+import 'alarmas_en.dart';
+import 'alarmas_eu.dart';
+import 'alarmas_gl.dart';
 import 'ca.dart';
 import 'en.dart';
 import 'eu.dart';
@@ -38,10 +42,10 @@ enum Idioma {
 }
 
 const Map<Idioma, Map<String, String>> _tablas = {
-  Idioma.en: traduccionesEn,
-  Idioma.gl: traduccionesGl,
-  Idioma.ca: traduccionesCa,
-  Idioma.eu: traduccionesEu,
+  Idioma.en: {...traduccionesEn, ...traduccionesAlarmasEn},
+  Idioma.gl: {...traduccionesGl, ...traduccionesAlarmasGl},
+  Idioma.ca: {...traduccionesCa, ...traduccionesAlarmasCa},
+  Idioma.eu: {...traduccionesEu, ...traduccionesAlarmasEu},
 };
 
 /// Estado del idioma activo.

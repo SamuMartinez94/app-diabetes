@@ -30,180 +30,33 @@ const Map<String, String> traduccionesEn = {
   'Inserción': 'Insertion',
   'Finalizar': 'Finish',
   'Elegir zona': 'Choose a site',
-  'Bloqueo (oclusión)': 'Blockage (occlusion)',
-  'La bomba nota que algo bloquea el paso y la insulina no está llegando a tu cuerpo. Puede ser un catéter doblado, una cánula atascada o un cristal de insulina.':
-      'The pump senses that something is blocking the flow and insulin is not reaching your body. It could be a kinked infusion set, a clogged cannula or an insulin crystal.',
   'oclusion, obstruido, atasco, no pasa insulina, bloqueo, acodado':
       'occlusion, blocked, clog, no insulin flowing, blockage, kinked',
   'Confirma la alarma y desconecta el catéter de tu cuerpo.':
       'Confirm the alarm and disconnect the infusion set from your body.',
-  'Cambia el catéter entero y llena el tubo (cebar) como indica su guía.':
-      'Change the whole infusion set and fill the tubing (prime) as its guide explains.',
   'Si el llenado termina sin que vuelva a saltar el bloqueo, ya puedes seguir con normalidad.':
       'If priming finishes without the blockage alarm going off again, you can carry on as normal.',
-  'Si el bloqueo salta otra vez al llenar el catéter nuevo, cambia también el cartucho o reservorio y vuelve a llenar.':
-      'If the blockage alarm goes off again while priming the new set, also change the cartridge or reservoir and prime again.',
-  'Si sigue saltando aun con cartucho nuevo, la bomba puede estar averiada: contacta con el fabricante.':
-      'If it keeps going off even with a new cartridge, the pump may be faulty: contact the manufacturer.',
   'Mide tu glucosa y, si está alta, comprueba las cetonas.':
       'Check your glucose and, if it is high, check your ketones.',
   'Queda poca insulina': 'Insulin running low',
-  'Queda poca insulina en el cartucho. Es solo un aviso: la bomba sigue funcionando con normalidad.':
-      'There is little insulin left in the cartridge. This is only a warning: the pump keeps working as normal.',
-  'poca insulina, queda poco, cartucho bajo, reservorio':
-      'low insulin, running low, cartridge low, reservoir',
-  'Prepara un reservorio nuevo y ten insulina a mano.':
-      'Get a new reservoir ready and keep insulin at hand.',
-  'Haz el cambio antes de que se vacíe del todo.':
-      'Do the change before it runs out completely.',
-  'Sin insulina (reservorio vacío)': 'Out of insulin (empty reservoir)',
-  'Ya no queda insulina. La bomba ha dejado de darte insulina, también la de fondo (basal).':
-      'There is no insulin left. The pump has stopped giving you insulin, including your background insulin (basal).',
-  'sin insulina, cartucho vacio, se acabo, vacio':
-      'no insulin, empty cartridge, ran out, empty',
-  'Cambia el reservorio cuanto antes.':
-      'Change the reservoir as soon as possible.',
   'Mide tu glucosa: llevas un rato sin insulina de fondo.':
       'Check your glucose: you have been without background insulin for a while.',
-  'Si no puedes cambiarlo ya, usa la pluma de respaldo.':
-      'If you can\'t change it right now, use your backup pen.',
-  'Batería baja': 'Low battery',
-  'Queda poca carga. La bomba sigue funcionando con normalidad.':
-      'The charge is low. The pump keeps working as normal.',
-  'pila baja, poca bateria, cargar, pila':
-      'low battery, battery low, charge, battery',
-  'Carga la bomba o ten una pila de repuesto preparada.':
-      'Charge the pump or have a spare battery ready.',
-  'No dejes que se agote: si se apaga, dejas de recibir insulina.':
-      'Don\'t let it run out: if it switches off, you stop getting insulin.',
-  'Batería agotada / Cambiar pila': 'Battery empty / Change battery',
-  'La bomba se va a apagar o ya se ha apagado, y no te está dando insulina.':
-      'The pump is about to switch off or has already switched off, and it is not giving you insulin.',
-  'sin bateria, apagada, no enciende, sin pila':
-      'no battery, switched off, won\'t turn on, dead battery',
-  'Cambia la pila o conecta el cargador enseguida.':
-      'Change the battery or plug in the charger right away.',
-  'Cuando se reinicie, comprueba que la hora y tu programa de insulina de fondo (basal) son correctos.':
-      'When it restarts, check that the time and your background insulin (basal) programme are correct.',
   'Mide tu glucosa para saber cuánto tiempo has estado sin insulina.':
       'Check your glucose to find out how long you have been without insulin.',
-  'Bomba parada': 'Pump stopped',
-  'La bomba no te está dando insulina, porque la has parado tú o por un error.':
-      'The pump is not giving you insulin, either because you stopped it or because of an error.',
-  'parada, suspendida, no administra, stop, detenida':
-      'stopped, suspended, not delivering, stop, halted',
-  'Mira en la pantalla por qué se ha parado.':
-      'Look at the screen to see why it stopped.',
-  'Si el motivo ya está resuelto, reanuda la insulina.':
-      'If the reason is already solved, resume insulin.',
   'Mide tu glucosa: sin insulina de fondo, sube rápido.':
       'Check your glucose: without background insulin, it rises fast.',
   'Demasiado frío o demasiado calor': 'Too cold or too hot',
-  'La bomba está demasiado fría o demasiado caliente para funcionar con seguridad. Además, la insulina se estropea con el calor.':
-      'The pump is too cold or too hot to work safely. Insulin also spoils with heat.',
   'calor, frio, sol, playa, temperatura': 'heat, cold, sun, beach, temperature',
   'Aleja la bomba del calor o del frío directo (sol, coche, nevera).':
       'Move the pump away from direct heat or cold (sun, car, fridge).',
-  'Espera a que vuelva a temperatura ambiente.':
-      'Wait for it to get back to room temperature.',
-  'Si ha estado expuesta mucho rato, cambia la insulina: puede haber perdido efecto.':
-      'If it has been exposed for a long time, replace the insulin: it may have lost its effect.',
-  'Cánula sin llenar': 'Cannula not filled',
-  'Has terminado el cambio pero no se ha llenado la cánula (el tubito que queda bajo la piel). Hay aire al final y no está entrando insulina.':
-      'You have finished the change but the cannula (the small tube that stays under the skin) has not been filled. There is air at the end and no insulin is going in.',
-  'cebar, purgar, llenar canula, aire, canula':
-      'prime, purge, fill cannula, air, cannula',
-  'Elige "Llenar cánula" y pon la cantidad que indica la caja de tu catéter.':
-      'Choose "Fill cannula" and enter the amount shown on your infusion set\'s box.',
-  'Excepción: los catéteres con aguja de acero (Sure-T, TruSteel, Orbit micro) NO tienen cánula y no se llenan.':
-      'Exception: infusion sets with a steel needle (Sure-T, TruSteel, Orbit micro) do NOT have a cannula and are not filled.',
-  'No dejes la bomba parada en la pantalla de llenar cánula: mientras esté ahí, no te da insulina.':
-      'Don\'t leave the pump stopped on the fill cannula screen: while it is there, you are not getting insulin.',
   'Insulina suspendida por glucosa baja': 'Insulin suspended for low glucose',
-  'El sensor ha detectado que tu glucosa está baja y la bomba ha parado sola la insulina de fondo (basal).':
-      'The sensor has detected that your glucose is low and the pump has stopped your background insulin (basal) on its own.',
-  'hipo, suspension, smartguard, parada por baja':
-      'low, hypo, suspend, smartguard, stopped for low',
   'Confírmalo con un pinchazo en el dedo.': 'Confirm it with a fingerstick.',
-  'Si de verdad está baja, trátala como te haya enseñado tu equipo médico.':
-      'If it really is low, treat it the way your medical team taught you.',
-  'La insulina se reanuda sola cuando te recuperas; también puedes reanudarla tú.':
-      'Insulin restarts on its own when you recover; you can also restart it yourself.',
-  'Insulina suspendida por si baja la glucosa':
-      'Insulin suspended in case glucose drops',
-  'El sensor prevé que tu glucosa va a bajar y la bomba ha parado la insulina de fondo (basal) para evitarlo.':
-      'The sensor predicts that your glucose is going to drop and the pump has stopped your background insulin (basal) to prevent it.',
-  'prediccion, preventiva, smartguard': 'prediction, preventive, smartguard',
-  'Si todavía estás en rango, no hace falta que tomes nada: la parada es preventiva.':
-      'If you are still in range, you don\'t need to eat anything: the stop is preventive.',
-  'Vigila cómo evoluciona tu glucosa durante la siguiente media hora.':
-      'Keep an eye on how your glucose evolves over the next half hour.',
-  'Salida del modo automático': 'Left automatic mode',
-  'La bomba ha vuelto al modo manual. Suele pasar porque el sensor no da lecturas o porque la bomba lleva mucho rato dando la insulina máxima o mínima.':
-      'The pump has gone back to manual mode. This usually happens because the sensor is not giving readings or because the pump has been giving maximum or minimum insulin for a long time.',
-  'modo manual, smartguard, automatico, auto mode':
-      'manual mode, smartguard, automatic, auto mode',
-  'Comprueba que el sensor está dando lecturas.':
-      'Check that the sensor is giving readings.',
-  'Sigue las indicaciones de la pantalla para volver al modo automático.':
-      'Follow the on-screen instructions to go back to automatic mode.',
   'Mientras estés en manual, vigila más tu glucosa.':
       'While you are in manual mode, watch your glucose more closely.',
-  'Error al cargar el reservorio': 'Error loading the reservoir',
-  'La bomba no ha podido terminar de cargar el reservorio o de mover el pistón.':
-      'The pump could not finish loading the reservoir or moving the piston.',
-  'error carga, piston, rebobinar, error de administracion':
-      'loading error, piston, rewind, delivery error',
-  'Saca el reservorio y repite "Nuevo reservorio y equipo" desde el principio.':
-      'Take out the reservoir and repeat "New reservoir and set" from the start.',
-  'Comprueba que el reservorio está bien puesto y girado hasta el tope.':
-      'Check that the reservoir is seated properly and turned all the way.',
-  'Si el error se repite, llama al soporte del fabricante.':
-      'If the error keeps happening, call the manufacturer\'s support.',
   'Pod caducado': 'Pod expired',
-  'El Pod ha llegado al final de su vida útil y ha dejado de dar insulina.':
-      'The Pod has reached the end of its life and has stopped giving insulin.',
-  'caducado, expirado, pod viejo': 'expired, out of date, old pod',
-  'INFORMACIÓN DEL POD → VER DETALLES DEL POD → CAMBIAR EL POD → DESACTIVAR POD.':
-      'POD INFO → VIEW POD DETAILS → CHANGE POD → DEACTIVATE POD.',
-  'Despega despacio los bordes del adhesivo y quita el Pod.':
-      'Slowly peel up the edges of the adhesive and remove the Pod.',
-  'No pongas el Pod nuevo hasta haber desactivado y quitado el viejo.':
-      'Don\'t put the new Pod on until you have deactivated and removed the old one.',
-  'Error del Pod (alarma de peligro)': 'Pod error (hazard alarm)',
-  'El Pod ha detectado un fallo interno y ha dejado de dar insulina. Suele sonar un pitido continuo.':
-      'The Pod has detected an internal fault and has stopped giving insulin. A continuous beep usually sounds.',
-  'pitido, alarma continua, fallo pod': 'beep, continuous alarm, pod fault',
-  'Desactiva el Pod desde el Controlador y quítalo de la piel.':
-      'Deactivate the Pod from the Controller and take it off your skin.',
   'Pon un Pod nuevo.': 'Put on a new Pod.',
-  'Guarda el Pod estropeado: el soporte puede pedírtelo.':
-      'Keep the faulty Pod: support may ask for it.',
   'Mide tu glucosa y comprueba las cetonas.':
       'Check your glucose and check your ketones.',
-  'No se puede desactivar el Pod': 'The Pod can\'t be deactivated',
-  'El Controlador no consigue comunicarse con el Pod para desactivarlo.':
-      'The Controller can\'t communicate with the Pod to deactivate it.',
-  'no desactiva, no se apaga, quitar pod':
-      'won\'t deactivate, won\'t turn off, remove pod',
-  'Acerca el Controlador al Pod para que puedan comunicarse.':
-      'Bring the Controller closer to the Pod so they can communicate.',
-  'Si sigue sin desactivarse, usa la opción de descartar el Pod en el Controlador.':
-      'If it still won\'t deactivate, use the option to discard the Pod on the Controller.',
-  'Quita el Pod de la piel con la mano y ponte uno nuevo.':
-      'Take the Pod off your skin by hand and put on a new one.',
-  'Recuerda que el Pod y el sensor deben ir en el mismo lado del cuerpo para verse entre sí.':
-      'Remember that the Pod and the sensor must be on the same side of the body to see each other.',
-  'El Controlador no encuentra el Pod': 'The Controller can\'t find the Pod',
-  'El Controlador no localiza el Pod. El Pod sigue dando la insulina de fondo (basal) que tenía programada.':
-      'The Controller can\'t locate the Pod. The Pod keeps giving the background insulin (basal) it had programmed.',
-  'sin señal pod, no conecta, fuera de alcance, sin comunicacion':
-      'no pod signal, won\'t connect, out of range, no communication',
-  'Acerca el Controlador al Pod.': 'Bring the Controller closer to the Pod.',
-  'Aléjate de cosas que puedan interferir (otros aparatos, paredes gruesas).':
-      'Move away from things that could interfere (other devices, thick walls).',
-  'Si no se recupera, el Pod seguirá con su última insulina de fondo: planifica el cambio.':
-      'If it doesn\'t recover, the Pod will carry on with its last background insulin: plan the change.',
   'Cartucho vacío': 'Empty cartridge',
   'A la YpsoPump se le ha acabado la insulina del cartucho y ha dejado de darte insulina.':
       'The YpsoPump has run out of insulin in the cartridge and has stopped giving you insulin.',
@@ -215,18 +68,10 @@ const Map<String, String> traduccionesEn = {
   'Mide tu glucosa.': 'Check your glucose.',
   'La varilla no ha terminado de retraerse':
       'The threaded rod has not finished retracting',
-  'Has puesto el cartucho antes de que la varilla roscada terminara de retraerse y de que la bomba acabara su autocomprobación.':
-      'You put in the cartridge before the threaded rod finished retracting and before the pump completed its self-test.',
   'varilla, roscada, retraccion, cartucho antes':
       'rod, threaded, retraction, cartridge before',
-  'Repite el cambio de cartucho desde el principio.':
-      'Repeat the cartridge change from the start.',
-  'Espera a que el porcentaje baje al 0 % y a que termine la autocomprobación antes de poner el cartucho.':
-      'Wait until the percentage drops to 0 % and the self-test finishes before putting in the cartridge.',
   'No hay insulina / Falta llenar el tubo (cebado)':
       'No insulin / Tubing not filled (priming)',
-  'Después de retraer la varilla roscada pasaron 5 minutos sin llenar el tubo (cebar), o el llenado ha fallado. La bomba no te está dando insulina.':
-      '5 minutes passed after retracting the threaded rod without filling the tubing (priming), or the priming failed. The pump is not giving you insulin.',
   'no hay insulina, cebado, purgar, sin cebar':
       'no insulin, priming, purge, not primed',
   'Confirma la alarma.': 'Confirm the alarm.',
@@ -277,27 +122,7 @@ const Map<String, String> traduccionesEn = {
       'Confirm the alarm and put in a new AAA (LR03) alkaline battery.',
   'Mide tu glucosa: puede que hayas estado sin insulina de fondo.':
       'Check your glucose: you may have been without background insulin.',
-  'La bomba se ha reiniciado': 'The pump has restarted',
-  'La bomba se ha reiniciado por un error del programa. Puede que tengas que confirmar algunos ajustes.':
-      'The pump has restarted because of a software error. You may need to confirm some settings.',
-  'reinicio, se reinicio, error software': 'restart, rebooted, software error',
-  'Comprueba que la hora y la fecha son correctas.':
-      'Check that the time and date are correct.',
-  'Mira que tu programa de insulina de fondo (basal) sigue activo.':
-      'Check that your background insulin (basal) programme is still active.',
-  'Comprueba la insulina activa (la que aún te está haciendo efecto): puede haberse perdido el registro.':
-      'Check your insulin on board (the insulin that is still working): the record may have been lost.',
   'Se ha perdido la señal del sensor': 'Sensor signal lost',
-  'Tu móvil o tu bomba no reciben lecturas del sensor. La bomba sigue dando tu insulina de fondo (basal), pero sin ajustes automáticos.':
-      'Your phone or your pump is not receiving readings from the sensor. The pump keeps giving your background insulin (basal), but without automatic adjustments.',
-  'no conecta, sin señal, bluetooth, sin lecturas':
-      'no connection, no signal, bluetooth, no readings',
-  'Acerca el móvil o el receptor al sensor.':
-      'Bring your phone or receiver closer to the sensor.',
-  'Si tu modelo lleva transmisor, comprueba que está bien encajado.':
-      'If your model has a transmitter, check that it is snapped in properly.',
-  'Apaga y enciende el Bluetooth del dispositivo y espera 15 minutos.':
-      'Turn the device\'s Bluetooth off and on and wait 15 minutes.',
   'Mientras no haya lecturas, mídete con un pinchazo en el dedo.':
       'While there are no readings, check with a fingerstick.',
   'Sensor caducado / Cambiar sensor': 'Sensor expired / Change sensor',
@@ -309,30 +134,6 @@ const Map<String, String> traduccionesEn = {
       'Take off the sensor and put on a new one.',
   'Mira la guía de cambio de sensor de esta app.':
       'See the sensor change guide in this app.',
-  'Recuerda que hay un tiempo de calentamiento antes de las primeras lecturas.':
-      'Remember there is a warm-up time before the first readings.',
-  'Toca calibrar': 'Time to calibrate',
-  'El sensor necesita que le des el valor de un pinchazo en el dedo para seguir dando lecturas fiables.':
-      'The sensor needs you to enter a fingerstick value to keep giving reliable readings.',
-  'calibracion, calibrar, capilar, referencia':
-      'calibration, calibrate, fingerstick, reference',
-  'Lávate y sécate bien las manos antes de pincharte.':
-      'Wash and dry your hands well before pricking your finger.',
-  'Mete el valor del dedo en cuanto lo tengas.':
-      'Enter the fingerstick value as soon as you have it.',
-  'No calibres si tu glucosa está cambiando rápido: espera a un momento estable.':
-      'Don\'t calibrate if your glucose is changing fast: wait for a stable moment.',
-  'Sensor calentando': 'Sensor warming up',
-  'El sensor recién puesto se está estabilizando y todavía no da lecturas.':
-      'The newly placed sensor is stabilising and is not giving readings yet.',
-  'calentamiento, iniciando, sin lecturas aun, actualizando':
-      'warm-up, starting, no readings yet, updating',
-  'Espera el tiempo de calentamiento de tu modelo: entre 30 minutos y 2 horas.':
-      'Wait for your model\'s warm-up time: between 30 minutes and 2 hours.',
-  'Mientras tanto, mídete con un pinchazo en el dedo.':
-      'Meanwhile, check with a fingerstick.',
-  'Si al terminar sigue sin dar lecturas, revisa el emparejamiento.':
-      'If it still gives no readings when it finishes, check the pairing.',
   'Aviso de glucosa alta': 'High glucose alert',
   'El sensor ha detectado un valor por encima del límite que tienes configurado.':
       'The sensor has detected a value above the limit you have set.',
@@ -892,77 +693,6 @@ const Map<String, String> traduccionesEn = {
   'Resolver problemas': 'Troubleshooting',
   'TU CONFIGURACIÓN': 'YOUR SETUP',
   '¿Qué está pasando?': 'What is going on?',
-  'El sensor no conecta': 'The sensor won\'t connect',
-  'Problemas de señal o de conexión.': 'Signal or connection problems.',
-  'Aviso de bloqueo en el Pod': 'Blockage alert on the Pod',
-  'Aviso de insulina bloqueada': 'Blocked insulin alert',
-  'El Pod ha detectado un problema.': 'The Pod has detected a problem.',
-  'La insulina no pasa bien.': 'Insulin isn\'t flowing properly.',
-  'No me fío de las lecturas': 'I don\'t trust the readings',
-  'El sensor y el dedo no coinciden.':
-      'The sensor and the fingerstick don\'t match.',
-  'Comprueba que está bien encajado': 'Check that it is snapped in properly',
-  'Presiona el transmisor sobre el soporte del sensor. ¿Notas que está bien colocado y ha hecho clic?':
-      'Press the transmitter onto the sensor holder. Can you feel it is seated properly and clicked in?',
-  'Sí, está bien puesto': 'Yes, it is on properly',
-  'No, se mueve o no encaja': 'No, it moves or won\'t snap in',
-  'Quita el transmisor, limpia los contactos y el soporte con un paño seco y vuelve a encajarlo hasta oír los clics. Si el soporte está dañado, tendrás que cambiar el sensor.':
-      'Take off the transmitter, clean the contacts and the holder with a dry cloth and snap it back in until you hear the clicks. If the holder is damaged, you will have to change the sensor.',
-  '¿Cuánto tiempo lleva puesto?': 'How long has it been on?',
-  '¿Llevas más de 7 o 10 días con este sensor, según tu modelo?':
-      'Have you had this sensor for more than 7 or 10 days, depending on your model?',
-  'Sí, ya lleva tiempo': 'Yes, it has been a while',
-  'No, es reciente': 'No, it is recent',
-  'El sensor ha caducado o está a punto de hacerlo. Hay que cambiarlo.':
-      'The sensor has expired or is about to. It needs to be changed.',
-  'Reinicia la conexión': 'Restart the connection',
-  'Apaga y vuelve a encender el Bluetooth del móvil o del receptor, acércalo al sensor y espera 15 minutos sin alejarte.':
-      'Turn the Bluetooth on your phone or receiver off and on, bring it close to the sensor and wait 15 minutes without moving away.',
-  'Ya vuelve a dar lecturas': 'It gives readings again',
-  'Sigue sin conectar': 'It still won\'t connect',
-  'Perfecto. Si te pasa a menudo, evita llevar el móvil o el receptor en el lado contrario del cuerpo: el propio cuerpo tapa la señal.':
-      'Great. If it happens often, avoid carrying your phone or receiver on the opposite side of your body: your body itself blocks the signal.',
-  'Cambia el sensor y, si el problema se repite con el nuevo, contacta con el soporte del fabricante: puede ser el transmisor.':
-      'Change the sensor and, if the problem happens again with the new one, contact the manufacturer\'s support: it may be the transmitter.',
-  '¿Suena una alarma?': 'Is an alarm sounding?',
-  '¿Hay algo doblado?': 'Is anything kinked?',
-  'Si el Pod pita sin parar, es un bloqueo dentro del propio Pod.':
-      'If the Pod beeps non-stop, it is a blockage inside the Pod itself.',
-  'Mira si el tubo tiene burbujas o si el catéter parece doblado.':
-      'Check whether the tubing has bubbles or the infusion set looks kinked.',
-  'Veo algún problema': 'I can see a problem',
-  'Todo parece normal': 'Everything looks normal',
-  'El Pod está bloqueado. Desactívalo y pon uno nuevo. Mide tu glucosa: llevas un rato sin insulina de fondo.':
-      'The Pod is blocked. Deactivate it and put on a new one. Check your glucose: you have been without background insulin for a while.',
-  'Cambia el catéter entero (catéter y reservorio) y mide tu glucosa.':
-      'Change the whole infusion set (set and reservoir) and check your glucose.',
-  '¿Cómo tienes la glucosa?': 'How is your glucose?',
-  'Un bloqueo que no se ve se nota en la glucosa: sin insulina, sube y no baja aunque te corrijas.':
-      'A blockage you can\'t see shows up in your glucose: without insulin, it rises and doesn\'t come down even if you correct.',
-  'Alta y no baja': 'High and not coming down',
-  'En rango': 'In range',
-  'Trátalo como un bloqueo de verdad: cambia todo el catéter, corrige con la pluma si tu equipo médico te lo ha indicado y comprueba las cetonas.':
-      'Treat it as a real blockage: change the whole infusion set, correct with your pen if your medical team has told you to, and check your ketones.',
-  'Puede haber sido una falsa alarma. Vigila tu glucosa las próximas 2 horas y cambia el catéter si el aviso se repite.':
-      'It may have been a false alarm. Keep an eye on your glucose for the next 2 hours and change the infusion set if the alert happens again.',
-  '¿Cuánto lleva puesto el sensor?': 'How long has the sensor been on?',
-  'Durante las primeras horas tras ponerlo, las lecturas suelen ser menos precisas.':
-      'During the first hours after placing it, readings are usually less accurate.',
-  'Menos de 24 horas': 'Less than 24 hours',
-  'Más de 24 horas': 'More than 24 hours',
-  'Es normal que al principio sea menos exacto. Guíate por el pinchazo en el dedo para tomar decisiones y espera a que se estabilice.':
-      'It is normal for it to be less accurate at first. Go by the fingerstick to make decisions and wait for it to settle.',
-  '¿La diferencia es grande?': 'Is the difference big?',
-  'Compara la lectura del sensor con un pinchazo en el dedo hecho con las manos limpias y secas.':
-      'Compare the sensor reading with a fingerstick done with clean, dry hands.',
-  'Sí, se desvía mucho': 'Yes, it is way off',
-  'No, es una diferencia pequeña': 'No, it is a small difference',
-  'Calibra el sensor si tu modelo lo permite. Si después sigue desviado, cámbialo y contacta con el fabricante.':
-      'Calibrate the sensor if your model allows it. If it is still off afterwards, change it and contact the manufacturer.',
-  'Una diferencia pequeña es normal: el sensor mide la glucosa que hay entre las células y va unos minutos por detrás de la sangre.':
-      'A small difference is normal: the sensor measures the glucose between your cells and runs a few minutes behind your blood.',
-  'Cargando pasos...': 'Loading steps...',
-  'Recomendación': 'Recommendation',
   'Entendido': 'Got it',
   'Kit de viaje': 'Travel kit',
   'Reiniciar': 'Reset',

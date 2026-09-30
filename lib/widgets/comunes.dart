@@ -74,11 +74,12 @@ class BannerRevision extends StatelessWidget {
   }
 }
 
-/// Tarjeta de navegación con icono, título y subtítulo.
+/// Tarjeta de navegación con emoji (o icono), título y subtítulo.
 class TarjetaMenu extends StatelessWidget {
   final String titulo;
   final String subtitulo;
-  final IconData icono;
+  final IconData? icono;
+  final String? emoji;
   final Color color;
   final VoidCallback alPulsar;
 
@@ -86,7 +87,8 @@ class TarjetaMenu extends StatelessWidget {
     super.key,
     required this.titulo,
     required this.subtitulo,
-    required this.icono,
+    this.icono,
+    this.emoji,
     required this.color,
     required this.alPulsar,
   });
@@ -97,57 +99,155 @@ class TarjetaMenu extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
+      child: Material(
+        color: color.withAlpha(24),
+        borderRadius: BorderRadius.circular(26),
+        child: InkWell(
+          onTap: alPulsar,
+          borderRadius: BorderRadius.circular(26),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Container(
+                  width: 52,
+                  height: 52,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: color.withAlpha(40),
+                    shape: BoxShape.circle,
+                  ),
+                  child: emoji != null
+                      ? Text(emoji!, style: const TextStyle(fontSize: 26))
+                      : Icon(icono, color: color, size: 26),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        titulo,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w800,
+                          color: esquema.onSurface,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        subtitulo,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: esquema.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Bloque grande y colorido de la pantalla de inicio.
+/// Con [destacado] va relleno de color; si no, teñido suavemente.
+class BloqueAccion extends StatelessWidget {
+  final String titulo;
+  final String subtitulo;
+  final String emoji;
+  final Color color;
+  final bool destacado;
+  final double alto;
+  final VoidCallback alPulsar;
+
+  const BloqueAccion({
+    super.key,
+    required this.titulo,
+    required this.subtitulo,
+    required this.emoji,
+    required this.color,
+    required this.alPulsar,
+    this.destacado = false,
+    this.alto = 170,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final esquema = context.esquema;
+    final fondo = destacado ? color : color.withAlpha(32);
+    final texto = destacado ? esquema.onPrimary : esquema.onSurface;
+    final secundario = destacado
+        ? esquema.onPrimary.withAlpha(220)
+        : esquema.onSurfaceVariant;
+    final adorno = destacado ? Colors.white.withAlpha(30) : color.withAlpha(30);
+
+    return Material(
+      color: fondo,
+      borderRadius: BorderRadius.circular(32),
+      clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: alPulsar,
-        borderRadius: BorderRadius.circular(18),
-        child: Container(
-          padding: const EdgeInsets.all(15),
-          decoration: BoxDecoration(
-            border: Border.all(color: esquema.outlineVariant),
-            borderRadius: BorderRadius.circular(18),
-          ),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10),
+        child: Stack(
+          children: [
+            Positioned(
+              right: -30,
+              bottom: -30,
+              child: Container(
+                width: 120,
+                height: 120,
                 decoration: BoxDecoration(
-                  color: color.withAlpha(26),
-                  borderRadius: BorderRadius.circular(12),
+                  color: adorno,
+                  shape: BoxShape.circle,
                 ),
-                child: Icon(icono, color: color, size: 24),
               ),
-              const SizedBox(width: 15),
-              Expanded(
+            ),
+            Positioned(
+              right: 18,
+              top: 14,
+              child: Text(emoji, style: const TextStyle(fontSize: 38)),
+            ),
+            ConstrainedBox(
+              constraints: BoxConstraints(minHeight: alto),
+              child: Padding(
+                padding: const EdgeInsets.all(18),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
                       titulo,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: esquema.onSurface,
+                        fontSize: destacado ? 22 : 17,
+                        height: 1.15,
+                        fontWeight: FontWeight.w800,
+                        color: texto,
                       ),
                     ),
+                    const SizedBox(height: 4),
                     Text(
                       subtitulo,
-                      maxLines: 1,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 13,
-                        color: esquema.onSurfaceVariant,
+                        height: 1.25,
+                        color: secundario,
                       ),
                     ),
                   ],
                 ),
               ),
-              Icon(
-                Icons.arrow_forward_ios,
-                size: 14,
-                color: esquema.onSurfaceVariant,
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

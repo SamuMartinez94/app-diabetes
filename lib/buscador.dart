@@ -147,12 +147,12 @@ class _BuscadorScreenState extends State<BuscadorScreen> {
     super.dispose();
   }
 
-  /// Alarmas de la bomba del usuario y las comunes, filtradas por la consulta.
+  /// Alarmas de la bomba y el sensor del usuario, filtradas por la consulta.
   List<Alarma> get _alarmasFiltradas {
-    final miBomba = Preferencias.bomba ?? '';
-    final propias = alarmas
-        .where((a) => a.bomba.isEmpty || a.bomba == miBomba)
-        .toList();
+    final propias = alarmasPara(
+      bomba: Preferencias.bomba ?? '',
+      sensor: Preferencias.sensor ?? '',
+    );
 
     if (consulta.isEmpty) return propias;
 
@@ -518,7 +518,7 @@ class AlarmaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final esquema = context.esquema;
-    final porRevisar = alarmasPorRevisar.contains(alarma.id);
+    final porRevisar = alarma.porRevisar;
     final colorGravedad = _colorGravedad(context, alarma.gravedad);
 
     return Scaffold(
@@ -644,6 +644,16 @@ class AlarmaScreen extends StatelessWidget {
                 ),
               ),
             ),
+            if (alarma.manual != null) ...[
+              Text(
+                tf('Fuente: manual oficial de {manual}, p. {pagina}', {
+                  'manual': alarma.manual!,
+                  'pagina': alarma.pagina ?? '',
+                }),
+                style: TextStyle(fontSize: 12, color: esquema.onSurfaceVariant),
+              ),
+              const SizedBox(height: 14),
+            ],
             Center(child: BotonSugerencia(ubicacion: 'Alarma ${alarma.id}')),
             const SizedBox(height: 30),
           ],

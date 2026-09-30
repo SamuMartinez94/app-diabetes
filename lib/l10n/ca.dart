@@ -30,181 +30,35 @@ const Map<String, String> traduccionesCa = {
   'Inserción': 'Inserció',
   'Finalizar': 'Finalitzar',
   'Elegir zona': 'Triar zona',
-  'Bloqueo (oclusión)': 'Bloqueig (oclusió)',
-  'La bomba nota que algo bloquea el paso y la insulina no está llegando a tu cuerpo. Puede ser un catéter doblado, una cánula atascada o un cristal de insulina.':
-      'La bomba nota que alguna cosa bloqueja el pas i la insulina no arriba al teu cos. Pot ser un catèter doblegat, una cànula obstruïda o un cristall d\'insulina.',
   'oclusion, obstruido, atasco, no pasa insulina, bloqueo, acodado':
       'oclusió, obstruït, embús, no passa insulina, bloqueig, doblegat',
   'Confirma la alarma y desconecta el catéter de tu cuerpo.':
       'Confirma l\'alarma i desconnecta el catèter del teu cos.',
-  'Cambia el catéter entero y llena el tubo (cebar) como indica su guía.':
-      'Canvia el catèter sencer i omple el tub (purgar) tal com indica la seva guia.',
   'Si el llenado termina sin que vuelva a saltar el bloqueo, ya puedes seguir con normalidad.':
       'Si l\'ompliment acaba sense que torni a saltar el bloqueig, ja pots continuar amb normalitat.',
-  'Si el bloqueo salta otra vez al llenar el catéter nuevo, cambia también el cartucho o reservorio y vuelve a llenar.':
-      'Si el bloqueig salta un altre cop en omplir el catèter nou, canvia també el cartutx o reservori i torna a omplir.',
-  'Si sigue saltando aun con cartucho nuevo, la bomba puede estar averiada: contacta con el fabricante.':
-      'Si continua saltant fins i tot amb cartutx nou, la bomba pot estar avariada: contacta amb el fabricant.',
   'Mide tu glucosa y, si está alta, comprueba las cetonas.':
       'Mesura la teva glucosa i, si és alta, comprova les cetones.',
   'Queda poca insulina': 'Queda poca insulina',
-  'Queda poca insulina en el cartucho. Es solo un aviso: la bomba sigue funcionando con normalidad.':
-      'Queda poca insulina al cartutx. És només un avís: la bomba continua funcionant amb normalitat.',
-  'poca insulina, queda poco, cartucho bajo, reservorio':
-      'poca insulina, queda poc, cartutx baix, reservori',
-  'Prepara un reservorio nuevo y ten insulina a mano.':
-      'Prepara un reservori nou i tingues insulina a mà.',
-  'Haz el cambio antes de que se vacíe del todo.':
-      'Fes el canvi abans que es buidi del tot.',
-  'Sin insulina (reservorio vacío)': 'Sense insulina (reservori buit)',
-  'Ya no queda insulina. La bomba ha dejado de darte insulina, también la de fondo (basal).':
-      'Ja no queda insulina. La bomba ha deixat de donar-te insulina, també la de fons (basal).',
-  'sin insulina, cartucho vacio, se acabo, vacio':
-      'sense insulina, cartutx buit, s\'ha acabat, buit',
-  'Cambia el reservorio cuanto antes.': 'Canvia el reservori com abans millor.',
   'Mide tu glucosa: llevas un rato sin insulina de fondo.':
       'Mesura la teva glucosa: fa una estona que estàs sense insulina de fons.',
-  'Si no puedes cambiarlo ya, usa la pluma de respaldo.':
-      'Si no pots canviar-lo ara, fes servir la ploma de reserva.',
-  'Batería baja': 'Bateria baixa',
-  'Queda poca carga. La bomba sigue funcionando con normalidad.':
-      'Queda poca càrrega. La bomba continua funcionant amb normalitat.',
-  'pila baja, poca bateria, cargar, pila':
-      'pila baixa, poca bateria, carregar, pila',
-  'Carga la bomba o ten una pila de repuesto preparada.':
-      'Carrega la bomba o tingues una pila de recanvi preparada.',
-  'No dejes que se agote: si se apaga, dejas de recibir insulina.':
-      'No deixis que s\'esgoti: si s\'apaga, deixes de rebre insulina.',
-  'Batería agotada / Cambiar pila': 'Bateria esgotada / Canviar pila',
-  'La bomba se va a apagar o ya se ha apagado, y no te está dando insulina.':
-      'La bomba s\'apagarà o ja s\'ha apagat, i no et dona insulina.',
-  'sin bateria, apagada, no enciende, sin pila':
-      'sense bateria, apagada, no s\'encén, sense pila',
-  'Cambia la pila o conecta el cargador enseguida.':
-      'Canvia la pila o connecta el carregador de seguida.',
-  'Cuando se reinicie, comprueba que la hora y tu programa de insulina de fondo (basal) son correctos.':
-      'Quan es reiniciï, comprova que l\'hora i el teu programa d\'insulina de fons (basal) són correctes.',
   'Mide tu glucosa para saber cuánto tiempo has estado sin insulina.':
       'Mesura la teva glucosa per saber quant de temps has estat sense insulina.',
-  'Bomba parada': 'Bomba aturada',
-  'La bomba no te está dando insulina, porque la has parado tú o por un error.':
-      'La bomba no et dona insulina, perquè l\'has aturada tu o per un error.',
-  'parada, suspendida, no administra, stop, detenida':
-      'aturada, suspesa, no administra, stop, detinguda',
-  'Mira en la pantalla por qué se ha parado.':
-      'Mira a la pantalla per què s\'ha aturat.',
-  'Si el motivo ya está resuelto, reanuda la insulina.':
-      'Si el motiu ja està resolt, reprèn la insulina.',
   'Mide tu glucosa: sin insulina de fondo, sube rápido.':
       'Mesura la teva glucosa: sense insulina de fons, puja ràpid.',
   'Demasiado frío o demasiado calor': 'Massa fred o massa calor',
-  'La bomba está demasiado fría o demasiado caliente para funcionar con seguridad. Además, la insulina se estropea con el calor.':
-      'La bomba està massa freda o massa calenta per funcionar amb seguretat. A més, la insulina s\'espatlla amb la calor.',
   'calor, frio, sol, playa, temperatura':
       'calor, fred, sol, platja, temperatura',
   'Aleja la bomba del calor o del frío directo (sol, coche, nevera).':
       'Allunya la bomba de la calor o del fred directe (sol, cotxe, nevera).',
-  'Espera a que vuelva a temperatura ambiente.':
-      'Espera que torni a la temperatura ambient.',
-  'Si ha estado expuesta mucho rato, cambia la insulina: puede haber perdido efecto.':
-      'Si ha estat exposada molta estona, canvia la insulina: pot haver perdut efecte.',
-  'Cánula sin llenar': 'Cànula sense omplir',
-  'Has terminado el cambio pero no se ha llenado la cánula (el tubito que queda bajo la piel). Hay aire al final y no está entrando insulina.':
-      'Has acabat el canvi però no s\'ha omplert la cànula (el tubet que queda sota la pell). Hi ha aire al final i no entra insulina.',
-  'cebar, purgar, llenar canula, aire, canula':
-      'purgar, omplir cànula, aire, cànula',
-  'Elige "Llenar cánula" y pon la cantidad que indica la caja de tu catéter.':
-      'Tria "Omplir cànula" i posa la quantitat que indica la caixa del teu catèter.',
-  'Excepción: los catéteres con aguja de acero (Sure-T, TruSteel, Orbit micro) NO tienen cánula y no se llenan.':
-      'Excepció: els catèters amb agulla d\'acer (Sure-T, TruSteel, Orbit micro) NO tenen cànula i no s\'omplen.',
-  'No dejes la bomba parada en la pantalla de llenar cánula: mientras esté ahí, no te da insulina.':
-      'No deixis la bomba aturada a la pantalla d\'omplir cànula: mentre hi sigui, no et dona insulina.',
   'Insulina suspendida por glucosa baja': 'Insulina suspesa per glucosa baixa',
-  'El sensor ha detectado que tu glucosa está baja y la bomba ha parado sola la insulina de fondo (basal).':
-      'El sensor ha detectat que la teva glucosa és baixa i la bomba ha aturat sola la insulina de fons (basal).',
-  'hipo, suspension, smartguard, parada por baja':
-      'hipo, suspensió, smartguard, aturada per baixa',
   'Confírmalo con un pinchazo en el dedo.':
       'Confirma-ho amb una punxada al dit.',
-  'Si de verdad está baja, trátala como te haya enseñado tu equipo médico.':
-      'Si de debò és baixa, tracta-la tal com t\'ha ensenyat el teu equip mèdic.',
-  'La insulina se reanuda sola cuando te recuperas; también puedes reanudarla tú.':
-      'La insulina es reprèn sola quan et recuperes; també la pots reprendre tu.',
-  'Insulina suspendida por si baja la glucosa':
-      'Insulina suspesa per si baixa la glucosa',
-  'El sensor prevé que tu glucosa va a bajar y la bomba ha parado la insulina de fondo (basal) para evitarlo.':
-      'El sensor preveu que la teva glucosa baixarà i la bomba ha aturat la insulina de fons (basal) per evitar-ho.',
-  'prediccion, preventiva, smartguard': 'predicció, preventiva, smartguard',
-  'Si todavía estás en rango, no hace falta que tomes nada: la parada es preventiva.':
-      'Si encara ets dins del rang, no cal que prenguis res: l\'aturada és preventiva.',
-  'Vigila cómo evoluciona tu glucosa durante la siguiente media hora.':
-      'Vigila com evoluciona la teva glucosa durant la mitja hora següent.',
-  'Salida del modo automático': 'Sortida del mode automàtic',
-  'La bomba ha vuelto al modo manual. Suele pasar porque el sensor no da lecturas o porque la bomba lleva mucho rato dando la insulina máxima o mínima.':
-      'La bomba ha tornat al mode manual. Sol passar perquè el sensor no dona lectures o perquè la bomba fa molta estona que dona la insulina màxima o mínima.',
-  'modo manual, smartguard, automatico, auto mode':
-      'mode manual, smartguard, automàtic, auto mode',
-  'Comprueba que el sensor está dando lecturas.':
-      'Comprova que el sensor dona lectures.',
-  'Sigue las indicaciones de la pantalla para volver al modo automático.':
-      'Segueix les indicacions de la pantalla per tornar al mode automàtic.',
   'Mientras estés en manual, vigila más tu glucosa.':
       'Mentre siguis en manual, vigila més la teva glucosa.',
-  'Error al cargar el reservorio': 'Error en carregar el reservori',
-  'La bomba no ha podido terminar de cargar el reservorio o de mover el pistón.':
-      'La bomba no ha pogut acabar de carregar el reservori ni de moure el pistó.',
-  'error carga, piston, rebobinar, error de administracion':
-      'error càrrega, pistó, rebobinar, error d\'administració',
-  'Saca el reservorio y repite "Nuevo reservorio y equipo" desde el principio.':
-      'Treu el reservori i repeteix "Nou reservori i equip" des del principi.',
-  'Comprueba que el reservorio está bien puesto y girado hasta el tope.':
-      'Comprova que el reservori està ben posat i girat fins al topall.',
-  'Si el error se repite, llama al soporte del fabricante.':
-      'Si l\'error es repeteix, truca al suport del fabricant.',
   'Pod caducado': 'Pod caducat',
-  'El Pod ha llegado al final de su vida útil y ha dejado de dar insulina.':
-      'El Pod ha arribat al final de la seva vida útil i ha deixat de donar insulina.',
-  'caducado, expirado, pod viejo': 'caducat, expirat, pod vell',
-  'INFORMACIÓN DEL POD → VER DETALLES DEL POD → CAMBIAR EL POD → DESACTIVAR POD.':
-      'INFORMACIÓ DEL POD → VEURE DETALLS DEL POD → CANVIAR EL POD → DESACTIVAR POD.',
-  'Despega despacio los bordes del adhesivo y quita el Pod.':
-      'Aixeca a poc a poc les vores de l\'adhesiu i treu el Pod.',
-  'No pongas el Pod nuevo hasta haber desactivado y quitado el viejo.':
-      'No posis el Pod nou fins que hagis desactivat i tret el vell.',
-  'Error del Pod (alarma de peligro)': 'Error del Pod (alarma de perill)',
-  'El Pod ha detectado un fallo interno y ha dejado de dar insulina. Suele sonar un pitido continuo.':
-      'El Pod ha detectat una fallada interna i ha deixat de donar insulina. Sol sonar un pitit continu.',
-  'pitido, alarma continua, fallo pod': 'pitit, alarma contínua, fallada pod',
-  'Desactiva el Pod desde el Controlador y quítalo de la piel.':
-      'Desactiva el Pod des del Controlador i treu-lo de la pell.',
   'Pon un Pod nuevo.': 'Posa un Pod nou.',
-  'Guarda el Pod estropeado: el soporte puede pedírtelo.':
-      'Guarda el Pod espatllat: el suport et pot demanar.',
   'Mide tu glucosa y comprueba las cetonas.':
       'Mesura la teva glucosa i comprova les cetones.',
-  'No se puede desactivar el Pod': 'No es pot desactivar el Pod',
-  'El Controlador no consigue comunicarse con el Pod para desactivarlo.':
-      'El Controlador no aconsegueix comunicar-se amb el Pod per desactivar-lo.',
-  'no desactiva, no se apaga, quitar pod':
-      'no desactiva, no s\'apaga, treure pod',
-  'Acerca el Controlador al Pod para que puedan comunicarse.':
-      'Apropa el Controlador al Pod perquè puguin comunicar-se.',
-  'Si sigue sin desactivarse, usa la opción de descartar el Pod en el Controlador.':
-      'Si continua sense desactivar-se, fes servir l\'opció de descartar el Pod al Controlador.',
-  'Quita el Pod de la piel con la mano y ponte uno nuevo.':
-      'Treu el Pod de la pell amb la mà i posa\'t un de nou.',
-  'Recuerda que el Pod y el sensor deben ir en el mismo lado del cuerpo para verse entre sí.':
-      'Recorda que el Pod i el sensor han d\'anar al mateix costat del cos per veure\'s entre ells.',
-  'El Controlador no encuentra el Pod': 'El Controlador no troba el Pod',
-  'El Controlador no localiza el Pod. El Pod sigue dando la insulina de fondo (basal) que tenía programada.':
-      'El Controlador no localitza el Pod. El Pod continua donant la insulina de fons (basal) que tenia programada.',
-  'sin señal pod, no conecta, fuera de alcance, sin comunicacion':
-      'sense senyal pod, no connecta, fora d\'abast, sense comunicació',
-  'Acerca el Controlador al Pod.': 'Apropa el Controlador al Pod.',
-  'Aléjate de cosas que puedan interferir (otros aparatos, paredes gruesas).':
-      'Allunya\'t de coses que puguin interferir (altres aparells, parets gruixudes).',
-  'Si no se recupera, el Pod seguirá con su última insulina de fondo: planifica el cambio.':
-      'Si no es recupera, el Pod seguirà amb la seva última insulina de fons: planifica el canvi.',
   'Cartucho vacío': 'Cartutx buit',
   'A la YpsoPump se le ha acabado la insulina del cartucho y ha dejado de darte insulina.':
       'A la YpsoPump se li ha acabat la insulina del cartutx i ha deixat de donar-te insulina.',
@@ -216,18 +70,10 @@ const Map<String, String> traduccionesCa = {
   'Mide tu glucosa.': 'Mesura la teva glucosa.',
   'La varilla no ha terminado de retraerse':
       'La vareta no ha acabat de retreure\'s',
-  'Has puesto el cartucho antes de que la varilla roscada terminara de retraerse y de que la bomba acabara su autocomprobación.':
-      'Has posat el cartutx abans que la vareta roscada acabés de retreure\'s i que la bomba completés la seva autocomprovació.',
   'varilla, roscada, retraccion, cartucho antes':
       'vareta, roscada, retracció, cartutx abans',
-  'Repite el cambio de cartucho desde el principio.':
-      'Repeteix el canvi de cartutx des del principi.',
-  'Espera a que el porcentaje baje al 0 % y a que termine la autocomprobación antes de poner el cartucho.':
-      'Espera que el percentatge baixi al 0 % i que acabi l\'autocomprovació abans de posar el cartutx.',
   'No hay insulina / Falta llenar el tubo (cebado)':
       'No hi ha insulina / Falta omplir el tub (purga)',
-  'Después de retraer la varilla roscada pasaron 5 minutos sin llenar el tubo (cebar), o el llenado ha fallado. La bomba no te está dando insulina.':
-      'Després de retreure la vareta roscada han passat 5 minuts sense omplir el tub (purgar), o l\'ompliment ha fallat. La bomba no et dona insulina.',
   'no hay insulina, cebado, purgar, sin cebar':
       'no hi ha insulina, purga, purgar, sense purgar',
   'Confirma la alarma.': 'Confirma l\'alarma.',
@@ -275,28 +121,7 @@ const Map<String, String> traduccionesCa = {
       'Confirma l\'alarma i posa una pila alcalina AAA (LR03) nova.',
   'Mide tu glucosa: puede que hayas estado sin insulina de fondo.':
       'Mesura la teva glucosa: pot ser que hagis estat sense insulina de fons.',
-  'La bomba se ha reiniciado': 'La bomba s\'ha reiniciat',
-  'La bomba se ha reiniciado por un error del programa. Puede que tengas que confirmar algunos ajustes.':
-      'La bomba s\'ha reiniciat per un error del programa. Potser hauràs de confirmar alguns ajustos.',
-  'reinicio, se reinicio, error software':
-      'reinici, s\'ha reiniciat, error programari',
-  'Comprueba que la hora y la fecha son correctas.':
-      'Comprova que l\'hora i la data són correctes.',
-  'Mira que tu programa de insulina de fondo (basal) sigue activo.':
-      'Mira que el teu programa d\'insulina de fons (basal) continua actiu.',
-  'Comprueba la insulina activa (la que aún te está haciendo efecto): puede haberse perdido el registro.':
-      'Comprova la insulina activa (la que encara et fa efecte): pot haver-se perdut el registre.',
   'Se ha perdido la señal del sensor': 'S\'ha perdut el senyal del sensor',
-  'Tu móvil o tu bomba no reciben lecturas del sensor. La bomba sigue dando tu insulina de fondo (basal), pero sin ajustes automáticos.':
-      'El teu mòbil o la teva bomba no reben lectures del sensor. La bomba continua donant la teva insulina de fons (basal), però sense ajustos automàtics.',
-  'no conecta, sin señal, bluetooth, sin lecturas':
-      'no connecta, sense senyal, bluetooth, sense lectures',
-  'Acerca el móvil o el receptor al sensor.':
-      'Apropa el mòbil o el receptor al sensor.',
-  'Si tu modelo lleva transmisor, comprueba que está bien encajado.':
-      'Si el teu model porta transmissor, comprova que està ben encaixat.',
-  'Apaga y enciende el Bluetooth del dispositivo y espera 15 minutos.':
-      'Apaga i encén el Bluetooth del dispositiu i espera 15 minuts.',
   'Mientras no haya lecturas, mídete con un pinchazo en el dedo.':
       'Mentre no hi hagi lectures, mesura\'t amb una punxada al dit.',
   'Sensor caducado / Cambiar sensor': 'Sensor caducat / Canviar sensor',
@@ -307,30 +132,6 @@ const Map<String, String> traduccionesCa = {
   'Quita el sensor y ponte uno nuevo.': 'Treu el sensor i posa\'t un de nou.',
   'Mira la guía de cambio de sensor de esta app.':
       'Mira la guia de canvi de sensor d\'aquesta app.',
-  'Recuerda que hay un tiempo de calentamiento antes de las primeras lecturas.':
-      'Recorda que hi ha un temps d\'escalfament abans de les primeres lectures.',
-  'Toca calibrar': 'Toca calibrar',
-  'El sensor necesita que le des el valor de un pinchazo en el dedo para seguir dando lecturas fiables.':
-      'El sensor necessita que li donis el valor d\'una punxada al dit per continuar donant lectures fiables.',
-  'calibracion, calibrar, capilar, referencia':
-      'calibratge, calibrar, capil·lar, referència',
-  'Lávate y sécate bien las manos antes de pincharte.':
-      'Renta\'t i eixuga\'t bé les mans abans de punxar-te.',
-  'Mete el valor del dedo en cuanto lo tengas.':
-      'Introdueix el valor del dit tan aviat com el tinguis.',
-  'No calibres si tu glucosa está cambiando rápido: espera a un momento estable.':
-      'No calibris si la teva glucosa està canviant ràpid: espera un moment estable.',
-  'Sensor calentando': 'Sensor escalfant-se',
-  'El sensor recién puesto se está estabilizando y todavía no da lecturas.':
-      'El sensor acabat de posar s\'està estabilitzant i encara no dona lectures.',
-  'calentamiento, iniciando, sin lecturas aun, actualizando':
-      'escalfament, iniciant, sense lectures encara, actualitzant',
-  'Espera el tiempo de calentamiento de tu modelo: entre 30 minutos y 2 horas.':
-      'Espera el temps d\'escalfament del teu model: entre 30 minuts i 2 hores.',
-  'Mientras tanto, mídete con un pinchazo en el dedo.':
-      'Mentrestant, mesura\'t amb una punxada al dit.',
-  'Si al terminar sigue sin dar lecturas, revisa el emparejamiento.':
-      'Si en acabar continua sense donar lectures, revisa l\'aparellament.',
   'Aviso de glucosa alta': 'Avís de glucosa alta',
   'El sensor ha detectado un valor por encima del límite que tienes configurado.':
       'El sensor ha detectat un valor per sobre del límit que tens configurat.',
@@ -892,77 +693,6 @@ const Map<String, String> traduccionesCa = {
   'Resolver problemas': 'Resoldre problemes',
   'TU CONFIGURACIÓN': 'LA TEVA CONFIGURACIÓ',
   '¿Qué está pasando?': 'Què està passant?',
-  'El sensor no conecta': 'El sensor no connecta',
-  'Problemas de señal o de conexión.': 'Problemes de senyal o de connexió.',
-  'Aviso de bloqueo en el Pod': 'Avís de bloqueig al Pod',
-  'Aviso de insulina bloqueada': 'Avís d\'insulina bloquejada',
-  'El Pod ha detectado un problema.': 'El Pod ha detectat un problema.',
-  'La insulina no pasa bien.': 'La insulina no passa bé.',
-  'No me fío de las lecturas': 'No em refio de les lectures',
-  'El sensor y el dedo no coinciden.': 'El sensor i el dit no coincideixen.',
-  'Comprueba que está bien encajado': 'Comprova que està ben encaixat',
-  'Presiona el transmisor sobre el soporte del sensor. ¿Notas que está bien colocado y ha hecho clic?':
-      'Prem el transmissor sobre el suport del sensor. Notes que està ben col·locat i ha fet clic?',
-  'Sí, está bien puesto': 'Sí, està ben posat',
-  'No, se mueve o no encaja': 'No, es mou o no encaixa',
-  'Quita el transmisor, limpia los contactos y el soporte con un paño seco y vuelve a encajarlo hasta oír los clics. Si el soporte está dañado, tendrás que cambiar el sensor.':
-      'Treu el transmissor, neteja els contactes i el suport amb un drap sec i torna a encaixar-lo fins a sentir els clics. Si el suport està danyat, hauràs de canviar el sensor.',
-  '¿Cuánto tiempo lleva puesto?': 'Quant de temps fa que el portes?',
-  '¿Llevas más de 7 o 10 días con este sensor, según tu modelo?':
-      'Fa més de 7 o 10 dies que portes aquest sensor, segons el teu model?',
-  'Sí, ya lleva tiempo': 'Sí, ja fa temps',
-  'No, es reciente': 'No, és recent',
-  'El sensor ha caducado o está a punto de hacerlo. Hay que cambiarlo.':
-      'El sensor ha caducat o està a punt de fer-ho. Cal canviar-lo.',
-  'Reinicia la conexión': 'Reinicia la connexió',
-  'Apaga y vuelve a encender el Bluetooth del móvil o del receptor, acércalo al sensor y espera 15 minutos sin alejarte.':
-      'Apaga i torna a encendre el Bluetooth del mòbil o del receptor, apropa\'l al sensor i espera 15 minuts sense allunyar-te.',
-  'Ya vuelve a dar lecturas': 'Ja torna a donar lectures',
-  'Sigue sin conectar': 'Continua sense connectar',
-  'Perfecto. Si te pasa a menudo, evita llevar el móvil o el receptor en el lado contrario del cuerpo: el propio cuerpo tapa la señal.':
-      'Perfecte. Si et passa sovint, evita portar el mòbil o el receptor al costat contrari del cos: el mateix cos tapa el senyal.',
-  'Cambia el sensor y, si el problema se repite con el nuevo, contacta con el soporte del fabricante: puede ser el transmisor.':
-      'Canvia el sensor i, si el problema es repeteix amb el nou, contacta amb el suport del fabricant: pot ser el transmissor.',
-  '¿Suena una alarma?': 'Sona una alarma?',
-  '¿Hay algo doblado?': 'Hi ha alguna cosa doblegada?',
-  'Si el Pod pita sin parar, es un bloqueo dentro del propio Pod.':
-      'Si el Pod pita sense parar, és un bloqueig dins del mateix Pod.',
-  'Mira si el tubo tiene burbujas o si el catéter parece doblado.':
-      'Mira si el tub té bombolles o si el catèter sembla doblegat.',
-  'Veo algún problema': 'Veig algun problema',
-  'Todo parece normal': 'Tot sembla normal',
-  'El Pod está bloqueado. Desactívalo y pon uno nuevo. Mide tu glucosa: llevas un rato sin insulina de fondo.':
-      'El Pod està bloquejat. Desactiva\'l i posa\'n un de nou. Mesura la teva glucosa: fa una estona que estàs sense insulina de fons.',
-  'Cambia el catéter entero (catéter y reservorio) y mide tu glucosa.':
-      'Canvia el catèter sencer (catèter i reservori) i mesura la teva glucosa.',
-  '¿Cómo tienes la glucosa?': 'Com tens la glucosa?',
-  'Un bloqueo que no se ve se nota en la glucosa: sin insulina, sube y no baja aunque te corrijas.':
-      'Un bloqueig que no es veu es nota a la glucosa: sense insulina, puja i no baixa encara que et corregeixis.',
-  'Alta y no baja': 'Alta i no baixa',
-  'En rango': 'Dins del rang',
-  'Trátalo como un bloqueo de verdad: cambia todo el catéter, corrige con la pluma si tu equipo médico te lo ha indicado y comprueba las cetonas.':
-      'Tracta-ho com un bloqueig de debò: canvia tot el catèter, corregeix amb la ploma si el teu equip mèdic t\'ho ha indicat i comprova les cetones.',
-  'Puede haber sido una falsa alarma. Vigila tu glucosa las próximas 2 horas y cambia el catéter si el aviso se repite.':
-      'Pot haver estat una falsa alarma. Vigila la teva glucosa les properes 2 hores i canvia el catèter si l\'avís es repeteix.',
-  '¿Cuánto lleva puesto el sensor?':
-      'Quant de temps fa que porta posat el sensor?',
-  'Durante las primeras horas tras ponerlo, las lecturas suelen ser menos precisas.':
-      'Durant les primeres hores després de posar-lo, les lectures solen ser menys precises.',
-  'Menos de 24 horas': 'Menys de 24 hores',
-  'Más de 24 horas': 'Més de 24 hores',
-  'Es normal que al principio sea menos exacto. Guíate por el pinchazo en el dedo para tomar decisiones y espera a que se estabilice.':
-      'És normal que al principi sigui menys exacte. Guia\'t per la punxada al dit per prendre decisions i espera que s\'estabilitzi.',
-  '¿La diferencia es grande?': 'La diferència és gran?',
-  'Compara la lectura del sensor con un pinchazo en el dedo hecho con las manos limpias y secas.':
-      'Compara la lectura del sensor amb una punxada al dit feta amb les mans netes i seques.',
-  'Sí, se desvía mucho': 'Sí, s\'allunya molt',
-  'No, es una diferencia pequeña': 'No, és una diferència petita',
-  'Calibra el sensor si tu modelo lo permite. Si después sigue desviado, cámbialo y contacta con el fabricante.':
-      'Calibra el sensor si el teu model ho permet. Si després continua desviat, canvia\'l i contacta amb el fabricant.',
-  'Una diferencia pequeña es normal: el sensor mide la glucosa que hay entre las células y va unos minutos por detrás de la sangre.':
-      'Una diferència petita és normal: el sensor mesura la glucosa que hi ha entre les cèl·lules i va uns minuts per darrere de la sang.',
-  'Cargando pasos...': 'Carregant passos...',
-  'Recomendación': 'Recomanació',
   'Entendido': 'Entès',
   'Kit de viaje': 'Kit de viatge',
   'Reiniciar': 'Reiniciar',

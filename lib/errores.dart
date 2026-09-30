@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
+import 'datos/alarmas.dart';
 import 'l10n/idioma.dart';
+import 'modelos/alarma.dart';
 import 'tema.dart';
 import 'widgets/comunes.dart';
 
+/// Asistente de "Resolver problemas": una conversación guiada con respuestas
+/// de botón. No usa IA ni red: enseña, para el aviso que elijas, lo que dice
+/// el manual oficial de tu bomba o tu sensor.
 class ErroresScreen extends StatefulWidget {
   final String bomba;
   final String sensor;
@@ -21,435 +27,437 @@ class ErroresScreen extends StatefulWidget {
 }
 
 class _ErroresScreenState extends State<ErroresScreen> {
-  int pasoActual = 0;
-  String flujoActivo = "";
+  final _scroll = ScrollController();
 
-  bool get esOmnipod => widget.bomba == 'bomnipod';
+  /// Qué se ha elegido hasta ahora: el tipo de aviso y, dentro de él, el aviso.
+  bool? _deSensor;
+  Alarma? _alarma;
 
-  void _volverAlMenu() => setState(() {
-    pasoActual = 0;
-    flujoActivo = "";
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  /// Los avisos de un tipo que le pueden salir a esta persona, según su bomba
+  /// y su sensor, con los más graves primero.
+  List<Alarma> _avisos(bool deSensor) {
+    final lista = alarmasPara(
+      bomba: widget.bomba,
+      sensor: widget.sensor,
+    ).where((a) => a.deSensor == deSensor).toList();
+    // sort no es estable: se desempata por la posición en el catálogo.
+    final orden = {for (var i = 0; i < lista.length; i++) lista[i]: i};
+    lista.sort((a, b) {
+      final porGravedad = b.gravedad.index.compareTo(a.gravedad.index);
+      return porGravedad != 0 ? porGravedad : orden[a]!.compareTo(orden[b]!);
+    });
+    return lista;
+  }
+
+  void _cambiar(VoidCallback cambio) {
+    HapticFeedback.selectionClick();
+    setState(cambio);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!_scroll.hasClients) return;
+      _scroll.animateTo(
+        _scroll.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOutCubic,
+      );
+    });
+  }
+
+  void _atras() {
+    if (_alarma != null) {
+      _cambiar(() => _alarma = null);
+    } else if (_deSensor != null) {
+      _cambiar(() => _deSensor = null);
+    } else {
+      Navigator.pop(context);
+    }
+  }
+
+  void _reiniciar() => _cambiar(() {
+    _deSensor = null;
+    _alarma = null;
   });
+
+  String _emoji(Gravedad g) => switch (g) {
+    Gravedad.urgente => '🔴',
+    Gravedad.atencion => '🟠',
+    Gravedad.informativa => '🔵',
+  };
 
   @override
   Widget build(BuildContext context) {
+    final burbujas = <Widget>[
+      _Burbuja.asistente(
+        child: Text(
+          t('¿Qué está pasando?'),
+          style: _estiloAsistente(context, negrita: true),
+        ),
+      ),
+    ];
+
+    var opciones = <_Opcion>[];
+    final deSensor = _deSensor;
+    final alarma = _alarma;
+
+    if (deSensor == null) {
+      opciones = [
+        if (_avisos(false).isNotEmpty)
+          _Opcion(
+            '🔔  ${t('Mi bomba avisa')}',
+            () => _cambiar(() => _deSensor = false),
+          ),
+        if (_avisos(true).isNotEmpty)
+          _Opcion(
+            '📡  ${t('Mi sensor avisa')}',
+            () => _cambiar(() => _deSensor = true),
+          ),
+      ];
+    } else {
+      burbujas.add(
+        _Burbuja.usuario(
+          texto: deSensor ? t('Mi sensor avisa') : t('Mi bomba avisa'),
+        ),
+      );
+
+      if (alarma == null) {
+        burbujas.add(
+          _Burbuja.asistente(
+            child: Text(
+              t('Elige el aviso que sale en la pantalla'),
+              style: _estiloAsistente(context, negrita: true),
+            ),
+          ),
+        );
+        opciones = [
+          for (final a in _avisos(deSensor))
+            _Opcion(
+              '${_emoji(a.gravedad)}  ${t(a.titulo)}',
+              () => _cambiar(() => _alarma = a),
+            ),
+        ];
+      } else {
+        burbujas
+          ..add(_Burbuja.usuario(texto: t(alarma.titulo)))
+          ..add(_RespuestaAlarma(alarma: alarma));
+        opciones = [
+          _Opcion(t('Ver otro aviso'), () => _cambiar(() => _alarma = null)),
+          _Opcion(t('Entendido'), _reiniciar),
+        ];
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(t('Resolver problemas')),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, size: 18),
-          onPressed: () {
-            if (pasoActual > 0) {
-              _volverAlMenu();
-            } else {
-              Navigator.pop(context);
-            }
-          },
+          onPressed: _atras,
         ),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                t('TU CONFIGURACIÓN'),
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.bold,
-                  color: context.esquema.primary,
-                  letterSpacing: 1.1,
-                ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.separated(
+                controller: _scroll,
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+                itemCount: burbujas.length,
+                separatorBuilder: (_, _) => const SizedBox(height: 12),
+                itemBuilder: (_, i) => burbujas[i],
               ),
-              const SizedBox(height: 10),
-              ResumenConfiguracion(
-                bomba: widget.bomba,
-                sensor: widget.sensor,
-                cateter: widget.cateter,
-              ),
-              const SizedBox(height: 25),
-              Expanded(
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: pasoActual == 0
-                      ? _buildMenuErrores()
-                      : _buildFlujoDiagnostico(),
-                ),
-              ),
-            ],
-          ),
+            ),
+            _PanelRespuestas(
+              opciones: opciones,
+              destacarPrimera: alarma != null,
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildMenuErrores() {
-    final colores = context.colores;
+  TextStyle _estiloAsistente(BuildContext context, {bool negrita = false}) =>
+      TextStyle(
+        fontSize: negrita ? 17 : 15,
+        height: 1.4,
+        fontWeight: negrita ? FontWeight.w700 : FontWeight.w400,
+        color: negrita
+            ? context.esquema.onSurface
+            : context.esquema.onSurfaceVariant,
+      );
+}
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          t('¿Qué está pasando?'),
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.w700,
-            color: context.esquema.onSurface,
-            letterSpacing: -0.5,
-          ),
+class _Opcion {
+  final String texto;
+  final VoidCallback alPulsar;
+
+  const _Opcion(this.texto, this.alPulsar);
+}
+
+class _Burbuja extends StatelessWidget {
+  final bool delUsuario;
+  final Widget child;
+
+  const _Burbuja._({required this.delUsuario, required this.child});
+
+  factory _Burbuja.asistente({required Widget child}) =>
+      _Burbuja._(delUsuario: false, child: child);
+
+  factory _Burbuja.usuario({required String texto}) => _Burbuja._(
+    delUsuario: true,
+    child: Builder(
+      builder: (context) => Text(
+        texto,
+        style: TextStyle(
+          fontSize: 15,
+          height: 1.35,
+          fontWeight: FontWeight.w600,
+          color: context.esquema.onPrimary,
         ),
-        const SizedBox(height: 15),
-        TarjetaMenu(
-          titulo: t('El sensor no conecta'),
-          subtitulo: t('Problemas de señal o de conexión.'),
-          icono: Icons.sensors_off,
-          color: colores.aviso,
-          alPulsar: () => _abrirFlujo("sensor_no_conecta"),
+      ),
+    ),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    final esquema = context.esquema;
+    const radio = Radius.circular(22);
+    const esquina = Radius.circular(6);
+
+    final burbuja = Container(
+      constraints: BoxConstraints(
+        maxWidth: MediaQuery.sizeOf(context).width * 0.8,
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: delUsuario ? esquema.primary : esquema.surfaceContainerLow,
+        borderRadius: BorderRadius.only(
+          topLeft: radio,
+          topRight: radio,
+          bottomLeft: delUsuario ? radio : esquina,
+          bottomRight: delUsuario ? esquina : radio,
         ),
-        TarjetaMenu(
-          titulo: esOmnipod
-              ? t('Aviso de bloqueo en el Pod')
-              : t('Aviso de insulina bloqueada'),
-          subtitulo: esOmnipod
-              ? t('El Pod ha detectado un problema.')
-              : t('La insulina no pasa bien.'),
-          icono: Icons.water_drop_outlined,
-          color: colores.aviso,
-          alPulsar: () => _abrirFlujo("flujo_obstruido"),
+      ),
+      child: child,
+    );
+
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: const Duration(milliseconds: 260),
+      curve: Curves.easeOutCubic,
+      builder: (context, v, hijo) => Opacity(
+        opacity: v,
+        child: Transform.translate(
+          offset: Offset(0, 12 * (1 - v)),
+          child: hijo,
         ),
-        TarjetaMenu(
-          titulo: t('No me fío de las lecturas'),
-          subtitulo: t('El sensor y el dedo no coinciden.'),
-          icono: Icons.query_stats,
-          color: colores.aviso,
-          alPulsar: () => _abrirFlujo("glucosa_error"),
-        ),
-      ],
+      ),
+      child: Row(
+        mainAxisAlignment: delUsuario
+            ? MainAxisAlignment.end
+            : MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          if (!delUsuario) ...[
+            Container(
+              width: 34,
+              height: 34,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: esquema.primary.withAlpha(30),
+                shape: BoxShape.circle,
+              ),
+              child: const Text('💙', style: TextStyle(fontSize: 17)),
+            ),
+            const SizedBox(width: 8),
+          ],
+          Flexible(child: burbuja),
+        ],
+      ),
     );
   }
+}
 
-  void _abrirFlujo(String id) => setState(() {
-    flujoActivo = id;
-    pasoActual = 1;
+/// Respuesta del asistente: qué significa el aviso y qué hacer.
+class _RespuestaAlarma extends StatelessWidget {
+  final Alarma alarma;
+
+  const _RespuestaAlarma({required this.alarma});
+
+  Color _color(BuildContext context) => switch (alarma.gravedad) {
+    Gravedad.urgente => context.colores.urgente,
+    Gravedad.atencion => context.colores.aviso,
+    Gravedad.informativa => context.esquema.primary,
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    final esquema = context.esquema;
+    final color = _color(context);
+    final etiqueta = TextStyle(
+      fontSize: 11,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 1.1,
+      color: color,
+    );
+
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: const Duration(milliseconds: 320),
+      curve: Curves.easeOutCubic,
+      builder: (context, v, hijo) => Opacity(
+        opacity: v,
+        child: Transform.translate(
+          offset: Offset(0, 14 * (1 - v)),
+          child: hijo,
+        ),
+      ),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          color: color.withAlpha(28),
+          borderRadius: BorderRadius.circular(26),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (alarma.porRevisar) ...[
+              const BannerRevision(),
+              const SizedBox(height: 14),
+            ],
+            Text(t('QUÉ SIGNIFICA'), style: etiqueta),
+            const SizedBox(height: 6),
+            Text(
+              t(alarma.significado),
+              style: TextStyle(
+                fontSize: 15,
+                height: 1.45,
+                color: esquema.onSurface,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(t('QUÉ HACER'), style: etiqueta),
+            const SizedBox(height: 8),
+            for (var i = 0; i < alarma.queHacer.length; i++)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 24,
+                      height: 24,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: color.withAlpha(40),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Text(
+                        '${i + 1}',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: color,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        t(alarma.queHacer[i]),
+                        style: TextStyle(
+                          fontSize: 15,
+                          height: 1.4,
+                          color: esquema.onSurface,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            if (alarma.manual != null) ...[
+              const SizedBox(height: 4),
+              Text(
+                tf('Fuente: manual oficial de {manual}, p. {pagina}', {
+                  'manual': alarma.manual!,
+                  'pagina': alarma.pagina ?? '',
+                }),
+                style: TextStyle(fontSize: 12, color: esquema.onSurfaceVariant),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PanelRespuestas extends StatelessWidget {
+  final List<_Opcion> opciones;
+  final bool destacarPrimera;
+
+  const _PanelRespuestas({
+    required this.opciones,
+    required this.destacarPrimera,
   });
 
-  Widget _buildFlujoDiagnostico() {
-    // FLUJO SENSOR
-    if (flujoActivo == "sensor_no_conecta") {
-      if (pasoActual == 1) {
-        return _buildPasoVisual(
-          pregunta: t('Comprueba que está bien encajado'),
-          descripcion: t(
-            'Presiona el transmisor sobre el soporte del sensor. ¿Notas que '
-            'está bien colocado y ha hecho clic?',
-          ),
-          textoSi: t('Sí, está bien puesto'),
-          textoNo: t('No, se mueve o no encaja'),
-          onSi: () => setState(() => pasoActual = 2),
-          onNo: () => _mostrarSolucion(
-            t(
-              'Quita el transmisor, limpia los contactos y el soporte con un '
-              'paño seco y vuelve a encajarlo hasta oír los clics. Si el '
-              'soporte está dañado, tendrás que cambiar el sensor.',
-            ),
-          ),
-        );
-      } else if (pasoActual == 2) {
-        return _buildPasoVisual(
-          pregunta: t('¿Cuánto tiempo lleva puesto?'),
-          descripcion: t(
-            '¿Llevas más de 7 o 10 días con este sensor, según tu modelo?',
-          ),
-          textoSi: t('Sí, ya lleva tiempo'),
-          textoNo: t('No, es reciente'),
-          onSi: () => _mostrarSolucion(
-            t(
-              'El sensor ha caducado o está a punto de hacerlo. Hay que '
-              'cambiarlo.',
-            ),
-          ),
-          onNo: () => setState(() => pasoActual = 3),
-        );
-      } else if (pasoActual == 3) {
-        return _buildPasoVisual(
-          pregunta: t('Reinicia la conexión'),
-          descripcion: t(
-            'Apaga y vuelve a encender el Bluetooth del móvil o del receptor, '
-            'acércalo al sensor y espera 15 minutos sin alejarte.',
-          ),
-          textoSi: t('Ya vuelve a dar lecturas'),
-          textoNo: t('Sigue sin conectar'),
-          onSi: () => _mostrarSolucion(
-            t(
-              'Perfecto. Si te pasa a menudo, evita llevar el móvil o el '
-              'receptor en el lado contrario del cuerpo: el propio cuerpo '
-              'tapa la señal.',
-            ),
-          ),
-          onNo: () => _mostrarSolucion(
-            t(
-              'Cambia el sensor y, si el problema se repite con el nuevo, '
-              'contacta con el soporte del fabricante: puede ser el '
-              'transmisor.',
-            ),
-          ),
-        );
-      }
-    }
-
-    // FLUJO BLOQUEO / INSULINA BLOQUEADA
-    if (flujoActivo == "flujo_obstruido") {
-      if (pasoActual == 1) {
-        return _buildPasoVisual(
-          pregunta: esOmnipod
-              ? t('¿Suena una alarma?')
-              : t('¿Hay algo doblado?'),
-          descripcion: esOmnipod
-              ? t(
-                  'Si el Pod pita sin parar, es un bloqueo dentro del propio '
-                  'Pod.',
-                )
-              : t(
-                  'Mira si el tubo tiene burbujas o si el catéter parece '
-                  'doblado.',
-                ),
-          textoSi: t('Veo algún problema'),
-          textoNo: t('Todo parece normal'),
-          onSi: () => _mostrarSolucion(
-            esOmnipod
-                ? t(
-                    'El Pod está bloqueado. Desactívalo y pon uno nuevo. '
-                    'Mide tu glucosa: llevas un rato sin insulina de fondo.',
-                  )
-                : t(
-                    'Cambia el catéter entero (catéter y reservorio) y mide '
-                    'tu glucosa.',
-                  ),
-          ),
-          onNo: () => setState(() => pasoActual = 2),
-        );
-      } else if (pasoActual == 2) {
-        return _buildPasoVisual(
-          pregunta: t('¿Cómo tienes la glucosa?'),
-          descripcion: t(
-            'Un bloqueo que no se ve se nota en la glucosa: sin insulina, '
-            'sube y no baja aunque te corrijas.',
-          ),
-          textoSi: t('Alta y no baja'),
-          textoNo: t('En rango'),
-          onSi: () => _mostrarSolucion(
-            t(
-              'Trátalo como un bloqueo de verdad: cambia todo el catéter, '
-              'corrige con la pluma si tu equipo médico te lo ha indicado y '
-              'comprueba las cetonas.',
-            ),
-          ),
-          onNo: () => _mostrarSolucion(
-            t(
-              'Puede haber sido una falsa alarma. Vigila tu glucosa las '
-              'próximas 2 horas y cambia el catéter si el aviso se repite.',
-            ),
-          ),
-        );
-      }
-    }
-
-    // FLUJO LECTURAS DUDOSAS
-    if (flujoActivo == "glucosa_error") {
-      if (pasoActual == 1) {
-        return _buildPasoVisual(
-          pregunta: t('¿Cuánto lleva puesto el sensor?'),
-          descripcion: t(
-            'Durante las primeras horas tras ponerlo, las lecturas suelen '
-            'ser menos precisas.',
-          ),
-          textoSi: t('Menos de 24 horas'),
-          textoNo: t('Más de 24 horas'),
-          onSi: () => _mostrarSolucion(
-            t(
-              'Es normal que al principio sea menos exacto. Guíate por el '
-              'pinchazo en el dedo para tomar decisiones y espera a que se '
-              'estabilice.',
-            ),
-          ),
-          onNo: () => setState(() => pasoActual = 2),
-        );
-      } else if (pasoActual == 2) {
-        return _buildPasoVisual(
-          pregunta: t('¿La diferencia es grande?'),
-          descripcion: t(
-            'Compara la lectura del sensor con un pinchazo en el dedo hecho '
-            'con las manos limpias y secas.',
-          ),
-          textoSi: t('Sí, se desvía mucho'),
-          textoNo: t('No, es una diferencia pequeña'),
-          onSi: () => _mostrarSolucion(
-            t(
-              'Calibra el sensor si tu modelo lo permite. Si después sigue '
-              'desviado, cámbialo y contacta con el fabricante.',
-            ),
-          ),
-          onNo: () => _mostrarSolucion(
-            t(
-              'Una diferencia pequeña es normal: el sensor mide la glucosa '
-              'que hay entre las células y va unos minutos por detrás de la '
-              'sangre.',
-            ),
-          ),
-        );
-      }
-    }
-
-    return Center(child: Text(t('Cargando pasos...')));
-  }
-
-  Widget _buildPasoVisual({
-    required String pregunta,
-    required String descripcion,
-    required String textoSi,
-    required String textoNo,
-    required VoidCallback onSi,
-    required VoidCallback onNo,
-  }) {
+  @override
+  Widget build(BuildContext context) {
+    if (opciones.isEmpty) return const SizedBox.shrink();
     final esquema = context.esquema;
 
-    return Column(
-      children: [
-        const SizedBox(height: 10),
-        Text(
-          pregunta,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: esquema.onSurface,
-          ),
-        ),
-        const SizedBox(height: 10),
-        Text(
-          descripcion,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 15,
-            color: esquema.onSurfaceVariant,
-            height: 1.35,
-          ),
-        ),
-        const SizedBox(height: 30),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: esquema.primary,
-            foregroundColor: esquema.onPrimary,
-            elevation: 0,
-            minimumSize: const Size(double.infinity, 52),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-          ),
-          onPressed: onSi,
-          child: Text(
-            textoSi,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-          ),
-        ),
-        const SizedBox(height: 12),
-        OutlinedButton(
-          style: OutlinedButton.styleFrom(
-            foregroundColor: esquema.primary,
-            side: BorderSide(color: esquema.primary, width: 1.5),
-            minimumSize: const Size(double.infinity, 52),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-          ),
-          onPressed: onNo,
-          child: Text(
-            textoNo,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-          ),
-        ),
-      ],
-    );
-  }
-
-  void _mostrarSolucion(String mensaje) {
-    final esquema = context.esquema;
-
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => Dialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: esquema.primary.withAlpha(26),
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.lightbulb_outline_rounded,
-                  color: esquema.primary,
-                  size: 32,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Text(
-                t('Recomendación'),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: -0.5,
-                  color: esquema.onSurface,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                mensaje,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: esquema.onSurfaceVariant,
-                  height: 1.4,
-                ),
-              ),
-              const SizedBox(height: 30),
+    return Container(
+      width: double.infinity,
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.sizeOf(context).height * 0.5,
+      ),
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+      decoration: BoxDecoration(
+        color: esquema.surface,
+        border: Border(top: BorderSide(color: esquema.outlineVariant)),
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            for (var i = 0; i < opciones.length; i++) ...[
+              if (i > 0) const SizedBox(height: 10),
               SizedBox(
                 width: double.infinity,
-                child: FilledButton(
-                  style: FilledButton.styleFrom(
-                    backgroundColor: esquema.primary,
-                    foregroundColor: esquema.onPrimary,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                    _volverAlMenu();
-                  },
-                  child: Text(
-                    t('Entendido'),
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                child: (destacarPrimera && i == 0)
+                    ? FilledButton(
+                        onPressed: opciones[i].alPulsar,
+                        style: FilledButton.styleFrom(
+                          minimumSize: const Size.fromHeight(52),
+                        ),
+                        child: _texto(opciones[i].texto),
+                      )
+                    : OutlinedButton(
+                        onPressed: opciones[i].alPulsar,
+                        style: OutlinedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(52),
+                          foregroundColor: esquema.primary,
+                          side: BorderSide(color: esquema.primary, width: 1.5),
+                        ),
+                        child: _texto(opciones[i].texto),
+                      ),
               ),
             ],
-          ),
+          ],
         ),
       ),
     );
   }
+
+  Widget _texto(String texto) => Text(
+    texto,
+    textAlign: TextAlign.center,
+    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+  );
 }

@@ -12,7 +12,6 @@ import 'soporte.dart';
 import 'tema.dart';
 import 'widgets/boton_sugerencia.dart';
 import 'widgets/comunes.dart';
-import 'widgets/selector_idioma.dart';
 import 'zonas_insercion.dart';
 
 /// Pantalla principal, con tres pestañas abajo: Inicio, Buscar y Más.
@@ -216,7 +215,6 @@ class _Inicio extends StatelessWidget {
       appBar: AppBar(
         title: const Text('DiaGuía'),
         actions: [
-          const BotonIdioma(),
           IconButton(
             tooltip: t('Configuración'),
             icon: const Icon(Icons.settings_outlined, size: 22),
@@ -233,8 +231,79 @@ class _Inicio extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           children: [
             const DistintivoModoSugerencias(),
+            const SizedBox(height: 6),
+            Text(
+              t('¿Qué necesitas hacer?'),
+              style: TextStyle(
+                fontSize: 30,
+                height: 1.1,
+                fontWeight: FontWeight.w800,
+                color: esquema.onSurface,
+                letterSpacing: -0.8,
+              ),
+            ),
+            const SizedBox(height: 18),
+            BloqueAccion(
+              destacado: true,
+              alto: 150,
+              emoji: '💧',
+              color: esquema.primary,
+              titulo: esOmnipod
+                  ? t('Recambio de Pod')
+                  : t('Recambio de catéter'),
+              subtitulo: esOmnipod
+                  ? t('Instrucciones para poner un Pod nuevo.')
+                  : t('Guía paso a paso.'),
+              alPulsar: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) =>
+                      CambioCateterScreen(bomba: bomba, cateter: cateter),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: BloqueAccion(
+                    emoji: '📡',
+                    color: colores.exito,
+                    titulo: t('Recambio de sensor'),
+                    subtitulo: t('Instrucciones del sensor de glucosa.'),
+                    alPulsar: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) =>
+                            CambioSensorScreen(bomba: bomba, sensor: sensor),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: BloqueAccion(
+                    emoji: '🛟',
+                    color: colores.aviso,
+                    titulo: t('Resolver problemas'),
+                    subtitulo: t('Te hacemos unas preguntas y te ayudamos.'),
+                    alPulsar: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => ErroresScreen(
+                          bomba: bomba,
+                          sensor: sensor,
+                          cateter: cateter,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 28),
+            Row(
               children: [
                 Expanded(child: _rotulo(context, t('TU CONFIGURACIÓN'))),
                 InkWell(
@@ -270,65 +339,6 @@ class _Inicio extends StatelessWidget {
               bomba: bomba,
               sensor: sensor,
               cateter: cateter,
-            ),
-
-            const SizedBox(height: 25),
-            Text(
-              t('¿Qué necesitas hacer?'),
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w700,
-                color: esquema.onSurface,
-                letterSpacing: -0.5,
-              ),
-            ),
-            const SizedBox(height: 15),
-
-            TarjetaMenu(
-              titulo: esOmnipod
-                  ? t('Recambio de Pod')
-                  : t('Recambio de catéter'),
-              subtitulo: esOmnipod
-                  ? t('Instrucciones para poner un Pod nuevo.')
-                  : t('Guía paso a paso.'),
-              icono: Icons.opacity,
-              color: esquema.primary,
-              alPulsar: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) =>
-                      CambioCateterScreen(bomba: bomba, cateter: cateter),
-                ),
-              ),
-            ),
-            TarjetaMenu(
-              titulo: t('Recambio de sensor'),
-              subtitulo: t('Instrucciones del sensor de glucosa.'),
-              icono: Icons.sensors,
-              color: colores.exito,
-              alPulsar: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) =>
-                      CambioSensorScreen(bomba: bomba, sensor: sensor),
-                ),
-              ),
-            ),
-            TarjetaMenu(
-              titulo: t('Resolver problemas'),
-              subtitulo: t('Te hacemos unas preguntas y te ayudamos.'),
-              icono: Icons.warning_amber_rounded,
-              color: colores.aviso,
-              alPulsar: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => ErroresScreen(
-                    bomba: bomba,
-                    sensor: sensor,
-                    cateter: cateter,
-                  ),
-                ),
-              ),
             ),
             const SizedBox(height: 20),
           ],
@@ -367,7 +377,7 @@ class _Mas extends StatelessWidget {
             TarjetaMenu(
               titulo: t('Kit de viaje'),
               subtitulo: t('Qué llevar y qué papeles necesitas.'),
-              icono: Icons.luggage_outlined,
+              emoji: '🧳',
               color: esquema.primary,
               alPulsar: () => Navigator.push(
                 context,
@@ -377,7 +387,7 @@ class _Mas extends StatelessWidget {
             TarjetaMenu(
               titulo: t('Rotación de zonas'),
               subtitulo: t('Dónde ponértelo la próxima vez.'),
-              icono: Icons.place_outlined,
+              emoji: '📍',
               color: colores.exito,
               alPulsar: () => Navigator.push(
                 context,
@@ -387,7 +397,7 @@ class _Mas extends StatelessWidget {
             TarjetaMenu(
               titulo: t('Soporte y manuales'),
               subtitulo: t('Webs oficiales y urgencias.'),
-              icono: Icons.support_agent,
+              emoji: '📞',
               color: colores.aviso,
               alPulsar: () => Navigator.push(
                 context,

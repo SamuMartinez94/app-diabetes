@@ -9,7 +9,6 @@ import 'servicios/notificaciones.dart';
 import 'servicios/preferencias.dart';
 import 'servicios/sugerencias.dart';
 import 'tema.dart';
-import 'widgets/selector_idioma.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -98,10 +97,6 @@ class PantallaBienvenida extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            const Align(
-              alignment: Alignment.topRight,
-              child: Padding(padding: EdgeInsets.all(8), child: BotonIdioma()),
-            ),
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),

@@ -127,6 +127,12 @@ ThemeData _construir(ColorScheme esquema, ColoresApp colores) {
         ),
       ),
     ),
+    filledButtonTheme: FilledButtonThemeData(
+      style: FilledButton.styleFrom(shape: const StadiumBorder()),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(shape: const StadiumBorder()),
+    ),
     listTileTheme: ListTileThemeData(iconColor: esquema.onSurfaceVariant),
     dividerTheme: DividerThemeData(color: esquema.outlineVariant),
   );
@@ -136,13 +142,13 @@ final ThemeData temaClaro = _construir(
   const ColorScheme.light(
     primary: _azul,
     onPrimary: Colors.white,
-    surface: Colors.white,
+    surface: Color(0xFFFAFBFF),
     onSurface: Color(0xDD000000),
-    surfaceContainerLow: Color(0xFFFAFAFA),
-    surfaceContainerHighest: Color(0xFFF5F5F5),
+    surfaceContainerLow: Color(0xFFF0F4FF),
+    surfaceContainerHighest: Color(0xFFE3EAFB),
     onSurfaceVariant: Color(0xFF757575),
     outline: Color(0xFFBDBDBD),
-    outlineVariant: Color(0xFFEEEEEE),
+    outlineVariant: Color(0xFFE1E7F5),
   ),
   ColoresApp.claro,
 );
@@ -151,10 +157,10 @@ final ThemeData temaOscuro = _construir(
   const ColorScheme.dark(
     primary: _azulClaro,
     onPrimary: Color(0xFF00224D),
-    surface: Color(0xFF121212),
+    surface: Color(0xFF12141A),
     onSurface: Color(0xFFECECEC),
-    surfaceContainerLow: Color(0xFF1C1C1E),
-    surfaceContainerHighest: Color(0xFF2C2C2E),
+    surfaceContainerLow: Color(0xFF1B1F2A),
+    surfaceContainerHighest: Color(0xFF2A3040),
     onSurfaceVariant: Color(0xFF9E9E9E),
     outline: Color(0xFF5C5C5E),
     outlineVariant: Color(0xFF323234),
