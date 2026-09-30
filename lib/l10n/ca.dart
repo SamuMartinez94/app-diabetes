@@ -692,7 +692,6 @@ const Map<String, String> traduccionesCa = {
   'Entiendo y continúo': 'Ho entenc i continuo',
   'Resolver problemas': 'Resoldre problemes',
   'TU CONFIGURACIÓN': 'LA TEVA CONFIGURACIÓ',
-  '¿Qué está pasando?': 'Què està passant?',
   'Entendido': 'Entès',
   'Kit de viaje': 'Kit de viatge',
   'Reiniciar': 'Reiniciar',

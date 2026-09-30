@@ -83,10 +83,10 @@ class _ErroresScreenState extends State<ErroresScreen> {
     _alarma = null;
   });
 
-  String _emoji(Gravedad g) => switch (g) {
-    Gravedad.urgente => '🔴',
-    Gravedad.atencion => '🟠',
-    Gravedad.informativa => '🔵',
+  Color _colorGravedad(BuildContext context, Gravedad g) => switch (g) {
+    Gravedad.urgente => context.colores.urgente,
+    Gravedad.atencion => context.colores.aviso,
+    Gravedad.informativa => context.esquema.primary,
   };
 
   @override
@@ -94,7 +94,7 @@ class _ErroresScreenState extends State<ErroresScreen> {
     final burbujas = <Widget>[
       _Burbuja.asistente(
         child: Text(
-          t('¿Qué está pasando?'),
+          t('¡Hola! Cuéntame qué problema tienes y te ayudo a resolverlo.'),
           style: _estiloAsistente(context, negrita: true),
         ),
       ),
@@ -108,19 +108,21 @@ class _ErroresScreenState extends State<ErroresScreen> {
       opciones = [
         if (_avisos(false).isNotEmpty)
           _Opcion(
-            '🔔  ${t('Mi bomba avisa')}',
+            t('Problema con la bomba'),
             () => _cambiar(() => _deSensor = false),
           ),
         if (_avisos(true).isNotEmpty)
           _Opcion(
-            '📡  ${t('Mi sensor avisa')}',
+            t('Problema con el sensor'),
             () => _cambiar(() => _deSensor = true),
           ),
       ];
     } else {
       burbujas.add(
         _Burbuja.usuario(
-          texto: deSensor ? t('Mi sensor avisa') : t('Mi bomba avisa'),
+          texto: deSensor
+              ? t('Problema con el sensor')
+              : t('Problema con la bomba'),
         ),
       );
 
@@ -136,8 +138,9 @@ class _ErroresScreenState extends State<ErroresScreen> {
         opciones = [
           for (final a in _avisos(deSensor))
             _Opcion(
-              '${_emoji(a.gravedad)}  ${t(a.titulo)}',
+              t(a.titulo),
               () => _cambiar(() => _alarma = a),
+              color: _colorGravedad(context, a.gravedad),
             ),
         ];
       } else {
@@ -197,7 +200,10 @@ class _Opcion {
   final String texto;
   final VoidCallback alPulsar;
 
-  const _Opcion(this.texto, this.alPulsar);
+  /// Color suave del marco (por ejemplo, el de la gravedad de un aviso).
+  final Color? color;
+
+  const _Opcion(this.texto, this.alPulsar, {this.color});
 }
 
 class _Burbuja extends StatelessWidget {
@@ -273,7 +279,11 @@ class _Burbuja extends StatelessWidget {
                 color: esquema.primary.withAlpha(30),
                 shape: BoxShape.circle,
               ),
-              child: const Text('💙', style: TextStyle(fontSize: 17)),
+              child: Icon(
+                Icons.person_rounded,
+                size: 20,
+                color: esquema.primary,
+              ),
             ),
             const SizedBox(width: 8),
           ],
@@ -442,8 +452,16 @@ class _PanelRespuestas extends StatelessWidget {
                         onPressed: opciones[i].alPulsar,
                         style: OutlinedButton.styleFrom(
                           minimumSize: const Size.fromHeight(52),
-                          foregroundColor: esquema.primary,
-                          side: BorderSide(color: esquema.primary, width: 1.5),
+                          foregroundColor: opciones[i].color == null
+                              ? esquema.primary
+                              : esquema.onSurface,
+                          backgroundColor: opciones[i].color?.withAlpha(16),
+                          side: BorderSide(
+                            color:
+                                opciones[i].color?.withAlpha(120) ??
+                                esquema.primary,
+                            width: 1.5,
+                          ),
                         ),
                         child: _texto(opciones[i].texto),
                       ),

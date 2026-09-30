@@ -30,17 +30,24 @@ void main() {
 
   setUp(conConfiguracion);
 
-  testWidgets('El panel ofrece el botón Cambiar a mano', (tester) async {
+  testWidgets('Tocar un dispositivo ofrece cambiarlo', (tester) async {
     await tester.pumpWidget(panel());
 
-    expect(find.text('Cambiar'), findsOneWidget);
     expect(find.text('TU CONFIGURACIÓN'), findsOneWidget);
+    await tester.ensureVisible(find.text('Tandem'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Tandem'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('¿Elegir otra configuración?'), findsOneWidget);
   });
 
   testWidgets('Cambiar pide confirmación antes de nada', (tester) async {
     await tester.pumpWidget(panel());
 
-    await tester.tap(find.text('Cambiar'));
+    await tester.ensureVisible(find.text('Tandem'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Tandem'));
     await tester.pumpAndSettle();
 
     expect(find.text('¿Elegir otra configuración?'), findsOneWidget);
@@ -52,7 +59,9 @@ void main() {
   testWidgets('Cancelar deja todo como estaba', (tester) async {
     await tester.pumpWidget(panel());
 
-    await tester.tap(find.text('Cambiar'));
+    await tester.ensureVisible(find.text('Tandem'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Tandem'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Cancelar'));
     await tester.pumpAndSettle();
@@ -67,7 +76,9 @@ void main() {
   ) async {
     await tester.pumpWidget(panel());
 
-    await tester.tap(find.text('Cambiar'));
+    await tester.ensureVisible(find.text('Tandem'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Tandem'));
     await tester.pumpAndSettle();
 
     // El botón del diálogo, no el del panel que quedó debajo.

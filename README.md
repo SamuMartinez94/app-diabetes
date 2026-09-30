@@ -53,6 +53,14 @@ Desarrollada con **Flutter** y **Dart**. Los datos y los recordatorios se guarda
 
 ## Instalación
 
+### Desde el navegador
+
+Puedes usarla sin instalar nada, desde el móvil o el ordenador:
+
+[![Abrir la web](https://img.shields.io/badge/Abrir-versión_web-2460FA?style=for-the-badge&logo=googlechrome&logoColor=white)](https://samumartinez94.github.io/app-diabetes/)
+
+### En Android
+
 Descarga la última versión para Android:
 
 [![Descargar APK](https://img.shields.io/badge/Descargar-APK-blue?style=for-the-badge&logo=android)](https://github.com/SamuMartinez94/app-diabetes/releases/latest/download/app-release-latest.apk)

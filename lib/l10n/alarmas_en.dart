@@ -891,9 +891,11 @@ const Map<String, String> traduccionesAlarmasEn = {
       'Turn Bluetooth off and on on the phone and wait 15 minutes.',
   'Fuente: manual oficial de {manual}, p. {pagina}':
       'Source: official manual of {manual}, p. {pagina}',
-  'Mi bomba avisa': 'My pump is alerting',
-  'Mi sensor avisa': 'My sensor is alerting',
+  'Problema con la bomba': 'Problem with the pump',
+  'Problema con el sensor': 'Problem with the sensor',
   'Elige el aviso que sale en la pantalla':
       'Choose the notice you see on the screen',
   'Ver otro aviso': 'See another notice',
+  '¡Hola! Cuéntame qué problema tienes y te ayudo a resolverlo.':
+      'Hi! Tell me what problem you have and I\'ll help you sort it out.',
 };

@@ -246,7 +246,7 @@ class _Inicio extends StatelessWidget {
             BloqueAccion(
               destacado: true,
               alto: 150,
-              emoji: '💧',
+              emoji: '🔄',
               color: esquema.primary,
               titulo: esOmnipod
                   ? t('Recambio de Pod')
@@ -303,42 +303,19 @@ class _Inicio extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 28),
-            Row(
-              children: [
-                Expanded(child: _rotulo(context, t('TU CONFIGURACIÓN'))),
-                InkWell(
-                  onTap: () => confirmarCambioDeConfiguracion(context),
-                  borderRadius: BorderRadius.circular(20),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 6,
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.edit, size: 13, color: esquema.primary),
-                        const SizedBox(width: 5),
-                        Text(
-                          t('Cambiar'),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: esquema.primary,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 4),
             ResumenConfiguracion(
               bomba: bomba,
               sensor: sensor,
               cateter: cateter,
+              encabezado: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(child: _rotulo(context, t('TU CONFIGURACIÓN'))),
+                  const SizedBox(width: 6),
+                  Icon(Icons.edit, size: 12, color: esquema.primary),
+                ],
+              ),
+              alPulsar: () => confirmarCambioDeConfiguracion(context),
             ),
             const SizedBox(height: 20),
           ],
@@ -349,6 +326,7 @@ class _Inicio extends StatelessWidget {
 
   Widget _rotulo(BuildContext context, String texto) => Text(
     texto,
+    textAlign: TextAlign.center,
     style: TextStyle(
       fontSize: 11,
       fontWeight: FontWeight.bold,

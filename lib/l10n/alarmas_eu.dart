@@ -896,9 +896,11 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Itzali eta piztu mugikorreko Bluetooth-a eta itxaron 15 minutu.',
   'Fuente: manual oficial de {manual}, p. {pagina}':
       'Iturria: {manual} eskuliburu ofiziala, {pagina}. or.',
-  'Mi bomba avisa': 'Nire ponpak abisatzen du',
-  'Mi sensor avisa': 'Nire sentsoreak abisatzen du',
+  'Problema con la bomba': 'Ponparekin arazoa',
+  'Problema con el sensor': 'Sentsorearekin arazoa',
   'Elige el aviso que sale en la pantalla':
       'Aukeratu pantailan ateratzen den abisua',
   'Ver otro aviso': 'Ikusi beste abisu bat',
+  '¡Hola! Cuéntame qué problema tienes y te ayudo a resolverlo.':
+      'Kaixo! Kontatu iezadazu zer arazo duzun eta konpontzen lagunduko dizut.',
 };

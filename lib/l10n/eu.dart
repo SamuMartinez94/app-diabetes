@@ -693,7 +693,6 @@ const Map<String, String> traduccionesEu = {
   'Entiendo y continúo': 'Ulertzen dut eta jarraitzen dut',
   'Resolver problemas': 'Arazoak konpondu',
   'TU CONFIGURACIÓN': 'ZURE KONFIGURAZIOA',
-  '¿Qué está pasando?': 'Zer gertatzen ari da?',
   'Entendido': 'Ulertuta',
   'Kit de viaje': 'Bidaia-kita',
   'Reiniciar': 'Berrezarri',

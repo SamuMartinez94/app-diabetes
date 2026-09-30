@@ -260,30 +260,46 @@ class ResumenConfiguracion extends StatelessWidget {
   final String sensor;
   final String cateter;
 
+  /// Cabecera opcional dentro de la tarjeta (título y botón de cambiar).
+  final Widget? encabezado;
+
+  /// Si se indica, tocar un dispositivo llama a esta función.
+  final VoidCallback? alPulsar;
+
   const ResumenConfiguracion({
     super.key,
     required this.bomba,
     required this.sensor,
     required this.cateter,
+    this.encabezado,
+    this.alPulsar,
   });
 
   @override
   Widget build(BuildContext context) {
     final esOmnipod = bomba == 'bomnipod';
 
+    final esquema = context.esquema;
+
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+      padding: const EdgeInsets.fromLTRB(12, 14, 12, 16),
       decoration: BoxDecoration(
-        color: context.esquema.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(20),
+        color: esquema.primary.withAlpha(12),
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(color: esquema.primary.withAlpha(90), width: 1.5),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
         children: [
-          if (bomba.isNotEmpty) _item(context, bomba, t('Bomba')),
-          if (sensor.isNotEmpty) _item(context, sensor, t('Sensor')),
-          if (cateter.isNotEmpty && !esOmnipod)
-            _item(context, cateter, t('Catéter'), conNombre: false),
+          if (encabezado != null) ...[encabezado!, const SizedBox(height: 10)],
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (bomba.isNotEmpty) _item(context, bomba, t('Bomba')),
+              if (sensor.isNotEmpty) _item(context, sensor, t('Sensor')),
+              if (cateter.isNotEmpty && !esOmnipod)
+                _item(context, cateter, t('Catéter'), conNombre: false),
+            ],
+          ),
         ],
       ),
     );
@@ -296,51 +312,55 @@ class ResumenConfiguracion extends StatelessWidget {
     bool conNombre = true,
   }) {
     return Expanded(
-      child: Column(
-        children: [
-          Container(
-            width: 65,
-            height: 65,
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: fondoDispositivo,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withAlpha(20),
-                  blurRadius: 8,
-                  offset: const Offset(0, 3),
-                ),
-              ],
+      child: InkWell(
+        onTap: alPulsar,
+        borderRadius: BorderRadius.circular(16),
+        child: Column(
+          children: [
+            Container(
+              width: 65,
+              height: 65,
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: fondoDispositivo,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withAlpha(20),
+                    blurRadius: 8,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: ImagenDispositivo(id: id),
             ),
-            child: ImagenDispositivo(id: id),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            etiqueta,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 11,
-              color: context.esquema.onSurfaceVariant,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          if (conNombre) ...[
-            const SizedBox(height: 2),
+            const SizedBox(height: 6),
             Text(
-              nombreDispositivo(id),
+              etiqueta,
               textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: 13,
-                height: 1.2,
-                color: context.esquema.onSurface,
-                fontWeight: FontWeight.w700,
+                fontSize: 11,
+                color: context.esquema.onSurfaceVariant,
+                fontWeight: FontWeight.w500,
               ),
             ),
+            if (conNombre) ...[
+              const SizedBox(height: 2),
+              Text(
+                nombreDispositivo(id),
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 13,
+                  height: 1.2,
+                  color: context.esquema.onSurface,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }

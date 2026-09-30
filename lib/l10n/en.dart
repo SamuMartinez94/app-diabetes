@@ -692,7 +692,6 @@ const Map<String, String> traduccionesEn = {
   'Entiendo y continúo': 'I understand and continue',
   'Resolver problemas': 'Troubleshooting',
   'TU CONFIGURACIÓN': 'YOUR SETUP',
-  '¿Qué está pasando?': 'What is going on?',
   'Entendido': 'Got it',
   'Kit de viaje': 'Travel kit',
   'Reiniciar': 'Reset',

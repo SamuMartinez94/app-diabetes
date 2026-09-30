@@ -94,15 +94,18 @@ void main() {
     testWidgets('Ofrece elegir entre bomba y sensor', (tester) async {
       await abrir(tester);
 
-      expect(find.text('¿Qué está pasando?'), findsOneWidget);
-      expect(find.textContaining('Mi bomba avisa'), findsOneWidget);
-      expect(find.textContaining('Mi sensor avisa'), findsOneWidget);
+      expect(
+        find.textContaining('Cuéntame qué problema tienes'),
+        findsOneWidget,
+      );
+      expect(find.textContaining('Problema con la bomba'), findsOneWidget);
+      expect(find.textContaining('Problema con el sensor'), findsOneWidget);
     });
 
     testWidgets('Enseña el significado, los pasos y la fuente', (tester) async {
       await abrir(tester);
 
-      await tester.tap(find.textContaining('Mi bomba avisa'));
+      await tester.tap(find.textContaining('Problema con la bomba'));
       await tester.pumpAndSettle();
       expect(
         find.text('Elige el aviso que sale en la pantalla'),
@@ -123,7 +126,7 @@ void main() {
     testWidgets('Entendido vuelve al principio', (tester) async {
       await abrir(tester);
 
-      await tester.tap(find.textContaining('Mi sensor avisa'));
+      await tester.tap(find.textContaining('Problema con el sensor'));
       await tester.pumpAndSettle();
       final perdida = find.textContaining('Pérdida de señal').first;
       await tester.ensureVisible(perdida);
@@ -132,7 +135,7 @@ void main() {
       await tester.tap(find.text('Entendido'));
       await tester.pumpAndSettle();
 
-      expect(find.textContaining('Mi bomba avisa'), findsOneWidget);
+      expect(find.textContaining('Problema con la bomba'), findsOneWidget);
     });
   });
 }

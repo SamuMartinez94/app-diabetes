@@ -690,7 +690,6 @@ const Map<String, String> traduccionesGl = {
   'Entiendo y continúo': 'Entendo e continúo',
   'Resolver problemas': 'Resolver problemas',
   'TU CONFIGURACIÓN': 'A TÚA CONFIGURACIÓN',
-  '¿Qué está pasando?': 'Que está pasando?',
   'Entendido': 'Entendido',
   'Kit de viaje': 'Kit de viaxe',
   'Reiniciar': 'Reiniciar',

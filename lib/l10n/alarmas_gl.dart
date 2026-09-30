@@ -890,8 +890,10 @@ const Map<String, String> traduccionesAlarmasGl = {
       'Apaga e acende o Bluetooth do móbil e espera 15 minutos.',
   'Fuente: manual oficial de {manual}, p. {pagina}':
       'Fonte: manual oficial de {manual}, p. {pagina}',
-  'Mi bomba avisa': 'A miña bomba avisa',
-  'Mi sensor avisa': 'O meu sensor avisa',
+  'Problema con la bomba': 'Problema coa bomba',
+  'Problema con el sensor': 'Problema co sensor',
   'Elige el aviso que sale en la pantalla': 'Elixe o aviso que sae na pantalla',
   'Ver otro aviso': 'Ver outro aviso',
+  '¡Hola! Cuéntame qué problema tienes y te ayudo a resolverlo.':
+      'Ola! Cóntame que problema tes e axúdote a resolvelo.',
 };

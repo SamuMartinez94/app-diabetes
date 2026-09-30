@@ -891,9 +891,11 @@ const Map<String, String> traduccionesAlarmasCa = {
       'Apaga i encén el Bluetooth del mòbil i espera 15 minuts.',
   'Fuente: manual oficial de {manual}, p. {pagina}':
       'Font: manual oficial de {manual}, p. {pagina}',
-  'Mi bomba avisa': 'La meva bomba avisa',
-  'Mi sensor avisa': 'El meu sensor avisa',
+  'Problema con la bomba': 'Problema amb la bomba',
+  'Problema con el sensor': 'Problema amb el sensor',
   'Elige el aviso que sale en la pantalla':
       'Tria l\'avís que surt a la pantalla',
   'Ver otro aviso': 'Veure un altre avís',
+  '¡Hola! Cuéntame qué problema tienes y te ayudo a resolverlo.':
+      'Hola! Explica\'m quin problema tens i t\'ajudo a resoldre\'l.',
 };
