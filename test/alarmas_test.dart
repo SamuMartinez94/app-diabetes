@@ -10,9 +10,9 @@ import 'package:diaguia/tema.dart';
 
 /// Combinaciones que se pueden elegir en la app (ver `bombas.dart`).
 const _combinaciones = {
-  'bmedtronic': ['sguardian', 'ssimplera'],
+  'bmedtronic': ['sguardian', 'ssimplera', 'sinstinct'],
   'btandem': ['sdexg6', 'sdexg7'],
-  'bomnipod': ['sdexg6', 'sdexg7'],
+  'bomnipod': ['sdexg6', 'sdexg7', 'sfreelibre2plus'],
   'bypsopump': ['sdexg6', 'sfreelibre3'],
 };
 

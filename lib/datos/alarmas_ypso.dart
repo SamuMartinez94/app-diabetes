@@ -1,14 +1,16 @@
-/// ALARMAS Y AVISOS DE YPSOMED mylife YpsoPump
+/// ALARMAS Y AVISOS DE YPSOPUMP
 ///
-/// Fuente: guía del usuario de la mylife YpsoPump, capítulo 8 (localización y
-/// resolución de errores: incidencias, advertencias y alarmas). Las páginas
-/// son las impresas en el manual. Las advertencias no detienen la insulina;
+/// Fuente: guía del usuario oficial de YpsoPump (REF 700012540, edición
+/// española de mylife Diabetes Care), capítulo 8 "Localización y resolución
+/// de errores": incidencias (págs. 152-156), advertencias (157-165) y alarmas
+/// (166-177). Las páginas son las impresas en el manual. Los títulos son los
+/// textos que muestra la bomba. Las advertencias no detienen la insulina;
 /// las alarmas siempre la cancelan.
 library;
 
 import '../modelos/alarma.dart';
 
-const _manual = 'mylife YpsoPump';
+const _manual = 'YpsoPump';
 
 const List<Alarma> alarmasYpso = [
   // ---------------- ALARMAS: cancelan la insulina ----------------
@@ -16,7 +18,7 @@ const List<Alarma> alarmasYpso = [
     id: 'ypso_oclusion',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '162-163',
+    pagina: '172-173',
     titulo: 'Oclusión (vía de infusión bloqueada)',
     significado:
         'La vía de infusión está bloqueada (adaptador, tubo o cánula). Al '
@@ -28,7 +30,7 @@ const List<Alarma> alarmasYpso = [
       'Si el llenado termina sin que vuelva a saltar el bloqueo, ya puedes seguir con normalidad.',
       'Si el bloqueo salta otra vez al llenar el catéter nuevo, cambia también el cartucho y vuelve a llenar.',
       'Si sigue saltando aun con cartucho nuevo, la bomba está defectuosa: contacta con el servicio de atención al cliente.',
-      'Mide tu glucosa y, si está alta, comprueba las cetonas.',
+      'Mide tu glucosa.',
     ],
     gravedad: Gravedad.urgente,
     sinonimos: [
@@ -44,10 +46,10 @@ const List<Alarma> alarmasYpso = [
     id: 'cartucho_vacio_ypso',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '165',
-    titulo: 'Cartucho vacío',
+    pagina: '175',
+    titulo: 'Cartucho/reservorio vacío',
     significado:
-        'A la YpsoPump se le ha acabado la insulina del cartucho y ha '
+        'Al cartucho o reservorio no le queda insulina y la bomba ha '
         'dejado de darte insulina.',
     queHacer: [
       'Confirma la alarma.',
@@ -56,14 +58,14 @@ const List<Alarma> alarmasYpso = [
       'Mide tu glucosa.',
     ],
     gravedad: Gravedad.urgente,
-    sinonimos: ['cartucho', 'vacio', 'sin insulina'],
+    sinonimos: ['cartucho', 'reservorio', 'vacio', 'sin insulina'],
   ),
   Alarma(
     id: 'cebado_no_finalizado',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '151, 164',
-    titulo: 'No hay insulina / Falta llenar el tubo (cebado)',
+    pagina: '161, 174',
+    titulo: 'No hay insulina / Cebado no finalizado',
     significado:
         'Después de retraer la varilla roscada pasaron 5 minutos sin llenar '
         'el tubo (cebar), o el llenado ha fallado o se ha cancelado. La '
@@ -81,15 +83,15 @@ const List<Alarma> alarmasYpso = [
     id: 'parada_automatica',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '166',
+    pagina: '176',
     titulo: 'Parada automática',
     significado:
-        'La bomba llevaba 24 horas encendida sin usarse y se ha puesto '
-        'sola en parada. Se han cancelado todas las entregas de insulina '
-        'que estaban en marcha.',
+        'La bomba estaba en modo operativo y no se ha usado en 24 horas. Por '
+        'seguridad, ha interrumpido la administración de insulina que '
+        'estaba en curso.',
     queHacer: [
-      'Confirma la alarma y vuelve a poner la bomba en marcha.',
-      'Mide tu glucosa: has estado sin insulina de fondo.',
+      'Confirma la alarma: al confirmarla, la bomba vuelve a administrar insulina.',
+      'Mide tu glucosa.',
       'Mira si tenías un bolo o una basal temporal en marcha, porque se han cancelado.',
     ],
     gravedad: Gravedad.urgente,
@@ -99,7 +101,7 @@ const List<Alarma> alarmasYpso = [
     id: 'error_electronico',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '167',
+    pagina: '177',
     titulo: 'Error electrónico',
     significado:
         'La bomba ha detectado un fallo interno. Todas sus funciones quedan '
@@ -109,7 +111,7 @@ const List<Alarma> alarmasYpso = [
       'Saca la pila alcalina y pulsa el botón de función durante 2 segundos: la bomba pasa a estado de almacenamiento.',
       'Vuelve a ponerla en marcha y revisa todos tus ajustes.',
       'Cambia el cartucho y el catéter.',
-      'Si el error vuelve a aparecer, deja de usar la bomba, saca la pila y llama al fabricante.',
+      'Si el error vuelve a aparecer, deja de usar la bomba, saca la pila y llama al servicio de atención al cliente: el teléfono está en la propia bomba.',
     ],
     gravedad: Gravedad.urgente,
     sinonimos: ['error', 'electronico', 'fallo interno', 'no funciona'],
@@ -118,8 +120,8 @@ const List<Alarma> alarmasYpso = [
     id: 'sin_bateria_ypso',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '158',
-    titulo: 'No hay pila',
+    pagina: '168',
+    titulo: 'No hay batería',
     significado:
         'La pila alcalina lleva fuera de su hueco más de 5 minutos con la '
         'bomba en marcha.',
@@ -134,8 +136,8 @@ const List<Alarma> alarmasYpso = [
     id: 'bateria_no_apta',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '160',
-    titulo: 'Pila no válida',
+    pagina: '170',
+    titulo: 'Batería no apta',
     significado:
         'La pila que has puesto tiene demasiado voltaje para la bomba.',
     queHacer: [
@@ -149,8 +151,8 @@ const List<Alarma> alarmasYpso = [
     id: 'ypso_bateria_interna',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '161',
-    titulo: 'Cargar la batería interna recargable',
+    pagina: '171',
+    titulo: 'Cargar batería interna recargable',
     significado:
         'La batería interna recargable de la bomba se ha descargado por un '
         'uso intenso. Se cancelan las entregas en curso: bolos, basal '
@@ -169,8 +171,8 @@ const List<Alarma> alarmasYpso = [
     id: 'ypso_cartucho_bajo',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '148',
-    titulo: 'Nivel de cartucho bajo',
+    pagina: '158',
+    titulo: 'Nivel de cartucho/reservorio bajo',
     significado:
         'Es una advertencia: con lo que queda en el cartucho no llega para '
         'las próximas 12 horas de basal y el bolo en curso. Si no lo cambias, '
@@ -186,8 +188,8 @@ const List<Alarma> alarmasYpso = [
     id: 'varilla_no_retraida',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '150',
-    titulo: 'La varilla no ha terminado de retraerse',
+    pagina: '160',
+    titulo: 'Retracción de la varilla roscada no finalizada',
     significado:
         'Es una advertencia: la varilla roscada no ha podido retraerse bien. '
         'Puede haber suciedad (arena, insulina seca) en el compartimento del '
@@ -204,7 +206,7 @@ const List<Alarma> alarmasYpso = [
     id: 'ypso_bateria_baja',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '149, 159',
+    pagina: '159, 169',
     titulo: 'Queda poca batería o batería vacía',
     significado:
         'Con la advertencia "Queda poca batería" aún puedes usar la bomba al '
@@ -222,8 +224,8 @@ const List<Alarma> alarmasYpso = [
     id: 'ypso_bomba_parada',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '154',
-    titulo: 'Bomba parada más de una hora',
+    pagina: '164',
+    titulo: 'Bomba de insulina parada',
     significado:
         'Es una advertencia: la bomba lleva más de una hora en modo de '
         'parada, sin dar insulina.',
@@ -239,12 +241,12 @@ const List<Alarma> alarmasYpso = [
     id: 'ypso_bolo_cancelado',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '152-153',
-    titulo: 'Bolo o basal temporal cancelados',
+    pagina: '162-163',
+    titulo: 'Bolo cancelado / Función de tasa basal temporal cancelada',
     significado:
         'Es una advertencia: un bolo o una basal temporal se han cancelado '
         'antes de tiempo por una alarma o porque pusiste la bomba en modo de '
-        'parada, o la basal temporal ha terminado.',
+        'parada.',
     queHacer: [
       'Confirma la advertencia.',
       'Mira en los datos de terapia cuánta insulina se llegó a poner.',
@@ -257,12 +259,11 @@ const List<Alarma> alarmasYpso = [
     id: 'ypso_bluetooth',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '155',
-    titulo: 'Error de conexión Bluetooth',
+    pagina: '165',
+    titulo: 'Error de la conexión Bluetooth',
     significado:
-        'Es una advertencia: pasaron más de 30 segundos al escribir el '
-        'código de emparejamiento, lo escribiste mal, o se cortó una '
-        'conexión Bluetooth activa.',
+        'Es una advertencia: al emparejar, pasaron más de 30 segundos sin '
+        'escribir el código de identificación, o lo escribiste mal.',
     queHacer: [
       'Confirma la advertencia.',
       'Vuelve a emparejar la bomba con el dispositivo.',
@@ -276,7 +277,7 @@ const List<Alarma> alarmasYpso = [
     id: 'ypso_incidencias',
     bomba: 'bypsopump',
     manual: _manual,
-    pagina: '142-146',
+    pagina: '152-156',
     titulo: 'Se ha caído, mojado o ensuciado la bomba',
     significado:
         'Una caída, agua en la pila o el cartucho, burbujas de aire o '
@@ -285,7 +286,8 @@ const List<Alarma> alarmasYpso = [
     queHacer: [
       'Mide tu glucosa y pon la bomba en modo de parada.',
       'Desconecta el catéter de tu cuerpo.',
-      'Si hay agua: saca la pila o el cartucho y seca el compartimento con un paño de algodón seco. Si hay suciedad, quítala golpeando suavemente la bomba contra la palma de la mano (nunca contra una superficie dura) y limpia con un paño húmedo y luego seco.',
+      'Si hay agua o suciedad: saca la pila y limpia o seca la bomba con un paño de algodón húmedo. No uses objetos afilados, productos químicos, disolventes ni detergentes agresivos.',
+      'Si hay insulina en el compartimento del cartucho, saca el cartucho y mira si tiene grietas; cámbialo si hace falta.',
       'Después de una caída, cambia el cartucho y el catéter: puede haber microgrietas que no se ven.',
       'Si hay burbujas de aire, llena de nuevo el tubo sin burbujas desconectado de tu cuerpo.',
       'Si la bomba tiene daños visibles o no funciona, contacta con el servicio de atención al cliente.',

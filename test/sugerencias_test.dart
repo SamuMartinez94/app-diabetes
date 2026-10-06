@@ -39,6 +39,9 @@ void main() {
     testWidgets('En modo sugerencias aparece en la guía', (tester) async {
       await prefs(modoSugerencias: true);
       await tester.pumpWidget(guia());
+      // La guía está en revisión: primero se acepta el aviso.
+      await tester.tap(find.text('Entendido'));
+      await tester.pumpAndSettle();
 
       expect(find.text('Sugerir un cambio aquí'), findsOneWidget);
     });

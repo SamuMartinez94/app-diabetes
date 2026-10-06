@@ -54,24 +54,14 @@ const Map<String, String> traduccionesEn = {
   'Mientras estés en manual, vigila más tu glucosa.':
       'While you are in manual mode, watch your glucose more closely.',
   'Pod caducado': 'Pod expired',
-  'Pon un Pod nuevo.': 'Put on a new Pod.',
-  'Mide tu glucosa y comprueba las cetonas.':
-      'Check your glucose and check your ketones.',
   'Cartucho vacío': 'Empty cartridge',
-  'A la YpsoPump se le ha acabado la insulina del cartucho y ha dejado de darte insulina.':
-      'The YpsoPump has run out of insulin in the cartridge and has stopped giving you insulin.',
-  'cartucho, vacio, sin insulina': 'cartridge, empty, no insulin',
   'Cambia el cartucho siguiendo la guía de cambio.':
       'Change the cartridge following the change guide.',
   'Acuérdate de llenar el tubo (cebar) después de poner el cartucho nuevo.':
       'Remember to fill the tubing (prime) after putting in the new cartridge.',
   'Mide tu glucosa.': 'Check your glucose.',
-  'La varilla no ha terminado de retraerse':
-      'The threaded rod has not finished retracting',
   'varilla, roscada, retraccion, cartucho antes':
       'rod, threaded, retraction, cartridge before',
-  'No hay insulina / Falta llenar el tubo (cebado)':
-      'No insulin / Tubing not filled (priming)',
   'no hay insulina, cebado, purgar, sin cebar':
       'no insulin, priming, purge, not primed',
   'Confirma la alarma.': 'Confirm the alarm.',
@@ -80,14 +70,8 @@ const Map<String, String> traduccionesEn = {
   'Repite hasta que salga insulina por el extremo y no queden burbujas.':
       'Repeat until insulin comes out of the end and there are no bubbles left.',
   'Parada automática': 'Automatic stop',
-  'La bomba llevaba 24 horas encendida sin usarse y se ha puesto sola en parada. Se han cancelado todas las entregas de insulina que estaban en marcha.':
-      'The pump had been switched on for 24 hours without being used and stopped by itself. All insulin deliveries in progress have been cancelled.',
   'parada, automatica, 24 horas, se paro sola':
       'stop, automatic, 24 hours, stopped by itself',
-  'Confirma la alarma y vuelve a poner la bomba en marcha.':
-      'Confirm the alarm and put the pump back into operation.',
-  'Mide tu glucosa: has estado sin insulina de fondo.':
-      'Check your glucose: you have been without background insulin.',
   'Mira si tenías un bolo o una basal temporal en marcha, porque se han cancelado.':
       'Check whether you had a bolus or a temporary basal running, because they have been cancelled.',
   'Error electrónico': 'Electronic error',
@@ -103,9 +87,6 @@ const Map<String, String> traduccionesEn = {
       'Start it up again and check all your settings.',
   'Cambia el cartucho y el catéter.':
       'Change the cartridge and the infusion set.',
-  'Si el error vuelve a aparecer, deja de usar la bomba, saca la pila y llama al fabricante.':
-      'If the error appears again, stop using the pump, take out the battery and call the manufacturer.',
-  'Pila no válida': 'Battery not valid',
   'La pila que has puesto tiene demasiado voltaje para la bomba.':
       'The battery you put in has too much voltage for the pump.',
   'pila, voltaje, no apta, incorrecta, bateria':
@@ -114,7 +95,6 @@ const Map<String, String> traduccionesEn = {
       'Confirm the alarm and take out the battery.',
   'Pon una pila alcalina AAA (LR03) nueva.':
       'Put in a new AAA (LR03) alkaline battery.',
-  'No hay pila': 'No battery',
   'La pila alcalina lleva fuera de su hueco más de 5 minutos con la bomba en marcha.':
       'The alkaline battery has been out of its compartment for more than 5 minutes while the pump was running.',
   'sin pila, pila fuera, sin bateria': 'no battery, battery out, no cell',
@@ -125,18 +105,8 @@ const Map<String, String> traduccionesEn = {
   'Se ha perdido la señal del sensor': 'Sensor signal lost',
   'Mientras no haya lecturas, mídete con un pinchazo en el dedo.':
       'While there are no readings, check with a fingerstick.',
-  'Sensor caducado / Cambiar sensor': 'Sensor expired / Change sensor',
-  'El sensor ha llegado al final de su vida útil y ha dejado de medir.':
-      'The sensor has reached the end of its life and has stopped measuring.',
-  'caducado, expirado, fin de vida, cambiar sensor':
-      'expired, out of date, end of life, change sensor',
-  'Quita el sensor y ponte uno nuevo.':
-      'Take off the sensor and put on a new one.',
   'Mira la guía de cambio de sensor de esta app.':
       'See the sensor change guide in this app.',
-  'Aviso de glucosa alta': 'High glucose alert',
-  'El sensor ha detectado un valor por encima del límite que tienes configurado.':
-      'The sensor has detected a value above the limit you have set.',
   'hiper, alta, hiperglucemia, subida': 'high, hyper, hyperglycaemia, rising',
   'Si el valor es muy alto o lleva mucho rato sin bajar, comprueba las cetonas.':
       'If the value is very high or has not come down for a long time, check your ketones.',
@@ -144,9 +114,6 @@ const Map<String, String> traduccionesEn = {
       'Check the infusion set: unexplained high glucose is often because the set is not working properly.',
   'Actúa como te haya indicado tu equipo médico.':
       'Act as your medical team has told you.',
-  'Aviso de glucosa baja': 'Low glucose alert',
-  'El sensor ha detectado un valor por debajo del límite que tienes configurado.':
-      'The sensor has detected a value below the limit you have set.',
   'hipo, baja, hipoglucemia, bajada': 'low, hypo, hypoglycaemia, dropping',
   'Si puedes, confírmalo con un pinchazo en el dedo, pero no retrases el tratamiento.':
       'If you can, confirm it with a fingerstick, but don\'t delay treatment.',
@@ -233,58 +200,18 @@ const Map<String, String> traduccionesEn = {
       'This infusion set has a steel needle, so the cannula is NOT filled.\n\nWhen the pump asks, choose "Skip cannula fill" or "Done".',
   'Entre 1 y 3 horas después del cambio, mide tu glucosa con el medidor (pinchazo en el dedo).':
       'Between 1 and 3 hours after the change, check your glucose with your meter (fingerstick).',
-  'Saca la insulina de la nevera un rato antes: tiene que estar a temperatura ambiente.\n\nLávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.':
-      'Take the insulin out of the fridge a while beforehand: it needs to be at room temperature.\n\nWash your hands with soap and water and clean the vial\'s stopper with an alcohol wipe.',
-  'IMPORTANTE: no pongas un Pod nuevo hasta haber desactivado y quitado el anterior.\n\nPara desactivarlo: INFORMACIÓN DEL POD → VER DETALLES DEL POD → CAMBIAR EL POD → DESACTIVAR POD.':
-      'IMPORTANT: don\'t put on a new Pod until you have deactivated and removed the old one.\n\nTo deactivate it: POD INFO → VIEW POD DETAILS → CHANGE POD → DEACTIVATE POD.',
-  'Despega despacio los bordes del adhesivo y quita el Pod usado. Hacerlo despacio irrita menos la piel.':
-      'Slowly peel up the edges of the adhesive and remove the used Pod. Doing it slowly irritates the skin less.',
-  'En la aplicación o en el Controlador, toca CONFIGURAR NUEVO POD.':
-      'In the app or on the Controller, tap SET UP NEW POD.',
-  'Saca la aguja y la jeringa de llenado de la bandeja del Pod, pero DEJA el Pod dentro de la bandeja durante toda la preparación.\n\nEnrosca la aguja en la jeringa y quita el capuchón tirando en línea recta.':
-      'Take the needle and the fill syringe out of the Pod tray, but LEAVE the Pod in the tray throughout the preparation.\n\nScrew the needle onto the syringe and pull off the cap in a straight line.',
-  'Llena la jeringa de AIRE hasta la cantidad de insulina que vayas a poner.\n\nEse aire va al vial, NUNCA al Pod. Ten en cuenta la línea MÍN marcada en la jeringa: la insulina tiene que llegar al menos hasta ahí.':
-      'Fill the syringe with AIR up to the amount of insulin you are going to use.\n\nThat air goes into the vial, NEVER into the Pod. Keep in mind the MIN line marked on the syringe: the insulin has to reach at least that point.',
-  'Clava la aguja en el vial y empuja el émbolo para meter el aire en el vial.\n\nCon la jeringa aún en el vial, dale la vuelta al conjunto y tira despacio del émbolo. Da unos golpecitos para eliminar las burbujas.':
-      'Push the needle into the vial and push the plunger to put the air into the vial.\n\nWith the syringe still in the vial, turn the whole thing over and slowly pull back the plunger. Tap gently to remove the bubbles.',
-  'Saca la aguja del vial e insértala directamente en el puerto de llenado del Pod.\n\nUna flecha en el papel blanco de la parte de atrás señala dónde está. Empuja el émbolo despacio hasta llenarlo del todo.\n\nSi notas resistencia al empujar, no uses ese Pod.':
-      'Take the needle out of the vial and insert it straight into the Pod\'s fill port.\n\nAn arrow on the white paper on the back shows where it is. Push the plunger slowly until it is completely filled.\n\nIf you feel resistance when pushing, don\'t use that Pod.',
-  'El Pod emitirá DOS PITIDOS.\n\nEsa es la señal de que está lleno y listo para continuar. Si no pita, no lo uses: cámbialo por otro.':
-      'The Pod will make TWO BEEPS.\n\nThat is the sign that it is full and ready to continue. If it doesn\'t beep, don\'t use it: replace it with another.',
-  'Con el Pod todavía en la bandeja, acércalo al Controlador y toca SIGUIENTE.\n\nEl sistema hará unas comprobaciones de seguridad y llenará el Pod de forma automática (esto se llama cebar). Espera a que termine.':
-      'With the Pod still in the tray, bring it close to the Controller and tap NEXT.\n\nThe system will run some safety checks and fill the Pod automatically (this is called priming). Wait for it to finish.',
-  'Elige la zona respetando estas distancias mínimas:\n\n• 8 cm de tu sensor Dexcom\n• 2,5 cm del sitio del Pod anterior\n• 5 cm del ombligo\n\nEl Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunicarse sin que tu cuerpo tape la señal.':
-      'Choose the site keeping these minimum distances:\n\n• 8 cm from your Dexcom sensor\n• 2.5 cm from the previous Pod site\n• 5 cm from your belly button\n\nThe Pod and the sensor must be on the same side of the body, so they can communicate without your body blocking the signal.',
-  'Evita lunares, tatuajes y cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.\n\nBusca una zona con algo de grasa y fácil de alcanzar.':
-      'Avoid moles, tattoos and scars, areas with infection, skin folds and places where a belt or tight clothing could rub against the Pod.\n\nLook for an area with some fat and easy to reach.',
-  'Quita los papeles de los adhesivos, pega el Pod sobre la piel y sigue las instrucciones de la pantalla para que salga la cánula.':
-      'Remove the papers from the adhesives, stick the Pod onto your skin and follow the on-screen instructions to deploy the cannula.',
-  'Mira por la ventanita del Pod que la cánula ha quedado bien puesta y confírmalo en el Controlador.\n\nMide tu glucosa a la hora y media del cambio, aproximadamente.':
-      'Look through the Pod\'s little window to check that the cannula is properly in and confirm it on the Controller.\n\nCheck your glucose about an hour and a half after the change.',
-  'El catéter Orbit soft no debe usarse durante más de 72 horas.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'The Orbit soft infusion set must not be used for more than 72 hours.\n\nStart by disconnecting the infusion set from your body.',
-  'Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".\n\nDespués toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.':
-      'Open the main menu and tap the icon "Cartridge change and current cartridge level".\n\nThen tap "Retract threaded rod" and confirm. The pump will vibrate for a moment.',
   'Espera a que la varilla se retraiga por completo (el porcentaje baja al 0 %) y a que termine la autocomprobación.\n\nNO insertes el cartucho antes: si lo haces, aparecerá el aviso "Retracción varilla roscada no finalizada" y habrá que repetir el proceso.':
       'Wait until the rod has fully retracted (the percentage drops to 0 %) and the self-test finishes.\n\nDON\'T put in the cartridge before then: if you do, the message "Threaded rod retraction not finished" will appear and you will have to repeat the process.',
   'Desconecta el catéter girando el adaptador en sentido antihorario hasta el tope.\n\nSaca de la bomba el cartucho vacío.':
       'Disconnect the infusion set by turning the adapter counterclockwise as far as it goes.\n\nTake the empty cartridge out of the pump.',
-  'Sujeta la bomba en vertical, con el orificio del compartimento hacia arriba, y mete un reservorio cargado por ti o un cartucho precargado que sea compatible con tu YpsoPump.':
-      'Hold the pump upright, with the compartment opening facing up, and put in a reservoir you have filled yourself or a prefilled cartridge that is compatible with your YpsoPump.',
   'Pon el adaptador en vertical sobre el cartucho y gíralo en sentido horario hasta la posición de bloqueo.\n\nOirás un ligero clic o notarás un tope.':
       'Put the adapter upright on the cartridge and turn it clockwise to the locked position.\n\nYou will hear a slight click or feel a stop.',
-  'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter Orbit y confirma.':
-      'Open the main menu, tap "Prime infusion set" and then "Prime tubing". (Priming is filling the tubing with insulin.)\n\nChoose the volume given in the instructions for your Orbit infusion set and confirm.',
   'Confirma que el catéter está desconectado del cuerpo.\n\nMientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma de la mano para que suban las burbujas.':
       'Confirm that the infusion set is disconnected from your body.\n\nWhile it fills, hold the pump upright with the adapter facing up and tap it gently against the palm of your hand so the bubbles rise.',
   'Repite hasta que no quede aire en el cartucho, el adaptador ni el tubo, y hasta que salga insulina por el extremo.\n\nEl volumen que indica el catéter es solo una referencia: puede hacer falta llenar más.':
       'Repeat until there is no air left in the cartridge, the adapter or the tubing, and until insulin comes out of the end.\n\nThe volume the infusion set gives is only a guide: you may need to fill more.',
-  'Lávate bien las manos.\n\nLimpia la zona con una toallita de alcohol isopropílico. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.':
-      'Wash your hands well.\n\nClean the site with an isopropyl alcohol wipe. Make sure there is no hair and that the skin is dry before continuing.',
   'Despega con cuidado la lámina protectora de la cinta adhesiva, sin tocar la parte pegajosa.\n\nDespués quita el protector de la cánula.':
       'Carefully peel off the protective film from the adhesive tape, without touching the sticky part.\n\nThen remove the cannula protector.',
-  'Sujeta bien la zona e inserta la cánula en vertical (90°).\n\nPuedes usar el insertador mylife Orbit para que entre con más facilidad.':
-      'Hold the site steady and insert the cannula straight in (90°).\n\nYou can use the mylife Orbit inserter to make it go in more easily.',
   'Presiona la cinta contra la piel y recórrela con los dedos unos segundos, para que quede bien pegada.':
       'Press the tape against your skin and run your fingers over it for a few seconds so it sticks well.',
   'Sujeta la cinta contra la piel con una mano y, con dos dedos de la otra, agarra el capuchón del introductor.\n\nSaca la aguja introductora apretando las dos aletas exteriores del capuchón.':
@@ -295,30 +222,18 @@ const Map<String, String> traduccionesEn = {
       'Connect the tubing cap to the base of the cannula without tilting it. Make sure you hear it click in.\n\nThen turn the tubing left and right, at least one full turn in each direction, pulling the cap upward: this confirms it is properly seated and the line is open.',
   'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar cánula".\n\nElige la cantidad que indican las instrucciones de tu catéter y confirma.':
       'Open the main menu, tap "Prime infusion set" and then "Prime cannula".\n\nChoose the amount given in the instructions for your infusion set and confirm.',
-  'El catéter Orbit micro lleva cánula de acero y no debe usarse durante más de 48 horas.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'The Orbit micro infusion set has a steel cannula and must not be used for more than 48 hours.\n\nStart by disconnecting the infusion set from your body.',
-  'Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".\n\nDespués toca "Retraer varilla roscada" y confirma.':
-      'Open the main menu and tap the icon "Cartridge change and current cartridge level".\n\nThen tap "Retract threaded rod" and confirm.',
   'Espera a que la varilla se retraiga del todo (0 %) y a que termine la autocomprobación.\n\nNO insertes el cartucho antes de que acabe.':
       'Wait until the rod has fully retracted (0 %) and the self-test finishes.\n\nDON\'T put in the cartridge before it has finished.',
   'Desconecta el catéter girando el adaptador en sentido antihorario hasta el tope y saca el cartucho vacío.':
       'Disconnect the infusion set by turning the adapter counterclockwise as far as it goes and take out the empty cartridge.',
-  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.':
-      'Hold the pump upright with the compartment facing up and put in a reservoir that is compatible with your YpsoPump.\n\nPut the adapter upright and turn it clockwise until you hear the locking click.',
   'Menú principal → "Cebar kit de infusión" → "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter y confirma que estás desconectado.':
       'Main menu → "Prime infusion set" → "Prime tubing". (Priming is filling the tubing with insulin.)\n\nChoose the volume given in the instructions for your infusion set and confirm that you are disconnected.',
   'Mantén la bomba vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para eliminar las burbujas.\n\nRepite hasta que no quede aire y salga insulina por el extremo del tubo.':
       'Hold the pump upright with the adapter facing up and tap it gently against your palm to remove the bubbles.\n\nRepeat until there is no air left and insulin comes out of the end of the tubing.',
-  'Lávate las manos y limpia la zona con alcohol isopropílico. La piel debe estar seca y sin vello.\n\nDespega la lámina protectora del adhesivo y quita el protector de la cánula.':
-      'Wash your hands and clean the site with isopropyl alcohol. The skin must be dry and free of hair.\n\nPeel off the protective film from the adhesive and remove the cannula protector.',
-  'El Orbit micro lleva una cánula de acero que se pone sin aguja introductora.\n\nSujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el insertador mylife Orbit.':
-      'The Orbit micro has a steel cannula that goes in without an introducer needle.\n\nHold the site steady and insert the cannula straight in (90°). You can use the mylife Orbit inserter.',
   'Presiona la cinta contra la piel y recórrela con los dedos unos segundos.\n\nQuita el capuchón introductor apretando sus dos aletas exteriores.':
       'Press the tape against your skin and run your fingers over it for a few seconds.\n\nRemove the introducer cap by squeezing its two outer wings.',
   'Conecta el capuchón del tubo a la base de la cánula sin ladearlo, hasta oírlo encajar.\n\nGira el tubo al menos una vuelta completa en cada dirección tirando hacia arriba, para confirmar que la vía está abierta.':
       'Connect the tubing cap to the base of the cannula without tilting it, until you hear it click in.\n\nTurn the tubing at least one full turn in each direction while pulling upward, to confirm the line is open.',
-  'Menú principal → "Cebar kit de infusión" → "Cebar cánula".\n\nElige la cantidad que indican las instrucciones de tu catéter.':
-      'Main menu → "Prime infusion set" → "Prime cannula".\n\nChoose the amount given in the instructions for your infusion set.',
   'Prepara el material: un cartucho nuevo sin abrir, la jeringa de llenado con su aguja (viene con el cartucho), el vial de insulina, toallitas de alcohol y un catéter nuevo.\n\nEl cartucho se cambia cada 2 o 3 días, según te haya indicado tu equipo médico.':
       'Get the supplies ready: a new unopened cartridge, the fill syringe with its needle (it comes with the cartridge), the insulin vial, alcohol wipes and a new infusion set.\n\nThe cartridge is changed every 2 or 3 days, as your medical team has told you.',
   'Decide con tu equipo médico cuánta insulina cargar en el cartucho.\n\nTen en cuenta que al llenar el tubo se gasta un poco de insulina, así que no toda la que cargues quedará disponible.':
@@ -424,8 +339,8 @@ const Map<String, String> traduccionesEn = {
       'The warm-up period lasts LESS THAN 30 MINUTES.\n\nDuring that time don\'t make treatment decisions with the sensor: use your fingerstick meter. Don\'t make them either if you can\'t see the number or the trend arrow.',
   'El sensor Guardian 4 se usa como máximo siete días seguidos.\n\nEl insertador One-press es el ÚNICO aprobado para este sensor. Con otro insertador la colocación puede salir mal y causar dolor o lesión.':
       'The Guardian 4 sensor is worn for a maximum of seven days in a row.\n\nThe One-press inserter is the ONLY one approved for this sensor. With another inserter, placement can go wrong and cause pain or injury.',
-  'ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo, tanto en adultos como a partir de 7 años.\n\nPRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.':
-      'INSERTION SITE: only the back of the upper arm, for adults and from age 7.\n\nCAUTION: don\'t use it on the abdomen or buttocks. It works differently there and can give readings that mislead you.',
+  'ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo.\n\nPRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.':
+      'INSERTION SITE: only the back of the upper arm.\n\nCAUTION: don\'t use it on the abdomen or buttocks. It works differently there and can give readings that mislead you.',
   'No lo pongas sobre músculo, piel dura o cicatrices, ni en zonas apretadas por la ropa o que se muevan mucho al hacer ejercicio.':
       'Don\'t place it over muscle, hard skin or scars, or in areas squeezed by clothing or that move a lot during exercise.',
   'Elige una zona con algo de grasa y límpiala con alcohol.\n\nUsa solo alcohol, para que no queden restos en la piel. Deja que se seque al aire.':
@@ -450,8 +365,8 @@ const Map<String, String> traduccionesEn = {
       'Connect the transmitter and wait for the warm-up: it is 2 HOURS. You will see a countdown on the screen.\n\nDuring that time there are no readings: use your fingerstick meter to decide your treatment.',
   'El Simplera Sync no se pone igual que otros sensores de Medtronic: su insertador funciona de otra manera.\n\nLee sus instrucciones antes de usarlo por primera vez.':
       'The Simplera Sync is not placed like other Medtronic sensors: its inserter works differently.\n\nRead its instructions before using it for the first time.',
-  'ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo, a partir de 7 años.\n\nNo se recomienda ponerlo en el abdomen ni en los glúteos.':
-      'INSERTION SITE: the back of the upper arm, from age 7.\n\nIt is not recommended on the abdomen or buttocks.',
+  'ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo.\n\nNo se recomienda ponerlo en el abdomen ni en los glúteos.':
+      'INSERTION SITE: the back of the upper arm.\n\nIt is not recommended on the abdomen or buttocks.',
   'ANTES DE PONERLO, apunta el número de serie (SN) y el CÓDIGO que vienen en la etiqueta del insertador.\n\nLos necesitarás después para emparejar el sensor con la bomba. También están dentro de la tapa de la caja.':
       'BEFORE PLACING IT, write down the serial number (SN) and the CODE that come on the inserter label.\n\nYou will need them later to pair the sensor with the pump. They are also inside the box lid.',
   'Mira la fecha de caducidad: no uses un sensor caducado.\n\nComprueba que la etiqueta del capuchón y la banda de seguridad están intactas. Si falta alguna o está rota, no lo uses.':
@@ -488,8 +403,6 @@ const Map<String, String> traduccionesEn = {
       'Place the applicator on the prepared site and push down firmly.\n\nCAUTION: don\'t press the applicator until it is placed on the site: you could hurt yourself.',
   'Retira suavemente el aplicador del cuerpo y comprueba que el sensor ha quedado firme.\n\nVuelve a poner el tapón al aplicador usado y tíralo como indique la normativa de tu zona.':
       'Gently remove the applicator from your body and check that the sensor is firmly in place.\n\nPut the cap back on the used applicator and throw it away as your local rules say.',
-  'Comprueba que el móvil tiene conexión (wifi o datos) e inicia el sensor desde la aplicación, siguiendo las indicaciones de la pantalla.':
-      'Check that your phone has a connection (wifi or data) and start the sensor from the app, following the on-screen instructions.',
   'Espera el calentamiento: son 60 MINUTOS hasta la primera lectura.\n\nMientras tanto, usa el medidor de dedo para decidir tu tratamiento.':
       'Wait for the warm-up: it is 60 MINUTES until the first reading.\n\nMeanwhile, use your fingerstick meter to decide your treatment.',
   'Vuelve a conectarte el catéter, que no has cambiado.\n\nComo es un cambio de solo reservorio, NO hay que llenar cánula: elige "Hecho" en esa pantalla.':
@@ -498,20 +411,12 @@ const Map<String, String> traduccionesEn = {
       'Reconnect the infusion set, which you haven\'t changed.\n\nAs you haven\'t put on a new infusion set, there is no need to fill the cannula.',
   'Reanuda la insulina en la bomba y, entre 1 y 3 horas después, mide tu glucosa con el medidor.':
       'Resume insulin on the pump and, between 1 and 3 hours later, check your glucose with your meter.',
-  'La YpsoPump permite cambiar el cartucho sin cambiar el catéter: son independientes.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'The YpsoPump lets you change the cartridge without changing the infusion set: they are independent.\n\nStart by disconnecting the infusion set from your body.',
-  'Menú principal, icono "Cambio de cartucho y nivel actual del cartucho", y después "Retraer varilla roscada". Confirma.\n\nEspera a que baje al 0 % y termine la autocomprobación antes de seguir.':
-      'Main menu, icon "Cartridge change and current cartridge level", and then "Retract threaded rod". Confirm.\n\nWait until it drops to 0 % and the self-test finishes before continuing.',
-  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic.':
-      'Hold the pump upright with the compartment facing up and put in a reservoir that is compatible with your YpsoPump.\n\nPut the adapter upright and turn it clockwise until you hear the click.',
-  'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSi NO hay burbujas en el cartucho, basta con el volumen mínimo. Si las hay, usa el volumen que indique tu catéter hasta eliminarlas.':
-      'Main menu, "Prime infusion set", "Prime tubing".\n\nIf there are NO bubbles in the cartridge, the minimum volume is enough. If there are, use the volume your infusion set indicates until they are gone.',
+  'La bomba permite cambiar el cartucho sin cambiar el catéter: son independientes.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'The pump lets you change the cartridge without changing the infusion set: they are independent.\n\nStart by disconnecting the infusion set from your body.',
   'Mantén la bomba vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas. Repite hasta que no quede aire.':
       'Hold the pump upright with the adapter facing up and tap it gently against your palm so the bubbles rise. Repeat until there is no air left.',
   'Vuelve a conectar el capuchón del tubo a la base de la cánula hasta oírlo encajar.\n\nComo no has cambiado el catéter, no hace falta llenar la cánula.':
       'Reconnect the tubing cap to the base of the cannula until you hear it click in.\n\nAs you haven\'t changed the infusion set, there is no need to fill the cannula.',
-  'Entre 1 y 3 horas después del cambio, mide tu glucosa con el medidor.':
-      'Between 1 and 3 hours after the change, check your glucose with your meter.',
   'Insulina y material de repuesto': 'Insulin and spare supplies',
   'Lleva más de lo que creas que vas a necesitar: los viajes se alargan y las cosas se pierden o se estropean.':
       'Bring more than you think you will need: trips get longer and things get lost or broken.',
@@ -742,9 +647,6 @@ const Map<String, String> traduccionesEn = {
   'Ir al paso {n}': 'Go to step {n}',
   'Anterior': 'Previous',
   'Siguiente': 'Next',
-  'PASO {n} DE {total}': 'STEP {n} OF {total}',
-  'Paso {i} de {total} · {global}/{totalGlobal} en total':
-      'Step {i} of {total} · {global}/{totalGlobal} in total',
   '¿Dónde te lo has puesto?': 'Where did you put it?',
   'Anotarlo te ayuda a ir cambiando de sitio para que la piel no se endurezca.':
       'Noting it helps you keep changing spots so your skin doesn\'t harden.',
@@ -765,4 +667,142 @@ const Map<String, String> traduccionesEn = {
   'Hoy': 'Today',
   'Ayer': 'Yesterday',
   'Más': 'More',
+  'El catéter myOrbit Soft no debe usarse durante más de 72 horas.\n\nNo mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'The myOrbit Soft infusion set must not be used for more than 72 hours.\n\nDo not mix myOrbit 2.0 parts with parts from the previous generation: they could leak.\n\nStart by disconnecting the infusion set from your body.',
+  'Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".\n\nDespués toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.':
+      'Open the main menu and tap the icon "Cartridge/reservoir change and current cartridge/reservoir level".\n\nThen tap "Retract threaded rod" and confirm. The pump will vibrate for a moment.',
+  'Sujeta la bomba en vertical, con el orificio del compartimento hacia arriba, y mete un reservorio cargado por ti o un cartucho precargado compatible con tu bomba.':
+      'Hold the pump upright, with the compartment opening facing up, and put in a reservoir you have filled yourself or a prefilled cartridge compatible with your pump.',
+  'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter myOrbit y confirma: cambia entre la 1.ª generación y la 2.0.':
+      'Open the main menu, tap "Prime infusion set" and then "Prime tubing". (Priming is filling the tubing with insulin.)\n\nChoose the volume given in the instructions for your myOrbit infusion set and confirm: it differs between the 1st generation and 2.0.',
+  'Lávate bien las manos.\n\nLimpia la zona con una toallita de alcohol isopropílico al 70 %. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.':
+      'Wash your hands well.\n\nClean the site with a 70% isopropyl alcohol wipe. Make sure there is no hair and that the skin is dry before you carry on.',
+  'Sujeta bien la zona e inserta la cánula en vertical (90°).\n\nPuedes usar el myOrbit Inserter para que entre con más facilidad.':
+      'Hold the site firmly and insert the cannula straight in (90°).\n\nYou can use the myOrbit Inserter to make it go in more easily.',
+  'Mide tu glucosa entre 2 y 3 horas después de poner el catéter, para comprobar que la insulina entra bien.\n\nPor eso, no cambies el catéter justo antes de irte a dormir.':
+      'Check your glucose 2 to 3 hours after inserting the infusion set, to make sure the insulin is going in properly.\n\nThat is why you should not change the infusion set right before going to sleep.',
+  'El catéter myOrbit Micro lleva cánula de acero y no debe usarse durante más de 48 horas.\n\nNo mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'The myOrbit Micro infusion set has a steel cannula and must not be used for more than 48 hours.\n\nDo not mix myOrbit 2.0 parts with parts from the previous generation: they could leak.\n\nStart by disconnecting the infusion set from your body.',
+  'Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".\n\nDespués toca "Retraer varilla roscada" y confirma.':
+      'Open the main menu and tap the icon "Cartridge/reservoir change and current cartridge/reservoir level".\n\nThen tap "Retract threaded rod" and confirm.',
+  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.':
+      'Hold the pump upright with the compartment facing up and put in a filled reservoir or a prefilled cartridge compatible with your pump.\n\nPut the adapter upright and turn it clockwise until you hear the locking click.',
+  'Lávate las manos y limpia la zona con alcohol isopropílico al 70 %. La piel debe estar seca y sin vello.\n\nDespega la lámina protectora del adhesivo y quita el protector de la cánula.':
+      'Wash your hands and clean the site with 70% isopropyl alcohol. The skin must be dry and free of hair.\n\nPeel off the protective film from the adhesive and remove the cannula guard.',
+  'El myOrbit Micro lleva una cánula de acero que se pone sin aguja introductora.\n\nSujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el myOrbit Inserter.':
+      'The myOrbit Micro has a steel cannula that goes in without an introducer needle.\n\nHold the site firmly and insert the cannula straight in (90°). You can use the myOrbit Inserter.',
+  'Llenar la cánula depende de la generación de tu catéter (mira la caja):\n\n• myOrbit Micro 2.0: NO hace falta, la cánula de acero necesita muy poca insulina.\n• myOrbit Micro (1.ª generación): menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indiquen sus instrucciones.':
+      'Whether you fill the cannula depends on the generation of your infusion set (check the box):\n\n• myOrbit Micro 2.0: NOT needed, the steel cannula needs very little insulin.\n• myOrbit Micro (1st generation): main menu → "Prime infusion set" → "Prime cannula", with the amount given in its instructions.',
+  'Menú principal, icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio", y después "Retraer varilla roscada". Confirma.\n\nEspera a que baje al 0 % y termine la autocomprobación antes de seguir.':
+      'Main menu, icon "Cartridge/reservoir change and current cartridge/reservoir level", and then "Retract threaded rod". Confirm.\n\nWait until it drops to 0% and the self-test finishes before carrying on.',
+  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic.':
+      'Hold the pump upright with the compartment facing up and put in a filled reservoir or a prefilled cartridge compatible with your pump.\n\nPut the adapter upright and turn it clockwise until you hear the click.',
+  'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSi NO hay burbujas en el cartucho, basta con el volumen mínimo. Si las hay, usa el volumen que indique tu catéter hasta eliminarlas.':
+      'Main menu, "Prime infusion set", "Prime tubing".\n\nIf there are NO bubbles in the cartridge, the minimum volume is enough. If there are, use the volume given for your infusion set until they are gone.',
+  'Mide tu glucosa ahora que has estado desconectado y otra vez unas 2 o 3 horas después de volver a conectarte.':
+      'Check your glucose now that you have been disconnected, and again about 2 or 3 hours after reconnecting.',
+  'Cambia el Pod como mínimo cada 2 o 3 días (48 a 72 horas), o antes si te lo indica tu equipo médico.\n\nReúne el material: el vial de insulina de acción rápida, un Pod Omnipod 5 sin abrir y toallitas de alcohol. Si la insulina o el Pod están fríos, deja que se atemperen antes de seguir.':
+      'Change the Pod at least every 2 or 3 days (48 to 72 hours), or sooner if your healthcare team tells you to.\n\nGather your supplies: the vial of rapid-acting insulin, an unopened Omnipod 5 Pod and alcohol wipes. If the insulin or the Pod is cold, let them warm up before carrying on.',
+  'Comprueba que es un Pod Omnipod 5 y que en la tapa de su bandeja aparece el sensor que usas.\n\nLávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.':
+      'Check that it is an Omnipod 5 Pod and that the sensor you use is shown on its tray lid.\n\nWash your hands with soap and water and clean the vial stopper with an alcohol wipe.',
+  'Desactiva el Pod anterior: Inicio → pestaña INFO DEL POD → VER DETALLES DEL POD → CAMBIAR POD → DESACTIVAR POD.\n\nDespega despacio los bordes del adhesivo para irritar menos la piel y mira que la zona no tenga signos de infección.':
+      'Deactivate the previous Pod: Home → POD INFO tab → VIEW POD DETAILS → CHANGE POD → DEACTIVATE POD.\n\nPeel the edges of the adhesive off slowly to irritate the skin less and check that the site has no signs of infection.',
+  'En el Controlador, toca CONFIGURAR UN NUEVO POD.':
+      'On the Controller, tap SET UP NEW POD.',
+  'Saca la aguja y la jeringa de llenado. Puedes dejar el Pod en su bandeja durante el llenado y la activación.\n\nEnrosca la aguja en la jeringa y quita el capuchón tirando hacia fuera.':
+      'Take out the fill needle and syringe. You can leave the Pod in its tray during filling and activation.\n\nScrew the needle onto the syringe and pull the cap straight off.',
+  'Decide con tu equipo médico cuánta insulina poner en el Pod.\n\nLlena la jeringa de AIRE hasta esa cantidad: ese aire va al vial, NUNCA al Pod. La insulina tiene que llegar al menos hasta la línea MÍN de la jeringa.':
+      'Decide with your healthcare team how much insulin to put in the Pod.\n\nFill the syringe with AIR up to that amount: that air goes into the vial, NEVER into the Pod. The insulin must reach at least the MIN line on the syringe.',
+  'Clava la aguja en el vial y empuja el émbolo para meter el aire.\n\nDale la vuelta al conjunto y tira del émbolo para pasar la insulina a la jeringa. Da golpecitos para que las burbujas suban y empújalas de vuelta al vial.':
+      'Push the needle into the vial and press the plunger to inject the air.\n\nTurn the whole thing upside down and pull the plunger to draw the insulin into the syringe. Tap it so the bubbles rise and push them back into the vial.',
+  'Saca la aguja del vial y métela en el puerto de llenado, en vertical y no inclinada. Una flecha en la parte de abajo del Pod señala dónde está.\n\nEmpuja el émbolo hasta vaciar la jeringa.\n\nADVERTENCIA: si notas mucha resistencia al empujar, no uses ese Pod ni fuerces la insulina.':
+      'Take the needle out of the vial and insert it into the fill port, straight and not at an angle. An arrow on the underside of the Pod shows where it is.\n\nPress the plunger until the syringe is empty.\n\nWARNING: if you feel a lot of resistance when pushing, do not use that Pod and do not force the insulin in.',
+  'Mientras se llena, el Pod emitirá DOS PITIDOS: ya tiene la insulina mínima para funcionar. Vacía la jeringa del todo aunque ya haya pitado.\n\nSi lo has llenado y no pita, llama a Atención al cliente. Tira la aguja a un contenedor de objetos punzantes.':
+      'While it fills, the Pod will give TWO BEEPS: it now has the minimum insulin to work. Empty the syringe completely even if it has already beeped.\n\nIf you have filled it and it does not beep, call Customer Care. Throw the needle into a sharps container.',
+  'Sigue enseguida: si pasan dos horas desde que lo llenas sin activarlo, el Pod ya no sirve.\n\nCon el Pod en su bandeja, pon el Controlador en contacto con él y toca SIGUIENTE. Espera al tono que indica que el Pod está activado y listo para colocarlo.':
+      'Carry on straight away: if two hours go by after filling it without activating it, the Pod can no longer be used.\n\nWith the Pod in its tray, place the Controller in contact with it and tap NEXT. Wait for the tone that shows the Pod is activated and ready to apply.',
+  'Elige la zona respetando estas distancias mínimas:\n\n• 8 cm de un sensor Dexcom, o 2,5 cm de un sensor FreeStyle Libre 2 Plus\n• 2,5 cm del sitio del Pod anterior\n• 5 cm del ombligo\n\nEl Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunicarse sin que tu cuerpo tape la señal.':
+      'Choose the site keeping these minimum distances:\n\n• 8 cm from a Dexcom sensor, or 2.5 cm from a FreeStyle Libre 2 Plus sensor\n• 2.5 cm from the previous Pod site\n• 5 cm from the navel\n\nThe Pod and the sensor must be on the same side of the body, so they can communicate without your body blocking the signal.',
+  'Busca una zona con algo de grasa, fácil de ver y de alcanzar. Evita lunares, tatuajes, cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.\n\nLava la zona con agua y jabón, sécala y desinféctala con una toallita de alcohol, en círculos del centro hacia fuera. Deja que se seque al aire, sin soplar.':
+      'Look for a site with some fat that is easy to see and reach. Avoid moles, tattoos, scars, infected areas, skin folds and places where your belt or tight clothing could rub the Pod.\n\nWash the site with soap and water, dry it and disinfect it with an alcohol wipe, in circles from the centre outwards. Let it air dry, without blowing on it.',
+  'Quita la pestaña del Pod tirando hacia arriba desde su borde plano. Después despega el papel blanco del adhesivo sin que se doble.\n\nSi el Pod se ha caído, está húmedo o sucio, el adhesivo está doblado o la cánula sobresale del adhesivo, toca CANCELAR y usa otro Pod.':
+      'Remove the Pod\'s needle cap by pulling up from its flat edge. Then peel off the white paper backing from the adhesive without letting it fold.\n\nIf the Pod has been dropped, is wet or dirty, the adhesive is folded or the cannula sticks out past the adhesive, tap CANCEL and use another Pod.',
+  'Pega el Pod presionando con firmeza: en horizontal o en diagonal en abdomen, cadera, parte baja de la espalda o glúteos; en vertical o algo inclinado en el brazo o el muslo.\n\nSi la zona es delgada, pellizca la piel alrededor del Pod. Toca INICIAR para que salga la cánula.':
+      'Stick the Pod on by pressing firmly: horizontal or diagonal on the abdomen, hip, lower back or buttocks; vertical or slightly angled on the arm or thigh.\n\nIf the site is lean, pinch the skin around the Pod. Tap START to insert the cannula.',
+  'Confirma en el Controlador que el Pod está bien pegado. Mira por la ventanita que se ve la cánula azul claro y la zona rosada y, si es así, toca SÍ.\n\nRevisa la zona del Pod al menos una vez al día por si hay dolor, hinchazón, enrojecimiento o calor.':
+      'Confirm on the Controller that the Pod is well attached. Look through the viewing window to check you can see the light blue cannula and the pink area and, if so, tap YES.\n\nCheck the Pod site at least once a day for pain, swelling, redness or warmth.',
+  'El myInset lleva el catéter dentro de su propio insertador: viene montado y listo para usar.\n\nCámbialo cada dos o tres días, o cuando te diga tu equipo médico. La primera vez, úsalo con un profesional sanitario delante.\n\nEmpieza desconectándote del cuerpo el catéter usado.':
+      'The myInset has the infusion set inside its own inserter: it comes assembled and ready to use.\n\nChange it every two or three days, or when your healthcare team tells you. The first time, use it with a healthcare professional present.\n\nStart by disconnecting the used infusion set from your body.',
+  'Lávate las manos.\n\nAbre el myInset: tira del adhesivo rojo para quitar el precinto y retira el papel estéril.':
+      'Wash your hands.\n\nOpen the myInset: pull the red tab to remove the seal and take off the sterile paper.',
+  'Presiona con una mano los tres puntos en relieve de cada lado de la tapa y levanta la tapa con la otra.\n\nPRECAUCIÓN: no dobles ni toques la aguja de inserción.':
+      'With one hand press the three raised points on each side of the lid and lift the lid with the other.\n\nCAUTION: do not bend or touch the introducer needle.',
+  'Desenrolla el tubo: saca con cuidado el principio del tubo de su ranura y desenróllalo tirando suavemente hacia arriba.\n\nNo tires fuerte al final: podrías separar el catéter de la aguja. Comprueba que el catéter sigue bien colocado en el insertador.':
+      'Unwind the tubing: carefully take the start of the tubing out of its slot and unwind it by pulling gently upwards.\n\nDo not pull hard at the end: you could separate the infusion set from the needle. Check that the infusion set is still properly in place in the inserter.',
+  'Mientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas.\n\nSujeta el myInset con la aguja hacia abajo, para que la insulina no moje el papel del adhesivo. Repite hasta que no quede aire y salga insulina.':
+      'While it fills, hold the pump upright with the adapter facing up and tap it gently against your palm so the bubbles rise.\n\nHold the myInset with the needle pointing down, so the insulin does not wet the adhesive paper. Repeat until there is no air left and insulin comes out.',
+  'Elige la zona que te haya recomendado tu equipo médico, pero no justo al lado de la anterior.\n\nLímpiala con el desinfectante que te hayan indicado y espera a que esté seca.':
+      'Choose the site your healthcare team has recommended, but not right next to the previous one.\n\nClean it with the disinfectant you have been told to use and wait until it is dry.',
+  'Tira suavemente hacia arriba para quitar el papel protector del adhesivo.\n\nPrepara el insertador: pon los dedos sobre los agujeros alargados de los dos lados, presiónalos y tira del resorte hasta oír un CLIC.':
+      'Pull gently upwards to remove the protective paper from the adhesive.\n\nPrepare the inserter: put your fingers on the long holes on both sides, press them and pull the spring back until you hear a CLICK.',
+  'Quita con cuidado el protector de la aguja, girándolo y tirando. Comprueba que la cánula blanda no sobresale de la aguja.\n\nMete el tubo en su ranura, para que no quede atrapado debajo al insertar.':
+      'Carefully remove the needle guard by twisting and pulling it. Check that the soft cannula does not stick out beyond the needle.\n\nPut the tubing in its slot, so it does not get trapped underneath when inserting.',
+  'Apoya el myInset sobre la zona y presiona a la vez los agujeros redondos de los dos lados para insertarlo.\n\nADVERTENCIA: nunca apuntes el insertador cargado hacia una parte del cuerpo donde no quieras ponerlo.':
+      'Place the myInset on the site and press the round holes on both sides at the same time to insert it.\n\nWARNING: never point the loaded inserter at a part of the body where you do not want to insert it.',
+  'Aprieta suavemente el centro del insertador para fijar el adhesivo.\n\nQuita el insertador y la aguja agarrándolo por el centro y tirando suavemente hacia atrás. Masajea el adhesivo para que quede bien pegado.':
+      'Gently press the centre of the inserter to secure the adhesive.\n\nRemove the inserter and the needle by holding it by the centre and pulling gently back. Rub the adhesive so it sticks well.',
+  'Si la cánula blanda se ha doblado al insertarla, pon enseguida un myInset nuevo en otro sitio.':
+      'If the soft cannula has bent while inserting it, put a new myInset on another site straight away.',
+  'Menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indican las instrucciones de tu catéter.\n\nDespués vuelve a poner la tapa del insertador hasta que haga clic y tíralo a un contenedor de objetos punzantes.':
+      'Main menu → "Prime infusion set" → "Prime cannula", with the amount given in the instructions for your infusion set.\n\nThen put the inserter lid back on until it clicks and throw it into a sharps container.',
+  'Mide tu glucosa entre 1 y 3 horas después de poner el catéter.\n\nPor eso, no lo cambies justo antes de irte a dormir, salvo que puedas medirte en ese tiempo.':
+      'Check your glucose 1 to 3 hours after inserting the infusion set.\n\nThat is why you should not change it right before going to sleep, unless you can test within that time.',
+  'El sensor FreeStyle Libre 2 Plus dura hasta 15 días.\n\nCon Omnipod 5 tienes que iniciarlo desde la Aplicación Omnipod 5 del Controlador. Si lo inicias con otro dispositivo (un lector o el móvil), el Pod no podrá conectarse a él.':
+      'The FreeStyle Libre 2 Plus sensor lasts up to 15 days.\n\nWith Omnipod 5 you must start it from the Omnipod 5 App on the Controller. If you start it with another device (a reader or your phone), the Pod will not be able to connect to it.',
+  'No lo uses si el paquete o el aplicador están dañados o abiertos, o si ha pasado la fecha de caducidad.\n\nComprueba que el código del paquete del sensor coincide con el del aplicador, y que en la tapa de la bandeja del Pod pone FreeStyle Libre 2 Plus.':
+      'Do not use it if the pack or the applicator are damaged or opened, or if the expiry date has passed.\n\nCheck that the code on the sensor pack matches the one on the applicator, and that the Pod tray lid says FreeStyle Libre 2 Plus.',
+  'ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo, en un sitio que se mantenga plano al moverte.\n\nEvita cicatrices, lunares, estrías, bultos y los sitios donde te pinchas insulina. Cambia de sitio en cada sensor.':
+      'APPLICATION SITE: only the back of the upper arm, in a spot that stays flat when you move.\n\nAvoid scars, moles, stretch marks, lumps and the places where you inject insulin. Change the site with each sensor.',
+  'Ponlo en el mismo lado del cuerpo que el Pod y al menos a 2,5 cm de él, para que se comuniquen sin que el cuerpo tape la señal.':
+      'Put it on the same side of your body as the Pod and at least 2.5 cm from it, so they can communicate without your body blocking the signal.',
+  'Lava la zona con agua y un jabón sin crema ni perfume, sécala y desinféctala con una toallita de alcohol.\n\nEspera a que se seque al aire antes de seguir.':
+      'Wash the site with water and a soap without moisturiser or perfume, dry it and disinfect it with an alcohol wipe.\n\nWait until it air dries before carrying on.',
+  'Abre el paquete del sensor despegando la tapa y desenrosca el capuchón del aplicador.\n\nAlinea la marca oscura del aplicador con la del paquete y, sobre una superficie dura, presiona con firmeza hasta que se detenga. Después levanta el aplicador.':
+      'Open the sensor pack by peeling off the lid and unscrew the applicator cap.\n\nLine up the dark mark on the applicator with the one on the pack and, on a hard surface, press firmly until it stops. Then lift the applicator out.',
+  'PRECAUCIÓN: el aplicador ya tiene una aguja. No toques su interior ni lo vuelvas a meter en el paquete.\n\nColócalo sobre la zona preparada y presiona con firmeza. No lo presiones antes de tenerlo colocado.':
+      'CAUTION: the applicator now contains a needle. Do not touch the inside or put it back in the pack.\n\nPlace it over the prepared site and press firmly. Do not press it before it is in place.',
+  'Retira suavemente el aplicador. Presiona el sensor y pasa el dedo por el adhesivo para que quede bien pegado.\n\nSi sangra y no para, quita el sensor y pon uno nuevo en otro sitio. Vuelve a poner el capuchón al aplicador y tíralo.':
+      'Gently pull the applicator away. Press on the sensor and run your finger over the adhesive so it sticks well.\n\nIf it bleeds and does not stop, remove the sensor and put a new one on another site. Put the cap back on the applicator and throw it away.',
+  'En la Aplicación Omnipod 5, toca AÑADIR SENSOR. Si estás en Modo Automatizado, te pedirá pasar a Modo Manual.\n\nAntes te pedirá revisar los ajustes del sensor: los avisos de Glucosa alta, Glucosa baja y Valores del sensor no recibidos.':
+      'In the Omnipod 5 App, tap ADD SENSOR. If you are in Automated Mode, it will ask you to switch to Manual Mode.\n\nFirst it will ask you to review the sensor settings: the High glucose, Low glucose and Sensor values not received alerts.',
+  'Escanea el sensor acercando el tercio inferior del Controlador y no lo muevas hasta que vibre. Se puede escanear a través de la ropa.\n\nCuando termine, toca OK: no hace falta volver a escanearlo hasta el próximo sensor.':
+      'Scan the sensor by bringing the bottom third of the Controller close to it and do not move it until it vibrates. You can scan through clothing.\n\nWhen it finishes, tap OK: you do not need to scan it again until the next sensor.',
+  'Empieza el calentamiento: 1 HORA. Puedes ver cómo avanza en la pantalla principal.\n\nDespués, el Pod recibe un valor nuevo cada 5 minutos y ya puedes usar el Modo Automatizado.':
+      'The warm-up starts: 1 HOUR. You can see its progress on the home screen.\n\nAfter that, the Pod receives a new value every 5 minutes and you can use Automated Mode.',
+  'El sensor Instinct dura hasta 15 días. Con la MiniMed 780G se inicia SIEMPRE con la app MiniMed Mobile, que tiene que estar emparejada con la bomba.\n\nTen a mano una toallita de alcohol isopropílico al 70 %: no viene en la caja.':
+      'The Instinct sensor lasts up to 15 days. With the MiniMed 780G it is ALWAYS started with the MiniMed Mobile app, which must be paired with the pump.\n\nHave a 70% isopropyl alcohol wipe at hand: it is not included in the box.',
+  'No lo uses si el envase o el aplicador están dañados, o si la etiqueta de precinto indica que ya se ha abierto.\n\nSi tomas suplementos de vitamina C, consulta a tu equipo médico: en dosis altas pueden dar lecturas falsamente altas.':
+      'Do not use it if the pack or the applicator are damaged, or if the tamper label shows it has already been opened.\n\nIf you take vitamin C supplements, ask your healthcare team: in high doses they can give falsely high readings.',
+  'ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo. En otro sitio puede dar lecturas erróneas.\n\nElige piel que se mantenga plana al moverte, sin cicatrices, lunares, estrías ni bultos, al menos a 2,5 cm de donde te pinchas insulina y distinta de la última vez.':
+      'APPLICATION SITE: only the back of the upper arm. Anywhere else it may give wrong readings.\n\nChoose skin that stays flat when you move, without scars, moles, stretch marks or lumps, at least 2.5 cm from where you inject insulin and different from last time.',
+  'Para que la conexión sea mejor, lleva la bomba y el sensor en el mismo lado del cuerpo.':
+      'For a better connection, wear the pump and the sensor on the same side of your body.',
+  'Lava la zona con jabón normal, sécala y límpiala con la toallita de alcohol. Deja que se seque al aire.\n\nLa zona TIENE que estar limpia y seca: si no, el sensor puede despegarse antes de tiempo.':
+      'Wash the site with plain soap, dry it and clean it with the alcohol wipe. Let it air dry.\n\nThe site MUST be clean and dry: otherwise the sensor may come off early.',
+  'Con la bomba en la pantalla de inicio, abre la app MiniMed Mobile: menú → Iniciar sensor → "Sí, Instinct".\n\nLa app te irá diciendo cuándo poner el sensor y cuándo escanearlo.':
+      'With the pump on the Home screen, open the MiniMed Mobile app: menu → Start sensor → "Yes, Instinct".\n\nThe app will tell you when to apply the sensor and when to scan it.',
+  'Desenrosca el capuchón del aplicador y apártalo.\n\nPRECAUCIÓN: no lo vuelvas a poner antes de usarlo (podrías dañar el sensor) y no toques el interior: tiene una aguja.':
+      'Unscrew the applicator cap and set it aside.\n\nCAUTION: do not put it back on before using it (you could damage the sensor) and do not touch the inside: it contains a needle.',
+  'Coloca el aplicador sobre la zona preparada y presiona con firmeza.\n\nPRECAUCIÓN: no presiones hasta tenerlo colocado sobre la zona.':
+      'Place the applicator over the prepared site and press firmly.\n\nCAUTION: do not press until it is in place over the site.',
+  'Retira suavemente el aplicador y comprueba que el sensor queda bien sujeto.\n\nSi sangra y no para, quita el sensor y habla con tu equipo médico. Vuelve a poner el capuchón al aplicador usado y tíralo según la normativa de tu zona.':
+      'Gently pull the applicator away and check that the sensor is firmly attached.\n\nIf it bleeds and does not stop, remove the sensor and talk to your healthcare team. Put the cap back on the used applicator and dispose of it according to local regulations.',
+  'Escanea el sensor acercando el móvil hasta que pite o vibre. Después el sensor se empareja con la bomba: suele tardar 2 minutos y como mucho 5.\n\nAl iniciar un sensor nuevo, el anterior se desempareja solo.':
+      'Scan the sensor by holding your phone close until it beeps or vibrates. Then the sensor pairs with the pump: it usually takes 2 minutes and at most 5.\n\nWhen you start a new sensor, the previous one unpairs automatically.',
+  'Espera el calentamiento: 1 HORA. La bomba muestra la cuenta atrás en la pantalla de inicio.\n\nLas primeras 12 horas las lecturas pueden variar más: si no cuadran con cómo te encuentras, confírmalas con el medidor.':
+      'Wait for the warm-up: 1 HOUR. The pump shows the countdown on the Home screen.\n\nDuring the first 12 hours readings may vary more: if they do not match how you feel, confirm them with the meter.',
+  'El sensor FreeStyle Libre 3 dura hasta 14 días y el Libre 3 Plus, hasta 15 días.\n\nMira en la caja cuál es el tuyo.':
+      'The FreeStyle Libre 3 sensor lasts up to 14 days and the Libre 3 Plus up to 15 days.\n\nCheck the box to see which one you have.',
+  'Inicia el sensor con el dispositivo que vayas a usar (el lector o la aplicación del móvil) y escanéalo acercándolo al sensor.\n\nUsa siempre ese mismo dispositivo: un sensor iniciado con otro no se puede leer ("Sensor ya en uso").':
+      'Start the sensor with the device you are going to use (the reader or the phone app) and scan it by holding it close to the sensor.\n\nAlways use that same device: a sensor started with another one cannot be read ("Sensor already in use").',
 };

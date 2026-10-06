@@ -26,17 +26,24 @@ void main() {
       );
     });
 
-    test('YpsoPump Orbit soft: límite de 72 horas', () {
+    test('YpsoPump myOrbit Soft: límite de 72 horas', () {
       expect(
         textoDe(instruccionesCateter['bypsopump_corbit']!),
         contains('72 horas'),
       );
     });
 
-    test('YpsoPump Orbit micro: límite de 48 horas', () {
+    test('YpsoPump myOrbit Micro: límite de 48 horas', () {
+      expect(
+        textoDe(instruccionesCateter['bypsopump_corbitmicro']!),
+        contains('48 horas'),
+      );
+    });
+
+    test('YpsoPump myInset: cambio cada dos o tres días', () {
       expect(
         textoDe(instruccionesCateter['bypsopump_cinset']!),
-        contains('48 horas'),
+        contains('cada dos o tres días'),
       );
     });
 

@@ -3,14 +3,19 @@
 /// Fuente: guía del usuario del sistema MiniMed 780G: capítulo 15 (resolución
 /// de problemas) y apéndice A (lista de alarmas, alertas y mensajes de la
 /// bomba, de los sensores y de SmartGuard). Las páginas son las impresas en
-/// el manual. Los avisos de los sensores Simplera Sync y Guardian 4 salen de
-/// las tablas del propio sistema 780G.
+/// el manual (guía en inglés de 2025-08, la más reciente: incluye Simplera
+/// Sync, Guardian 4 e Instinct). Los avisos de los sensores salen de las
+/// tablas del propio sistema 780G, que indican a qué sensor se aplica cada uno.
 library;
 
 import '../modelos/alarma.dart';
 
 const _manual = 'MiniMed 780G';
 const _sensoresMedtronic = ['ssimplera', 'sguardian'];
+
+/// Avisos que la tabla del manual marca para todos los sensores ("All").
+const _todosLosSensores = ['ssimplera', 'sguardian', 'sinstinct'];
+const _instinct = ['sinstinct'];
 
 const List<Alarma> alarmasMedtronic = [
   // ---------------- BOMBA ----------------
@@ -393,7 +398,7 @@ const List<Alarma> alarmasMedtronic = [
   Alarma(
     id: 'mm_senal_perdida',
     bomba: 'bmedtronic',
-    sensores: _sensoresMedtronic,
+    sensores: _todosLosSensores,
     deSensor: true,
     manual: _manual,
     pagina: '287-288, 321, 325, 328',
@@ -419,7 +424,7 @@ const List<Alarma> alarmasMedtronic = [
   Alarma(
     id: 'mm_cambiar_sensor',
     bomba: 'bmedtronic',
-    sensores: _sensoresMedtronic,
+    sensores: _todosLosSensores,
     deSensor: true,
     manual: _manual,
     pagina: '319-320',
@@ -487,7 +492,7 @@ const List<Alarma> alarmasMedtronic = [
   Alarma(
     id: 'mm_fin_sensor',
     bomba: 'bmedtronic',
-    sensores: _sensoresMedtronic,
+    sensores: _todosLosSensores,
     deSensor: true,
     manual: _manual,
     pagina: '322, 327-328, 330',
@@ -495,13 +500,14 @@ const List<Alarma> alarmasMedtronic = [
         'El sensor termina pronto, ha caducado o el transmisor no tiene batería',
     significado:
         'El sensor llega al final de su vida útil: Simplera Sync dura hasta '
-        '6 días más 24 horas de gracia (en las que sigue funcionando igual) '
-        'y Guardian 4, hasta 7 días. Con Guardian 4, el transmisor también '
-        'avisa cuando hay que recargarlo.',
+        '6 días más 24 horas de gracia (en las que sigue funcionando igual), '
+        'Guardian 4 hasta 7 días e Instinct hasta 15 días. Con Guardian 4, el '
+        'transmisor también avisa cuando hay que recargarlo.',
     queHacer: [
       'Pulsa OK.',
       'Ten un sensor de repuesto preparado y cámbialo cuando toque (mira la guía de cambio de sensor).',
       'Si tienes Guardian 4 y el transmisor avisa de batería baja, recárgalo lo antes posible: con la batería agotada no hay lecturas.',
+      'Con Instinct, ten a mano la app MiniMed Mobile: el sensor nuevo se inicia con ella.',
     ],
     gravedad: Gravedad.informativa,
     sinonimos: [
@@ -535,7 +541,7 @@ const List<Alarma> alarmasMedtronic = [
   Alarma(
     id: 'mm_avisos_glucosa',
     bomba: 'bmedtronic',
-    sensores: _sensoresMedtronic,
+    sensores: _todosLosSensores,
     deSensor: true,
     manual: _manual,
     pagina: '316-317, 321, 326',
@@ -551,5 +557,93 @@ const List<Alarma> alarmasMedtronic = [
     ],
     gravedad: Gravedad.atencion,
     sinonimos: ['hiper', 'alta', 'baja', 'subida rapida', 'alerta glucosa'],
+  ),
+
+  // ---------------- SENSOR INSTINCT ----------------
+  Alarma(
+    id: 'mm_instinct_inicio',
+    bomba: 'bmedtronic',
+    sensores: _instinct,
+    deSensor: true,
+    manual: _manual,
+    pagina: '130-132, 289-290, 320, 328',
+    titulo: 'No se ha podido iniciar o emparejar el sensor Instinct',
+    significado:
+        'El sensor no ha empezado el calentamiento porque no detecta líquido '
+        'bajo la piel ("Comprobar sensor"), una alarma de la bomba ha cortado '
+        'el emparejamiento, o la app MiniMed Mobile no ha podido escanearlo.',
+    queHacer: [
+      'Pulsa OK.',
+      'Si el sensor no está puesto, póntelo. Si está bien puesto y pegado, reinícialo con la app MiniMed Mobile.',
+      'Si el aviso vuelve a salir después de reiniciarlo, inicia un sensor nuevo con la app.',
+      'Si la app dice que el NFC está apagado, actívalo en los ajustes del móvil. Si dice "Error de escaneo", acerca el móvil al sensor y vuelve a escanear.',
+      'Si dice que el sensor ya está en uso, comprueba que usas el móvil y la cuenta con los que lo iniciaste.',
+    ],
+    gravedad: Gravedad.atencion,
+    sinonimos: ['comprobar sensor', 'no empareja', 'nfc', 'escaneo', 'no arranca'],
+  ),
+  Alarma(
+    id: 'mm_instinct_glucemia',
+    bomba: 'bmedtronic',
+    sensores: _instinct,
+    deSensor: true,
+    manual: _manual,
+    pagina: '320-322',
+    titulo: 'El sistema pide una glucemia para comprobar el sensor Instinct',
+    significado:
+        'Con Instinct, las glucemias del medidor sirven para comprobar que '
+        'el sensor funciona bien, no para calibrarlo. Este aviso sale cuando '
+        'hace falta una glucemia o cuando no se ha podido usar la que '
+        'introdujiste.',
+    queHacer: [
+      'Lávate y sécate bien las manos y mide tu glucemia con el medidor.',
+      'Si sale que la comprobación ha fallado, espera al menos 30 minutos y vuelve a medirte.',
+      'Si fallan dos comprobaciones seguidas, la bomba te propondrá cambiar el sensor: es la forma más rápida de volver a tener lecturas.',
+      'El primer día puede tardar hasta 2 horas en volver a dar lecturas. Mientras tanto, usa el medidor para tus decisiones.',
+    ],
+    gravedad: Gravedad.atencion,
+    sinonimos: ['introducir gs', 'comprobacion fallida', 'glucemia', 'considerar cambio'],
+  ),
+  Alarma(
+    id: 'mm_glucosa_baja_55',
+    bomba: 'bmedtronic',
+    sensores: _instinct,
+    deSensor: true,
+    manual: _manual,
+    pagina: '323-324',
+    titulo: 'Glucosa baja: alarma que no se puede quitar (Instinct)',
+    significado:
+        'Con Instinct, la bomba avisa siempre que la glucosa del sensor baja '
+        'de 55 mg/dL. Viene de fábrica: no se puede cambiar, apagar ni '
+        'silenciar. Esta alarma no suspende la insulina.',
+    queHacer: [
+      'Pulsa OK.',
+      'Mide tu glucemia con el medidor y trata la bajada como te haya indicado tu equipo médico.',
+      'Si la glucosa está muy por debajo, la bomba puede dejar de mostrar las flechas de tendencia.',
+      'Si pierdes el conocimiento o no puedes tragar, es una urgencia: glucagón y llama al 112.',
+    ],
+    gravedad: Gravedad.urgente,
+    sinonimos: ['hipo', 'baja', '55', 'gs baja', 'hipoglucemia'],
+  ),
+  Alarma(
+    id: 'mm_instinct_temporal',
+    bomba: 'bmedtronic',
+    sensores: _instinct,
+    deSensor: true,
+    manual: _manual,
+    pagina: '329',
+    titulo: 'Sensor demasiado caliente, frío o actualizándose (Instinct)',
+    significado:
+        'El sensor no da lecturas por un motivo temporal: está fuera de su '
+        'temperatura de funcionamiento o está haciendo comprobaciones de '
+        'calidad. No hace falta cambiarlo.',
+    queHacer: [
+      'Pulsa OK.',
+      'Si está demasiado caliente o frío, muévete a un sitio con una temperatura adecuada.',
+      'Si se está actualizando, espera al menos 30 minutos a que vuelvan las lecturas.',
+      'Mientras tanto, usa el medidor para tus decisiones.',
+    ],
+    gravedad: Gravedad.informativa,
+    sinonimos: ['caliente', 'frio', 'actualizando', 'sin lecturas'],
   ),
 ];

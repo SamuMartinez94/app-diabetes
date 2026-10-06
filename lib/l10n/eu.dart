@@ -57,24 +57,14 @@ const Map<String, String> traduccionesEu = {
   'Mientras estés en manual, vigila más tu glucosa.':
       'Eskuzko moduan zauden bitartean, zaindu gehiago zure glukosa.',
   'Pod caducado': 'Pod iraungita',
-  'Pon un Pod nuevo.': 'Jarri pod berri bat.',
-  'Mide tu glucosa y comprueba las cetonas.':
-      'Neurtu zure glukosa eta egiaztatu ketonak.',
   'Cartucho vacío': 'Kartutxo hutsa',
-  'A la YpsoPump se le ha acabado la insulina del cartucho y ha dejado de darte insulina.':
-      'YpsoPumpari kartutxoko intsulina amaitu zaio eta intsulina ematen utzi du.',
-  'cartucho, vacio, sin insulina': 'kartutxoa, hutsa, intsulinarik gabe',
   'Cambia el cartucho siguiendo la guía de cambio.':
       'Aldatu kartutxoa aldaketa-gidari jarraituz.',
   'Acuérdate de llenar el tubo (cebar) después de poner el cartucho nuevo.':
       'Gogoratu hodia betetzea (garbitzea) kartutxo berria jarri ondoren.',
   'Mide tu glucosa.': 'Neurtu zure glukosa.',
-  'La varilla no ha terminado de retraerse':
-      'Hagaxka ez da atzera egiten amaitu',
   'varilla, roscada, retraccion, cartucho antes':
       'hagaxka, hariduna, atzera egitea, kartutxoa lehenago',
-  'No hay insulina / Falta llenar el tubo (cebado)':
-      'Ez dago intsulinarik / Hodia betetzeke (garbiketa)',
   'no hay insulina, cebado, purgar, sin cebar':
       'ez dago intsulinarik, garbiketa, garbitu, garbitu gabe',
   'Confirma la alarma.': 'Berretsi alarma.',
@@ -83,14 +73,8 @@ const Map<String, String> traduccionesEu = {
   'Repite hasta que salga insulina por el extremo y no queden burbujas.':
       'Errepikatu intsulina muturretik atera arte eta burbuilarik geratzen ez den arte.',
   'Parada automática': 'Geldialdi automatikoa',
-  'La bomba llevaba 24 horas encendida sin usarse y se ha puesto sola en parada. Se han cancelado todas las entregas de insulina que estaban en marcha.':
-      'Ponpa 24 orduz piztuta egon zen erabili gabe eta bere kabuz gelditu da. Martxan zeuden intsulina-emate guztiak bertan behera geratu dira.',
   'parada, automatica, 24 horas, se paro sola':
       'geldialdia, automatikoa, 24 ordu, bere kabuz gelditu da',
-  'Confirma la alarma y vuelve a poner la bomba en marcha.':
-      'Berretsi alarma eta jarri ponpa berriro martxan.',
-  'Mide tu glucosa: has estado sin insulina de fondo.':
-      'Neurtu zure glukosa: oinarrizko intsulinarik gabe egon zara.',
   'Mira si tenías un bolo o una basal temporal en marcha, porque se han cancelado.':
       'Begiratu bolus bat edo basal aldi baterako bat martxan zenuen, bertan behera geratu direlako.',
   'Error electrónico': 'Errore elektronikoa',
@@ -105,9 +89,6 @@ const Map<String, String> traduccionesEu = {
   'Vuelve a ponerla en marcha y revisa todos tus ajustes.':
       'Jarri berriro martxan eta berrikusi zure ezarpen guztiak.',
   'Cambia el cartucho y el catéter.': 'Aldatu kartutxoa eta kateterra.',
-  'Si el error vuelve a aparecer, deja de usar la bomba, saca la pila y llama al fabricante.':
-      'Errorea berriro agertzen bada, utzi ponpa erabiltzeari, atera pila eta deitu fabrikatzaileari.',
-  'Pila no válida': 'Pila baliogabea',
   'La pila que has puesto tiene demasiado voltaje para la bomba.':
       'Jarri duzun pilak tentsio gehiegi du ponparentzat.',
   'pila, voltaje, no apta, incorrecta, bateria':
@@ -115,7 +96,6 @@ const Map<String, String> traduccionesEu = {
   'Confirma la alarma y saca la pila.': 'Berretsi alarma eta atera pila.',
   'Pon una pila alcalina AAA (LR03) nueva.':
       'Jarri AAA (LR03) pila alkalino berri bat.',
-  'No hay pila': 'Ez dago pilarik',
   'La pila alcalina lleva fuera de su hueco más de 5 minutos con la bomba en marcha.':
       'Pila alkalinoa bere zuloaren kanpoan egon da 5 minutu baino gehiagoz ponpa martxan zegoela.',
   'sin pila, pila fuera, sin bateria':
@@ -127,17 +107,8 @@ const Map<String, String> traduccionesEu = {
   'Se ha perdido la señal del sensor': 'Sentsorearen seinalea galdu da',
   'Mientras no haya lecturas, mídete con un pinchazo en el dedo.':
       'Neurketarik ez dagoen bitartean, neurtu hatzeko zulaketa batekin.',
-  'Sensor caducado / Cambiar sensor': 'Sentsorea iraungita / Aldatu sentsorea',
-  'El sensor ha llegado al final de su vida útil y ha dejado de medir.':
-      'Sentsorea bere bizitza baliagarriaren amaierara iritsi da eta neurtzeari utzi dio.',
-  'caducado, expirado, fin de vida, cambiar sensor':
-      'iraungita, muga pasata, bizitzaren amaiera, sentsorea aldatu',
-  'Quita el sensor y ponte uno nuevo.': 'Kendu sentsorea eta jarri berri bat.',
   'Mira la guía de cambio de sensor de esta app.':
       'Begiratu app honetako sentsorea aldatzeko gida.',
-  'Aviso de glucosa alta': 'Glukosa altuaren abisua',
-  'El sensor ha detectado un valor por encima del límite que tienes configurado.':
-      'Sentsoreak konfiguratuta duzun mugaren gainetik dagoen balio bat detektatu du.',
   'hiper, alta, hiperglucemia, subida': 'hiper, altua, hiperglukemia, igoera',
   'Si el valor es muy alto o lleva mucho rato sin bajar, comprueba las cetonas.':
       'Balioa oso altua bada edo denbora luzez jaisten ez bada, egiaztatu ketonak.',
@@ -145,9 +116,6 @@ const Map<String, String> traduccionesEu = {
       'Berrikusi kateterra: arrazoirik gabeko glukosa altua kateterra ondo ez dabilelako izaten da askotan.',
   'Actúa como te haya indicado tu equipo médico.':
       'Jokatu zure mediku-taldeak esan dizun bezala.',
-  'Aviso de glucosa baja': 'Glukosa baxuaren abisua',
-  'El sensor ha detectado un valor por debajo del límite que tienes configurado.':
-      'Sentsoreak konfiguratuta duzun mugaren azpitik dagoen balio bat detektatu du.',
   'hipo, baja, hipoglucemia, bajada': 'hipo, baxua, hipogluzemia, jaitsiera',
   'Si puedes, confírmalo con un pinchazo en el dedo, pero no retrases el tratamiento.':
       'Ahal baduzu, berretsi hatzeko zulaketa batekin, baina ez atzeratu tratamendua.',
@@ -234,58 +202,18 @@ const Map<String, String> traduccionesEu = {
       'Kateter honek altzairuzko orratza du, beraz kanula EZ da betetzen.\n\nPonpak galdetzen duenean, aukeratu "Kanularen betetzea saltatu" edo "Eginda".',
   'Entre 1 y 3 horas después del cambio, mide tu glucosa con el medidor (pinchazo en el dedo).':
       'Aldaketa egin eta 1 eta 3 ordu artera, neurtu zure glukosa neurgailuarekin (hatzeko zulaketa).',
-  'Saca la insulina de la nevera un rato antes: tiene que estar a temperatura ambiente.\n\nLávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.':
-      'Atera intsulina hozkailutik pixka bat lehenago: giro-tenperaturan egon behar da.\n\nGarbitu eskuak urarekin eta xaboiarekin eta garbitu flaskoaren tapoia alkoholezko toalla batekin.',
-  'IMPORTANTE: no pongas un Pod nuevo hasta haber desactivado y quitado el anterior.\n\nPara desactivarlo: INFORMACIÓN DEL POD → VER DETALLES DEL POD → CAMBIAR EL POD → DESACTIVAR POD.':
-      'GARRANTZITSUA: ez jarri pod berri bat aurrekoa desaktibatu eta kendu arte.\n\nDesaktibatzeko: PODAREN INFORMAZIOA → IKUSI PODAREN XEHETASUNAK → ALDATU PODA → DESAKTIBATU PODA.',
-  'Despega despacio los bordes del adhesivo y quita el Pod usado. Hacerlo despacio irrita menos la piel.':
-      'Askatu poliki itsasgarriaren ertzak eta kendu erabilitako poda. Poliki eginda azala gutxiago narritatzen da.',
-  'En la aplicación o en el Controlador, toca CONFIGURAR NUEVO POD.':
-      'Aplikazioan edo Kontrolagailuan, ukitu POD BERRIA KONFIGURATU.',
-  'Saca la aguja y la jeringa de llenado de la bandeja del Pod, pero DEJA el Pod dentro de la bandeja durante toda la preparación.\n\nEnrosca la aguja en la jeringa y quita el capuchón tirando en línea recta.':
-      'Atera orratza eta betetzeko xiringa podaren erretilutik, baina utzi poda erretilua barruan prestaketa osoan zehar.\n\nKizkurtu orratza xiringan eta kendu txapela lerro zuzenean tiraka.',
-  'Llena la jeringa de AIRE hasta la cantidad de insulina que vayas a poner.\n\nEse aire va al vial, NUNCA al Pod. Ten en cuenta la línea MÍN marcada en la jeringa: la insulina tiene que llegar al menos hasta ahí.':
-      'Bete xiringa AIREZ jarriko duzun intsulina-kantitatera arte.\n\nAire hori flaskora doa, EZ INOIZ podera. Kontuan izan xiringan markatuta dagoen MIN lerroa: intsulinak gutxienez hara iritsi behar du.',
-  'Clava la aguja en el vial y empuja el émbolo para meter el aire en el vial.\n\nCon la jeringa aún en el vial, dale la vuelta al conjunto y tira despacio del émbolo. Da unos golpecitos para eliminar las burbujas.':
-      'Sartu orratza flaskoan eta bultzatu enboloa airea flaskoan sartzeko.\n\nXiringa flaskoan oraindik dagoela, eman buelta multzoari eta tira poliki enboloa. Eman kolpe txikiak burbuilak kentzeko.',
-  'Saca la aguja del vial e insértala directamente en el puerto de llenado del Pod.\n\nUna flecha en el papel blanco de la parte de atrás señala dónde está. Empuja el émbolo despacio hasta llenarlo del todo.\n\nSi notas resistencia al empujar, no uses ese Pod.':
-      'Atera orratza flaskotik eta sartu zuzenean podaren betetzeko atakan.\n\nAtzeko paper zuriko gezi batek non dagoen adierazten du. Bultzatu enboloa poliki guztiz bete arte.\n\nBultzatzean erresistentzia nabaritzen baduzu, ez erabili pod hori.',
-  'El Pod emitirá DOS PITIDOS.\n\nEsa es la señal de que está lleno y listo para continuar. Si no pita, no lo uses: cámbialo por otro.':
-      'Podak BI BIP egingo ditu.\n\nHori beteta dagoela eta jarraitzeko prest dagoela adierazten du. Bipik egiten ez badu, ez erabili: ordeztu bestearekin.',
-  'Con el Pod todavía en la bandeja, acércalo al Controlador y toca SIGUIENTE.\n\nEl sistema hará unas comprobaciones de seguridad y llenará el Pod de forma automática (esto se llama cebar). Espera a que termine.':
-      'Poda oraindik erretiluan dagoela, hurbildu Kontrolagailura eta ukitu HURRENGOA.\n\nSistemak segurtasun-egiaztapen batzuk egingo ditu eta poda automatikoki beteko du (honi garbitzea deitzen zaio). Itxaron amaitu arte.',
-  'Elige la zona respetando estas distancias mínimas:\n\n• 8 cm de tu sensor Dexcom\n• 2,5 cm del sitio del Pod anterior\n• 5 cm del ombligo\n\nEl Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunicarse sin que tu cuerpo tape la señal.':
-      'Aukeratu gunea gutxieneko distantzia hauek errespetatuz:\n\n• 8 cm zure Dexcom sentsoretik\n• 2,5 cm aurreko podaren lekutik\n• 5 cm titiaren zulotik\n\nPodak eta sentsoreak gorputzaren alde berean egon behar dute, zure gorputzak seinalea estali gabe komunikatu ahal izan dezaten.',
-  'Evita lunares, tatuajes y cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.\n\nBusca una zona con algo de grasa y fácil de alcanzar.':
-      'Saihestu marka beltzak, tatuajeak eta orbainak, infekzioa duten guneak, azal-tolesturak eta gerrikoak edo arropa estuak podari igurtz diezaioketen lekuak.\n\nBilatu koipe pixka bat duen eta eskuratzeko erraza den gune bat.',
-  'Quita los papeles de los adhesivos, pega el Pod sobre la piel y sigue las instrucciones de la pantalla para que salga la cánula.':
-      'Kendu itsasgarrien paperak, itsatsi poda azalean eta jarraitu pantailako jarraibideei kanula irten dadin.',
-  'Mira por la ventanita del Pod que la cánula ha quedado bien puesta y confírmalo en el Controlador.\n\nMide tu glucosa a la hora y media del cambio, aproximadamente.':
-      'Begiratu podaren leihatilatik kanula ondo jarrita dagoela eta berretsi Kontrolagailuan.\n\nNeurtu zure glukosa aldaketatik ordu eta erdira, gutxi gorabehera.',
-  'El catéter Orbit soft no debe usarse durante más de 72 horas.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'Orbit soft kateterra ez da 72 ordu baino gehiagoz erabili behar.\n\nHasi kateterra gorputzetik deskonektatuz.',
-  'Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".\n\nDespués toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.':
-      'Ireki menu nagusia eta ukitu "Kartutxoaren aldaketa eta kartutxoaren uneko maila" ikonoa.\n\nGero ukitu "Hagaxka hariduna atzera egin" eta berretsi. Ponpak une batez dardara egingo du.',
   'Espera a que la varilla se retraiga por completo (el porcentaje baja al 0 %) y a que termine la autocomprobación.\n\nNO insertes el cartucho antes: si lo haces, aparecerá el aviso "Retracción varilla roscada no finalizada" y habrá que repetir el proceso.':
       'Itxaron hagaxka guztiz atzera egin arte (ehunekoa % 0ra jaisten da) eta autoegiaztapena amaitu arte.\n\nEZ sartu kartutxoa lehenago: egiten baduzu, "Hagaxka haridunaren atzera egitea amaitu gabe" abisua agertuko da eta prozesua errepikatu beharko duzu.',
   'Desconecta el catéter girando el adaptador en sentido antihorario hasta el tope.\n\nSaca de la bomba el cartucho vacío.':
       'Deskonektatu kateterra egokigailua erlojuaren orratzen aurkako norabidean biratuz amaierara arte.\n\nAtera ponpatik kartutxo hutsa.',
-  'Sujeta la bomba en vertical, con el orificio del compartimento hacia arriba, y mete un reservorio cargado por ti o un cartucho precargado que sea compatible con tu YpsoPump.':
-      'Eutsi ponpari zutik, atalaren zuloa gorantz duela, eta sartu zuk kargatutako biltegi bat edo zure YpsoPumparekin bateragarria den aurrekargatutako kartutxo bat.',
   'Pon el adaptador en vertical sobre el cartucho y gíralo en sentido horario hasta la posición de bloqueo.\n\nOirás un ligero clic o notarás un tope.':
       'Jarri egokigailua zutik kartutxoaren gainean eta biratu erlojuaren orratzen norabidean blokeo-posiziora arte.\n\nKlik arin bat entzungo duzu edo gelditzea nabarituko duzu.',
-  'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter Orbit y confirma.':
-      'Ireki menu nagusia, ukitu "Infusio-kita garbitu" eta gero "Hodia garbitu". (Garbitzea hodia intsulinaz betetzea da.)\n\nAukeratu zure Orbit kateterraren jarraibideek adierazten duten bolumena eta berretsi.',
   'Confirma que el catéter está desconectado del cuerpo.\n\nMientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma de la mano para que suban las burbujas.':
       'Berretsi kateterra gorputzetik deskonektatuta dagoela.\n\nBetetzen den bitartean, mantendu ponpa zutik egokigailua gorantz duela eta eman kolpe leunak eskuaren ahurraren kontra burbuilak igo daitezen.',
   'Repite hasta que no quede aire en el cartucho, el adaptador ni el tubo, y hasta que salga insulina por el extremo.\n\nEl volumen que indica el catéter es solo una referencia: puede hacer falta llenar más.':
       'Errepikatu kartutxoan, egokigailuan eta hodian airerik geratzen ez den arte, eta intsulina muturretik atera arte.\n\nKateterrak adierazten duen bolumena erreferentzia bat besterik ez da: agian gehiago bete beharko da.',
-  'Lávate bien las manos.\n\nLimpia la zona con una toallita de alcohol isopropílico. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.':
-      'Garbitu ondo eskuak.\n\nGarbitu gunea alkohol isopropilikoko toalla batekin. Ziurtatu ez dagoela ilerik eta azala lehor dagoela jarraitu aurretik.',
   'Despega con cuidado la lámina protectora de la cinta adhesiva, sin tocar la parte pegajosa.\n\nDespués quita el protector de la cánula.':
       'Askatu kontuz zinta itsasgarriaren babes-xafla, alde itsaskorra ukitu gabe.\n\nGero kendu kanularen babesa.',
-  'Sujeta bien la zona e inserta la cánula en vertical (90°).\n\nPuedes usar el insertador mylife Orbit para que entre con más facilidad.':
-      'Eutsi ondo gunea eta txertatu kanula zutik (90°).\n\nmylife Orbit txertagailua erabil dezakezu errazago sar dadin.',
   'Presiona la cinta contra la piel y recórrela con los dedos unos segundos, para que quede bien pegada.':
       'Sakatu zinta azalaren kontra eta pasatu hatzak gainetik segundo batzuez, ondo itsatsita gera dadin.',
   'Sujeta la cinta contra la piel con una mano y, con dos dedos de la otra, agarra el capuchón del introductor.\n\nSaca la aguja introductora apretando las dos aletas exteriores del capuchón.':
@@ -296,30 +224,18 @@ const Map<String, String> traduccionesEu = {
       'Konektatu hodiaren txapela kanularen oinarrira makurtu gabe. Ziurtatu txertatzen entzuten duzula.\n\nGero biratu hodia ezkerrera eta eskuinera, gutxienez buelta oso bat norabide bakoitzean, txapela gorantz tiraka: horrela berresten duzu ondo txertatuta dagoela eta bidea irekita dagoela.',
   'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar cánula".\n\nElige la cantidad que indican las instrucciones de tu catéter y confirma.':
       'Ireki menu nagusia, ukitu "Infusio-kita garbitu" eta gero "Kanula garbitu".\n\nAukeratu zure kateterraren jarraibideek adierazten duten kantitatea eta berretsi.',
-  'El catéter Orbit micro lleva cánula de acero y no debe usarse durante más de 48 horas.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'Orbit micro kateterrak altzairuzko kanula du eta ez da 48 ordu baino gehiagoz erabili behar.\n\nHasi kateterra gorputzetik deskonektatuz.',
-  'Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".\n\nDespués toca "Retraer varilla roscada" y confirma.':
-      'Ireki menu nagusia eta ukitu "Kartutxoaren aldaketa eta kartutxoaren uneko maila" ikonoa.\n\nGero ukitu "Hagaxka hariduna atzera egin" eta berretsi.',
   'Espera a que la varilla se retraiga del todo (0 %) y a que termine la autocomprobación.\n\nNO insertes el cartucho antes de que acabe.':
       'Itxaron hagaxka erabat atzera egin arte (% 0) eta autoegiaztapena amaitu arte.\n\nEZ sartu kartutxoa amaitu baino lehen.',
   'Desconecta el catéter girando el adaptador en sentido antihorario hasta el tope y saca el cartucho vacío.':
       'Deskonektatu kateterra egokigailua erlojuaren orratzen aurkako norabidean biratuz amaierara arte eta atera kartutxo hutsa.',
-  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.':
-      'Eutsi ponpari zutik atala gorantz duela eta sartu zure YpsoPumparekin bateragarria den biltegi bat.\n\nJarri egokigailua zutik eta biratu erlojuaren orratzen norabidean blokeo-klika entzun arte.',
   'Menú principal → "Cebar kit de infusión" → "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter y confirma que estás desconectado.':
       'Menu nagusia → "Infusio-kita garbitu" → "Hodia garbitu". (Garbitzea hodia intsulinaz betetzea da.)\n\nAukeratu zure kateterraren jarraibideek adierazten duten bolumena eta berretsi deskonektatuta zaudela.',
   'Mantén la bomba vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para eliminar las burbujas.\n\nRepite hasta que no quede aire y salga insulina por el extremo del tubo.':
       'Mantendu ponpa zutik egokigailua gorantz duela eta eman kolpe leunak ahurraren kontra burbuilak kentzeko.\n\nErrepikatu airerik geratzen ez den arte eta intsulina hodiaren muturretik atera arte.',
-  'Lávate las manos y limpia la zona con alcohol isopropílico. La piel debe estar seca y sin vello.\n\nDespega la lámina protectora del adhesivo y quita el protector de la cánula.':
-      'Garbitu eskuak eta gunea alkohol isopropilikoarekin. Azala lehor eta ilerik gabe egon behar da.\n\nAskatu itsasgarriaren babes-xafla eta kendu kanularen babesa.',
-  'El Orbit micro lleva una cánula de acero que se pone sin aguja introductora.\n\nSujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el insertador mylife Orbit.':
-      'Orbit microk sartzaile-orratzik gabe jartzen den altzairuzko kanula du.\n\nEutsi ondo gunea eta txertatu kanula zutik (90°). mylife Orbit txertagailua erabil dezakezu.',
   'Presiona la cinta contra la piel y recórrela con los dedos unos segundos.\n\nQuita el capuchón introductor apretando sus dos aletas exteriores.':
       'Sakatu zinta azalaren kontra eta pasatu hatzak gainetik segundo batzuez.\n\nKendu sartzailearen txapela bere kanpoko bi hegalak estutuz.',
   'Conecta el capuchón del tubo a la base de la cánula sin ladearlo, hasta oírlo encajar.\n\nGira el tubo al menos una vuelta completa en cada dirección tirando hacia arriba, para confirmar que la vía está abierta.':
       'Konektatu hodiaren txapela kanularen oinarrira makurtu gabe, txertatzen entzun arte.\n\nBiratu hodia gutxienez buelta oso bat norabide bakoitzean gorantz tiraka, bidea irekita dagoela berresteko.',
-  'Menú principal → "Cebar kit de infusión" → "Cebar cánula".\n\nElige la cantidad que indican las instrucciones de tu catéter.':
-      'Menu nagusia → "Infusio-kita garbitu" → "Kanula garbitu".\n\nAukeratu zure kateterraren jarraibideek adierazten duten kantitatea.',
   'Prepara el material: un cartucho nuevo sin abrir, la jeringa de llenado con su aguja (viene con el cartucho), el vial de insulina, toallitas de alcohol y un catéter nuevo.\n\nEl cartucho se cambia cada 2 o 3 días, según te haya indicado tu equipo médico.':
       'Prestatu materiala: kartutxo berri bat irekitzeke, betetzeko xiringa bere orratzarekin (kartutxoarekin dator), intsulina-flaskoa, alkoholezko toallak eta kateter berri bat.\n\nKartutxoa 2 edo 3 egunean behin aldatzen da, zure mediku-taldeak esan dizun bezala.',
   'Decide con tu equipo médico cuánta insulina cargar en el cartucho.\n\nTen en cuenta que al llenar el tubo se gasta un poco de insulina, así que no toda la que cargues quedará disponible.':
@@ -425,8 +341,8 @@ const Map<String, String> traduccionesEu = {
       'Egokitze-aldiak 30 MINUTU BAINO GUTXIAGO irauten du.\n\nDenbora horretan ez hartu tratamendu-erabakirik sentsorearekin: erabili hatzeko neurgailua. Ez hartu ere zenbakia edo joera-gezia ikusten ez badituzu.',
   'El sensor Guardian 4 se usa como máximo siete días seguidos.\n\nEl insertador One-press es el ÚNICO aprobado para este sensor. Con otro insertador la colocación puede salir mal y causar dolor o lesión.':
       'Guardian 4 sentsorea gehienez zazpi egun jarraian erabiltzen da.\n\nOne-press txertagailua da sentsore honentzat onartutako BAKARRA. Beste txertagailu batekin kokapenak gaizki atera daiteke eta mina edo lesioa eragin.',
-  'ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo, tanto en adultos como a partir de 7 años.\n\nPRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.':
-      'TXERTATZEKO GUNEA: besoaren goiko aldearen atzealdea bakarrik, helduetan zein 7 urtetik aurrera.\n\nKONTUZ: ez erabili sabelean ez ipurmamietan. Han modu desberdinean funtzionatzen du eta akatsera eraman zaitzaketen neurketak eman ditzake.',
+  'ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo.\n\nPRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.':
+      'TXERTATZEKO GUNEA: besoaren goiko aldearen atzealdea bakarrik.\n\nKONTUZ: ez erabili sabelean ez ipurmamietan. Han modu desberdinean funtzionatzen du eta akatsera eraman zaitzaketen neurketak eman ditzake.',
   'No lo pongas sobre músculo, piel dura o cicatrices, ni en zonas apretadas por la ropa o que se muevan mucho al hacer ejercicio.':
       'Ez jarri giharraren, azal gogorraren edo orbainen gainean, ez arropak estutzen dituen guneetan ez ariketa egitean asko mugitzen direnetan.',
   'Elige una zona con algo de grasa y límpiala con alcohol.\n\nUsa solo alcohol, para que no queden restos en la piel. Deja que se seque al aire.':
@@ -451,8 +367,8 @@ const Map<String, String> traduccionesEu = {
       'Konektatu transmisorea eta itxaron berotzea: 2 ORDU dira. Pantailan atzeranzko kontaketa ikusiko duzu.\n\nDenbora horretan ez dago neurketarik: erabili hatzeko neurgailua zure tratamendua erabakitzeko.',
   'El Simplera Sync no se pone igual que otros sensores de Medtronic: su insertador funciona de otra manera.\n\nLee sus instrucciones antes de usarlo por primera vez.':
       'Simplera Sync ez da Medtronic-en beste sentsore batzuk bezala jartzen: bere txertagailuak beste modu batera funtzionatzen du.\n\nIrakurri bere jarraibideak lehen aldiz erabili aurretik.',
-  'ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo, a partir de 7 años.\n\nNo se recomienda ponerlo en el abdomen ni en los glúteos.':
-      'TXERTATZEKO GUNEA: besoaren goiko aldearen atzealdea, 7 urtetik aurrera.\n\nEz da gomendatzen sabelean ez ipurmamietan jartzea.',
+  'ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo.\n\nNo se recomienda ponerlo en el abdomen ni en los glúteos.':
+      'TXERTATZEKO GUNEA: besoaren goiko aldearen atzealdea.\n\nEz da gomendatzen sabelean ez ipurmamietan jartzea.',
   'ANTES DE PONERLO, apunta el número de serie (SN) y el CÓDIGO que vienen en la etiqueta del insertador.\n\nLos necesitarás después para emparejar el sensor con la bomba. También están dentro de la tapa de la caja.':
       'JARRI AURRETIK, idatzi serie-zenbakia (SN) eta txertagailuaren etiketan datorren KODEA.\n\nGero behar izango dituzu sentsorea ponparekin parekatzeko. Kutxaren estalkiaren barruan ere badaude.',
   'Mira la fecha de caducidad: no uses un sensor caducado.\n\nComprueba que la etiqueta del capuchón y la banda de seguridad están intactas. Si falta alguna o está rota, no lo uses.':
@@ -489,8 +405,6 @@ const Map<String, String> traduccionesEu = {
       'Jarri aplikagailua prestatutako gunearen gainean eta bultzatu behera irmoki.\n\nKONTUZ: ez sakatu aplikagailua gunearen gainean jarri arte: min har zenezake.',
   'Retira suavemente el aplicador del cuerpo y comprueba que el sensor ha quedado firme.\n\nVuelve a poner el tapón al aplicador usado y tíralo como indique la normativa de tu zona.':
       'Kendu leunki aplikagailua gorputzetik eta egiaztatu sentsorea tinko geratu dela.\n\nJarri berriro tapoia erabilitako aplikagailuan eta bota zure eremuko araudiak adierazten duen moduan.',
-  'Comprueba que el móvil tiene conexión (wifi o datos) e inicia el sensor desde la aplicación, siguiendo las indicaciones de la pantalla.':
-      'Egiaztatu mugikorrak konexioa duela (wifia edo datuak) eta hasi sentsorea aplikaziotik, pantailako jarraibideei jarraituz.',
   'Espera el calentamiento: son 60 MINUTOS hasta la primera lectura.\n\nMientras tanto, usa el medidor de dedo para decidir tu tratamiento.':
       'Itxaron berotzea: 60 MINUTU dira lehen neurketa izan arte.\n\nBitartean, erabili hatzeko neurgailua zure tratamendua erabakitzeko.',
   'Vuelve a conectarte el catéter, que no has cambiado.\n\nComo es un cambio de solo reservorio, NO hay que llenar cánula: elige "Hecho" en esa pantalla.':
@@ -499,20 +413,12 @@ const Map<String, String> traduccionesEu = {
       'Konektatu berriro kateterra, aldatu ez duzuna.\n\nKateter berririk jarri ez duzunez, ez da kanula betetzeko beharrik.',
   'Reanuda la insulina en la bomba y, entre 1 y 3 horas después, mide tu glucosa con el medidor.':
       'Berrekin intsulinari ponpan eta, 1 eta 3 ordu geroago, neurtu zure glukosa neurgailuarekin.',
-  'La YpsoPump permite cambiar el cartucho sin cambiar el catéter: son independientes.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'YpsoPumpak kartutxoa aldatzea uzten du kateterra aldatu gabe: independenteak dira.\n\nHasi kateterra gorputzetik deskonektatuz.',
-  'Menú principal, icono "Cambio de cartucho y nivel actual del cartucho", y después "Retraer varilla roscada". Confirma.\n\nEspera a que baje al 0 % y termine la autocomprobación antes de seguir.':
-      'Menu nagusia, "Kartutxoaren aldaketa eta kartutxoaren uneko maila" ikonoa, eta gero "Hagaxka hariduna atzera egin". Berretsi.\n\nItxaron % 0ra jaitsi arte eta autoegiaztapena amaitu arte jarraitu aurretik.',
-  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic.':
-      'Eutsi ponpari zutik atala gorantz duela eta sartu zure YpsoPumparekin bateragarria den biltegi bat.\n\nJarri egokigailua zutik eta biratu erlojuaren orratzen norabidean klika entzun arte.',
-  'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSi NO hay burbujas en el cartucho, basta con el volumen mínimo. Si las hay, usa el volumen que indique tu catéter hasta eliminarlas.':
-      'Menu nagusia, "Infusio-kita garbitu", "Hodia garbitu".\n\nKartutxoan burbuilarik EZ badago, gutxieneko bolumenarekin nahikoa da. Badaude, erabili zure kateterrak adierazten duen bolumena kendu arte.',
+  'La bomba permite cambiar el cartucho sin cambiar el catéter: son independientes.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'Ponpak kartutxoa aldatzea uzten du kateterra aldatu gabe: independenteak dira.\n\nHasi kateterra gorputzetik deskonektatuz.',
   'Mantén la bomba vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas. Repite hasta que no quede aire.':
       'Mantendu ponpa zutik egokigailua gorantz duela eta eman kolpe leunak ahurraren kontra burbuilak igo daitezen. Errepikatu airerik geratzen ez den arte.',
   'Vuelve a conectar el capuchón del tubo a la base de la cánula hasta oírlo encajar.\n\nComo no has cambiado el catéter, no hace falta llenar la cánula.':
       'Konektatu berriro hodiaren txapela kanularen oinarrira txertatzen entzun arte.\n\nKateterra aldatu ez duzunez, ez da kanula betetzeko beharrik.',
-  'Entre 1 y 3 horas después del cambio, mide tu glucosa con el medidor.':
-      'Aldaketa egin eta 1 eta 3 ordu artera, neurtu zure glukosa neurgailuarekin.',
   'Insulina y material de repuesto': 'Intsulina eta ordezko materiala',
   'Lleva más de lo que creas que vas a necesitar: los viajes se alargan y las cosas se pierden o se estropean.':
       'Eraman behar duzula uste duzuna baino gehiago: bidaiak luzatu egiten dira eta gauzak galdu edo hondatu egiten dira.',
@@ -743,9 +649,6 @@ const Map<String, String> traduccionesEu = {
   'Ir al paso {n}': 'Joan {n}. urratsera',
   'Anterior': 'Aurrekoa',
   'Siguiente': 'Hurrengoa',
-  'PASO {n} DE {total}': '{n}. URRATSA, {total}TIK',
-  'Paso {i} de {total} · {global}/{totalGlobal} en total':
-      '{i}. urratsa, {total}tik · guztira {global}/{totalGlobal}',
   '¿Dónde te lo has puesto?': 'Non jarri duzu?',
   'Anotarlo te ayuda a ir cambiando de sitio para que la piel no se endurezca.':
       'Idazteak lekuz aldatzen joaten laguntzen dizu azala gogortu ez dadin.',
@@ -766,4 +669,142 @@ const Map<String, String> traduccionesEu = {
   'Hoy': 'Gaur',
   'Ayer': 'Atzo',
   'Más': 'Gehiago',
+  'El catéter myOrbit Soft no debe usarse durante más de 72 horas.\n\nNo mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'myOrbit Soft kateterra ez da 72 ordu baino gehiagoz erabili behar.\n\nEz nahastu myOrbit 2.0ren piezak aurreko belaunaldikoekin: ihesak egon litezke.\n\nHasi kateterra gorputzetik deskonektatuz.',
+  'Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".\n\nDespués toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.':
+      'Ireki menu nagusia eta ukitu "Kartutxoaren/biltegiaren aldaketa eta kartutxoaren/biltegiaren uneko maila" ikonoa.\n\nGero ukitu "Hagaxka hariduna atzera egin" eta berretsi. Ponpak une batez dardara egingo du.',
+  'Sujeta la bomba en vertical, con el orificio del compartimento hacia arriba, y mete un reservorio cargado por ti o un cartucho precargado compatible con tu bomba.':
+      'Eutsi ponpari zutik, atalaren zuloa gorantz duela, eta sartu zuk kargatutako biltegi bat edo zure ponparekin bateragarria den kartutxo aurrekargatu bat.',
+  'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter myOrbit y confirma: cambia entre la 1.ª generación y la 2.0.':
+      'Ireki menu nagusia, ukitu "Infusio-kita garbitu" eta gero "Hodia garbitu". (Garbitzea hodia intsulinaz betetzea da.)\n\nAukeratu zure myOrbit kateterraren jarraibideek adierazten duten bolumena eta berretsi: 1. belaunaldian eta 2.0n desberdina da.',
+  'Lávate bien las manos.\n\nLimpia la zona con una toallita de alcohol isopropílico al 70 %. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.':
+      'Garbitu eskuak ondo.\n\nGarbitu eremua % 70eko alkohol isopropilikoko toalliatxo batekin. Ziurtatu ilerik ez dagoela eta azala lehor dagoela jarraitu aurretik.',
+  'Sujeta bien la zona e inserta la cánula en vertical (90°).\n\nPuedes usar el myOrbit Inserter para que entre con más facilidad.':
+      'Eutsi ondo eremuari eta sartu kanula zutik (90°).\n\nmyOrbit Inserter erabil dezakezu errazago sar dadin.',
+  'Mide tu glucosa entre 2 y 3 horas después de poner el catéter, para comprobar que la insulina entra bien.\n\nPor eso, no cambies el catéter justo antes de irte a dormir.':
+      'Neurtu glukosa kateterra jarri eta 2-3 ordura, intsulina ondo sartzen dela egiaztatzeko.\n\nHorregatik, ez aldatu kateterra lotara joan baino lehentxeago.',
+  'El catéter myOrbit Micro lleva cánula de acero y no debe usarse durante más de 48 horas.\n\nNo mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'myOrbit Micro kateterrak altzairuzko kanula du eta ez da 48 ordu baino gehiagoz erabili behar.\n\nEz nahastu myOrbit 2.0ren piezak aurreko belaunaldikoekin: ihesak egon litezke.\n\nHasi kateterra gorputzetik deskonektatuz.',
+  'Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".\n\nDespués toca "Retraer varilla roscada" y confirma.':
+      'Ireki menu nagusia eta ukitu "Kartutxoaren/biltegiaren aldaketa eta kartutxoaren/biltegiaren uneko maila" ikonoa.\n\nGero ukitu "Hagaxka hariduna atzera egin" eta berretsi.',
+  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.':
+      'Eutsi ponpari zutik atala gorantz duela eta sartu biltegi kargatu bat edo zure ponparekin bateragarria den kartutxo aurrekargatu bat.\n\nJarri egokigailua zutik eta biratu erlojuaren orratzen norabidean blokeo-klika entzun arte.',
+  'Lávate las manos y limpia la zona con alcohol isopropílico al 70 %. La piel debe estar seca y sin vello.\n\nDespega la lámina protectora del adhesivo y quita el protector de la cánula.':
+      'Garbitu eskuak eta garbitu eremua % 70eko alkohol isopropilikoarekin. Azalak lehor eta ilerik gabe egon behar du.\n\nKendu itsasgarriaren xafla babeslea eta kanularen babesa.',
+  'El myOrbit Micro lleva una cánula de acero que se pone sin aguja introductora.\n\nSujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el myOrbit Inserter.':
+      'myOrbit Micro-k altzairuzko kanula bat du, orratz sartzailerik gabe jartzen dena.\n\nEutsi ondo eremuari eta sartu kanula zutik (90°). myOrbit Inserter erabil dezakezu.',
+  'Llenar la cánula depende de la generación de tu catéter (mira la caja):\n\n• myOrbit Micro 2.0: NO hace falta, la cánula de acero necesita muy poca insulina.\n• myOrbit Micro (1.ª generación): menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indiquen sus instrucciones.':
+      'Kanula betetzea zure kateterraren belaunaldiaren araberakoa da (begiratu kutxa):\n\n• myOrbit Micro 2.0: EZ da behar, altzairuzko kanulak oso intsulina gutxi behar du.\n• myOrbit Micro (1. belaunaldia): menu nagusia → "Infusio-kita garbitu" → "Kanula garbitu", bere jarraibideek adierazten duten kantitatearekin.',
+  'Menú principal, icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio", y después "Retraer varilla roscada". Confirma.\n\nEspera a que baje al 0 % y termine la autocomprobación antes de seguir.':
+      'Menu nagusia, "Kartutxoaren/biltegiaren aldaketa eta kartutxoaren/biltegiaren uneko maila" ikonoa, eta gero "Hagaxka hariduna atzera egin". Berretsi.\n\nItxaron % 0ra jaitsi eta autoegiaztapena amaitu arte jarraitu aurretik.',
+  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic.':
+      'Eutsi ponpari zutik atala gorantz duela eta sartu biltegi kargatu bat edo zure ponparekin bateragarria den kartutxo aurrekargatu bat.\n\nJarri egokigailua zutik eta biratu erlojuaren orratzen norabidean klika entzun arte.',
+  'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSi NO hay burbujas en el cartucho, basta con el volumen mínimo. Si las hay, usa el volumen que indique tu catéter hasta eliminarlas.':
+      'Menu nagusia, "Infusio-kita garbitu", "Hodia garbitu".\n\nKartutxoan burbuilarik EZ badago, nahikoa da gutxieneko bolumenarekin. Badaude, erabili zure kateterrak adierazten duen bolumena kendu arte.',
+  'Mide tu glucosa ahora que has estado desconectado y otra vez unas 2 o 3 horas después de volver a conectarte.':
+      'Neurtu glukosa orain, deskonektatuta egon zarenez, eta berriro berriz konektatu eta 2 edo 3 ordura.',
+  'Cambia el Pod como mínimo cada 2 o 3 días (48 a 72 horas), o antes si te lo indica tu equipo médico.\n\nReúne el material: el vial de insulina de acción rápida, un Pod Omnipod 5 sin abrir y toallitas de alcohol. Si la insulina o el Pod están fríos, deja que se atemperen antes de seguir.':
+      'Aldatu Poda gutxienez 2 edo 3 egunean behin (48 eta 72 ordu artean), edo lehenago zure talde medikoak hala esaten badizu.\n\nBildu materiala: ekintza azkarreko intsulina-ontzia, ireki gabeko Omnipod 5 Pod bat eta alkohol-toalliatxoak. Intsulina edo Poda hotz badaude, utzi epeltzen jarraitu aurretik.',
+  'Comprueba que es un Pod Omnipod 5 y que en la tapa de su bandeja aparece el sensor que usas.\n\nLávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.':
+      'Egiaztatu Omnipod 5 Pod bat dela eta erabiltzen duzun sentsorea bere erretiluaren estalkian agertzen dela.\n\nGarbitu eskuak urarekin eta xaboiarekin eta garbitu ontziaren tapoia alkohol-toalliatxo batekin.',
+  'Desactiva el Pod anterior: Inicio → pestaña INFO DEL POD → VER DETALLES DEL POD → CAMBIAR POD → DESACTIVAR POD.\n\nDespega despacio los bordes del adhesivo para irritar menos la piel y mira que la zona no tenga signos de infección.':
+      'Desaktibatu aurreko Poda: Hasiera → PODAREN INFORMAZIOA fitxa → IKUSI PODAREN XEHETASUNAK → ALDATU PODA → DESAKTIBATU PODA.\n\nKendu poliki itsasgarriaren ertzak azala gutxiago narritatzeko eta begiratu eremuak infekzio-zantzurik ez duela.',
+  'En el Controlador, toca CONFIGURAR UN NUEVO POD.':
+      'Kontrolagailuan, ukitu KONFIGURATU POD BERRI BAT.',
+  'Saca la aguja y la jeringa de llenado. Puedes dejar el Pod en su bandeja durante el llenado y la activación.\n\nEnrosca la aguja en la jeringa y quita el capuchón tirando hacia fuera.':
+      'Atera betetzeko orratza eta xiringa. Poda bere erretiluan utz dezakezu betetzean eta aktibatzean.\n\nHaria eman orratzari xiringan eta kendu txanoa kanpora tiratuz.',
+  'Decide con tu equipo médico cuánta insulina poner en el Pod.\n\nLlena la jeringa de AIRE hasta esa cantidad: ese aire va al vial, NUNCA al Pod. La insulina tiene que llegar al menos hasta la línea MÍN de la jeringa.':
+      'Erabaki zure talde medikoarekin zenbat intsulina jarri Podean.\n\nBete xiringa AIREZ kantitate horretaraino: aire hori ontzira doa, INOIZ EZ Podera. Intsulinak gutxienez xiringaren MIN marraraino iritsi behar du.',
+  'Clava la aguja en el vial y empuja el émbolo para meter el aire.\n\nDale la vuelta al conjunto y tira del émbolo para pasar la insulina a la jeringa. Da golpecitos para que las burbujas suban y empújalas de vuelta al vial.':
+      'Sartu orratza ontzian eta sakatu enboloa airea sartzeko.\n\nIrauli multzoa eta tiratu enbolotik intsulina xiringara pasatzeko. Eman kolpe txikiak burbuilak igo daitezen eta bultzatu berriro ontzira.',
+  'Saca la aguja del vial y métela en el puerto de llenado, en vertical y no inclinada. Una flecha en la parte de abajo del Pod señala dónde está.\n\nEmpuja el émbolo hasta vaciar la jeringa.\n\nADVERTENCIA: si notas mucha resistencia al empujar, no uses ese Pod ni fuerces la insulina.':
+      'Atera orratza ontzitik eta sartu betetze-atakan, zutik eta ez okertuta. Podaren azpiko gezi batek non dagoen adierazten du.\n\nSakatu enboloa xiringa hustu arte.\n\nABISUA: bultzatzean erresistentzia handia sumatzen baduzu, ez erabili Pod hori eta ez behartu intsulina.',
+  'Mientras se llena, el Pod emitirá DOS PITIDOS: ya tiene la insulina mínima para funcionar. Vacía la jeringa del todo aunque ya haya pitado.\n\nSi lo has llenado y no pita, llama a Atención al cliente. Tira la aguja a un contenedor de objetos punzantes.':
+      'Betetzen ari den bitartean, Podak BI TXISTU egingo ditu: funtzionatzeko gutxieneko intsulina badu jada. Hustu xiringa osorik, nahiz eta dagoeneko txistu egin.\n\nBete baduzu eta txistu egiten ez badu, deitu Bezeroarentzako Arretara. Bota orratza objektu zorrotzetarako edukiontzi batera.',
+  'Sigue enseguida: si pasan dos horas desde que lo llenas sin activarlo, el Pod ya no sirve.\n\nCon el Pod en su bandeja, pon el Controlador en contacto con él y toca SIGUIENTE. Espera al tono que indica que el Pod está activado y listo para colocarlo.':
+      'Jarraitu berehala: bete ondoren bi ordu igarotzen badira aktibatu gabe, Podak ez du gehiago balio.\n\nPoda bere erretiluan dagoela, jarri Kontrolagailua harekin kontaktuan eta ukitu HURRENGOA. Itxaron Poda aktibatuta eta jartzeko prest dagoela adierazten duen tonua.',
+  'Elige la zona respetando estas distancias mínimas:\n\n• 8 cm de un sensor Dexcom, o 2,5 cm de un sensor FreeStyle Libre 2 Plus\n• 2,5 cm del sitio del Pod anterior\n• 5 cm del ombligo\n\nEl Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunicarse sin que tu cuerpo tape la señal.':
+      'Aukeratu eremua gutxieneko distantzia hauek errespetatuz:\n\n• 8 cm Dexcom sentsore batetik, edo 2,5 cm FreeStyle Libre 2 Plus sentsore batetik\n• 2,5 cm aurreko Podaren lekutik\n• 5 cm zilborretik\n\nPodak eta sentsoreak gorputzaren alde berean egon behar dute, zure gorputzak seinalea estali gabe komunika daitezen.',
+  'Busca una zona con algo de grasa, fácil de ver y de alcanzar. Evita lunares, tatuajes, cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.\n\nLava la zona con agua y jabón, sécala y desinféctala con una toallita de alcohol, en círculos del centro hacia fuera. Deja que se seque al aire, sin soplar.':
+      'Bilatu koipe pixka bat duen eremu bat, ikusteko eta iristeko erraza. Saihestu orinak, tatuajeak, orbainak, infekzioa duten eremuak, azal-tolesturak eta gerrikoak edo arropa estuak Poda igurtz dezaketen lekuak.\n\nGarbitu eremua urarekin eta xaboiarekin, lehortu eta desinfektatu alkohol-toalliatxo batekin, erdialdetik kanpora zirkuluak eginez. Utzi airean lehortzen, putz egin gabe.',
+  'Quita la pestaña del Pod tirando hacia arriba desde su borde plano. Después despega el papel blanco del adhesivo sin que se doble.\n\nSi el Pod se ha caído, está húmedo o sucio, el adhesivo está doblado o la cánula sobresale del adhesivo, toca CANCELAR y usa otro Pod.':
+      'Kendu Podaren fitxa bere ertz lauetik gora tiratuz. Ondoren kendu itsasgarriaren paper zuria tolestu gabe.\n\nPoda erori bada, heze edo zikin badago, itsasgarria tolestuta badago edo kanula itsasgarritik kanpora ateratzen bada, ukitu UTZI eta erabili beste Pod bat.',
+  'Pega el Pod presionando con firmeza: en horizontal o en diagonal en abdomen, cadera, parte baja de la espalda o glúteos; en vertical o algo inclinado en el brazo o el muslo.\n\nSi la zona es delgada, pellizca la piel alrededor del Pod. Toca INICIAR para que salga la cánula.':
+      'Itsatsi Poda tinko sakatuz: horizontalean edo diagonalean sabelean, aldakan, bizkarraren behealdean edo ipurmasailetan; zutik edo apur bat okertuta besoan edo izterrean.\n\nEremua mehea bada, atximurkatu azala Podaren inguruan. Ukitu HASI kanula atera dadin.',
+  'Confirma en el Controlador que el Pod está bien pegado. Mira por la ventanita que se ve la cánula azul claro y la zona rosada y, si es así, toca SÍ.\n\nRevisa la zona del Pod al menos una vez al día por si hay dolor, hinchazón, enrojecimiento o calor.':
+      'Berretsi Kontrolagailuan Poda ondo itsatsita dagoela. Begiratu leihatilatik kanula urdin argia eta eremu arrosa ikusten direla eta, hala bada, ukitu BAI.\n\nBerrikusi Podaren eremua gutxienez egunean behin, minik, hanturarik, gorritasunik edo berorik dagoen ikusteko.',
+  'El myInset lleva el catéter dentro de su propio insertador: viene montado y listo para usar.\n\nCámbialo cada dos o tres días, o cuando te diga tu equipo médico. La primera vez, úsalo con un profesional sanitario delante.\n\nEmpieza desconectándote del cuerpo el catéter usado.':
+      'myInset-ek kateterra bere sartzailearen barruan darama: muntatuta eta erabiltzeko prest dator.\n\nAldatu bi edo hiru egunean behin, edo zure talde medikoak esaten dizunean. Lehen aldian, erabili profesional sanitario bat aurrean duzula.\n\nHasi erabilitako kateterra gorputzetik deskonektatuz.',
+  'Lávate las manos.\n\nAbre el myInset: tira del adhesivo rojo para quitar el precinto y retira el papel estéril.':
+      'Garbitu eskuak.\n\nIreki myInset: tiratu itsasgarri gorritik zigilua kentzeko eta kendu paper esterila.',
+  'Presiona con una mano los tres puntos en relieve de cada lado de la tapa y levanta la tapa con la otra.\n\nPRECAUCIÓN: no dobles ni toques la aguja de inserción.':
+      'Sakatu esku batekin estalkiaren alde bakoitzeko hiru puntu irtenak eta altxatu estalkia beste eskuarekin.\n\nKONTUZ: ez tolestu eta ez ukitu sartzeko orratza.',
+  'Desenrolla el tubo: saca con cuidado el principio del tubo de su ranura y desenróllalo tirando suavemente hacia arriba.\n\nNo tires fuerte al final: podrías separar el catéter de la aguja. Comprueba que el catéter sigue bien colocado en el insertador.':
+      'Askatu hodia: atera kontuz hodiaren hasiera bere zirrikitutik eta askatu gora leun tiratuz.\n\nEz tiratu gogor amaieran: kateterra orratzetik bereiz zenezake. Egiaztatu kateterrak sartzailean ondo jarrita jarraitzen duela.',
+  'Mientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas.\n\nSujeta el myInset con la aguja hacia abajo, para que la insulina no moje el papel del adhesivo. Repite hasta que no quede aire y salga insulina.':
+      'Betetzen ari den bitartean, eutsi ponpari zutik egokigailua gorantz duela eta eman kolpe leunak ahurraren kontra burbuilak igo daitezen.\n\nEutsi myInset-i orratza beherantz duela, intsulinak itsasgarriaren papera busti ez dezan. Errepikatu airerik geratzen ez den arte eta intsulina atera arte.',
+  'Elige la zona que te haya recomendado tu equipo médico, pero no justo al lado de la anterior.\n\nLímpiala con el desinfectante que te hayan indicado y espera a que esté seca.':
+      'Aukeratu zure talde medikoak gomendatu dizun eremua, baina ez aurrekoaren ondo-ondoan.\n\nGarbitu esan dizuten desinfektatzailearekin eta itxaron lehor egon arte.',
+  'Tira suavemente hacia arriba para quitar el papel protector del adhesivo.\n\nPrepara el insertador: pon los dedos sobre los agujeros alargados de los dos lados, presiónalos y tira del resorte hasta oír un CLIC.':
+      'Tiratu leun gora itsasgarriaren paper babeslea kentzeko.\n\nPrestatu sartzailea: jarri hatzak bi aldeetako zulo luzangetan, sakatu eta tiratu malgukitik KLIK bat entzun arte.',
+  'Quita con cuidado el protector de la aguja, girándolo y tirando. Comprueba que la cánula blanda no sobresale de la aguja.\n\nMete el tubo en su ranura, para que no quede atrapado debajo al insertar.':
+      'Kendu kontuz orratzaren babesa, biratuz eta tiratuz. Egiaztatu kanula biguna ez dela orratzetik kanpora ateratzen.\n\nSartu hodia bere zirrikituan, sartzean azpian harrapatuta gera ez dadin.',
+  'Apoya el myInset sobre la zona y presiona a la vez los agujeros redondos de los dos lados para insertarlo.\n\nADVERTENCIA: nunca apuntes el insertador cargado hacia una parte del cuerpo donde no quieras ponerlo.':
+      'Jarri myInset eremuaren gainean eta sakatu aldi berean bi aldeetako zulo biribilak sartzeko.\n\nABISUA: ez apuntatu inoiz kargatutako sartzailea jarri nahi ez duzun gorputz-atal batera.',
+  'Aprieta suavemente el centro del insertador para fijar el adhesivo.\n\nQuita el insertador y la aguja agarrándolo por el centro y tirando suavemente hacia atrás. Masajea el adhesivo para que quede bien pegado.':
+      'Sakatu leun sartzailearen erdialdea itsasgarria finkatzeko.\n\nKendu sartzailea eta orratza erdialdetik helduta eta leun atzerantz tiratuz. Igurtzi itsasgarria ondo itsats dadin.',
+  'Si la cánula blanda se ha doblado al insertarla, pon enseguida un myInset nuevo en otro sitio.':
+      'Kanula biguna sartzean tolestu bada, jarri berehala myInset berri bat beste leku batean.',
+  'Menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indican las instrucciones de tu catéter.\n\nDespués vuelve a poner la tapa del insertador hasta que haga clic y tíralo a un contenedor de objetos punzantes.':
+      'Menu nagusia → "Infusio-kita garbitu" → "Kanula garbitu", zure kateterraren jarraibideek adierazten duten kantitatearekin.\n\nOndoren jarri berriro sartzailearen estalkia klik egin arte eta bota objektu zorrotzetarako edukiontzi batera.',
+  'Mide tu glucosa entre 1 y 3 horas después de poner el catéter.\n\nPor eso, no lo cambies justo antes de irte a dormir, salvo que puedas medirte en ese tiempo.':
+      'Neurtu glukosa kateterra jarri eta 1-3 ordura.\n\nHorregatik, ez aldatu lotara joan baino lehentxeago, denbora horretan neur zaitezkeen ezean.',
+  'El sensor FreeStyle Libre 2 Plus dura hasta 15 días.\n\nCon Omnipod 5 tienes que iniciarlo desde la Aplicación Omnipod 5 del Controlador. Si lo inicias con otro dispositivo (un lector o el móvil), el Pod no podrá conectarse a él.':
+      'FreeStyle Libre 2 Plus sentsoreak 15 egun arte irauten du.\n\nOmnipod 5-ekin, Kontrolagailuko Omnipod 5 aplikaziotik abiarazi behar duzu. Beste gailu batekin abiarazten baduzu (irakurgailu batekin edo mugikorrarekin), Poda ezin izango da harekin konektatu.',
+  'No lo uses si el paquete o el aplicador están dañados o abiertos, o si ha pasado la fecha de caducidad.\n\nComprueba que el código del paquete del sensor coincide con el del aplicador, y que en la tapa de la bandeja del Pod pone FreeStyle Libre 2 Plus.':
+      'Ez erabili paketea edo aplikatzailea hondatuta edo irekita badaude, edo iraungitze-data igaro bada.\n\nEgiaztatu sentsorearen paketearen kodea aplikatzailearenarekin bat datorrela, eta Podaren erretiluaren estalkian FreeStyle Libre 2 Plus jartzen duela.',
+  'ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo, en un sitio que se mantenga plano al moverte.\n\nEvita cicatrices, lunares, estrías, bultos y los sitios donde te pinchas insulina. Cambia de sitio en cada sensor.':
+      'JARTZEKO EREMUA: besoaren goialdeko atzeko aldea soilik, mugitzean lau mantentzen den leku batean.\n\nSaihestu orbainak, orinak, ildaskak, koskorrak eta intsulina ziztatzen duzun lekuak. Aldatu lekua sentsore bakoitzean.',
+  'Ponlo en el mismo lado del cuerpo que el Pod y al menos a 2,5 cm de él, para que se comuniquen sin que el cuerpo tape la señal.':
+      'Jarri gorputzaren alde berean Podaren ondoan eta harengandik gutxienez 2,5 cm-ra, gorputzak seinalea estali gabe komunika daitezen.',
+  'Lava la zona con agua y un jabón sin crema ni perfume, sécala y desinféctala con una toallita de alcohol.\n\nEspera a que se seque al aire antes de seguir.':
+      'Garbitu eremua urarekin eta kremarik eta lurrinik gabeko xaboi batekin, lehortu eta desinfektatu alkohol-toalliatxo batekin.\n\nItxaron airean lehortu arte jarraitu aurretik.',
+  'Abre el paquete del sensor despegando la tapa y desenrosca el capuchón del aplicador.\n\nAlinea la marca oscura del aplicador con la del paquete y, sobre una superficie dura, presiona con firmeza hasta que se detenga. Después levanta el aplicador.':
+      'Ireki sentsorearen paketea estalkia kenduz eta askatu aplikatzailearen txanoa.\n\nLerrokatu aplikatzailearen marka iluna paketearenarekin eta, gainazal gogor baten gainean, sakatu tinko gelditu arte. Ondoren altxatu aplikatzailea.',
+  'PRECAUCIÓN: el aplicador ya tiene una aguja. No toques su interior ni lo vuelvas a meter en el paquete.\n\nColócalo sobre la zona preparada y presiona con firmeza. No lo presiones antes de tenerlo colocado.':
+      'KONTUZ: aplikatzaileak orratz bat du jada. Ez ukitu barrualdea eta ez sartu berriro paketean.\n\nJarri prestatutako eremuaren gainean eta sakatu tinko. Ez sakatu jarrita izan aurretik.',
+  'Retira suavemente el aplicador. Presiona el sensor y pasa el dedo por el adhesivo para que quede bien pegado.\n\nSi sangra y no para, quita el sensor y pon uno nuevo en otro sitio. Vuelve a poner el capuchón al aplicador y tíralo.':
+      'Kendu leun aplikatzailea. Sakatu sentsorea eta pasatu hatza itsasgarritik ondo itsats dadin.\n\nOdola ateratzen bada eta gelditzen ez bada, kendu sentsorea eta jarri berri bat beste leku batean. Jarri berriro txanoa aplikatzaileari eta bota.',
+  'En la Aplicación Omnipod 5, toca AÑADIR SENSOR. Si estás en Modo Automatizado, te pedirá pasar a Modo Manual.\n\nAntes te pedirá revisar los ajustes del sensor: los avisos de Glucosa alta, Glucosa baja y Valores del sensor no recibidos.':
+      'Omnipod 5 aplikazioan, ukitu GEHITU SENTSOREA. Modu Automatizatuan bazaude, Eskuzko Modura pasatzeko eskatuko dizu.\n\nLehenik sentsorearen ezarpenak berrikusteko eskatuko dizu: Glukosa altua, Glukosa baxua eta Sentsorearen balioak ez dira jaso abisuak.',
+  'Escanea el sensor acercando el tercio inferior del Controlador y no lo muevas hasta que vibre. Se puede escanear a través de la ropa.\n\nCuando termine, toca OK: no hace falta volver a escanearlo hasta el próximo sensor.':
+      'Eskaneatu sentsorea Kontrolagailuaren beheko herena hurbilduz eta ez mugitu dardara egin arte. Arroparen gainetik eskanea daiteke.\n\nAmaitzen duenean, ukitu OK: ez da berriro eskaneatu behar hurrengo sentsorera arte.',
+  'Empieza el calentamiento: 1 HORA. Puedes ver cómo avanza en la pantalla principal.\n\nDespués, el Pod recibe un valor nuevo cada 5 minutos y ya puedes usar el Modo Automatizado.':
+      'Berotzea hasten da: ORDU 1. Pantaila nagusian ikus dezakezu nola doan.\n\nOndoren, Podak balio berri bat jasotzen du 5 minuturo eta Modu Automatizatua erabil dezakezu.',
+  'El sensor Instinct dura hasta 15 días. Con la MiniMed 780G se inicia SIEMPRE con la app MiniMed Mobile, que tiene que estar emparejada con la bomba.\n\nTen a mano una toallita de alcohol isopropílico al 70 %: no viene en la caja.':
+      'Instinct sentsoreak 15 egun arte irauten du. MiniMed 780G-rekin BETI MiniMed Mobile aplikazioarekin abiarazten da, eta aplikazio horrek ponparekin parekatuta egon behar du.\n\nIzan eskura % 70eko alkohol isopropilikoko toalliatxo bat: ez dator kutxan.',
+  'No lo uses si el envase o el aplicador están dañados, o si la etiqueta de precinto indica que ya se ha abierto.\n\nSi tomas suplementos de vitamina C, consulta a tu equipo médico: en dosis altas pueden dar lecturas falsamente altas.':
+      'Ez erabili ontzia edo aplikatzailea hondatuta badaude, edo zigilu-etiketak dagoeneko ireki dela adierazten badu.\n\nC bitaminaren osagarriak hartzen badituzu, galdetu zure talde medikoari: dosi handietan irakurketa faltsuki altuak eman ditzakete.',
+  'ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo. En otro sitio puede dar lecturas erróneas.\n\nElige piel que se mantenga plana al moverte, sin cicatrices, lunares, estrías ni bultos, al menos a 2,5 cm de donde te pinchas insulina y distinta de la última vez.':
+      'JARTZEKO EREMUA: besoaren goialdeko atzeko aldea soilik. Beste leku batean irakurketa okerrak eman ditzake.\n\nAukeratu mugitzean lau mantentzen den azala, orbainik, orinik, ildaskarik eta koskorrik gabe, intsulina ziztatzen duzun lekutik gutxienez 2,5 cm-ra eta azken aldikoaren desberdina.',
+  'Para que la conexión sea mejor, lleva la bomba y el sensor en el mismo lado del cuerpo.':
+      'Konexioa hobea izan dadin, eraman ponpa eta sentsorea gorputzaren alde berean.',
+  'Lava la zona con jabón normal, sécala y límpiala con la toallita de alcohol. Deja que se seque al aire.\n\nLa zona TIENE que estar limpia y seca: si no, el sensor puede despegarse antes de tiempo.':
+      'Garbitu eremua xaboi arruntarekin, lehortu eta garbitu alkohol-toalliatxoarekin. Utzi airean lehortzen.\n\nEremuak garbi eta lehor EGON BEHAR du: bestela, sentsorea garaia baino lehen aska daiteke.',
+  'Con la bomba en la pantalla de inicio, abre la app MiniMed Mobile: menú → Iniciar sensor → "Sí, Instinct".\n\nLa app te irá diciendo cuándo poner el sensor y cuándo escanearlo.':
+      'Ponpa hasierako pantailan dagoela, ireki MiniMed Mobile aplikazioa: menua → Abiarazi sentsorea → "Bai, Instinct".\n\nAplikazioak esango dizu noiz jarri sentsorea eta noiz eskaneatu.',
+  'Desenrosca el capuchón del aplicador y apártalo.\n\nPRECAUCIÓN: no lo vuelvas a poner antes de usarlo (podrías dañar el sensor) y no toques el interior: tiene una aguja.':
+      'Askatu aplikatzailearen txanoa eta jarri alde batera.\n\nKONTUZ: ez jarri berriro erabili aurretik (sentsorea hondatu zenezake) eta ez ukitu barrualdea: orratz bat du.',
+  'Coloca el aplicador sobre la zona preparada y presiona con firmeza.\n\nPRECAUCIÓN: no presiones hasta tenerlo colocado sobre la zona.':
+      'Jarri aplikatzailea prestatutako eremuaren gainean eta sakatu tinko.\n\nKONTUZ: ez sakatu eremuaren gainean jarrita izan arte.',
+  'Retira suavemente el aplicador y comprueba que el sensor queda bien sujeto.\n\nSi sangra y no para, quita el sensor y habla con tu equipo médico. Vuelve a poner el capuchón al aplicador usado y tíralo según la normativa de tu zona.':
+      'Kendu leun aplikatzailea eta egiaztatu sentsorea ondo helduta geratzen dela.\n\nOdola ateratzen bada eta gelditzen ez bada, kendu sentsorea eta hitz egin zure talde medikoarekin. Jarri berriro txanoa erabilitako aplikatzaileari eta bota zure inguruko araudiaren arabera.',
+  'Escanea el sensor acercando el móvil hasta que pite o vibre. Después el sensor se empareja con la bomba: suele tardar 2 minutos y como mucho 5.\n\nAl iniciar un sensor nuevo, el anterior se desempareja solo.':
+      'Eskaneatu sentsorea mugikorra hurbilduz txistu edo dardara egin arte. Ondoren sentsorea ponparekin parekatzen da: normalean 2 minutu behar ditu eta gehienez 5.\n\nSentsore berri bat abiaraztean, aurrekoa berez desparekatzen da.',
+  'Espera el calentamiento: 1 HORA. La bomba muestra la cuenta atrás en la pantalla de inicio.\n\nLas primeras 12 horas las lecturas pueden variar más: si no cuadran con cómo te encuentras, confírmalas con el medidor.':
+      'Itxaron berotzea: ORDU 1. Ponpak atzerako kontaketa erakusten du hasierako pantailan.\n\nLehen 12 orduetan irakurketak gehiago alda daitezke: nola sentitzen zaren bat ez badatoz, berretsi neurgailuarekin.',
+  'El sensor FreeStyle Libre 3 dura hasta 14 días y el Libre 3 Plus, hasta 15 días.\n\nMira en la caja cuál es el tuyo.':
+      'FreeStyle Libre 3 sentsoreak 14 egun arte irauten du eta Libre 3 Plus-ek, 15 egun arte.\n\nBegiratu kutxan zein den zurea.',
+  'Inicia el sensor con el dispositivo que vayas a usar (el lector o la aplicación del móvil) y escanéalo acercándolo al sensor.\n\nUsa siempre ese mismo dispositivo: un sensor iniciado con otro no se puede leer ("Sensor ya en uso").':
+      'Abiarazi sentsorea erabiliko duzun gailuarekin (irakurgailua edo mugikorreko aplikazioa) eta eskaneatu sentsorera hurbilduz.\n\nErabili beti gailu bera: beste batekin abiarazitako sentsorea ezin da irakurri ("Sentsorea dagoeneko erabiltzen").',
 };

@@ -2,13 +2,11 @@
 ///
 /// Fuentes: guía del usuario del Dexcom G7 (capítulo 5, alertas, y capítulo
 /// 11, solución de problemas), guía del usuario del Dexcom G6 (capítulo 14,
-/// resolución de problemas, y capítulos 4 y 13) y guía de inicio rápido del
-/// FreeStyle Libre 3. Los avisos de Simplera Sync y Guardian 4 están en el
-/// fichero de MiniMed, porque los muestra la bomba 780G.
-///
-/// El manual del Libre 3 que tenemos es solo la guía de inicio rápido y no
-/// describe sus alertas una a una: por eso hay pocas y las genéricas siguen
-/// sin contrastar con un manual.
+/// resolución de problemas, y capítulos 4 y 13) y manual del lector
+/// FreeStyle Libre 3 y 3 Plus (ART52185, 2025). Los avisos de Simplera Sync,
+/// Guardian 4 e Instinct están en el fichero de MiniMed, porque los muestra
+/// la bomba 780G; los del FreeStyle Libre 2 Plus, en el de Omnipod 5, porque
+/// los gestiona su aplicación.
 library;
 
 import '../modelos/alarma.dart';
@@ -21,7 +19,7 @@ const _libre = ['sfreelibre3'];
 const _manualG7 = 'Dexcom G7';
 const _manualG6 = 'Dexcom G6';
 const _manualDexcom = 'Dexcom G6 y G7';
-const _manualLibre = 'FreeStyle Libre 3 (guía de inicio rápido)';
+const _manualLibre = 'FreeStyle Libre 3 y 3 Plus (manual del lector)';
 
 const List<Alarma> alarmasSensores = [
   // ---------------- DEXCOM G6 Y G7: GLUCOSA ----------------
@@ -515,22 +513,24 @@ const List<Alarma> alarmasSensores = [
   ),
 
   // ---------------- FREESTYLE LIBRE 3 ----------------
+  // Manual del lector FreeStyle Libre 3 y 3 Plus (ART52185, 2025): inicio del
+  // sensor (págs. 28-29), alarmas (35-45) y resolución de problemas (95-97).
   Alarma(
     id: 'libre3_arranque',
     bomba: '',
     sensores: _libre,
     deSensor: true,
     manual: _manualLibre,
-    pagina: 'Iniciar un sensor',
-    titulo: 'Sensor arrancando (60 minutos)',
+    pagina: '28-29, 95',
+    titulo: 'Iniciando nuevo sensor (60 minutos)',
     significado:
-        'Después de escanear el sensor con el móvil, la aplicación muestra '
-        'tu glucosa automáticamente a los 60 minutos. Después, el sensor '
-        'envía una lectura nueva cada minuto.',
+        'Después de escanear el sensor para iniciarlo, hay un periodo de '
+        'puesta en marcha de 60 minutos. Hasta que termina, el sensor no '
+        'está listo para leer la glucosa.',
     queHacer: [
-      'Espera 60 minutos sin quitar el sensor.',
+      'Espera a que pasen los 60 minutos sin quitar el sensor.',
       'Mientras tanto, usa el medidor de glucosa para decidir tu tratamiento.',
-      'Si el móvil no reconoce el sensor al escanear, muévelo despacio sobre él: cada modelo de móvil es distinto.',
+      'Si sale "Tiempo agotado escaneo", acerca más el dispositivo al sensor y vuelve a escanear.',
     ],
     gravedad: Gravedad.informativa,
     sinonimos: ['arranque', 'calentamiento', 'escanear', 'sin lecturas'],
@@ -541,66 +541,98 @@ const List<Alarma> alarmasSensores = [
     sensores: _libre,
     deSensor: true,
     manual: _manualLibre,
-    pagina: 'Alarmas',
+    pagina: '35-45',
     titulo: 'Alarmas de glucosa del Libre 3',
     significado:
-        'Las alarmas vienen activadas de fábrica y son una función de '
-        'seguridad importante. Se pueden cambiar o desactivar desde la '
-        'aplicación.',
+        'Hay tres alarmas: glucosa baja, glucosa alta y pérdida de señal. En '
+        'el lector vienen desactivadas de fábrica y hay que activarlas. El '
+        'sensor por sí solo no suena: el lector o el móvil tienen que estar a '
+        'menos de 10 metros.',
     queHacer: [
-      'Abre la aplicación o toca Descartar para quitar la alarma.',
-      'Abre la aplicación para ver más información de tu lectura.',
-      'Si quieres cambiar o desactivar alguna: Menú principal → Alarmas. Consúltalo antes con tu equipo médico.',
+      'Decide con tu equipo médico si activarlas y a qué niveles.',
+      'En el lector: Configuración → Alarmas → Cambiar config. de las alarmas.',
+      'Comprueba que el sonido o la vibración están activados y que el dispositivo tiene batería.',
+      'Las alarmas de glucosa son un apoyo: mira siempre también la glucosa actual, la flecha y el gráfico.',
     ],
     gravedad: Gravedad.informativa,
     sinonimos: ['alarmas', 'descartar', 'desactivar', 'configurar'],
   ),
-  // Sin contrastar: el manual del Libre 3 que tenemos no las describe.
   Alarma(
     id: 'libre_senal_perdida',
     bomba: '',
     sensores: _libre,
     deSensor: true,
-    titulo: 'Se ha perdido la señal del sensor',
+    manual: _manualLibre,
+    pagina: '44-45, 95, 97',
+    titulo: 'Alarma de pérdida de señal',
     significado:
-        'Tu móvil no recibe lecturas del sensor. Si usas una bomba con '
-        'ajuste automático, puede que deje de ajustar la insulina.',
+        'El sensor lleva 20 minutos sin comunicarse con el lector o el móvil, '
+        'así que no te llegarán las alarmas de glucosa baja ni alta. Puede '
+        'ser porque está a más de 10 metros o por un problema del sensor o '
+        'del dispositivo.',
     queHacer: [
-      'Acerca el móvil al sensor.',
-      'Apaga y enciende el Bluetooth del móvil y espera 15 minutos.',
-      'Mientras no haya lecturas, mídete con un pinchazo en el dedo.',
+      'Toca Descartar alarma.',
+      'Acerca el dispositivo a menos de 10 metros del sensor.',
+      'Si sigue saliendo aunque estés cerca, llama al Servicio al Cliente.',
+      'Mientras no haya lecturas, mídete con el medidor.',
     ],
     gravedad: Gravedad.atencion,
-    sinonimos: ['no conecta', 'sin senal', 'bluetooth', 'sin lecturas'],
+    sinonimos: ['no conecta', 'sin senal', 'perdida de señal', 'sin lecturas'],
   ),
   Alarma(
     id: 'libre_sensor_caducado',
     bomba: '',
     sensores: _libre,
     deSensor: true,
-    titulo: 'Sensor caducado / Cambiar sensor',
+    manual: _manualLibre,
+    pagina: '95-96',
+    titulo: 'Sensor agotado / Sustituir el sensor',
     significado:
-        'El sensor ha llegado al final de su vida útil y ha dejado de medir.',
+        '"Sensor agotado": el sensor ha llegado al final de su vida útil. '
+        '"Sustituir el sensor": el sistema ha detectado un problema con él.',
     queHacer: [
-      'Quita el sensor y ponte uno nuevo.',
+      'Quita el sensor, ponte uno nuevo e inícialo.',
       'Mira la guía de cambio de sensor de esta app.',
     ],
     gravedad: Gravedad.informativa,
-    sinonimos: ['caducado', 'expirado', 'fin de vida', 'cambiar sensor'],
+    sinonimos: ['caducado', 'agotado', 'fin de vida', 'cambiar sensor', 'sustituir'],
+  ),
+  Alarma(
+    id: 'libre3_mensajes',
+    bomba: '',
+    sensores: _libre,
+    deSensor: true,
+    manual: _manualLibre,
+    pagina: '95-96',
+    titulo: 'Mensajes del sensor Libre 3',
+    significado:
+        'Otros mensajes que pueden salir al leer el sensor: "Error de '
+        'escaneo", "Error del sensor", "Lectura de glucosa no disponible", '
+        '"Sensor ya en uso" o "Comprobar sensor".',
+    queHacer: [
+      'Error de escaneo: vuelve a escanear, alejándote de aparatos que puedan interferir.',
+      'Error del sensor: vuelve a comprobarlo en 10 minutos.',
+      'Lectura de glucosa no disponible: el sensor está demasiado caliente o frío; muévete a un sitio con otra temperatura.',
+      'Sensor ya en uso: se inició con otro dispositivo. Léelo con ese o pon un sensor nuevo.',
+      'Comprobar sensor: puede que la punta no esté bajo la piel. Inícialo otra vez; si vuelve a salir, pon un sensor nuevo.',
+    ],
+    gravedad: Gravedad.atencion,
+    sinonimos: ['error de escaneo', 'error del sensor', 'no disponible', 'ya en uso', 'comprobar sensor'],
   ),
   Alarma(
     id: 'libre_glucosa_alta',
     bomba: '',
     sensores: _libre,
     deSensor: true,
-    titulo: 'Aviso de glucosa alta',
+    manual: _manualLibre,
+    pagina: '44',
+    titulo: 'Alarma de glucosa alta',
     significado:
-        'El sensor ha detectado un valor por encima del límite que tienes '
-        'configurado.',
+        'Tu glucosa ha subido por encima del nivel que configuraste. Solo '
+        'recibes una alarma por cada subida.',
     queHacer: [
-      'Confírmalo con un pinchazo en el dedo.',
-      'Si el valor es muy alto o lleva mucho rato sin bajar, comprueba las cetonas.',
-      'Revisa el catéter: una glucosa alta sin motivo suele deberse a que el catéter no funciona bien.',
+      'Toca Descartar alarma.',
+      'Confírmalo con el medidor si no cuadra con cómo te encuentras.',
       'Actúa como te haya indicado tu equipo médico.',
     ],
     gravedad: Gravedad.atencion,
@@ -611,14 +643,15 @@ const List<Alarma> alarmasSensores = [
     bomba: '',
     sensores: _libre,
     deSensor: true,
-    titulo: 'Aviso de glucosa baja',
+    manual: _manualLibre,
+    pagina: '44',
+    titulo: 'Alarma de glucosa baja',
     significado:
-        'El sensor ha detectado un valor por debajo del límite que tienes '
-        'configurado.',
+        'Tu glucosa ha bajado por debajo del nivel que configuraste. Solo '
+        'recibes una alarma por cada bajada.',
     queHacer: [
-      'Si puedes, confírmalo con un pinchazo en el dedo, pero no retrases el tratamiento.',
-      'Toma hidratos de carbono de acción rápida (azúcar, zumo…) como te haya enseñado tu equipo médico.',
-      'Vuelve a medirte a los 15 minutos.',
+      'Toca Descartar alarma.',
+      'Trata la bajada como te haya indicado tu equipo médico, sin retrasarlo.',
       'Si pierdes el conocimiento o no puedes tragar, es una urgencia: glucagón y llama al 112.',
     ],
     gravedad: Gravedad.urgente,

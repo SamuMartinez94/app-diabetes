@@ -20,9 +20,10 @@ class Fabricante {
 const List<Fabricante> fabricantes = [
   Fabricante(
     id: 'medtronic',
-    nombre: 'Medtronic Diabetes',
-    dispositivos: 'MiniMed, Guardian, Simplera',
-    web: 'https://www.medtronic-diabetes.com',
+    // Antes Medtronic Diabetes: su web antigua redirige a minimed.com.
+    nombre: 'MiniMed',
+    dispositivos: 'MiniMed 780G, Guardian, Simplera',
+    web: 'https://www.minimed.com',
     bombas: ['bmedtronic'],
   ),
   Fabricante(
@@ -36,14 +37,14 @@ const List<Fabricante> fabricantes = [
     id: 'insulet',
     nombre: 'Insulet — Omnipod',
     dispositivos: 'Omnipod DASH, Omnipod 5',
-    web: 'https://www.omnipod.com',
+    web: 'https://www.omnipod.com/es-es',
     bombas: ['bomnipod'],
   ),
   Fabricante(
     id: 'ypsomed',
-    nombre: 'Ypsomed — mylife',
-    dispositivos: 'YpsoPump, Orbit, Inset',
-    web: 'https://www.mylife-diabetescare.com',
+    nombre: 'mylife Diabetes Care',
+    dispositivos: 'YpsoPump, myOrbit, myInset',
+    web: 'https://www.mylife-diabetescare.com/es-ES',
     bombas: ['bypsopump'],
   ),
   Fabricante(

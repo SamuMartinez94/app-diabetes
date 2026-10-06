@@ -10,6 +10,21 @@ import 'package:diaguia/servicios/preferencias.dart';
 import 'package:diaguia/tema.dart';
 import 'package:diaguia/widgets/pantalla_guia.dart';
 
+/// Primeras letras de la primera instrucción de un paso: sirven para
+/// comprobar en qué paso está la pantalla (ya no se muestra su número).
+String arranque(Paso paso) {
+  final linea = paso.texto
+      .split('\n')
+      .map((l) => l.trim())
+      .firstWhere((l) => l.isNotEmpty && l != l.toUpperCase());
+  return linea.substring(0, 20).toLowerCase();
+}
+
+/// Texto de la pantalla que contiene [inicio], sin distinguir mayúsculas.
+Finder conTexto(String inicio) => find.byWidgetPredicate(
+  (w) => w is RichText && w.text.toPlainText().toLowerCase().contains(inicio),
+);
+
 Widget conTema(Widget hijo) =>
     MaterialApp(theme: temaClaro, darkTheme: temaOscuro, home: hijo);
 
@@ -67,7 +82,10 @@ void main() {
       await tester.tap(find.text('Ir al paso 5'));
       await tester.pumpAndSettle();
 
-      expect(find.textContaining('5/'), findsOneWidget);
+      expect(
+        conTexto(arranque(instruccionesCateter['bmedtronic_cmio30']![4])),
+        findsOneWidget,
+      );
     });
 
     testWidgets('Empezar de nuevo borra el progreso', (tester) async {
@@ -107,7 +125,10 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('¿Retomar donde lo dejaste?'), findsNothing);
-      expect(find.textContaining('3/'), findsOneWidget);
+      expect(
+        conTexto(arranque(instruccionesCateter['bmedtronic_cmio30']![2])),
+        findsOneWidget,
+      );
     });
   });
 
@@ -128,7 +149,7 @@ void main() {
       }
     });
 
-    testWidgets('La guía muestra el nombre de la fase', (tester) async {
+    testWidgets('La guía no repite la cuenta de pasos', (tester) async {
       await configurar();
       await tester.pumpWidget(
         conTema(
@@ -142,7 +163,81 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text(Fases.preparacion.toUpperCase()), findsOneWidget);
+      // El progreso lo da la barra de arriba: ni "Paso 1 de 5" ni "1/21".
+      expect(find.textContaining('en total'), findsNothing);
+      expect(find.textContaining('Paso 1'), findsNothing);
+    });
+
+    testWidgets('Un título en mayúsculas pasa al nombre del paso', (
+      tester,
+    ) async {
+      await configurar();
+      await tester.pumpWidget(
+        conTema(
+          PantallaGuia(
+            titulo: 'Prueba',
+            clave: 'prueba',
+            pasos: const [
+              Paso(texto: '\nELIGE LA ZONA\n\nElige una zona limpia.'),
+            ],
+            porRevisar: false,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Elige la zona'), findsOneWidget);
+      expect(find.text('ELIGE LA ZONA'), findsNothing);
+    });
+  });
+
+  group('Aviso de contenido en revisión', () {
+    setUp(configurar);
+
+    testWidgets('Sale antes de los pasos y se quita al aceptarlo', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        conTema(
+          PantallaGuia(
+            titulo: 'Prueba',
+            clave: 'prueba',
+            pasos: instruccionesCateter['bmedtronic_cmio30']!,
+            porRevisar: true,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.textContaining('Contenido en revisión'), findsOneWidget);
+      expect(find.text('Siguiente'), findsNothing);
+
+      await tester.tap(find.text('Entendido'));
+      await tester.pumpAndSettle();
+
+      expect(find.textContaining('Contenido en revisión'), findsNothing);
+      expect(find.text('Siguiente'), findsOneWidget);
+    });
+
+    testWidgets('Aceptarlo antes de preguntar si se retoma', (tester) async {
+      await Preferencias.guardarProgresoGuia('prueba', 4);
+      await tester.pumpWidget(
+        conTema(
+          PantallaGuia(
+            titulo: 'Prueba',
+            clave: 'prueba',
+            pasos: instruccionesCateter['bmedtronic_cmio30']!,
+            porRevisar: true,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('¿Retomar donde lo dejaste?'), findsNothing);
+
+      await tester.tap(find.text('Entendido'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('¿Retomar donde lo dejaste?'), findsOneWidget);
     });
   });
 

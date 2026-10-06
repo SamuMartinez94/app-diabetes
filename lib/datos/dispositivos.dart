@@ -9,9 +9,11 @@ const Map<String, String> nombresDispositivos = {
   // --- SENSORES ---
   'sdexg6': 'Dexcom G6',
   'sdexg7': 'Dexcom G7',
+  'sfreelibre2plus': 'FreeStyle Libre 2 Plus',
   'sfreelibre3': 'FreeStyle Libre 3',
   'sguardian': 'Guardian 4',
   'ssimplera': 'Simplera Sync',
+  'sinstinct': 'Instinct',
 
   // --- CATÉTERES ---
   'cextended': 'Extended',
@@ -21,8 +23,9 @@ const Map<String, String> nombresDispositivos = {
   'csilhouette': 'Silhouette',
   'csuret': 'Sure-T',
   'cpod': 'Pod',
-  'corbit': 'Orbit',
-  'cinset': 'Inset',
+  'corbit': 'myOrbit Soft',
+  'corbitmicro': 'myOrbit Micro',
+  'cinset': 'myInset',
   'cautosoft90': 'AutoSoft 90',
   'cautosoft30': 'AutoSoft 30',
   'ctrusteel': 'TruSteel',

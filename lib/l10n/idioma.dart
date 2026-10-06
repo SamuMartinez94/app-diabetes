@@ -52,7 +52,7 @@ const Map<Idioma, Map<String, String>> _tablas = {
 class Traductor {
   static Idioma actual = Idioma.es;
 
-  /// Cambia el idioma y fuerza que se redibuje TODO lo que hay en pantalla,
+  /// Cambia el idioma y fuerza que se redibuje todo lo que hay en pantalla,
   /// incluidas las pantallas que quedan debajo en la pila de navegación.
   ///
   /// Los textos son `const` y no dependen de ningún `InheritedWidget`, así

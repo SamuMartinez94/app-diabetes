@@ -44,7 +44,7 @@ const Map<String, String> traduccionesGl = {
   'Mide tu glucosa para saber cuánto tiempo has estado sin insulina.':
       'Mide a túa glicosa para saber canto tempo estiveches sen insulina.',
   'Mide tu glucosa: sin insulina de fondo, sube rápido.':
-      'Mide a túa glicosa: sen insulina de fondo, sobe axiña.',
+      'Mide a túa glicosa: sen insulina de fondo, sobe rápido.',
   'Demasiado frío o demasiado calor': 'Demasiado frío ou demasiado calor',
   'calor, frio, sol, playa, temperatura':
       'calor, frío, sol, praia, temperatura',
@@ -56,24 +56,14 @@ const Map<String, String> traduccionesGl = {
   'Mientras estés en manual, vigila más tu glucosa.':
       'Mentres esteas en manual, vixía máis a túa glicosa.',
   'Pod caducado': 'Pod caducado',
-  'Pon un Pod nuevo.': 'Pon un Pod novo.',
-  'Mide tu glucosa y comprueba las cetonas.':
-      'Mide a túa glicosa e comproba as cetonas.',
   'Cartucho vacío': 'Cartucho baleiro',
-  'A la YpsoPump se le ha acabado la insulina del cartucho y ha dejado de darte insulina.':
-      'Á YpsoPump acabóuselle a insulina do cartucho e deixou de darche insulina.',
-  'cartucho, vacio, sin insulina': 'cartucho, baleiro, sen insulina',
   'Cambia el cartucho siguiendo la guía de cambio.':
       'Cambia o cartucho seguindo a guía de cambio.',
   'Acuérdate de llenar el tubo (cebar) después de poner el cartucho nuevo.':
       'Lembra encher o tubo (cebar) despois de poñer o cartucho novo.',
   'Mide tu glucosa.': 'Mide a túa glicosa.',
-  'La varilla no ha terminado de retraerse':
-      'A vareta non rematou de retraerse',
   'varilla, roscada, retraccion, cartucho antes':
       'vareta, roscada, retracción, cartucho antes',
-  'No hay insulina / Falta llenar el tubo (cebado)':
-      'Non hai insulina / Falta encher o tubo (cebado)',
   'no hay insulina, cebado, purgar, sin cebar':
       'non hai insulina, cebado, purgar, sen cebar',
   'Confirma la alarma.': 'Confirma a alarma.',
@@ -82,14 +72,8 @@ const Map<String, String> traduccionesGl = {
   'Repite hasta que salga insulina por el extremo y no queden burbujas.':
       'Repite ata que saia insulina polo extremo e non queden burbullas.',
   'Parada automática': 'Parada automática',
-  'La bomba llevaba 24 horas encendida sin usarse y se ha puesto sola en parada. Se han cancelado todas las entregas de insulina que estaban en marcha.':
-      'A bomba levaba 24 horas acesa sen usarse e púxose soa en parada. Cancelouse toda a entrega de insulina que estaba en marcha.',
   'parada, automatica, 24 horas, se paro sola':
       'parada, automática, 24 horas, parouse soa',
-  'Confirma la alarma y vuelve a poner la bomba en marcha.':
-      'Confirma a alarma e volve poñer a bomba en marcha.',
-  'Mide tu glucosa: has estado sin insulina de fondo.':
-      'Mide a túa glicosa: estiveches sen insulina de fondo.',
   'Mira si tenías un bolo o una basal temporal en marcha, porque se han cancelado.':
       'Mira se tiñas un bolo ou unha basal temporal en marcha, porque se cancelaron.',
   'Error electrónico': 'Erro electrónico',
@@ -103,9 +87,6 @@ const Map<String, String> traduccionesGl = {
   'Vuelve a ponerla en marcha y revisa todos tus ajustes.':
       'Volve poñela en marcha e revisa todos os teus axustes.',
   'Cambia el cartucho y el catéter.': 'Cambia o cartucho e o catéter.',
-  'Si el error vuelve a aparecer, deja de usar la bomba, saca la pila y llama al fabricante.':
-      'Se o erro volve aparecer, deixa de usar a bomba, saca a pila e chama ao fabricante.',
-  'Pila no válida': 'Pila non válida',
   'La pila que has puesto tiene demasiado voltaje para la bomba.':
       'A pila que puxeches ten demasiada tensión para a bomba.',
   'pila, voltaje, no apta, incorrecta, bateria':
@@ -113,7 +94,6 @@ const Map<String, String> traduccionesGl = {
   'Confirma la alarma y saca la pila.': 'Confirma a alarma e saca a pila.',
   'Pon una pila alcalina AAA (LR03) nueva.':
       'Pon unha pila alcalina AAA (LR03) nova.',
-  'No hay pila': 'Non hai pila',
   'La pila alcalina lleva fuera de su hueco más de 5 minutos con la bomba en marcha.':
       'A pila alcalina leva fóra do seu oco máis de 5 minutos coa bomba en marcha.',
   'sin pila, pila fuera, sin bateria': 'sen pila, pila fóra, sen batería',
@@ -124,17 +104,8 @@ const Map<String, String> traduccionesGl = {
   'Se ha perdido la señal del sensor': 'Perdeuse o sinal do sensor',
   'Mientras no haya lecturas, mídete con un pinchazo en el dedo.':
       'Mentres non haxa lecturas, mídete cun pinchazo no dedo.',
-  'Sensor caducado / Cambiar sensor': 'Sensor caducado / Cambiar sensor',
-  'El sensor ha llegado al final de su vida útil y ha dejado de medir.':
-      'O sensor chegou ao final da súa vida útil e deixou de medir.',
-  'caducado, expirado, fin de vida, cambiar sensor':
-      'caducado, expirado, fin de vida, cambiar sensor',
-  'Quita el sensor y ponte uno nuevo.': 'Quita o sensor e ponte un novo.',
   'Mira la guía de cambio de sensor de esta app.':
       'Mira a guía de cambio de sensor desta app.',
-  'Aviso de glucosa alta': 'Aviso de glicosa alta',
-  'El sensor ha detectado un valor por encima del límite que tienes configurado.':
-      'O sensor detectou un valor por riba do límite que tes configurado.',
   'hiper, alta, hiperglucemia, subida': 'hiper, alta, hiperglicemia, subida',
   'Si el valor es muy alto o lleva mucho rato sin bajar, comprueba las cetonas.':
       'Se o valor é moi alto ou leva moito tempo sen baixar, comproba as cetonas.',
@@ -142,9 +113,6 @@ const Map<String, String> traduccionesGl = {
       'Revisa o catéter: unha glicosa alta sen motivo adoita deberse a que o catéter non funciona ben.',
   'Actúa como te haya indicado tu equipo médico.':
       'Actúa como che indicou o teu equipo médico.',
-  'Aviso de glucosa baja': 'Aviso de glicosa baixa',
-  'El sensor ha detectado un valor por debajo del límite que tienes configurado.':
-      'O sensor detectou un valor por debaixo do límite que tes configurado.',
   'hipo, baja, hipoglucemia, bajada': 'hipo, baixa, hipoglicemia, baixada',
   'Si puedes, confírmalo con un pinchazo en el dedo, pero no retrases el tratamiento.':
       'Se podes, confírmao cun pinchazo no dedo, pero non atrases o tratamento.',
@@ -231,58 +199,18 @@ const Map<String, String> traduccionesGl = {
       'Este catéter leva agulla de aceiro, así que NON se enche a cánula.\n\nCando a bomba o pregunte, escolle "Omitir enchido de cánula" ou "Feito".',
   'Entre 1 y 3 horas después del cambio, mide tu glucosa con el medidor (pinchazo en el dedo).':
       'Entre 1 e 3 horas despois do cambio, mide a túa glicosa co medidor (pinchazo no dedo).',
-  'Saca la insulina de la nevera un rato antes: tiene que estar a temperatura ambiente.\n\nLávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.':
-      'Saca a insulina da neveira un anaco antes: ten que estar a temperatura ambiente.\n\nLávate as mans con auga e xabón e limpa o tapón do vial cunha toallita de alcol.',
-  'IMPORTANTE: no pongas un Pod nuevo hasta haber desactivado y quitado el anterior.\n\nPara desactivarlo: INFORMACIÓN DEL POD → VER DETALLES DEL POD → CAMBIAR EL POD → DESACTIVAR POD.':
-      'IMPORTANTE: non poñas un Pod novo ata ter desactivado e quitado o anterior.\n\nPara desactivalo: INFORMACIÓN DO POD → VER DETALLES DO POD → CAMBIAR O POD → DESACTIVAR POD.',
-  'Despega despacio los bordes del adhesivo y quita el Pod usado. Hacerlo despacio irrita menos la piel.':
-      'Despega amodo os bordos do adhesivo e quita o Pod usado. Facelo amodo irrita menos a pel.',
-  'En la aplicación o en el Controlador, toca CONFIGURAR NUEVO POD.':
-      'Na aplicación ou no Controlador, toca CONFIGURAR NOVO POD.',
-  'Saca la aguja y la jeringa de llenado de la bandeja del Pod, pero DEJA el Pod dentro de la bandeja durante toda la preparación.\n\nEnrosca la aguja en la jeringa y quita el capuchón tirando en línea recta.':
-      'Saca a agulla e a xiringa de enchido da bandexa do Pod, pero DEIXA o Pod dentro da bandexa durante toda a preparación.\n\nEnrosca a agulla na xiringa e quita o capuchón tirando en liña recta.',
-  'Llena la jeringa de AIRE hasta la cantidad de insulina que vayas a poner.\n\nEse aire va al vial, NUNCA al Pod. Ten en cuenta la línea MÍN marcada en la jeringa: la insulina tiene que llegar al menos hasta ahí.':
-      'Enche a xiringa de AIRE ata a cantidade de insulina que vaias poñer.\n\nEse aire vai ao vial, NUNCA ao Pod. Ten en conta a liña MÍN marcada na xiringa: a insulina ten que chegar polo menos ata aí.',
-  'Clava la aguja en el vial y empuja el émbolo para meter el aire en el vial.\n\nCon la jeringa aún en el vial, dale la vuelta al conjunto y tira despacio del émbolo. Da unos golpecitos para eliminar las burbujas.':
-      'Crava a agulla no vial e empurra o émbolo para meter o aire no vial.\n\nCoa xiringa aínda no vial, dálle a volta ao conxunto e tira amodo do émbolo. Dá uns golpiños para eliminar as burbullas.',
-  'Saca la aguja del vial e insértala directamente en el puerto de llenado del Pod.\n\nUna flecha en el papel blanco de la parte de atrás señala dónde está. Empuja el émbolo despacio hasta llenarlo del todo.\n\nSi notas resistencia al empujar, no uses ese Pod.':
-      'Saca a agulla do vial e insírea directamente no porto de enchido do Pod.\n\nUnha frecha no papel branco da parte de atrás sinala onde está. Empurra o émbolo amodo ata enchelo de todo.\n\nSe notas resistencia ao empurrar, non uses ese Pod.',
-  'El Pod emitirá DOS PITIDOS.\n\nEsa es la señal de que está lleno y listo para continuar. Si no pita, no lo uses: cámbialo por otro.':
-      'O Pod emitirá DOUS PITIDOS.\n\nEsa é a sinal de que está cheo e listo para continuar. Se non pita, non o uses: cámbiao por outro.',
-  'Con el Pod todavía en la bandeja, acércalo al Controlador y toca SIGUIENTE.\n\nEl sistema hará unas comprobaciones de seguridad y llenará el Pod de forma automática (esto se llama cebar). Espera a que termine.':
-      'Co Pod aínda na bandexa, achégao ao Controlador e toca SEGUINTE.\n\nO sistema fará unhas comprobacións de seguridade e encherá o Pod de forma automática (isto chámase cebar). Agarda a que remate.',
-  'Elige la zona respetando estas distancias mínimas:\n\n• 8 cm de tu sensor Dexcom\n• 2,5 cm del sitio del Pod anterior\n• 5 cm del ombligo\n\nEl Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunicarse sin que tu cuerpo tape la señal.':
-      'Escolle a zona respectando estas distancias mínimas:\n\n• 8 cm do teu sensor Dexcom\n• 2,5 cm do sitio do Pod anterior\n• 5 cm do embigo\n\nO Pod e o sensor deben ir no mesmo lado do corpo, para que poidan comunicarse sen que o teu corpo tape a sinal.',
-  'Evita lunares, tatuajes y cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.\n\nBusca una zona con algo de grasa y fácil de alcanzar.':
-      'Evita lunares, tatuaxes e cicatrices, zonas con infección, dobras da pel e sitios onde o cinto ou a roupa axustada poidan rozar o Pod.\n\nBusca unha zona con algo de graxa e doada de alcanzar.',
-  'Quita los papeles de los adhesivos, pega el Pod sobre la piel y sigue las instrucciones de la pantalla para que salga la cánula.':
-      'Quita os papeis dos adhesivos, pega o Pod sobre a pel e segue as instrucións da pantalla para que saia a cánula.',
-  'Mira por la ventanita del Pod que la cánula ha quedado bien puesta y confírmalo en el Controlador.\n\nMide tu glucosa a la hora y media del cambio, aproximadamente.':
-      'Mira pola ventaniña do Pod que a cánula quedou ben posta e confírmao no Controlador.\n\nMide a túa glicosa á hora e media do cambio, aproximadamente.',
-  'El catéter Orbit soft no debe usarse durante más de 72 horas.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'O catéter Orbit soft non debe usarse durante máis de 72 horas.\n\nEmpeza desconectándote o catéter do corpo.',
-  'Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".\n\nDespués toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.':
-      'Abre o menú principal e toca a icona "Cambio de cartucho e nivel actual do cartucho".\n\nDespois toca "Retraer vareta roscada" e confirma. A bomba vibrará un instante.',
   'Espera a que la varilla se retraiga por completo (el porcentaje baja al 0 %) y a que termine la autocomprobación.\n\nNO insertes el cartucho antes: si lo haces, aparecerá el aviso "Retracción varilla roscada no finalizada" y habrá que repetir el proceso.':
       'Agarda a que a vareta se retraia por completo (a porcentaxe baixa ao 0 %) e a que remate a autocomprobación.\n\nNON insiras o cartucho antes: se o fas, aparecerá o aviso "Retracción vareta roscada non finalizada" e haberá que repetir o proceso.',
   'Desconecta el catéter girando el adaptador en sentido antihorario hasta el tope.\n\nSaca de la bomba el cartucho vacío.':
       'Desconecta o catéter xirando o adaptador en sentido antihorario ata o tope.\n\nSaca da bomba o cartucho baleiro.',
-  'Sujeta la bomba en vertical, con el orificio del compartimento hacia arriba, y mete un reservorio cargado por ti o un cartucho precargado que sea compatible con tu YpsoPump.':
-      'Suxeita a bomba en vertical, co orificio do compartimento cara arriba, e mete un reservorio cargado por ti ou un cartucho precargado que sexa compatible coa túa YpsoPump.',
   'Pon el adaptador en vertical sobre el cartucho y gíralo en sentido horario hasta la posición de bloqueo.\n\nOirás un ligero clic o notarás un tope.':
       'Pon o adaptador en vertical sobre o cartucho e xírao en sentido horario ata a posición de bloqueo.\n\nOirás un lixeiro clic ou notarás un tope.',
-  'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter Orbit y confirma.':
-      'Abre o menú principal, toca "Cebar kit de infusión" e despois "Cebar tubo". (Cebar é encher o tubo de insulina.)\n\nEscolle o volume que indican as instrucións do teu catéter Orbit e confirma.',
   'Confirma que el catéter está desconectado del cuerpo.\n\nMientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma de la mano para que suban las burbujas.':
       'Confirma que o catéter está desconectado do corpo.\n\nMentres se enche, mantén a bomba en vertical co adaptador cara arriba e golpéaa suavemente contra a palma da man para que suban as burbullas.',
   'Repite hasta que no quede aire en el cartucho, el adaptador ni el tubo, y hasta que salga insulina por el extremo.\n\nEl volumen que indica el catéter es solo una referencia: puede hacer falta llenar más.':
       'Repite ata que non quede aire no cartucho, no adaptador nin no tubo, e ata que saia insulina polo extremo.\n\nO volume que indica o catéter é só unha referencia: pode facer falta encher máis.',
-  'Lávate bien las manos.\n\nLimpia la zona con una toallita de alcohol isopropílico. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.':
-      'Lávate ben as mans.\n\nLimpa a zona cunha toallita de alcol isopropílico. Asegúrate de que non hai pelo e de que a pel está seca antes de continuar.',
   'Despega con cuidado la lámina protectora de la cinta adhesiva, sin tocar la parte pegajosa.\n\nDespués quita el protector de la cánula.':
       'Despega con coidado a lámina protectora da cinta adhesiva, sen tocar a parte pegañenta.\n\nDespois quita o protector da cánula.',
-  'Sujeta bien la zona e inserta la cánula en vertical (90°).\n\nPuedes usar el insertador mylife Orbit para que entre con más facilidad.':
-      'Suxeita ben a zona e insire a cánula en vertical (90°).\n\nPodes usar o insertador mylife Orbit para que entre con máis facilidade.',
   'Presiona la cinta contra la piel y recórrela con los dedos unos segundos, para que quede bien pegada.':
       'Preme a cinta contra a pel e percórrea cos dedos uns segundos, para que quede ben pegada.',
   'Sujeta la cinta contra la piel con una mano y, con dos dedos de la otra, agarra el capuchón del introductor.\n\nSaca la aguja introductora apretando las dos aletas exteriores del capuchón.':
@@ -293,30 +221,18 @@ const Map<String, String> traduccionesGl = {
       'Conecta o capuchón do tubo á base da cánula sen ladealo. Asegúrate de oílo encaixar.\n\nDespois xira o tubo á esquerda e á dereita, polo menos unha volta completa en cada dirección, tirando do capuchón cara arriba: así confirmas que está ben encaixado e que a vía está aberta.',
   'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar cánula".\n\nElige la cantidad que indican las instrucciones de tu catéter y confirma.':
       'Abre o menú principal, toca "Cebar kit de infusión" e despois "Cebar cánula".\n\nEscolle a cantidade que indican as instrucións do teu catéter e confirma.',
-  'El catéter Orbit micro lleva cánula de acero y no debe usarse durante más de 48 horas.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'O catéter Orbit micro leva cánula de aceiro e non debe usarse durante máis de 48 horas.\n\nEmpeza desconectándote o catéter do corpo.',
-  'Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".\n\nDespués toca "Retraer varilla roscada" y confirma.':
-      'Abre o menú principal e toca a icona "Cambio de cartucho e nivel actual do cartucho".\n\nDespois toca "Retraer vareta roscada" e confirma.',
   'Espera a que la varilla se retraiga del todo (0 %) y a que termine la autocomprobación.\n\nNO insertes el cartucho antes de que acabe.':
       'Agarda a que a vareta se retraia do todo (0 %) e a que remate a autocomprobación.\n\nNON insiras o cartucho antes de que acabe.',
   'Desconecta el catéter girando el adaptador en sentido antihorario hasta el tope y saca el cartucho vacío.':
       'Desconecta o catéter xirando o adaptador en sentido antihorario ata o tope e saca o cartucho baleiro.',
-  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.':
-      'Suxeita a bomba en vertical co compartimento cara arriba e mete un reservorio compatible coa túa YpsoPump.\n\nPon o adaptador en vertical e xírao en sentido horario ata oír o clic de bloqueo.',
   'Menú principal → "Cebar kit de infusión" → "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter y confirma que estás desconectado.':
       'Menú principal → "Cebar kit de infusión" → "Cebar tubo". (Cebar é encher o tubo de insulina.)\n\nEscolle o volume que indican as instrucións do teu catéter e confirma que estás desconectado.',
   'Mantén la bomba vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para eliminar las burbujas.\n\nRepite hasta que no quede aire y salga insulina por el extremo del tubo.':
       'Mantén a bomba vertical co adaptador cara arriba e golpéaa suavemente contra a palma para eliminar as burbullas.\n\nRepite ata que non quede aire e saia insulina polo extremo do tubo.',
-  'Lávate las manos y limpia la zona con alcohol isopropílico. La piel debe estar seca y sin vello.\n\nDespega la lámina protectora del adhesivo y quita el protector de la cánula.':
-      'Lávate as mans e limpa a zona con alcol isopropílico. A pel debe estar seca e sen pelo.\n\nDespega a lámina protectora do adhesivo e quita o protector da cánula.',
-  'El Orbit micro lleva una cánula de acero que se pone sin aguja introductora.\n\nSujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el insertador mylife Orbit.':
-      'O Orbit micro leva unha cánula de aceiro que se pon sen agulla introdutora.\n\nSuxeita ben a zona e insire a cánula en vertical (90°). Podes usar o insertador mylife Orbit.',
   'Presiona la cinta contra la piel y recórrela con los dedos unos segundos.\n\nQuita el capuchón introductor apretando sus dos aletas exteriores.':
       'Preme a cinta contra a pel e percórrea cos dedos uns segundos.\n\nQuita o capuchón introdutor apertando as súas dúas aletas exteriores.',
   'Conecta el capuchón del tubo a la base de la cánula sin ladearlo, hasta oírlo encajar.\n\nGira el tubo al menos una vuelta completa en cada dirección tirando hacia arriba, para confirmar que la vía está abierta.':
       'Conecta o capuchón do tubo á base da cánula sen ladealo, ata oílo encaixar.\n\nXira o tubo polo menos unha volta completa en cada dirección tirando cara arriba, para confirmar que a vía está aberta.',
-  'Menú principal → "Cebar kit de infusión" → "Cebar cánula".\n\nElige la cantidad que indican las instrucciones de tu catéter.':
-      'Menú principal → "Cebar kit de infusión" → "Cebar cánula".\n\nEscolle a cantidade que indican as instrucións do teu catéter.',
   'Prepara el material: un cartucho nuevo sin abrir, la jeringa de llenado con su aguja (viene con el cartucho), el vial de insulina, toallitas de alcohol y un catéter nuevo.\n\nEl cartucho se cambia cada 2 o 3 días, según te haya indicado tu equipo médico.':
       'Prepara o material: un cartucho novo sen abrir, a xiringa de enchido coa súa agulla (vén co cartucho), o vial de insulina, toallitas de alcol e un catéter novo.\n\nO cartucho cámbiase cada 2 ou 3 días, segundo che indicase o teu equipo médico.',
   'Decide con tu equipo médico cuánta insulina cargar en el cartucho.\n\nTen en cuenta que al llenar el tubo se gasta un poco de insulina, así que no toda la que cargues quedará disponible.':
@@ -422,8 +338,8 @@ const Map<String, String> traduccionesGl = {
       'O período de adaptación dura MENOS DE 30 MINUTOS.\n\nDurante ese tempo non tomes decisións de tratamento co sensor: usa o medidor de dedo. Tampouco as tomes se non ves o número nin a frecha de tendencia.',
   'El sensor Guardian 4 se usa como máximo siete días seguidos.\n\nEl insertador One-press es el ÚNICO aprobado para este sensor. Con otro insertador la colocación puede salir mal y causar dolor o lesión.':
       'O sensor Guardian 4 úsase como máximo sete días seguidos.\n\nO insertador One-press é o ÚNICO aprobado para este sensor. Con outro insertador a colocación pode saír mal e causar dor ou lesión.',
-  'ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo, tanto en adultos como a partir de 7 años.\n\nPRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.':
-      'ZONA DE INSERCIÓN: só a parte de atrás da parte superior do brazo, tanto en adultos como a partir de 7 anos.\n\nPRECAUCIÓN: non o uses no abdome nin nas nádegas. Aí funciona distinto e pode darche lecturas que te leven a erro.',
+  'ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo.\n\nPRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.':
+      'ZONA DE INSERCIÓN: só a parte de atrás da parte superior do brazo.\n\nPRECAUCIÓN: non o uses no abdome nin nas nádegas. Aí funciona distinto e pode darche lecturas que te leven a erro.',
   'No lo pongas sobre músculo, piel dura o cicatrices, ni en zonas apretadas por la ropa o que se muevan mucho al hacer ejercicio.':
       'Non o poñas sobre músculo, pel dura ou cicatrices, nin en zonas apertadas pola roupa ou que se movan moito ao facer exercicio.',
   'Elige una zona con algo de grasa y límpiala con alcohol.\n\nUsa solo alcohol, para que no queden restos en la piel. Deja que se seque al aire.':
@@ -448,8 +364,8 @@ const Map<String, String> traduccionesGl = {
       'Conecta o transmisor e agarda o quecemento: son 2 HORAS. Na pantalla verás unha conta atrás.\n\nDurante ese tempo non hai lecturas: usa o medidor de dedo para decidir o teu tratamento.',
   'El Simplera Sync no se pone igual que otros sensores de Medtronic: su insertador funciona de otra manera.\n\nLee sus instrucciones antes de usarlo por primera vez.':
       'O Simplera Sync non se pon igual que outros sensores de Medtronic: o seu insertador funciona doutra maneira.\n\nLe as súas instrucións antes de usalo por primeira vez.',
-  'ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo, a partir de 7 años.\n\nNo se recomienda ponerlo en el abdomen ni en los glúteos.':
-      'ZONA DE INSERCIÓN: a parte de atrás da parte superior do brazo, a partir de 7 anos.\n\nNon se recomenda poñelo no abdome nin nas nádegas.',
+  'ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo.\n\nNo se recomienda ponerlo en el abdomen ni en los glúteos.':
+      'ZONA DE INSERCIÓN: a parte de atrás da parte superior do brazo.\n\nNon se recomenda poñelo no abdome nin nas nádegas.',
   'ANTES DE PONERLO, apunta el número de serie (SN) y el CÓDIGO que vienen en la etiqueta del insertador.\n\nLos necesitarás después para emparejar el sensor con la bomba. También están dentro de la tapa de la caja.':
       'ANTES DE PONELO, apunta o número de serie (SN) e o CÓDIGO que veñen na etiqueta do insertador.\n\nVas necesitalos despois para emparellar o sensor coa bomba. Tamén están dentro da tapa da caixa.',
   'Mira la fecha de caducidad: no uses un sensor caducado.\n\nComprueba que la etiqueta del capuchón y la banda de seguridad están intactas. Si falta alguna o está rota, no lo uses.':
@@ -486,8 +402,6 @@ const Map<String, String> traduccionesGl = {
       'Coloca o aplicador sobre a zona preparada e empurra cara abaixo con firmeza.\n\nPRECAUCIÓN: non premas o aplicador ata telo colocado sobre o sitio: poderías facerte dano.',
   'Retira suavemente el aplicador del cuerpo y comprueba que el sensor ha quedado firme.\n\nVuelve a poner el tapón al aplicador usado y tíralo como indique la normativa de tu zona.':
       'Retira suavemente o aplicador do corpo e comproba que o sensor quedou firme.\n\nVolve poñer o tapón ao aplicador usado e bótao como indique a normativa da túa zona.',
-  'Comprueba que el móvil tiene conexión (wifi o datos) e inicia el sensor desde la aplicación, siguiendo las indicaciones de la pantalla.':
-      'Comproba que o móbil ten conexión (wifi ou datos) e inicia o sensor desde a aplicación, seguindo as indicacións da pantalla.',
   'Espera el calentamiento: son 60 MINUTOS hasta la primera lectura.\n\nMientras tanto, usa el medidor de dedo para decidir tu tratamiento.':
       'Agarda o quecemento: son 60 MINUTOS ata a primeira lectura.\n\nMentres tanto, usa o medidor de dedo para decidir o teu tratamento.',
   'Vuelve a conectarte el catéter, que no has cambiado.\n\nComo es un cambio de solo reservorio, NO hay que llenar cánula: elige "Hecho" en esa pantalla.':
@@ -496,20 +410,12 @@ const Map<String, String> traduccionesGl = {
       'Volve conectar o catéter, que non cambiaches.\n\nComo non puxeches un catéter novo, non fai falta encher a cánula.',
   'Reanuda la insulina en la bomba y, entre 1 y 3 horas después, mide tu glucosa con el medidor.':
       'Retoma a insulina na bomba e, entre 1 e 3 horas despois, mide a túa glicosa co medidor.',
-  'La YpsoPump permite cambiar el cartucho sin cambiar el catéter: son independientes.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'A YpsoPump permite cambiar o cartucho sen cambiar o catéter: son independentes.\n\nEmpeza desconectándote o catéter do corpo.',
-  'Menú principal, icono "Cambio de cartucho y nivel actual del cartucho", y después "Retraer varilla roscada". Confirma.\n\nEspera a que baje al 0 % y termine la autocomprobación antes de seguir.':
-      'Menú principal, icona "Cambio de cartucho e nivel actual do cartucho", e despois "Retraer vareta roscada". Confirma.\n\nAgarda a que baixe ao 0 % e remate a autocomprobación antes de seguir.',
-  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic.':
-      'Suxeita a bomba en vertical co compartimento cara arriba e mete un reservorio compatible coa túa YpsoPump.\n\nPon o adaptador en vertical e xírao en sentido horario ata oír o clic.',
-  'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSi NO hay burbujas en el cartucho, basta con el volumen mínimo. Si las hay, usa el volumen que indique tu catéter hasta eliminarlas.':
-      'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSe NON hai burbullas no cartucho, abonda co volume mínimo. Se as hai, usa o volume que indique o teu catéter ata eliminalas.',
+  'La bomba permite cambiar el cartucho sin cambiar el catéter: son independientes.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'A bomba permite cambiar o cartucho sen cambiar o catéter: son independentes.\n\nEmpeza desconectándote o catéter do corpo.',
   'Mantén la bomba vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas. Repite hasta que no quede aire.':
       'Mantén a bomba vertical co adaptador cara arriba e golpéaa suavemente contra a palma para que suban as burbullas. Repite ata que non quede aire.',
   'Vuelve a conectar el capuchón del tubo a la base de la cánula hasta oírlo encajar.\n\nComo no has cambiado el catéter, no hace falta llenar la cánula.':
       'Volve conectar o capuchón do tubo á base da cánula ata oílo encaixar.\n\nComo non cambiaches o catéter, non fai falta encher a cánula.',
-  'Entre 1 y 3 horas después del cambio, mide tu glucosa con el medidor.':
-      'Entre 1 e 3 horas despois do cambio, mide a túa glicosa co medidor.',
   'Insulina y material de repuesto': 'Insulina e material de reposto',
   'Lleva más de lo que creas que vas a necesitar: los viajes se alargan y las cosas se pierden o se estropean.':
       'Leva máis do que creas que vas necesitar: as viaxes alónganse e as cousas acaban perdéndose ou estragándose.',
@@ -739,9 +645,6 @@ const Map<String, String> traduccionesGl = {
   'Ir al paso {n}': 'Ir ao paso {n}',
   'Anterior': 'Anterior',
   'Siguiente': 'Seguinte',
-  'PASO {n} DE {total}': 'PASO {n} DE {total}',
-  'Paso {i} de {total} · {global}/{totalGlobal} en total':
-      'Paso {i} de {total} · {global}/{totalGlobal} en total',
   '¿Dónde te lo has puesto?': 'Onde o puxeches?',
   'Anotarlo te ayuda a ir cambiando de sitio para que la piel no se endurezca.':
       'Anotalo axúdache a ir cambiando de sitio para que a pel non se endureza.',
@@ -762,4 +665,142 @@ const Map<String, String> traduccionesGl = {
   'Hoy': 'Hoxe',
   'Ayer': 'Onte',
   'Más': 'Máis',
+  'El catéter myOrbit Soft no debe usarse durante más de 72 horas.\n\nNo mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'O catéter myOrbit Soft non debe usarse durante máis de 72 horas.\n\nNon mesturas pezas de myOrbit 2.0 coas da xeración anterior: podería haber fugas.\n\nEmpeza desconectándote o catéter do corpo.',
+  'Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".\n\nDespués toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.':
+      'Abre o menú principal e toca a icona "Cambio de cartucho/reservorio e nivel actual do cartucho/reservorio".\n\nDespois toca "Retraer vareta roscada" e confirma. A bomba vibrará un instante.',
+  'Sujeta la bomba en vertical, con el orificio del compartimento hacia arriba, y mete un reservorio cargado por ti o un cartucho precargado compatible con tu bomba.':
+      'Suxeita a bomba en vertical, co orificio do compartimento cara arriba, e mete un reservorio cargado por ti ou un cartucho precargado compatible coa túa bomba.',
+  'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter myOrbit y confirma: cambia entre la 1.ª generación y la 2.0.':
+      'Abre o menú principal, toca "Cebar kit de infusión" e despois "Cebar tubo". (Cebar é encher o tubo de insulina.)\n\nEscolle o volume que indican as instrucións do teu catéter myOrbit e confirma: cambia entre a 1.ª xeración e a 2.0.',
+  'Lávate bien las manos.\n\nLimpia la zona con una toallita de alcohol isopropílico al 70 %. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.':
+      'Lava ben as mans.\n\nLimpa a zona cunha toalliña de alcohol isopropílico ao 70 %. Asegúrate de que non hai pelo e de que a pel está seca antes de continuar.',
+  'Sujeta bien la zona e inserta la cánula en vertical (90°).\n\nPuedes usar el myOrbit Inserter para que entre con más facilidad.':
+      'Suxeita ben a zona e insire a cánula en vertical (90°).\n\nPodes usar o myOrbit Inserter para que entre con máis facilidade.',
+  'Mide tu glucosa entre 2 y 3 horas después de poner el catéter, para comprobar que la insulina entra bien.\n\nPor eso, no cambies el catéter justo antes de irte a dormir.':
+      'Mide a glicosa entre 2 e 3 horas despois de poñer o catéter, para comprobar que a insulina entra ben.\n\nPor iso, non cambies o catéter xusto antes de irte durmir.',
+  'El catéter myOrbit Micro lleva cánula de acero y no debe usarse durante más de 48 horas.\n\nNo mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'O catéter myOrbit Micro leva cánula de aceiro e non debe usarse durante máis de 48 horas.\n\nNon mesturas pezas de myOrbit 2.0 coas da xeración anterior: podería haber fugas.\n\nEmpeza desconectándote o catéter do corpo.',
+  'Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".\n\nDespués toca "Retraer varilla roscada" y confirma.':
+      'Abre o menú principal e toca a icona "Cambio de cartucho/reservorio e nivel actual do cartucho/reservorio".\n\nDespois toca "Retraer vareta roscada" e confirma.',
+  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.':
+      'Suxeita a bomba en vertical co compartimento cara arriba e mete un reservorio cargado ou un cartucho precargado compatible coa túa bomba.\n\nPon o adaptador en vertical e xírao en sentido horario ata oír o clic de bloqueo.',
+  'Lávate las manos y limpia la zona con alcohol isopropílico al 70 %. La piel debe estar seca y sin vello.\n\nDespega la lámina protectora del adhesivo y quita el protector de la cánula.':
+      'Lava as mans e limpa a zona con alcohol isopropílico ao 70 %. A pel debe estar seca e sen pelo.\n\nDespega a lámina protectora do adhesivo e quita o protector da cánula.',
+  'El myOrbit Micro lleva una cánula de acero que se pone sin aguja introductora.\n\nSujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el myOrbit Inserter.':
+      'O myOrbit Micro leva unha cánula de aceiro que se pon sen agulla introdutora.\n\nSuxeita ben a zona e insire a cánula en vertical (90°). Podes usar o myOrbit Inserter.',
+  'Llenar la cánula depende de la generación de tu catéter (mira la caja):\n\n• myOrbit Micro 2.0: NO hace falta, la cánula de acero necesita muy poca insulina.\n• myOrbit Micro (1.ª generación): menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indiquen sus instrucciones.':
+      'Encher a cánula depende da xeración do teu catéter (mira a caixa):\n\n• myOrbit Micro 2.0: NON fai falta, a cánula de aceiro precisa moi pouca insulina.\n• myOrbit Micro (1.ª xeración): menú principal → "Cebar kit de infusión" → "Cebar cánula", coa cantidade que indiquen as súas instrucións.',
+  'Menú principal, icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio", y después "Retraer varilla roscada". Confirma.\n\nEspera a que baje al 0 % y termine la autocomprobación antes de seguir.':
+      'Menú principal, icona "Cambio de cartucho/reservorio e nivel actual do cartucho/reservorio", e despois "Retraer vareta roscada". Confirma.\n\nAgarda a que baixe ao 0 % e remate a autocomprobación antes de seguir.',
+  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic.':
+      'Suxeita a bomba en vertical co compartimento cara arriba e mete un reservorio cargado ou un cartucho precargado compatible coa túa bomba.\n\nPon o adaptador en vertical e xírao en sentido horario ata oír o clic.',
+  'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSi NO hay burbujas en el cartucho, basta con el volumen mínimo. Si las hay, usa el volumen que indique tu catéter hasta eliminarlas.':
+      'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSe NON hai burbullas no cartucho, abonda co volume mínimo. Se as hai, usa o volume que indique o teu catéter ata eliminalas.',
+  'Mide tu glucosa ahora que has estado desconectado y otra vez unas 2 o 3 horas después de volver a conectarte.':
+      'Mide a glicosa agora que estiveches desconectado e outra vez unhas 2 ou 3 horas despois de volver conectarte.',
+  'Cambia el Pod como mínimo cada 2 o 3 días (48 a 72 horas), o antes si te lo indica tu equipo médico.\n\nReúne el material: el vial de insulina de acción rápida, un Pod Omnipod 5 sin abrir y toallitas de alcohol. Si la insulina o el Pod están fríos, deja que se atemperen antes de seguir.':
+      'Cambia o Pod como mínimo cada 2 ou 3 días (48 a 72 horas), ou antes se cho indica o teu equipo médico.\n\nReúne o material: o vial de insulina de acción rápida, un Pod Omnipod 5 sen abrir e toalliñas de alcohol. Se a insulina ou o Pod están fríos, deixa que se atemperen antes de seguir.',
+  'Comprueba que es un Pod Omnipod 5 y que en la tapa de su bandeja aparece el sensor que usas.\n\nLávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.':
+      'Comproba que é un Pod Omnipod 5 e que na tapa da súa bandexa aparece o sensor que usas.\n\nLava as mans con auga e xabón e limpa o tapón do vial cunha toalliña de alcohol.',
+  'Desactiva el Pod anterior: Inicio → pestaña INFO DEL POD → VER DETALLES DEL POD → CAMBIAR POD → DESACTIVAR POD.\n\nDespega despacio los bordes del adhesivo para irritar menos la piel y mira que la zona no tenga signos de infección.':
+      'Desactiva o Pod anterior: Inicio → pestana INFO DO POD → VER DETALLES DO POD → CAMBIAR POD → DESACTIVAR POD.\n\nDespega amodo os bordos do adhesivo para irritar menos a pel e mira que a zona non teña signos de infección.',
+  'En el Controlador, toca CONFIGURAR UN NUEVO POD.':
+      'No Controlador, toca CONFIGURAR UN NOVO POD.',
+  'Saca la aguja y la jeringa de llenado. Puedes dejar el Pod en su bandeja durante el llenado y la activación.\n\nEnrosca la aguja en la jeringa y quita el capuchón tirando hacia fuera.':
+      'Saca a agulla e a xeringa de enchido. Podes deixar o Pod na súa bandexa durante o enchido e a activación.\n\nEnrosca a agulla na xeringa e quita o capuchón tirando cara a fóra.',
+  'Decide con tu equipo médico cuánta insulina poner en el Pod.\n\nLlena la jeringa de AIRE hasta esa cantidad: ese aire va al vial, NUNCA al Pod. La insulina tiene que llegar al menos hasta la línea MÍN de la jeringa.':
+      'Decide co teu equipo médico canta insulina poñer no Pod.\n\nEnche a xeringa de AIRE ata esa cantidade: ese aire vai ao vial, NUNCA ao Pod. A insulina ten que chegar polo menos ata a liña MÍN da xeringa.',
+  'Clava la aguja en el vial y empuja el émbolo para meter el aire.\n\nDale la vuelta al conjunto y tira del émbolo para pasar la insulina a la jeringa. Da golpecitos para que las burbujas suban y empújalas de vuelta al vial.':
+      'Crava a agulla no vial e empurra o émbolo para meter o aire.\n\nDálle a volta ao conxunto e tira do émbolo para pasar a insulina á xeringa. Dá golpiños para que as burbullas suban e empúxaas de volta ao vial.',
+  'Saca la aguja del vial y métela en el puerto de llenado, en vertical y no inclinada. Una flecha en la parte de abajo del Pod señala dónde está.\n\nEmpuja el émbolo hasta vaciar la jeringa.\n\nADVERTENCIA: si notas mucha resistencia al empujar, no uses ese Pod ni fuerces la insulina.':
+      'Saca a agulla do vial e métea no porto de enchido, en vertical e non inclinada. Unha frecha na parte de abaixo do Pod sinala onde está.\n\nEmpurra o émbolo ata baleirar a xeringa.\n\nADVERTENCIA: se notas moita resistencia ao empurrar, non uses ese Pod nin forces a insulina.',
+  'Mientras se llena, el Pod emitirá DOS PITIDOS: ya tiene la insulina mínima para funcionar. Vacía la jeringa del todo aunque ya haya pitado.\n\nSi lo has llenado y no pita, llama a Atención al cliente. Tira la aguja a un contenedor de objetos punzantes.':
+      'Mentres se enche, o Pod emitirá DOUS PITIDOS: xa ten a insulina mínima para funcionar. Baleira a xeringa de todo aínda que xa pitase.\n\nSe o encheches e non pita, chama a Atención ao cliente. Bota a agulla nun contedor de obxectos punzantes.',
+  'Sigue enseguida: si pasan dos horas desde que lo llenas sin activarlo, el Pod ya no sirve.\n\nCon el Pod en su bandeja, pon el Controlador en contacto con él y toca SIGUIENTE. Espera al tono que indica que el Pod está activado y listo para colocarlo.':
+      'Segue axiña: se pasan dúas horas desde que o enches sen activalo, o Pod xa non serve.\n\nCo Pod na súa bandexa, pon o Controlador en contacto con el e toca SEGUINTE. Agarda ao ton que indica que o Pod está activado e listo para colocalo.',
+  'Elige la zona respetando estas distancias mínimas:\n\n• 8 cm de un sensor Dexcom, o 2,5 cm de un sensor FreeStyle Libre 2 Plus\n• 2,5 cm del sitio del Pod anterior\n• 5 cm del ombligo\n\nEl Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunicarse sin que tu cuerpo tape la señal.':
+      'Escolle a zona respectando estas distancias mínimas:\n\n• 8 cm dun sensor Dexcom, ou 2,5 cm dun sensor FreeStyle Libre 2 Plus\n• 2,5 cm do sitio do Pod anterior\n• 5 cm do embigo\n\nO Pod e o sensor deben ir no mesmo lado do corpo, para que poidan comunicarse sen que o teu corpo tape o sinal.',
+  'Busca una zona con algo de grasa, fácil de ver y de alcanzar. Evita lunares, tatuajes, cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.\n\nLava la zona con agua y jabón, sécala y desinféctala con una toallita de alcohol, en círculos del centro hacia fuera. Deja que se seque al aire, sin soplar.':
+      'Busca unha zona con algo de graxa, fácil de ver e de alcanzar. Evita lunares, tatuaxes, cicatrices, zonas con infección, pregamentos de pel e sitios onde o cinto ou a roupa axustada poidan rozar o Pod.\n\nLava a zona con auga e xabón, sécaa e desinféctaa cunha toalliña de alcohol, en círculos do centro cara a fóra. Deixa que se seque ao aire, sen soprar.',
+  'Quita la pestaña del Pod tirando hacia arriba desde su borde plano. Después despega el papel blanco del adhesivo sin que se doble.\n\nSi el Pod se ha caído, está húmedo o sucio, el adhesivo está doblado o la cánula sobresale del adhesivo, toca CANCELAR y usa otro Pod.':
+      'Quita a pestana do Pod tirando cara a arriba desde o seu bordo plano. Despois despega o papel branco do adhesivo sen que se dobre.\n\nSe o Pod caeu, está húmido ou sucio, o adhesivo está dobrado ou a cánula sobresae do adhesivo, toca CANCELAR e usa outro Pod.',
+  'Pega el Pod presionando con firmeza: en horizontal o en diagonal en abdomen, cadera, parte baja de la espalda o glúteos; en vertical o algo inclinado en el brazo o el muslo.\n\nSi la zona es delgada, pellizca la piel alrededor del Pod. Toca INICIAR para que salga la cánula.':
+      'Pega o Pod presionando con firmeza: en horizontal ou en diagonal no abdome, cadeira, parte baixa das costas ou glúteos; en vertical ou algo inclinado no brazo ou na coxa.\n\nSe a zona é delgada, belisca a pel arredor do Pod. Toca INICIAR para que saia a cánula.',
+  'Confirma en el Controlador que el Pod está bien pegado. Mira por la ventanita que se ve la cánula azul claro y la zona rosada y, si es así, toca SÍ.\n\nRevisa la zona del Pod al menos una vez al día por si hay dolor, hinchazón, enrojecimiento o calor.':
+      'Confirma no Controlador que o Pod está ben pegado. Mira pola xanela que se ve a cánula azul claro e a zona rosada e, se é así, toca SI.\n\nRevisa a zona do Pod polo menos unha vez ao día por se hai dor, inchazón, vermelhidade ou calor.',
+  'El myInset lleva el catéter dentro de su propio insertador: viene montado y listo para usar.\n\nCámbialo cada dos o tres días, o cuando te diga tu equipo médico. La primera vez, úsalo con un profesional sanitario delante.\n\nEmpieza desconectándote del cuerpo el catéter usado.':
+      'O myInset leva o catéter dentro do seu propio insertador: vén montado e listo para usar.\n\nCámbiao cada dous ou tres días, ou cando cho diga o teu equipo médico. A primeira vez, úsao cun profesional sanitario diante.\n\nEmpeza desconectándote do corpo o catéter usado.',
+  'Lávate las manos.\n\nAbre el myInset: tira del adhesivo rojo para quitar el precinto y retira el papel estéril.':
+      'Lava as mans.\n\nAbre o myInset: tira do adhesivo vermello para quitar o precinto e retira o papel estéril.',
+  'Presiona con una mano los tres puntos en relieve de cada lado de la tapa y levanta la tapa con la otra.\n\nPRECAUCIÓN: no dobles ni toques la aguja de inserción.':
+      'Preme cunha man os tres puntos en relevo de cada lado da tapa e levanta a tapa coa outra.\n\nPRECAUCIÓN: non dobres nin toques a agulla de inserción.',
+  'Desenrolla el tubo: saca con cuidado el principio del tubo de su ranura y desenróllalo tirando suavemente hacia arriba.\n\nNo tires fuerte al final: podrías separar el catéter de la aguja. Comprueba que el catéter sigue bien colocado en el insertador.':
+      'Desenrola o tubo: saca con coidado o principio do tubo da súa rañura e desenrólao tirando suavemente cara a arriba.\n\nNon tires forte ao final: poderías separar o catéter da agulla. Comproba que o catéter segue ben colocado no insertador.',
+  'Mientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas.\n\nSujeta el myInset con la aguja hacia abajo, para que la insulina no moje el papel del adhesivo. Repite hasta que no quede aire y salga insulina.':
+      'Mentres se enche, mantén a bomba en vertical co adaptador cara a arriba e golpéaa suavemente contra a palma para que suban as burbullas.\n\nSuxeita o myInset coa agulla cara a abaixo, para que a insulina non molle o papel do adhesivo. Repite ata que non quede aire e saia insulina.',
+  'Elige la zona que te haya recomendado tu equipo médico, pero no justo al lado de la anterior.\n\nLímpiala con el desinfectante que te hayan indicado y espera a que esté seca.':
+      'Escolle a zona que che recomendase o teu equipo médico, pero non xusto ao lado da anterior.\n\nLímpaa co desinfectante que che indicasen e agarda a que estea seca.',
+  'Tira suavemente hacia arriba para quitar el papel protector del adhesivo.\n\nPrepara el insertador: pon los dedos sobre los agujeros alargados de los dos lados, presiónalos y tira del resorte hasta oír un CLIC.':
+      'Tira suavemente cara a arriba para quitar o papel protector do adhesivo.\n\nPrepara o insertador: pon os dedos sobre os buratos alongados dos dous lados, prémeos e tira do resorte ata oír un CLIC.',
+  'Quita con cuidado el protector de la aguja, girándolo y tirando. Comprueba que la cánula blanda no sobresale de la aguja.\n\nMete el tubo en su ranura, para que no quede atrapado debajo al insertar.':
+      'Quita con coidado o protector da agulla, xirándoo e tirando. Comproba que a cánula branda non sobresae da agulla.\n\nMete o tubo na súa rañura, para que non quede atrapado debaixo ao inserir.',
+  'Apoya el myInset sobre la zona y presiona a la vez los agujeros redondos de los dos lados para insertarlo.\n\nADVERTENCIA: nunca apuntes el insertador cargado hacia una parte del cuerpo donde no quieras ponerlo.':
+      'Apoia o myInset sobre a zona e preme á vez os buratos redondos dos dous lados para inserilo.\n\nADVERTENCIA: nunca apuntes o insertador cargado cara a unha parte do corpo onde non queiras poñelo.',
+  'Aprieta suavemente el centro del insertador para fijar el adhesivo.\n\nQuita el insertador y la aguja agarrándolo por el centro y tirando suavemente hacia atrás. Masajea el adhesivo para que quede bien pegado.':
+      'Aperta suavemente o centro do insertador para fixar o adhesivo.\n\nQuita o insertador e a agulla agarrándoo polo centro e tirando suavemente cara a atrás. Masaxea o adhesivo para que quede ben pegado.',
+  'Si la cánula blanda se ha doblado al insertarla, pon enseguida un myInset nuevo en otro sitio.':
+      'Se a cánula branda se dobrou ao inserila, pon axiña un myInset novo noutro sitio.',
+  'Menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indican las instrucciones de tu catéter.\n\nDespués vuelve a poner la tapa del insertador hasta que haga clic y tíralo a un contenedor de objetos punzantes.':
+      'Menú principal → "Cebar kit de infusión" → "Cebar cánula", coa cantidade que indican as instrucións do teu catéter.\n\nDespois volve poñer a tapa do insertador ata que faga clic e bótao nun contedor de obxectos punzantes.',
+  'Mide tu glucosa entre 1 y 3 horas después de poner el catéter.\n\nPor eso, no lo cambies justo antes de irte a dormir, salvo que puedas medirte en ese tiempo.':
+      'Mide a glicosa entre 1 e 3 horas despois de poñer o catéter.\n\nPor iso, non o cambies xusto antes de irte durmir, salvo que poidas medirte nese tempo.',
+  'El sensor FreeStyle Libre 2 Plus dura hasta 15 días.\n\nCon Omnipod 5 tienes que iniciarlo desde la Aplicación Omnipod 5 del Controlador. Si lo inicias con otro dispositivo (un lector o el móvil), el Pod no podrá conectarse a él.':
+      'O sensor FreeStyle Libre 2 Plus dura ata 15 días.\n\nCon Omnipod 5 tes que inicialo desde a Aplicación Omnipod 5 do Controlador. Se o inicias con outro dispositivo (un lector ou o móbil), o Pod non poderá conectarse a el.',
+  'No lo uses si el paquete o el aplicador están dañados o abiertos, o si ha pasado la fecha de caducidad.\n\nComprueba que el código del paquete del sensor coincide con el del aplicador, y que en la tapa de la bandeja del Pod pone FreeStyle Libre 2 Plus.':
+      'Non o uses se o paquete ou o aplicador están danados ou abertos, ou se pasou a data de caducidade.\n\nComproba que o código do paquete do sensor coincide co do aplicador, e que na tapa da bandexa do Pod pon FreeStyle Libre 2 Plus.',
+  'ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo, en un sitio que se mantenga plano al moverte.\n\nEvita cicatrices, lunares, estrías, bultos y los sitios donde te pinchas insulina. Cambia de sitio en cada sensor.':
+      'ZONA DE COLOCACIÓN: só a parte de atrás da parte superior do brazo, nun sitio que se manteña plano ao moverte.\n\nEvita cicatrices, lunares, estrías, bultos e os sitios onde te pinchas insulina. Cambia de sitio en cada sensor.',
+  'Ponlo en el mismo lado del cuerpo que el Pod y al menos a 2,5 cm de él, para que se comuniquen sin que el cuerpo tape la señal.':
+      'Ponlo no mesmo lado do corpo que o Pod e polo menos a 2,5 cm del, para que se comuniquen sen que o corpo tape o sinal.',
+  'Lava la zona con agua y un jabón sin crema ni perfume, sécala y desinféctala con una toallita de alcohol.\n\nEspera a que se seque al aire antes de seguir.':
+      'Lava a zona con auga e un xabón sen crema nin perfume, sécaa e desinféctaa cunha toalliña de alcohol.\n\nAgarda a que se seque ao aire antes de seguir.',
+  'Abre el paquete del sensor despegando la tapa y desenrosca el capuchón del aplicador.\n\nAlinea la marca oscura del aplicador con la del paquete y, sobre una superficie dura, presiona con firmeza hasta que se detenga. Después levanta el aplicador.':
+      'Abre o paquete do sensor despegando a tapa e desenrosca o capuchón do aplicador.\n\nAliña a marca escura do aplicador coa do paquete e, sobre unha superficie dura, preme con firmeza ata que se deteña. Despois levanta o aplicador.',
+  'PRECAUCIÓN: el aplicador ya tiene una aguja. No toques su interior ni lo vuelvas a meter en el paquete.\n\nColócalo sobre la zona preparada y presiona con firmeza. No lo presiones antes de tenerlo colocado.':
+      'PRECAUCIÓN: o aplicador xa ten unha agulla. Non toques o seu interior nin o volvas meter no paquete.\n\nColócao sobre a zona preparada e preme con firmeza. Non o premas antes de telo colocado.',
+  'Retira suavemente el aplicador. Presiona el sensor y pasa el dedo por el adhesivo para que quede bien pegado.\n\nSi sangra y no para, quita el sensor y pon uno nuevo en otro sitio. Vuelve a poner el capuchón al aplicador y tíralo.':
+      'Retira suavemente o aplicador. Preme o sensor e pasa o dedo polo adhesivo para que quede ben pegado.\n\nSe sangra e non para, quita o sensor e pon un novo noutro sitio. Volve poñer o capuchón ao aplicador e bótao.',
+  'En la Aplicación Omnipod 5, toca AÑADIR SENSOR. Si estás en Modo Automatizado, te pedirá pasar a Modo Manual.\n\nAntes te pedirá revisar los ajustes del sensor: los avisos de Glucosa alta, Glucosa baja y Valores del sensor no recibidos.':
+      'Na Aplicación Omnipod 5, toca ENGADIR SENSOR. Se estás en Modo Automatizado, pedirache pasar a Modo Manual.\n\nAntes pedirache revisar os axustes do sensor: os avisos de Glicosa alta, Glicosa baixa e Valores do sensor non recibidos.',
+  'Escanea el sensor acercando el tercio inferior del Controlador y no lo muevas hasta que vibre. Se puede escanear a través de la ropa.\n\nCuando termine, toca OK: no hace falta volver a escanearlo hasta el próximo sensor.':
+      'Escanea o sensor achegando o terzo inferior do Controlador e non o movas ata que vibre. Pódese escanear a través da roupa.\n\nCando remate, toca OK: non fai falta volver escanealo ata o próximo sensor.',
+  'Empieza el calentamiento: 1 HORA. Puedes ver cómo avanza en la pantalla principal.\n\nDespués, el Pod recibe un valor nuevo cada 5 minutos y ya puedes usar el Modo Automatizado.':
+      'Comeza o quecemento: 1 HORA. Podes ver como avanza na pantalla principal.\n\nDespois, o Pod recibe un valor novo cada 5 minutos e xa podes usar o Modo Automatizado.',
+  'El sensor Instinct dura hasta 15 días. Con la MiniMed 780G se inicia SIEMPRE con la app MiniMed Mobile, que tiene que estar emparejada con la bomba.\n\nTen a mano una toallita de alcohol isopropílico al 70 %: no viene en la caja.':
+      'O sensor Instinct dura ata 15 días. Coa MiniMed 780G iníciase SEMPRE coa app MiniMed Mobile, que ten que estar emparellada coa bomba.\n\nTen a man unha toalliña de alcohol isopropílico ao 70 %: non vén na caixa.',
+  'No lo uses si el envase o el aplicador están dañados, o si la etiqueta de precinto indica que ya se ha abierto.\n\nSi tomas suplementos de vitamina C, consulta a tu equipo médico: en dosis altas pueden dar lecturas falsamente altas.':
+      'Non o uses se o envase ou o aplicador están danados, ou se a etiqueta de precinto indica que xa se abriu.\n\nSe tomas suplementos de vitamina C, consulta o teu equipo médico: en doses altas poden dar lecturas falsamente altas.',
+  'ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo. En otro sitio puede dar lecturas erróneas.\n\nElige piel que se mantenga plana al moverte, sin cicatrices, lunares, estrías ni bultos, al menos a 2,5 cm de donde te pinchas insulina y distinta de la última vez.':
+      'ZONA DE COLOCACIÓN: só a parte de atrás da parte superior do brazo. Noutro sitio pode dar lecturas erróneas.\n\nEscolle pel que se manteña plana ao moverte, sen cicatrices, lunares, estrías nin bultos, polo menos a 2,5 cm de onde te pinchas insulina e distinta da última vez.',
+  'Para que la conexión sea mejor, lleva la bomba y el sensor en el mismo lado del cuerpo.':
+      'Para que a conexión sexa mellor, leva a bomba e o sensor no mesmo lado do corpo.',
+  'Lava la zona con jabón normal, sécala y límpiala con la toallita de alcohol. Deja que se seque al aire.\n\nLa zona TIENE que estar limpia y seca: si no, el sensor puede despegarse antes de tiempo.':
+      'Lava a zona con xabón normal, sécaa e límpaa coa toalliña de alcohol. Deixa que se seque ao aire.\n\nA zona TEN que estar limpa e seca: se non, o sensor pode despegarse antes de tempo.',
+  'Con la bomba en la pantalla de inicio, abre la app MiniMed Mobile: menú → Iniciar sensor → "Sí, Instinct".\n\nLa app te irá diciendo cuándo poner el sensor y cuándo escanearlo.':
+      'Coa bomba na pantalla de inicio, abre a app MiniMed Mobile: menú → Iniciar sensor → "Si, Instinct".\n\nA app iráche dicindo cando poñer o sensor e cando escanealo.',
+  'Desenrosca el capuchón del aplicador y apártalo.\n\nPRECAUCIÓN: no lo vuelvas a poner antes de usarlo (podrías dañar el sensor) y no toques el interior: tiene una aguja.':
+      'Desenrosca o capuchón do aplicador e apártao.\n\nPRECAUCIÓN: non o volvas poñer antes de usalo (poderías danar o sensor) e non toques o interior: ten unha agulla.',
+  'Coloca el aplicador sobre la zona preparada y presiona con firmeza.\n\nPRECAUCIÓN: no presiones hasta tenerlo colocado sobre la zona.':
+      'Coloca o aplicador sobre a zona preparada e preme con firmeza.\n\nPRECAUCIÓN: non premas ata telo colocado sobre a zona.',
+  'Retira suavemente el aplicador y comprueba que el sensor queda bien sujeto.\n\nSi sangra y no para, quita el sensor y habla con tu equipo médico. Vuelve a poner el capuchón al aplicador usado y tíralo según la normativa de tu zona.':
+      'Retira suavemente o aplicador e comproba que o sensor queda ben suxeito.\n\nSe sangra e non para, quita o sensor e fala co teu equipo médico. Volve poñer o capuchón ao aplicador usado e bótao segundo a normativa da túa zona.',
+  'Escanea el sensor acercando el móvil hasta que pite o vibre. Después el sensor se empareja con la bomba: suele tardar 2 minutos y como mucho 5.\n\nAl iniciar un sensor nuevo, el anterior se desempareja solo.':
+      'Escanea o sensor achegando o móbil ata que pite ou vibre. Despois o sensor emparéllase coa bomba: adoita tardar 2 minutos e como moito 5.\n\nAo iniciar un sensor novo, o anterior desemparéllase só.',
+  'Espera el calentamiento: 1 HORA. La bomba muestra la cuenta atrás en la pantalla de inicio.\n\nLas primeras 12 horas las lecturas pueden variar más: si no cuadran con cómo te encuentras, confírmalas con el medidor.':
+      'Agarda o quecemento: 1 HORA. A bomba mostra a conta atrás na pantalla de inicio.\n\nAs primeiras 12 horas as lecturas poden variar máis: se non cadran con como te atopas, confírmaas co medidor.',
+  'El sensor FreeStyle Libre 3 dura hasta 14 días y el Libre 3 Plus, hasta 15 días.\n\nMira en la caja cuál es el tuyo.':
+      'O sensor FreeStyle Libre 3 dura ata 14 días e o Libre 3 Plus, ata 15 días.\n\nMira na caixa cal é o teu.',
+  'Inicia el sensor con el dispositivo que vayas a usar (el lector o la aplicación del móvil) y escanéalo acercándolo al sensor.\n\nUsa siempre ese mismo dispositivo: un sensor iniciado con otro no se puede leer ("Sensor ya en uso").':
+      'Inicia o sensor co dispositivo que vaias usar (o lector ou a aplicación do móbil) e escanéao achegándoo ao sensor.\n\nUsa sempre ese mesmo dispositivo: un sensor iniciado con outro non se pode ler ("Sensor xa en uso").',
 };

@@ -1,7 +1,9 @@
 /// GUÍAS DE CAMBIO DE CATÉTER Y RESERVORIO
 ///
-/// Fuentes: manuales oficiales de Medtronic MiniMed 780G, Tandem t:slim X2,
-/// Omnipod 5 y mylife YpsoPump.
+/// Fuentes: manuales oficiales de Medtronic MiniMed 780G y Tandem t:slim X2;
+/// guía técnica de Omnipod 5 (España, 2026); guía del usuario de YpsoPump
+/// (REF 700012540, edición española) e instrucciones de uso de myOrbit Soft
+/// y myOrbit Micro (1.ª generación y 2.0) y de myInset.
 library;
 
 import '../modelos/paso.dart';
@@ -16,6 +18,7 @@ const Set<String> guiasCateterPorRevisar = {
   'bmedtronic_csuret',
   'bomnipod_cpod',
   'bypsopump_corbit',
+  'bypsopump_corbitmicro',
   'bypsopump_cinset',
   'btandem_cautosoft90',
   'btandem_cautosoft30',
@@ -476,21 +479,28 @@ Presiona el adhesivo con firmeza contra la piel.''',
     (Fases.reservorio, 5),
     (Fases.cebado, 1),
     (Fases.zona, 2),
-    (Fases.insercion, 2),
+    (Fases.insercion, 3),
   ]),
   'bypsopump_corbit': porTramos(_orbitBase, const [
     (Fases.preparacion, 4),
     (Fases.reservorio, 2),
     (Fases.cebado, 3),
     (Fases.insercion, 7),
-    (Fases.cierre, 1),
+    (Fases.cierre, 2),
   ]),
-  'bypsopump_cinset': porTramos(_orbitMicroBase, const [
+  'bypsopump_corbitmicro': porTramos(_orbitMicroBase, const [
     (Fases.preparacion, 4),
     (Fases.reservorio, 1),
     (Fases.cebado, 2),
     (Fases.insercion, 4),
-    (Fases.cierre, 1),
+    (Fases.cierre, 2),
+  ]),
+  'bypsopump_cinset': porTramos(_insetBase, const [
+    (Fases.preparacion, 4),
+    (Fases.reservorio, 4),
+    (Fases.cebado, 2),
+    (Fases.insercion, 6),
+    (Fases.cierre, 2),
   ]),
 
   // ------------------------- TANDEM -------------------------
@@ -552,70 +562,71 @@ Fija el adhesivo principal presionándolo contra la piel.''',
   ],
 };
 
+// Guía técnica del usuario de Omnipod 5, edición para España (Rev. 01,
+// 2026-03-12), cap. 5 "Activación y cambio de Pod" (págs. 90-108).
 const List<Paso> _omnipodBase = [
   Paso(
     texto: '''
-Saca la insulina de la nevera un rato antes: tiene que estar a temperatura ambiente.
+Cambia el Pod como mínimo cada 2 o 3 días (48 a 72 horas), o antes si te lo indica tu equipo médico.
+
+Reúne el material: el vial de insulina de acción rápida, un Pod Omnipod 5 sin abrir y toallitas de alcohol. Si la insulina o el Pod están fríos, deja que se atemperen antes de seguir.''',
+  ),
+  Paso(
+    texto: '''
+Comprueba que es un Pod Omnipod 5 y que en la tapa de su bandeja aparece el sensor que usas.
 
 Lávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.''',
   ),
   Paso(
     texto: '''
-IMPORTANTE: no pongas un Pod nuevo hasta haber desactivado y quitado el anterior.
+Desactiva el Pod anterior: Inicio → pestaña INFO DEL POD → VER DETALLES DEL POD → CAMBIAR POD → DESACTIVAR POD.
 
-Para desactivarlo: INFORMACIÓN DEL POD → VER DETALLES DEL POD → CAMBIAR EL POD → DESACTIVAR POD.''',
+Despega despacio los bordes del adhesivo para irritar menos la piel y mira que la zona no tenga signos de infección.''',
   ),
+  Paso(texto: 'En el Controlador, toca CONFIGURAR UN NUEVO POD.'),
   Paso(
-    texto:
-        'Despega despacio los bordes del adhesivo y quita el Pod usado. '
-        'Hacerlo despacio irrita menos la piel.',
-  ),
-  Paso(
-    texto: 'En la aplicación o en el Controlador, toca CONFIGURAR NUEVO POD.',
+    texto: '''
+Saca la aguja y la jeringa de llenado. Puedes dejar el Pod en su bandeja durante el llenado y la activación.
+
+Enrosca la aguja en la jeringa y quita el capuchón tirando hacia fuera.''',
   ),
   Paso(
     texto: '''
-Saca la aguja y la jeringa de llenado de la bandeja del Pod, pero DEJA el Pod dentro de la bandeja durante toda la preparación.
+Decide con tu equipo médico cuánta insulina poner en el Pod.
 
-Enrosca la aguja en la jeringa y quita el capuchón tirando en línea recta.''',
+Llena la jeringa de AIRE hasta esa cantidad: ese aire va al vial, NUNCA al Pod. La insulina tiene que llegar al menos hasta la línea MÍN de la jeringa.''',
   ),
   Paso(
     texto: '''
-Llena la jeringa de AIRE hasta la cantidad de insulina que vayas a poner.
+Clava la aguja en el vial y empuja el émbolo para meter el aire.
 
-Ese aire va al vial, NUNCA al Pod. Ten en cuenta la línea MÍN marcada en la jeringa: la insulina tiene que llegar al menos hasta ahí.''',
+Dale la vuelta al conjunto y tira del émbolo para pasar la insulina a la jeringa. Da golpecitos para que las burbujas suban y empújalas de vuelta al vial.''',
   ),
   Paso(
     texto: '''
-Clava la aguja en el vial y empuja el émbolo para meter el aire en el vial.
+Saca la aguja del vial y métela en el puerto de llenado, en vertical y no inclinada. Una flecha en la parte de abajo del Pod señala dónde está.
 
-Con la jeringa aún en el vial, dale la vuelta al conjunto y tira despacio del émbolo. Da unos golpecitos para eliminar las burbujas.''',
+Empuja el émbolo hasta vaciar la jeringa.
+
+ADVERTENCIA: si notas mucha resistencia al empujar, no uses ese Pod ni fuerces la insulina.''',
   ),
   Paso(
     texto: '''
-Saca la aguja del vial e insértala directamente en el puerto de llenado del Pod.
+Mientras se llena, el Pod emitirá DOS PITIDOS: ya tiene la insulina mínima para funcionar. Vacía la jeringa del todo aunque ya haya pitado.
 
-Una flecha en el papel blanco de la parte de atrás señala dónde está. Empuja el émbolo despacio hasta llenarlo del todo.
-
-Si notas resistencia al empujar, no uses ese Pod.''',
+Si lo has llenado y no pita, llama a Atención al cliente. Tira la aguja a un contenedor de objetos punzantes.''',
   ),
   Paso(
     texto: '''
-El Pod emitirá DOS PITIDOS.
+Sigue enseguida: si pasan dos horas desde que lo llenas sin activarlo, el Pod ya no sirve.
 
-Esa es la señal de que está lleno y listo para continuar. Si no pita, no lo uses: cámbialo por otro.''',
-  ),
-  Paso(
-    texto: '''
-Con el Pod todavía en la bandeja, acércalo al Controlador y toca SIGUIENTE.
-
-El sistema hará unas comprobaciones de seguridad y llenará el Pod de forma automática (esto se llama cebar). Espera a que termine.''',
+Con el Pod en su bandeja, pon el Controlador en contacto con él y toca SIGUIENTE. Espera al tono que indica que el Pod está activado y listo para colocarlo.''',
   ),
   Paso(
     texto: '''
 Elige la zona respetando estas distancias mínimas:
 
-• 8 cm de tu sensor Dexcom
+• 8 cm de un sensor Dexcom, o 2,5 cm de un sensor FreeStyle Libre 2 Plus
 • 2,5 cm del sitio del Pod anterior
 • 5 cm del ombligo
 
@@ -623,34 +634,45 @@ El Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunic
   ),
   Paso(
     texto: '''
-Evita lunares, tatuajes y cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.
+Busca una zona con algo de grasa, fácil de ver y de alcanzar. Evita lunares, tatuajes, cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.
 
-Busca una zona con algo de grasa y fácil de alcanzar.''',
-  ),
-  Paso(
-    texto:
-        'Quita los papeles de los adhesivos, pega el Pod sobre la piel y '
-        'sigue las instrucciones de la pantalla para que salga la cánula.',
+Lava la zona con agua y jabón, sécala y desinféctala con una toallita de alcohol, en círculos del centro hacia fuera. Deja que se seque al aire, sin soplar.''',
   ),
   Paso(
     texto: '''
-Mira por la ventanita del Pod que la cánula ha quedado bien puesta y confírmalo en el Controlador.
+Quita la pestaña del Pod tirando hacia arriba desde su borde plano. Después despega el papel blanco del adhesivo sin que se doble.
 
-Mide tu glucosa a la hora y media del cambio, aproximadamente.''',
+Si el Pod se ha caído, está húmedo o sucio, el adhesivo está doblado o la cánula sobresale del adhesivo, toca CANCELAR y usa otro Pod.''',
+  ),
+  Paso(
+    texto: '''
+Pega el Pod presionando con firmeza: en horizontal o en diagonal en abdomen, cadera, parte baja de la espalda o glúteos; en vertical o algo inclinado en el brazo o el muslo.
+
+Si la zona es delgada, pellizca la piel alrededor del Pod. Toca INICIAR para que salga la cánula.''',
+  ),
+  Paso(
+    texto: '''
+Confirma en el Controlador que el Pod está bien pegado. Mira por la ventanita que se ve la cánula azul claro y la zona rosada y, si es así, toca SÍ.
+
+Revisa la zona del Pod al menos una vez al día por si hay dolor, hinchazón, enrojecimiento o calor.''',
   ),
 ];
 
 // ------------------------- YPSOPUMP -------------------------
+// Guía del usuario de YpsoPump, cap. 5 (págs. 92-118), e instrucciones de uso
+// de myOrbit Soft / Soft 2.0 y myOrbit Micro / Micro 2.0.
 const List<Paso> _orbitBase = [
   Paso(
     texto: '''
-El catéter Orbit soft no debe usarse durante más de 72 horas.
+El catéter myOrbit Soft no debe usarse durante más de 72 horas.
+
+No mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.
 
 Empieza desconectándote el catéter del cuerpo.''',
   ),
   Paso(
     texto: '''
-Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".
+Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".
 
 Después toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.''',
   ),
@@ -670,7 +692,7 @@ Saca de la bomba el cartucho vacío.''',
     texto:
         'Sujeta la bomba en vertical, con el orificio del compartimento '
         'hacia arriba, y mete un reservorio cargado por ti o un cartucho '
-        'precargado que sea compatible con tu YpsoPump.',
+        'precargado compatible con tu bomba.',
   ),
   Paso(
     texto: '''
@@ -682,7 +704,7 @@ Oirás un ligero clic o notarás un tope.''',
     texto: '''
 Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)
 
-Elige el volumen que indican las instrucciones de tu catéter Orbit y confirma.''',
+Elige el volumen que indican las instrucciones de tu catéter myOrbit y confirma: cambia entre la 1.ª generación y la 2.0.''',
   ),
   Paso(
     texto: '''
@@ -700,7 +722,7 @@ El volumen que indica el catéter es solo una referencia: puede hacer falta llen
     texto: '''
 Lávate bien las manos.
 
-Limpia la zona con una toallita de alcohol isopropílico. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.''',
+Limpia la zona con una toallita de alcohol isopropílico al 70 %. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.''',
   ),
   Paso(
     texto: '''
@@ -712,7 +734,7 @@ Después quita el protector de la cánula.''',
     texto: '''
 Sujeta bien la zona e inserta la cánula en vertical (90°).
 
-Puedes usar el insertador mylife Orbit para que entre con más facilidad.''',
+Puedes usar el myOrbit Inserter para que entre con más facilidad.''',
   ),
   Paso(
     texto:
@@ -742,18 +764,29 @@ Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar cánula
 
 Elige la cantidad que indican las instrucciones de tu catéter y confirma.''',
   ),
+  _orbitGlucemia,
 ];
+
+/// Las instrucciones de myOrbit piden medir la glucemia 2-3 horas después.
+const Paso _orbitGlucemia = Paso(
+  texto: '''
+Mide tu glucosa entre 2 y 3 horas después de poner el catéter, para comprobar que la insulina entra bien.
+
+Por eso, no cambies el catéter justo antes de irte a dormir.''',
+);
 
 const List<Paso> _orbitMicroBase = [
   Paso(
     texto: '''
-El catéter Orbit micro lleva cánula de acero y no debe usarse durante más de 48 horas.
+El catéter myOrbit Micro lleva cánula de acero y no debe usarse durante más de 48 horas.
+
+No mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.
 
 Empieza desconectándote el catéter del cuerpo.''',
   ),
   Paso(
     texto: '''
-Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".
+Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".
 
 Después toca "Retraer varilla roscada" y confirma.''',
   ),
@@ -770,7 +803,7 @@ NO insertes el cartucho antes de que acabe.''',
   ),
   Paso(
     texto: '''
-Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.
+Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.
 
 Pon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.''',
   ),
@@ -788,15 +821,15 @@ Repite hasta que no quede aire y salga insulina por el extremo del tubo.''',
   ),
   Paso(
     texto: '''
-Lávate las manos y limpia la zona con alcohol isopropílico. La piel debe estar seca y sin vello.
+Lávate las manos y limpia la zona con alcohol isopropílico al 70 %. La piel debe estar seca y sin vello.
 
 Despega la lámina protectora del adhesivo y quita el protector de la cánula.''',
   ),
   Paso(
     texto: '''
-El Orbit micro lleva una cánula de acero que se pone sin aguja introductora.
+El myOrbit Micro lleva una cánula de acero que se pone sin aguja introductora.
 
-Sujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el insertador mylife Orbit.''',
+Sujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el myOrbit Inserter.''',
   ),
   Paso(
     texto: '''
@@ -812,9 +845,125 @@ Gira el tubo al menos una vuelta completa en cada dirección tirando hacia arrib
   ),
   Paso(
     texto: '''
-Menú principal → "Cebar kit de infusión" → "Cebar cánula".
+Llenar la cánula depende de la generación de tu catéter (mira la caja):
 
-Elige la cantidad que indican las instrucciones de tu catéter.''',
+• myOrbit Micro 2.0: NO hace falta, la cánula de acero necesita muy poca insulina.
+• myOrbit Micro (1.ª generación): menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indiquen sus instrucciones.''',
+  ),
+  _orbitGlucemia,
+];
+
+/// myInset (antes YpsoPump Inset): catéter que viene montado dentro de su
+/// propio insertador. Instrucciones de uso V03 (2020-04), sección en español,
+/// y guía del usuario de YpsoPump, cap. 5.
+const List<Paso> _insetBase = [
+  Paso(
+    texto: '''
+El myInset lleva el catéter dentro de su propio insertador: viene montado y listo para usar.
+
+Cámbialo cada dos o tres días, o cuando te diga tu equipo médico. La primera vez, úsalo con un profesional sanitario delante.
+
+Empieza desconectándote del cuerpo el catéter usado.''',
+  ),
+  Paso(
+    texto: '''
+Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".
+
+Después toca "Retraer varilla roscada" y confirma.''',
+  ),
+  Paso(
+    texto: '''
+Espera a que la varilla se retraiga del todo (0 %) y a que termine la autocomprobación.
+
+NO insertes el cartucho antes de que acabe.''',
+  ),
+  Paso(
+    texto:
+        'Desconecta el catéter girando el adaptador en sentido antihorario '
+        'hasta el tope y saca el cartucho vacío.',
+  ),
+  Paso(
+    texto: '''
+Lávate las manos.
+
+Abre el myInset: tira del adhesivo rojo para quitar el precinto y retira el papel estéril.''',
+  ),
+  Paso(
+    texto: '''
+Presiona con una mano los tres puntos en relieve de cada lado de la tapa y levanta la tapa con la otra.
+
+PRECAUCIÓN: no dobles ni toques la aguja de inserción.''',
+  ),
+  Paso(
+    texto: '''
+Desenrolla el tubo: saca con cuidado el principio del tubo de su ranura y desenróllalo tirando suavemente hacia arriba.
+
+No tires fuerte al final: podrías separar el catéter de la aguja. Comprueba que el catéter sigue bien colocado en el insertador.''',
+  ),
+  Paso(
+    texto: '''
+Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.
+
+Pon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.''',
+  ),
+  Paso(
+    texto: '''
+Menú principal → "Cebar kit de infusión" → "Cebar tubo". (Cebar es llenar el tubo de insulina.)
+
+Elige el volumen que indican las instrucciones de tu catéter y confirma que estás desconectado.''',
+  ),
+  Paso(
+    texto: '''
+Mientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas.
+
+Sujeta el myInset con la aguja hacia abajo, para que la insulina no moje el papel del adhesivo. Repite hasta que no quede aire y salga insulina.''',
+  ),
+  Paso(
+    texto: '''
+Elige la zona que te haya recomendado tu equipo médico, pero no justo al lado de la anterior.
+
+Límpiala con el desinfectante que te hayan indicado y espera a que esté seca.''',
+  ),
+  Paso(
+    texto: '''
+Tira suavemente hacia arriba para quitar el papel protector del adhesivo.
+
+Prepara el insertador: pon los dedos sobre los agujeros alargados de los dos lados, presiónalos y tira del resorte hasta oír un CLIC.''',
+  ),
+  Paso(
+    texto: '''
+Quita con cuidado el protector de la aguja, girándolo y tirando. Comprueba que la cánula blanda no sobresale de la aguja.
+
+Mete el tubo en su ranura, para que no quede atrapado debajo al insertar.''',
+  ),
+  Paso(
+    texto: '''
+Apoya el myInset sobre la zona y presiona a la vez los agujeros redondos de los dos lados para insertarlo.
+
+ADVERTENCIA: nunca apuntes el insertador cargado hacia una parte del cuerpo donde no quieras ponerlo.''',
+  ),
+  Paso(
+    texto: '''
+Aprieta suavemente el centro del insertador para fijar el adhesivo.
+
+Quita el insertador y la aguja agarrándolo por el centro y tirando suavemente hacia atrás. Masajea el adhesivo para que quede bien pegado.''',
+  ),
+  Paso(
+    texto:
+        'Si la cánula blanda se ha doblado al insertarla, pon enseguida un '
+        'myInset nuevo en otro sitio.',
+  ),
+  Paso(
+    texto: '''
+Menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indican las instrucciones de tu catéter.
+
+Después vuelve a poner la tapa del insertador hasta que haga clic y tíralo a un contenedor de objetos punzantes.''',
+  ),
+  Paso(
+    texto: '''
+Mide tu glucosa entre 1 y 3 horas después de poner el catéter.
+
+Por eso, no lo cambies justo antes de irte a dormir, salvo que puedas medirte en ese tiempo.''',
   ),
 ];
 
@@ -826,13 +975,13 @@ final Map<String, List<Paso>> instruccionesSoloReservorio = {
     ...enFase(Fases.preparacion, const [
       Paso(
         texto: '''
-La YpsoPump permite cambiar el cartucho sin cambiar el catéter: son independientes.
+La bomba permite cambiar el cartucho sin cambiar el catéter: son independientes.
 
 Empieza desconectándote el catéter del cuerpo.''',
       ),
       Paso(
         texto: '''
-Menú principal, icono "Cambio de cartucho y nivel actual del cartucho", y después "Retraer varilla roscada". Confirma.
+Menú principal, icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio", y después "Retraer varilla roscada". Confirma.
 
 Espera a que baje al 0 % y termine la autocomprobación antes de seguir.''',
       ),
@@ -843,7 +992,7 @@ Espera a que baje al 0 % y termine la autocomprobación antes de seguir.''',
       ),
       Paso(
         texto: '''
-Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.
+Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.
 
 Pon el adaptador en vertical y gíralo en sentido horario hasta oír el clic.''',
       ),
@@ -871,8 +1020,8 @@ Como no has cambiado el catéter, no hace falta llenar la cánula.''',
       ),
       Paso(
         texto:
-            'Entre 1 y 3 horas después del cambio, mide tu glucosa con el '
-            'medidor.',
+            'Mide tu glucosa ahora que has estado desconectado y otra vez '
+            'unas 2 o 3 horas después de volver a conectarte.',
       ),
     ]),
   ],

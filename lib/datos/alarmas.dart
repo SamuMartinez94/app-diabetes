@@ -5,8 +5,9 @@
 /// han contrastado con ninguno y la app los marca como "en revisión".
 ///
 /// Fuentes: manuales oficiales de Tandem t:slim X2, MiniMed 780G (con
-/// Simplera Sync y Guardian 4), mylife YpsoPump, Omnipod 5, Dexcom G6, Dexcom
-/// G7 y la guía de inicio rápido del FreeStyle Libre 3. Cada fichero
+/// Simplera Sync, Guardian 4 e Instinct), YpsoPump, Omnipod 5 (guía técnica
+/// para España, con FreeStyle Libre 2 Plus), Dexcom G6, Dexcom G7 y el
+/// manual del lector FreeStyle Libre 3 y 3 Plus. Cada fichero
 /// `alarmas_*.dart` resume las fuentes que ha usado.
 library;
 

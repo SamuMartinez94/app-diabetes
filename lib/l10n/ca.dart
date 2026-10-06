@@ -56,24 +56,14 @@ const Map<String, String> traduccionesCa = {
   'Mientras estés en manual, vigila más tu glucosa.':
       'Mentre siguis en manual, vigila més la teva glucosa.',
   'Pod caducado': 'Pod caducat',
-  'Pon un Pod nuevo.': 'Posa un Pod nou.',
-  'Mide tu glucosa y comprueba las cetonas.':
-      'Mesura la teva glucosa i comprova les cetones.',
   'Cartucho vacío': 'Cartutx buit',
-  'A la YpsoPump se le ha acabado la insulina del cartucho y ha dejado de darte insulina.':
-      'A la YpsoPump se li ha acabat la insulina del cartutx i ha deixat de donar-te insulina.',
-  'cartucho, vacio, sin insulina': 'cartutx, buit, sense insulina',
   'Cambia el cartucho siguiendo la guía de cambio.':
       'Canvia el cartutx seguint la guia de canvi.',
   'Acuérdate de llenar el tubo (cebar) después de poner el cartucho nuevo.':
       'Recorda omplir el tub (purgar) després de posar el cartutx nou.',
   'Mide tu glucosa.': 'Mesura la teva glucosa.',
-  'La varilla no ha terminado de retraerse':
-      'La vareta no ha acabat de retreure\'s',
   'varilla, roscada, retraccion, cartucho antes':
       'vareta, roscada, retracció, cartutx abans',
-  'No hay insulina / Falta llenar el tubo (cebado)':
-      'No hi ha insulina / Falta omplir el tub (purga)',
   'no hay insulina, cebado, purgar, sin cebar':
       'no hi ha insulina, purga, purgar, sense purgar',
   'Confirma la alarma.': 'Confirma l\'alarma.',
@@ -82,14 +72,8 @@ const Map<String, String> traduccionesCa = {
   'Repite hasta que salga insulina por el extremo y no queden burbujas.':
       'Repeteix fins que surti insulina per l\'extrem i no quedin bombolles.',
   'Parada automática': 'Aturada automàtica',
-  'La bomba llevaba 24 horas encendida sin usarse y se ha puesto sola en parada. Se han cancelado todas las entregas de insulina que estaban en marcha.':
-      'La bomba feia 24 hores encesa sense usar-se i s\'ha posat sola en aturada. S\'han cancel·lat totes les entregues d\'insulina que estaven en marxa.',
   'parada, automatica, 24 horas, se paro sola':
       'aturada, automàtica, 24 hores, s\'ha aturat sola',
-  'Confirma la alarma y vuelve a poner la bomba en marcha.':
-      'Confirma l\'alarma i torna a posar la bomba en marxa.',
-  'Mide tu glucosa: has estado sin insulina de fondo.':
-      'Mesura la teva glucosa: has estat sense insulina de fons.',
   'Mira si tenías un bolo o una basal temporal en marcha, porque se han cancelado.':
       'Mira si tenies un bolus o una basal temporal en marxa, perquè s\'han cancel·lat.',
   'Error electrónico': 'Error electrònic',
@@ -103,9 +87,6 @@ const Map<String, String> traduccionesCa = {
   'Vuelve a ponerla en marcha y revisa todos tus ajustes.':
       'Torna-la a posar en marxa i revisa tots els teus ajustos.',
   'Cambia el cartucho y el catéter.': 'Canvia el cartutx i el catèter.',
-  'Si el error vuelve a aparecer, deja de usar la bomba, saca la pila y llama al fabricante.':
-      'Si l\'error torna a aparèixer, deixa d\'usar la bomba, treu la pila i truca al fabricant.',
-  'Pila no válida': 'Pila no vàlida',
   'La pila que has puesto tiene demasiado voltaje para la bomba.':
       'La pila que has posat té massa voltatge per a la bomba.',
   'pila, voltaje, no apta, incorrecta, bateria':
@@ -113,7 +94,6 @@ const Map<String, String> traduccionesCa = {
   'Confirma la alarma y saca la pila.': 'Confirma l\'alarma i treu la pila.',
   'Pon una pila alcalina AAA (LR03) nueva.':
       'Posa una pila alcalina AAA (LR03) nova.',
-  'No hay pila': 'No hi ha pila',
   'La pila alcalina lleva fuera de su hueco más de 5 minutos con la bomba en marcha.':
       'La pila alcalina fa més de 5 minuts que és fora del seu compartiment amb la bomba en marxa.',
   'sin pila, pila fuera, sin bateria': 'sense pila, pila fora, sense bateria',
@@ -124,17 +104,8 @@ const Map<String, String> traduccionesCa = {
   'Se ha perdido la señal del sensor': 'S\'ha perdut el senyal del sensor',
   'Mientras no haya lecturas, mídete con un pinchazo en el dedo.':
       'Mentre no hi hagi lectures, mesura\'t amb una punxada al dit.',
-  'Sensor caducado / Cambiar sensor': 'Sensor caducat / Canviar sensor',
-  'El sensor ha llegado al final de su vida útil y ha dejado de medir.':
-      'El sensor ha arribat al final de la seva vida útil i ha deixat de mesurar.',
-  'caducado, expirado, fin de vida, cambiar sensor':
-      'caducat, expirat, final de vida, canviar sensor',
-  'Quita el sensor y ponte uno nuevo.': 'Treu el sensor i posa\'t un de nou.',
   'Mira la guía de cambio de sensor de esta app.':
       'Mira la guia de canvi de sensor d\'aquesta app.',
-  'Aviso de glucosa alta': 'Avís de glucosa alta',
-  'El sensor ha detectado un valor por encima del límite que tienes configurado.':
-      'El sensor ha detectat un valor per sobre del límit que tens configurat.',
   'hiper, alta, hiperglucemia, subida': 'hiper, alta, hiperglucèmia, pujada',
   'Si el valor es muy alto o lleva mucho rato sin bajar, comprueba las cetonas.':
       'Si el valor és molt alt o fa molta estona que no baixa, comprova les cetones.',
@@ -142,9 +113,6 @@ const Map<String, String> traduccionesCa = {
       'Revisa el catèter: una glucosa alta sense motiu sol ser perquè el catèter no funciona bé.',
   'Actúa como te haya indicado tu equipo médico.':
       'Actua tal com t\'hagi indicat el teu equip mèdic.',
-  'Aviso de glucosa baja': 'Avís de glucosa baixa',
-  'El sensor ha detectado un valor por debajo del límite que tienes configurado.':
-      'El sensor ha detectat un valor per sota del límit que tens configurat.',
   'hipo, baja, hipoglucemia, bajada': 'hipo, baixa, hipoglucèmia, baixada',
   'Si puedes, confírmalo con un pinchazo en el dedo, pero no retrases el tratamiento.':
       'Si pots, confirma-ho amb una punxada al dit, però no retardis el tractament.',
@@ -231,58 +199,18 @@ const Map<String, String> traduccionesCa = {
       'Aquest catèter porta agulla d\'acer, així que NO s\'omple la cànula.\n\nQuan la bomba ho pregunti, tria "Ometre ompliment de cànula" o "Fet".',
   'Entre 1 y 3 horas después del cambio, mide tu glucosa con el medidor (pinchazo en el dedo).':
       'Entre 1 i 3 hores després del canvi, mesura la teva glucosa amb el mesurador (punxada al dit).',
-  'Saca la insulina de la nevera un rato antes: tiene que estar a temperatura ambiente.\n\nLávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.':
-      'Treu la insulina de la nevera una estona abans: ha d\'estar a temperatura ambient.\n\nRenta\'t les mans amb aigua i sabó i neteja el tap del vial amb una tovalloleta d\'alcohol.',
-  'IMPORTANTE: no pongas un Pod nuevo hasta haber desactivado y quitado el anterior.\n\nPara desactivarlo: INFORMACIÓN DEL POD → VER DETALLES DEL POD → CAMBIAR EL POD → DESACTIVAR POD.':
-      'IMPORTANT: no posis un Pod nou fins que hagis desactivat i tret l\'anterior.\n\nPer desactivar-lo: INFORMACIÓ DEL POD → VEURE DETALLS DEL POD → CANVIAR EL POD → DESACTIVAR POD.',
-  'Despega despacio los bordes del adhesivo y quita el Pod usado. Hacerlo despacio irrita menos la piel.':
-      'Aixeca a poc a poc les vores de l\'adhesiu i treu el Pod usat. Fer-ho a poc a poc irrita menys la pell.',
-  'En la aplicación o en el Controlador, toca CONFIGURAR NUEVO POD.':
-      'A l\'aplicació o al Controlador, toca CONFIGURAR NOU POD.',
-  'Saca la aguja y la jeringa de llenado de la bandeja del Pod, pero DEJA el Pod dentro de la bandeja durante toda la preparación.\n\nEnrosca la aguja en la jeringa y quita el capuchón tirando en línea recta.':
-      'Treu l\'agulla i la xeringa d\'ompliment de la safata del Pod, però DEIXA el Pod dins de la safata durant tota la preparació.\n\nCargola l\'agulla a la xeringa i treu el capurxó estirant en línia recta.',
-  'Llena la jeringa de AIRE hasta la cantidad de insulina que vayas a poner.\n\nEse aire va al vial, NUNCA al Pod. Ten en cuenta la línea MÍN marcada en la jeringa: la insulina tiene que llegar al menos hasta ahí.':
-      'Omple la xeringa d\'AIRE fins a la quantitat d\'insulina que vagis a posar.\n\nAquest aire va al vial, MAI al Pod. Tingues en compte la línia MÍN marcada a la xeringa: la insulina ha d\'arribar com a mínim fins allà.',
-  'Clava la aguja en el vial y empuja el émbolo para meter el aire en el vial.\n\nCon la jeringa aún en el vial, dale la vuelta al conjunto y tira despacio del émbolo. Da unos golpecitos para eliminar las burbujas.':
-      'Clava l\'agulla al vial i empeny l\'èmbol per posar l\'aire al vial.\n\nAmb la xeringa encara al vial, gira el conjunt i estira a poc a poc l\'èmbol. Dona uns copets per eliminar les bombolles.',
-  'Saca la aguja del vial e insértala directamente en el puerto de llenado del Pod.\n\nUna flecha en el papel blanco de la parte de atrás señala dónde está. Empuja el émbolo despacio hasta llenarlo del todo.\n\nSi notas resistencia al empujar, no uses ese Pod.':
-      'Treu l\'agulla del vial i insereix-la directament al port d\'ompliment del Pod.\n\nUna fletxa al paper blanc de la part posterior assenyala on és. Empeny l\'èmbol a poc a poc fins a omplir-lo del tot.\n\nSi notes resistència en empènyer, no facis servir aquest Pod.',
-  'El Pod emitirá DOS PITIDOS.\n\nEsa es la señal de que está lleno y listo para continuar. Si no pita, no lo uses: cámbialo por otro.':
-      'El Pod emetrà DOS PITS.\n\nAquest és el senyal que està ple i llest per continuar. Si no pita, no el facis servir: canvia\'l per un altre.',
-  'Con el Pod todavía en la bandeja, acércalo al Controlador y toca SIGUIENTE.\n\nEl sistema hará unas comprobaciones de seguridad y llenará el Pod de forma automática (esto se llama cebar). Espera a que termine.':
-      'Amb el Pod encara a la safata, apropa\'l al Controlador i toca SEGÜENT.\n\nEl sistema farà unes comprovacions de seguretat i omplirà el Pod de forma automàtica (això s\'anomena purgar). Espera que acabi.',
-  'Elige la zona respetando estas distancias mínimas:\n\n• 8 cm de tu sensor Dexcom\n• 2,5 cm del sitio del Pod anterior\n• 5 cm del ombligo\n\nEl Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunicarse sin que tu cuerpo tape la señal.':
-      'Tria la zona respectant aquestes distàncies mínimes:\n\n• 8 cm del teu sensor Dexcom\n• 2,5 cm del lloc del Pod anterior\n• 5 cm del melic\n\nEl Pod i el sensor han d\'anar al mateix costat del cos, perquè puguin comunicar-se sense que el teu cos tapi el senyal.',
-  'Evita lunares, tatuajes y cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.\n\nBusca una zona con algo de grasa y fácil de alcanzar.':
-      'Evita pigues, tatuatges i cicatrius, zones amb infecció, plecs de pell i llocs on el cinturó o la roba ajustada puguin fregar el Pod.\n\nBusca una zona amb una mica de greix i fàcil d\'abastar.',
-  'Quita los papeles de los adhesivos, pega el Pod sobre la piel y sigue las instrucciones de la pantalla para que salga la cánula.':
-      'Treu els papers dels adhesius, enganxa el Pod sobre la pell i segueix les instruccions de la pantalla perquè surti la cànula.',
-  'Mira por la ventanita del Pod que la cánula ha quedado bien puesta y confírmalo en el Controlador.\n\nMide tu glucosa a la hora y media del cambio, aproximadamente.':
-      'Mira per la finestreta del Pod que la cànula ha quedat ben posada i confirma-ho al Controlador.\n\nMesura la teva glucosa a l\'hora i mitja del canvi, aproximadament.',
-  'El catéter Orbit soft no debe usarse durante más de 72 horas.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'El catèter Orbit soft no s\'ha d\'usar durant més de 72 hores.\n\nComença desconnectant-te el catèter del cos.',
-  'Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".\n\nDespués toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.':
-      'Obre el menú principal i toca la icona "Canvi de cartutx i nivell actual del cartutx".\n\nDesprés toca "Retreure vareta roscada" i confirma. La bomba vibrarà un instant.',
   'Espera a que la varilla se retraiga por completo (el porcentaje baja al 0 %) y a que termine la autocomprobación.\n\nNO insertes el cartucho antes: si lo haces, aparecerá el aviso "Retracción varilla roscada no finalizada" y habrá que repetir el proceso.':
       'Espera que la vareta es retregui per complet (el percentatge baixa al 0 %) i que acabi l\'autocomprovació.\n\nNO insereixis el cartutx abans: si ho fas, apareixerà l\'avís "Retracció vareta roscada no finalitzada" i caldrà repetir el procés.',
   'Desconecta el catéter girando el adaptador en sentido antihorario hasta el tope.\n\nSaca de la bomba el cartucho vacío.':
       'Desconnecta el catèter girant l\'adaptador en sentit antihorari fins al topall.\n\nTreu de la bomba el cartutx buit.',
-  'Sujeta la bomba en vertical, con el orificio del compartimento hacia arriba, y mete un reservorio cargado por ti o un cartucho precargado que sea compatible con tu YpsoPump.':
-      'Subjecta la bomba en vertical, amb l\'orifici del compartiment cap amunt, i posa-hi un reservori carregat per tu o un cartutx precarregat que sigui compatible amb la teva YpsoPump.',
   'Pon el adaptador en vertical sobre el cartucho y gíralo en sentido horario hasta la posición de bloqueo.\n\nOirás un ligero clic o notarás un tope.':
       'Posa l\'adaptador en vertical sobre el cartutx i gira\'l en sentit horari fins a la posició de bloqueig.\n\nSentiràs un lleuger clic o notaràs un topall.',
-  'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter Orbit y confirma.':
-      'Obre el menú principal, toca "Purgar kit d\'infusió" i després "Purgar tub". (Purgar és omplir el tub d\'insulina.)\n\nTria el volum que indiquen les instruccions del teu catèter Orbit i confirma.',
   'Confirma que el catéter está desconectado del cuerpo.\n\nMientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma de la mano para que suban las burbujas.':
       'Confirma que el catèter està desconnectat del cos.\n\nMentre s\'omple, mantén la bomba en vertical amb l\'adaptador cap amunt i copeja-la suaument contra la palma de la mà perquè pugin les bombolles.',
   'Repite hasta que no quede aire en el cartucho, el adaptador ni el tubo, y hasta que salga insulina por el extremo.\n\nEl volumen que indica el catéter es solo una referencia: puede hacer falta llenar más.':
       'Repeteix fins que no quedi aire al cartutx, a l\'adaptador ni al tub, i fins que surti insulina per l\'extrem.\n\nEl volum que indica el catèter és només una referència: pot caldre omplir més.',
-  'Lávate bien las manos.\n\nLimpia la zona con una toallita de alcohol isopropílico. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.':
-      'Renta\'t bé les mans.\n\nNeteja la zona amb una tovalloleta d\'alcohol isopropílic. Assegura\'t que no hi ha pèl i que la pell està seca abans de continuar.',
   'Despega con cuidado la lámina protectora de la cinta adhesiva, sin tocar la parte pegajosa.\n\nDespués quita el protector de la cánula.':
       'Aixeca amb cura la làmina protectora de la cinta adhesiva, sense tocar la part enganxosa.\n\nDesprés treu el protector de la cànula.',
-  'Sujeta bien la zona e inserta la cánula en vertical (90°).\n\nPuedes usar el insertador mylife Orbit para que entre con más facilidad.':
-      'Subjecta bé la zona i insereix la cànula en vertical (90°).\n\nPots fer servir l\'insertor mylife Orbit perquè entri amb més facilitat.',
   'Presiona la cinta contra la piel y recórrela con los dedos unos segundos, para que quede bien pegada.':
       'Prem la cinta contra la pell i recorre-la amb els dits uns segons, perquè quedi ben enganxada.',
   'Sujeta la cinta contra la piel con una mano y, con dos dedos de la otra, agarra el capuchón del introductor.\n\nSaca la aguja introductora apretando las dos aletas exteriores del capuchón.':
@@ -293,30 +221,18 @@ const Map<String, String> traduccionesCa = {
       'Connecta el capurxó del tub a la base de la cànula sense inclinar-lo. Assegura\'t de sentir-lo encaixar.\n\nDesprés gira el tub a esquerra i dreta, almenys una volta completa a cada direcció, estirant el capurxó cap amunt: així confirmes que està ben encaixat i que la via està oberta.',
   'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar cánula".\n\nElige la cantidad que indican las instrucciones de tu catéter y confirma.':
       'Obre el menú principal, toca "Purgar kit d\'infusió" i després "Purgar cànula".\n\nTria la quantitat que indiquen les instruccions del teu catèter i confirma.',
-  'El catéter Orbit micro lleva cánula de acero y no debe usarse durante más de 48 horas.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'El catèter Orbit micro porta cànula d\'acer i no s\'ha d\'usar durant més de 48 hores.\n\nComença desconnectant-te el catèter del cos.',
-  'Abre el menú principal y toca el icono "Cambio de cartucho y nivel actual del cartucho".\n\nDespués toca "Retraer varilla roscada" y confirma.':
-      'Obre el menú principal i toca la icona "Canvi de cartutx i nivell actual del cartutx".\n\nDesprés toca "Retreure vareta roscada" i confirma.',
   'Espera a que la varilla se retraiga del todo (0 %) y a que termine la autocomprobación.\n\nNO insertes el cartucho antes de que acabe.':
       'Espera que la vareta es retregui del tot (0 %) i que acabi l\'autocomprovació.\n\nNO insereixis el cartutx abans que acabi.',
   'Desconecta el catéter girando el adaptador en sentido antihorario hasta el tope y saca el cartucho vacío.':
       'Desconnecta el catèter girant l\'adaptador en sentit antihorari fins al topall i treu el cartutx buit.',
-  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.':
-      'Subjecta la bomba en vertical amb el compartiment cap amunt i posa-hi un reservori compatible amb la teva YpsoPump.\n\nPosa l\'adaptador en vertical i gira\'l en sentit horari fins a sentir el clic de bloqueig.',
   'Menú principal → "Cebar kit de infusión" → "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter y confirma que estás desconectado.':
       'Menú principal → "Purgar kit d\'infusió" → "Purgar tub". (Purgar és omplir el tub d\'insulina.)\n\nTria el volum que indiquen les instruccions del teu catèter i confirma que estàs desconnectat.',
   'Mantén la bomba vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para eliminar las burbujas.\n\nRepite hasta que no quede aire y salga insulina por el extremo del tubo.':
       'Mantén la bomba vertical amb l\'adaptador cap amunt i copeja-la suaument contra la palma per eliminar les bombolles.\n\nRepeteix fins que no quedi aire i surti insulina per l\'extrem del tub.',
-  'Lávate las manos y limpia la zona con alcohol isopropílico. La piel debe estar seca y sin vello.\n\nDespega la lámina protectora del adhesivo y quita el protector de la cánula.':
-      'Renta\'t les mans i neteja la zona amb alcohol isopropílic. La pell ha d\'estar seca i sense pèl.\n\nAixeca la làmina protectora de l\'adhesiu i treu el protector de la cànula.',
-  'El Orbit micro lleva una cánula de acero que se pone sin aguja introductora.\n\nSujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el insertador mylife Orbit.':
-      'L\'Orbit micro porta una cànula d\'acer que es posa sense agulla introductora.\n\nSubjecta bé la zona i insereix la cànula en vertical (90°). Pots fer servir l\'insertor mylife Orbit.',
   'Presiona la cinta contra la piel y recórrela con los dedos unos segundos.\n\nQuita el capuchón introductor apretando sus dos aletas exteriores.':
       'Prem la cinta contra la pell i recorre-la amb els dits uns segons.\n\nTreu el capurxó introductor prement les seves dues aletes exteriors.',
   'Conecta el capuchón del tubo a la base de la cánula sin ladearlo, hasta oírlo encajar.\n\nGira el tubo al menos una vuelta completa en cada dirección tirando hacia arriba, para confirmar que la vía está abierta.':
       'Connecta el capurxó del tub a la base de la cànula sense inclinar-lo, fins a sentir-lo encaixar.\n\nGira el tub almenys una volta completa a cada direcció estirant cap amunt, per confirmar que la via està oberta.',
-  'Menú principal → "Cebar kit de infusión" → "Cebar cánula".\n\nElige la cantidad que indican las instrucciones de tu catéter.':
-      'Menú principal → "Purgar kit d\'infusió" → "Purgar cànula".\n\nTria la quantitat que indiquen les instruccions del teu catèter.',
   'Prepara el material: un cartucho nuevo sin abrir, la jeringa de llenado con su aguja (viene con el cartucho), el vial de insulina, toallitas de alcohol y un catéter nuevo.\n\nEl cartucho se cambia cada 2 o 3 días, según te haya indicado tu equipo médico.':
       'Prepara el material: un cartutx nou sense obrir, la xeringa d\'ompliment amb la seva agulla (ve amb el cartutx), el vial d\'insulina, tovalloletes d\'alcohol i un catèter nou.\n\nEl cartutx es canvia cada 2 o 3 dies, segons t\'hagi indicat el teu equip mèdic.',
   'Decide con tu equipo médico cuánta insulina cargar en el cartucho.\n\nTen en cuenta que al llenar el tubo se gasta un poco de insulina, así que no toda la que cargues quedará disponible.':
@@ -422,8 +338,8 @@ const Map<String, String> traduccionesCa = {
       'El període d\'adaptació dura MENYS DE 30 MINUTS.\n\nDurant aquest temps no prenguis decisions de tractament amb el sensor: fes servir el mesurador de dit. Tampoc les prenguis si no veus el número ni la fletxa de tendència.',
   'El sensor Guardian 4 se usa como máximo siete días seguidos.\n\nEl insertador One-press es el ÚNICO aprobado para este sensor. Con otro insertador la colocación puede salir mal y causar dolor o lesión.':
       'El sensor Guardian 4 s\'usa com a màxim set dies seguits.\n\nL\'insertor One-press és l\'ÚNIC aprovat per a aquest sensor. Amb un altre insertor la col·locació pot sortir malament i causar dolor o lesió.',
-  'ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo, tanto en adultos como a partir de 7 años.\n\nPRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.':
-      'ZONA D\'INSERCIÓ: només la part del darrere de la part superior del braç, tant en adults com a partir de 7 anys.\n\nPRECAUCIÓ: no l\'usis a l\'abdomen ni a les natges. Allà funciona diferent i et pot donar lectures que et portin a error.',
+  'ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo.\n\nPRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.':
+      'ZONA D\'INSERCIÓ: només la part del darrere de la part superior del braç.\n\nPRECAUCIÓ: no l\'usis a l\'abdomen ni a les natges. Allà funciona diferent i et pot donar lectures que et portin a error.',
   'No lo pongas sobre músculo, piel dura o cicatrices, ni en zonas apretadas por la ropa o que se muevan mucho al hacer ejercicio.':
       'No el posis sobre múscul, pell dura o cicatrius, ni en zones estretes per la roba o que es moguin molt en fer exercici.',
   'Elige una zona con algo de grasa y límpiala con alcohol.\n\nUsa solo alcohol, para que no queden restos en la piel. Deja que se seque al aire.':
@@ -448,8 +364,8 @@ const Map<String, String> traduccionesCa = {
       'Connecta el transmissor i espera l\'escalfament: són 2 HORES. A la pantalla veuràs un compte enrere.\n\nDurant aquest temps no hi ha lectures: fes servir el mesurador de dit per decidir el teu tractament.',
   'El Simplera Sync no se pone igual que otros sensores de Medtronic: su insertador funciona de otra manera.\n\nLee sus instrucciones antes de usarlo por primera vez.':
       'El Simplera Sync no es posa igual que altres sensors de Medtronic: el seu insertor funciona d\'una altra manera.\n\nLlegeix les seves instruccions abans d\'usar-lo per primera vegada.',
-  'ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo, a partir de 7 años.\n\nNo se recomienda ponerlo en el abdomen ni en los glúteos.':
-      'ZONA D\'INSERCIÓ: la part del darrere de la part superior del braç, a partir de 7 anys.\n\nNo es recomana posar-lo a l\'abdomen ni a les natges.',
+  'ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo.\n\nNo se recomienda ponerlo en el abdomen ni en los glúteos.':
+      'ZONA D\'INSERCIÓ: la part del darrere de la part superior del braç.\n\nNo es recomana posar-lo a l\'abdomen ni a les natges.',
   'ANTES DE PONERLO, apunta el número de serie (SN) y el CÓDIGO que vienen en la etiqueta del insertador.\n\nLos necesitarás después para emparejar el sensor con la bomba. También están dentro de la tapa de la caja.':
       'ABANS DE POSAR-LO, apunta el número de sèrie (SN) i el CODI que vénen a l\'etiqueta de l\'insertor.\n\nEls necessitaràs després per aparellar el sensor amb la bomba. També són dins de la tapa de la caixa.',
   'Mira la fecha de caducidad: no uses un sensor caducado.\n\nComprueba que la etiqueta del capuchón y la banda de seguridad están intactas. Si falta alguna o está rota, no lo uses.':
@@ -486,8 +402,6 @@ const Map<String, String> traduccionesCa = {
       'Col·loca l\'aplicador sobre la zona preparada i empeny cap avall amb fermesa.\n\nPRECAUCIÓ: no premis l\'aplicador fins que el tinguis col·locat sobre el lloc: podries fer-te mal.',
   'Retira suavemente el aplicador del cuerpo y comprueba que el sensor ha quedado firme.\n\nVuelve a poner el tapón al aplicador usado y tíralo como indique la normativa de tu zona.':
       'Retira suaument l\'aplicador del cos i comprova que el sensor ha quedat ferm.\n\nTorna a posar el tap a l\'aplicador usat i llença\'l tal com indiqui la normativa de la teva zona.',
-  'Comprueba que el móvil tiene conexión (wifi o datos) e inicia el sensor desde la aplicación, siguiendo las indicaciones de la pantalla.':
-      'Comprova que el mòbil té connexió (wifi o dades) i inicia el sensor des de l\'aplicació, seguint les indicacions de la pantalla.',
   'Espera el calentamiento: son 60 MINUTOS hasta la primera lectura.\n\nMientras tanto, usa el medidor de dedo para decidir tu tratamiento.':
       'Espera l\'escalfament: són 60 MINUTS fins a la primera lectura.\n\nMentrestant, fes servir el mesurador de dit per decidir el teu tractament.',
   'Vuelve a conectarte el catéter, que no has cambiado.\n\nComo es un cambio de solo reservorio, NO hay que llenar cánula: elige "Hecho" en esa pantalla.':
@@ -496,20 +410,12 @@ const Map<String, String> traduccionesCa = {
       'Torna a connectar el catèter, que no has canviat.\n\nCom que no has posat un catèter nou, no cal omplir la cànula.',
   'Reanuda la insulina en la bomba y, entre 1 y 3 horas después, mide tu glucosa con el medidor.':
       'Reprèn la insulina a la bomba i, entre 1 i 3 hores després, mesura la teva glucosa amb el mesurador.',
-  'La YpsoPump permite cambiar el cartucho sin cambiar el catéter: son independientes.\n\nEmpieza desconectándote el catéter del cuerpo.':
-      'La YpsoPump permet canviar el cartutx sense canviar el catèter: són independents.\n\nComença desconnectant-te el catèter del cos.',
-  'Menú principal, icono "Cambio de cartucho y nivel actual del cartucho", y después "Retraer varilla roscada". Confirma.\n\nEspera a que baje al 0 % y termine la autocomprobación antes de seguir.':
-      'Menú principal, icona "Canvi de cartutx i nivell actual del cartutx", i després "Retreure vareta roscada". Confirma.\n\nEspera que baixi al 0 % i acabi l\'autocomprovació abans de continuar.',
-  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio compatible con tu YpsoPump.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic.':
-      'Subjecta la bomba en vertical amb el compartiment cap amunt i posa-hi un reservori compatible amb la teva YpsoPump.\n\nPosa l\'adaptador en vertical i gira\'l en sentit horari fins a sentir el clic.',
-  'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSi NO hay burbujas en el cartucho, basta con el volumen mínimo. Si las hay, usa el volumen que indique tu catéter hasta eliminarlas.':
-      'Menú principal, "Purgar kit d\'infusió", "Purgar tub".\n\nSi NO hi ha bombolles al cartutx, n\'hi ha prou amb el volum mínim. Si n\'hi ha, fes servir el volum que indiqui el teu catèter fins a eliminar-les.',
+  'La bomba permite cambiar el cartucho sin cambiar el catéter: son independientes.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'La bomba permet canviar el cartutx sense canviar el catèter: són independents.\n\nComença desconnectant-te el catèter del cos.',
   'Mantén la bomba vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas. Repite hasta que no quede aire.':
       'Mantén la bomba vertical amb l\'adaptador cap amunt i copeja-la suaument contra la palma perquè pugin les bombolles. Repeteix fins que no quedi aire.',
   'Vuelve a conectar el capuchón del tubo a la base de la cánula hasta oírlo encajar.\n\nComo no has cambiado el catéter, no hace falta llenar la cánula.':
       'Torna a connectar el capurxó del tub a la base de la cànula fins a sentir-lo encaixar.\n\nCom que no has canviat el catèter, no cal omplir la cànula.',
-  'Entre 1 y 3 horas después del cambio, mide tu glucosa con el medidor.':
-      'Entre 1 i 3 hores després del canvi, mesura la teva glucosa amb el mesurador.',
   'Insulina y material de repuesto': 'Insulina i material de recanvi',
   'Lleva más de lo que creas que vas a necesitar: los viajes se alargan y las cosas se pierden o se estropean.':
       'Porta més del que creguis que necessitaràs: els viatges s\'allarguen i les coses es perden o s\'espatllen.',
@@ -742,9 +648,6 @@ const Map<String, String> traduccionesCa = {
   'Ir al paso {n}': 'Anar al pas {n}',
   'Anterior': 'Anterior',
   'Siguiente': 'Següent',
-  'PASO {n} DE {total}': 'PAS {n} DE {total}',
-  'Paso {i} de {total} · {global}/{totalGlobal} en total':
-      'Pas {i} de {total} · {global}/{totalGlobal} en total',
   '¿Dónde te lo has puesto?': 'On te l\'has posat?',
   'Anotarlo te ayuda a ir cambiando de sitio para que la piel no se endurezca.':
       'Apuntar-ho t\'ajuda a anar canviant de lloc perquè la pell no s\'endureixi.',
@@ -765,4 +668,142 @@ const Map<String, String> traduccionesCa = {
   'Hoy': 'Avui',
   'Ayer': 'Ahir',
   'Más': 'Més',
+  'El catéter myOrbit Soft no debe usarse durante más de 72 horas.\n\nNo mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'El catèter myOrbit Soft no s\'ha de fer servir durant més de 72 hores.\n\nNo barregis peces de myOrbit 2.0 amb les de la generació anterior: hi podria haver fuites.\n\nComença desconnectant-te el catèter del cos.',
+  'Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".\n\nDespués toca "Retraer varilla roscada" y confirma. La bomba vibrará un instante.':
+      'Obre el menú principal i toca la icona "Canvi de cartutx/reservori i nivell actual del cartutx/reservori".\n\nDesprés toca "Retreure vareta roscada" i confirma. La bomba vibrarà un instant.',
+  'Sujeta la bomba en vertical, con el orificio del compartimento hacia arriba, y mete un reservorio cargado por ti o un cartucho precargado compatible con tu bomba.':
+      'Subjecta la bomba en vertical, amb l\'orifici del compartiment cap amunt, i posa-hi un reservori carregat per tu o un cartutx precarregat compatible amb la teva bomba.',
+  'Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)\n\nElige el volumen que indican las instrucciones de tu catéter myOrbit y confirma: cambia entre la 1.ª generación y la 2.0.':
+      'Obre el menú principal, toca "Purgar kit d\'infusió" i després "Purgar tub". (Purgar és omplir el tub d\'insulina.)\n\nTria el volum que indiquen les instruccions del teu catèter myOrbit i confirma: canvia entre la 1a generació i la 2.0.',
+  'Lávate bien las manos.\n\nLimpia la zona con una toallita de alcohol isopropílico al 70 %. Asegúrate de que no hay vello y de que la piel está seca antes de continuar.':
+      'Renta\'t bé les mans.\n\nNeteja la zona amb un tovalló d\'alcohol isopropílic al 70 %. Assegura\'t que no hi ha pèl i que la pell és seca abans de continuar.',
+  'Sujeta bien la zona e inserta la cánula en vertical (90°).\n\nPuedes usar el myOrbit Inserter para que entre con más facilidad.':
+      'Subjecta bé la zona i insereix la cànula en vertical (90°).\n\nPots fer servir el myOrbit Inserter perquè entri amb més facilitat.',
+  'Mide tu glucosa entre 2 y 3 horas después de poner el catéter, para comprobar que la insulina entra bien.\n\nPor eso, no cambies el catéter justo antes de irte a dormir.':
+      'Mesura la glucosa entre 2 i 3 hores després de posar el catèter, per comprovar que la insulina entra bé.\n\nPer això, no canviïs el catèter just abans d\'anar a dormir.',
+  'El catéter myOrbit Micro lleva cánula de acero y no debe usarse durante más de 48 horas.\n\nNo mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.\n\nEmpieza desconectándote el catéter del cuerpo.':
+      'El catèter myOrbit Micro porta cànula d\'acer i no s\'ha de fer servir durant més de 48 hores.\n\nNo barregis peces de myOrbit 2.0 amb les de la generació anterior: hi podria haver fuites.\n\nComença desconnectant-te el catèter del cos.',
+  'Abre el menú principal y toca el icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio".\n\nDespués toca "Retraer varilla roscada" y confirma.':
+      'Obre el menú principal i toca la icona "Canvi de cartutx/reservori i nivell actual del cartutx/reservori".\n\nDesprés toca "Retreure vareta roscada" i confirma.',
+  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic de bloqueo.':
+      'Subjecta la bomba en vertical amb el compartiment cap amunt i posa-hi un reservori carregat o un cartutx precarregat compatible amb la teva bomba.\n\nPosa l\'adaptador en vertical i gira\'l en sentit horari fins a sentir el clic de bloqueig.',
+  'Lávate las manos y limpia la zona con alcohol isopropílico al 70 %. La piel debe estar seca y sin vello.\n\nDespega la lámina protectora del adhesivo y quita el protector de la cánula.':
+      'Renta\'t les mans i neteja la zona amb alcohol isopropílic al 70 %. La pell ha d\'estar seca i sense pèl.\n\nDesenganxa la làmina protectora de l\'adhesiu i treu el protector de la cànula.',
+  'El myOrbit Micro lleva una cánula de acero que se pone sin aguja introductora.\n\nSujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el myOrbit Inserter.':
+      'El myOrbit Micro porta una cànula d\'acer que es posa sense agulla introductora.\n\nSubjecta bé la zona i insereix la cànula en vertical (90°). Pots fer servir el myOrbit Inserter.',
+  'Llenar la cánula depende de la generación de tu catéter (mira la caja):\n\n• myOrbit Micro 2.0: NO hace falta, la cánula de acero necesita muy poca insulina.\n• myOrbit Micro (1.ª generación): menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indiquen sus instrucciones.':
+      'Omplir la cànula depèn de la generació del teu catèter (mira la caixa):\n\n• myOrbit Micro 2.0: NO cal, la cànula d\'acer necessita molt poca insulina.\n• myOrbit Micro (1a generació): menú principal → "Purgar kit d\'infusió" → "Purgar cànula", amb la quantitat que indiquin les seves instruccions.',
+  'Menú principal, icono "Cambio de cartucho/reservorio y nivel actual del cartucho/reservorio", y después "Retraer varilla roscada". Confirma.\n\nEspera a que baje al 0 % y termine la autocomprobación antes de seguir.':
+      'Menú principal, icona "Canvi de cartutx/reservori i nivell actual del cartutx/reservori", i després "Retreure vareta roscada". Confirma.\n\nEspera que baixi al 0 % i que acabi l\'autocomprovació abans de continuar.',
+  'Sujeta la bomba en vertical con el compartimento hacia arriba y mete un reservorio cargado o un cartucho precargado compatible con tu bomba.\n\nPon el adaptador en vertical y gíralo en sentido horario hasta oír el clic.':
+      'Subjecta la bomba en vertical amb el compartiment cap amunt i posa-hi un reservori carregat o un cartutx precarregat compatible amb la teva bomba.\n\nPosa l\'adaptador en vertical i gira\'l en sentit horari fins a sentir el clic.',
+  'Menú principal, "Cebar kit de infusión", "Cebar tubo".\n\nSi NO hay burbujas en el cartucho, basta con el volumen mínimo. Si las hay, usa el volumen que indique tu catéter hasta eliminarlas.':
+      'Menú principal, "Purgar kit d\'infusió", "Purgar tub".\n\nSi NO hi ha bombolles al cartutx, n\'hi ha prou amb el volum mínim. Si n\'hi ha, fes servir el volum que indiqui el teu catèter fins a eliminar-les.',
+  'Mide tu glucosa ahora que has estado desconectado y otra vez unas 2 o 3 horas después de volver a conectarte.':
+      'Mesura la glucosa ara que has estat desconnectat i una altra vegada unes 2 o 3 hores després de tornar-te a connectar.',
+  'Cambia el Pod como mínimo cada 2 o 3 días (48 a 72 horas), o antes si te lo indica tu equipo médico.\n\nReúne el material: el vial de insulina de acción rápida, un Pod Omnipod 5 sin abrir y toallitas de alcohol. Si la insulina o el Pod están fríos, deja que se atemperen antes de seguir.':
+      'Canvia el Pod com a mínim cada 2 o 3 dies (48 a 72 hores), o abans si t\'ho indica el teu equip mèdic.\n\nReuneix el material: el vial d\'insulina d\'acció ràpida, un Pod Omnipod 5 sense obrir i tovallons d\'alcohol. Si la insulina o el Pod són freds, deixa que s\'atemperin abans de continuar.',
+  'Comprueba que es un Pod Omnipod 5 y que en la tapa de su bandeja aparece el sensor que usas.\n\nLávate las manos con agua y jabón y limpia el tapón del vial con una toallita de alcohol.':
+      'Comprova que és un Pod Omnipod 5 i que a la tapa de la safata hi apareix el sensor que fas servir.\n\nRenta\'t les mans amb aigua i sabó i neteja el tap del vial amb un tovalló d\'alcohol.',
+  'Desactiva el Pod anterior: Inicio → pestaña INFO DEL POD → VER DETALLES DEL POD → CAMBIAR POD → DESACTIVAR POD.\n\nDespega despacio los bordes del adhesivo para irritar menos la piel y mira que la zona no tenga signos de infección.':
+      'Desactiva el Pod anterior: Inici → pestanya INFO DEL POD → VEURE DETALLS DEL POD → CANVIAR POD → DESACTIVAR POD.\n\nDesenganxa a poc a poc les vores de l\'adhesiu per irritar menys la pell i mira que la zona no tingui signes d\'infecció.',
+  'En el Controlador, toca CONFIGURAR UN NUEVO POD.':
+      'Al Controlador, toca CONFIGURAR UN POD NOU.',
+  'Saca la aguja y la jeringa de llenado. Puedes dejar el Pod en su bandeja durante el llenado y la activación.\n\nEnrosca la aguja en la jeringa y quita el capuchón tirando hacia fuera.':
+      'Treu l\'agulla i la xeringa d\'emplenament. Pots deixar el Pod a la safata durant l\'emplenament i l\'activació.\n\nCargola l\'agulla a la xeringa i treu el caputxó estirant cap enfora.',
+  'Decide con tu equipo médico cuánta insulina poner en el Pod.\n\nLlena la jeringa de AIRE hasta esa cantidad: ese aire va al vial, NUNCA al Pod. La insulina tiene que llegar al menos hasta la línea MÍN de la jeringa.':
+      'Decideix amb el teu equip mèdic quanta insulina posar al Pod.\n\nOmple la xeringa d\'AIRE fins a aquesta quantitat: aquest aire va al vial, MAI al Pod. La insulina ha d\'arribar almenys fins a la línia MÍN de la xeringa.',
+  'Clava la aguja en el vial y empuja el émbolo para meter el aire.\n\nDale la vuelta al conjunto y tira del émbolo para pasar la insulina a la jeringa. Da golpecitos para que las burbujas suban y empújalas de vuelta al vial.':
+      'Clava l\'agulla al vial i empeny l\'èmbol per ficar-hi l\'aire.\n\nGira el conjunt i estira l\'èmbol per passar la insulina a la xeringa. Dona-hi copets perquè les bombolles pugin i empeny-les de nou cap al vial.',
+  'Saca la aguja del vial y métela en el puerto de llenado, en vertical y no inclinada. Una flecha en la parte de abajo del Pod señala dónde está.\n\nEmpuja el émbolo hasta vaciar la jeringa.\n\nADVERTENCIA: si notas mucha resistencia al empujar, no uses ese Pod ni fuerces la insulina.':
+      'Treu l\'agulla del vial i fica-la al port d\'emplenament, en vertical i no inclinada. Una fletxa a la part de sota del Pod indica on és.\n\nEmpeny l\'èmbol fins a buidar la xeringa.\n\nADVERTÈNCIA: si notes molta resistència en empènyer, no facis servir aquest Pod ni forcis la insulina.',
+  'Mientras se llena, el Pod emitirá DOS PITIDOS: ya tiene la insulina mínima para funcionar. Vacía la jeringa del todo aunque ya haya pitado.\n\nSi lo has llenado y no pita, llama a Atención al cliente. Tira la aguja a un contenedor de objetos punzantes.':
+      'Mentre s\'omple, el Pod emetrà DOS XIULETS: ja té la insulina mínima per funcionar. Buida del tot la xeringa encara que ja hagi xiulat.\n\nSi l\'has omplert i no xiula, truca a Atenció al client. Llença l\'agulla a un contenidor d\'objectes punxants.',
+  'Sigue enseguida: si pasan dos horas desde que lo llenas sin activarlo, el Pod ya no sirve.\n\nCon el Pod en su bandeja, pon el Controlador en contacto con él y toca SIGUIENTE. Espera al tono que indica que el Pod está activado y listo para colocarlo.':
+      'Continua de seguida: si passen dues hores des que l\'omples sense activar-lo, el Pod ja no serveix.\n\nAmb el Pod a la safata, posa el Controlador en contacte amb ell i toca SEGÜENT. Espera el to que indica que el Pod està activat i a punt per col·locar-lo.',
+  'Elige la zona respetando estas distancias mínimas:\n\n• 8 cm de un sensor Dexcom, o 2,5 cm de un sensor FreeStyle Libre 2 Plus\n• 2,5 cm del sitio del Pod anterior\n• 5 cm del ombligo\n\nEl Pod y el sensor deben ir en el mismo lado del cuerpo, para que puedan comunicarse sin que tu cuerpo tape la señal.':
+      'Tria la zona respectant aquestes distàncies mínimes:\n\n• 8 cm d\'un sensor Dexcom, o 2,5 cm d\'un sensor FreeStyle Libre 2 Plus\n• 2,5 cm del lloc del Pod anterior\n• 5 cm del melic\n\nEl Pod i el sensor han d\'anar al mateix costat del cos, perquè es puguin comunicar sense que el cos tapi el senyal.',
+  'Busca una zona con algo de grasa, fácil de ver y de alcanzar. Evita lunares, tatuajes, cicatrices, zonas con infección, pliegues de piel y sitios donde el cinturón o la ropa ajustada puedan rozar el Pod.\n\nLava la zona con agua y jabón, sécala y desinféctala con una toallita de alcohol, en círculos del centro hacia fuera. Deja que se seque al aire, sin soplar.':
+      'Busca una zona amb una mica de greix, fàcil de veure i d\'abastar. Evita pigues, tatuatges, cicatrius, zones amb infecció, plecs de pell i llocs on el cinturó o la roba ajustada puguin fregar el Pod.\n\nRenta la zona amb aigua i sabó, eixuga-la i desinfecta-la amb un tovalló d\'alcohol, en cercles del centre cap enfora. Deixa que s\'assequi a l\'aire, sense bufar.',
+  'Quita la pestaña del Pod tirando hacia arriba desde su borde plano. Después despega el papel blanco del adhesivo sin que se doble.\n\nSi el Pod se ha caído, está húmedo o sucio, el adhesivo está doblado o la cánula sobresale del adhesivo, toca CANCELAR y usa otro Pod.':
+      'Treu la pestanya del Pod estirant cap amunt des de la vora plana. Després desenganxa el paper blanc de l\'adhesiu sense que es plegui.\n\nSi el Pod ha caigut, està humit o brut, l\'adhesiu està plegat o la cànula sobresurt de l\'adhesiu, toca CANCEL·LAR i fes servir un altre Pod.',
+  'Pega el Pod presionando con firmeza: en horizontal o en diagonal en abdomen, cadera, parte baja de la espalda o glúteos; en vertical o algo inclinado en el brazo o el muslo.\n\nSi la zona es delgada, pellizca la piel alrededor del Pod. Toca INICIAR para que salga la cánula.':
+      'Enganxa el Pod pressionant amb fermesa: en horitzontal o en diagonal a l\'abdomen, el maluc, la part baixa de l\'esquena o les natges; en vertical o una mica inclinat al braç o la cuixa.\n\nSi la zona és prima, pessiga la pell al voltant del Pod. Toca INICIAR perquè surti la cànula.',
+  'Confirma en el Controlador que el Pod está bien pegado. Mira por la ventanita que se ve la cánula azul claro y la zona rosada y, si es así, toca SÍ.\n\nRevisa la zona del Pod al menos una vez al día por si hay dolor, hinchazón, enrojecimiento o calor.':
+      'Confirma al Controlador que el Pod està ben enganxat. Mira per la finestreta que es veu la cànula blau clar i la zona rosada i, si és així, toca SÍ.\n\nRevisa la zona del Pod almenys un cop al dia per si hi ha dolor, inflor, envermelliment o calor.',
+  'El myInset lleva el catéter dentro de su propio insertador: viene montado y listo para usar.\n\nCámbialo cada dos o tres días, o cuando te diga tu equipo médico. La primera vez, úsalo con un profesional sanitario delante.\n\nEmpieza desconectándote del cuerpo el catéter usado.':
+      'El myInset porta el catèter dins del seu propi insertador: ve muntat i a punt per fer servir.\n\nCanvia\'l cada dos o tres dies, o quan et digui el teu equip mèdic. La primera vegada, fes-lo servir amb un professional sanitari al davant.\n\nComença desconnectant-te del cos el catèter usat.',
+  'Lávate las manos.\n\nAbre el myInset: tira del adhesivo rojo para quitar el precinto y retira el papel estéril.':
+      'Renta\'t les mans.\n\nObre el myInset: estira l\'adhesiu vermell per treure el precinte i retira el paper estèril.',
+  'Presiona con una mano los tres puntos en relieve de cada lado de la tapa y levanta la tapa con la otra.\n\nPRECAUCIÓN: no dobles ni toques la aguja de inserción.':
+      'Prem amb una mà els tres punts en relleu de cada costat de la tapa i aixeca la tapa amb l\'altra.\n\nPRECAUCIÓ: no dobleguis ni toquis l\'agulla d\'inserció.',
+  'Desenrolla el tubo: saca con cuidado el principio del tubo de su ranura y desenróllalo tirando suavemente hacia arriba.\n\nNo tires fuerte al final: podrías separar el catéter de la aguja. Comprueba que el catéter sigue bien colocado en el insertador.':
+      'Desenrotlla el tub: treu amb compte el principi del tub de la ranura i desenrotlla\'l estirant suaument cap amunt.\n\nNo estiris fort al final: podries separar el catèter de l\'agulla. Comprova que el catèter continua ben col·locat a l\'insertador.',
+  'Mientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas.\n\nSujeta el myInset con la aguja hacia abajo, para que la insulina no moje el papel del adhesivo. Repite hasta que no quede aire y salga insulina.':
+      'Mentre s\'omple, mantén la bomba en vertical amb l\'adaptador cap amunt i copeja-la suaument contra el palmell perquè pugin les bombolles.\n\nSubjecta el myInset amb l\'agulla cap avall, perquè la insulina no mulli el paper de l\'adhesiu. Repeteix fins que no quedi aire i surti insulina.',
+  'Elige la zona que te haya recomendado tu equipo médico, pero no justo al lado de la anterior.\n\nLímpiala con el desinfectante que te hayan indicado y espera a que esté seca.':
+      'Tria la zona que t\'hagi recomanat el teu equip mèdic, però no just al costat de l\'anterior.\n\nNeteja-la amb el desinfectant que t\'hagin indicat i espera que sigui seca.',
+  'Tira suavemente hacia arriba para quitar el papel protector del adhesivo.\n\nPrepara el insertador: pon los dedos sobre los agujeros alargados de los dos lados, presiónalos y tira del resorte hasta oír un CLIC.':
+      'Estira suaument cap amunt per treure el paper protector de l\'adhesiu.\n\nPrepara l\'insertador: posa els dits sobre els forats allargats dels dos costats, prem-los i estira la molla fins a sentir un CLIC.',
+  'Quita con cuidado el protector de la aguja, girándolo y tirando. Comprueba que la cánula blanda no sobresale de la aguja.\n\nMete el tubo en su ranura, para que no quede atrapado debajo al insertar.':
+      'Treu amb compte el protector de l\'agulla, girant-lo i estirant. Comprova que la cànula tova no sobresurt de l\'agulla.\n\nFica el tub a la seva ranura, perquè no quedi atrapat a sota en inserir.',
+  'Apoya el myInset sobre la zona y presiona a la vez los agujeros redondos de los dos lados para insertarlo.\n\nADVERTENCIA: nunca apuntes el insertador cargado hacia una parte del cuerpo donde no quieras ponerlo.':
+      'Recolza el myInset sobre la zona i prem alhora els forats rodons dels dos costats per inserir-lo.\n\nADVERTÈNCIA: no apuntis mai l\'insertador carregat cap a una part del cos on no el vulguis posar.',
+  'Aprieta suavemente el centro del insertador para fijar el adhesivo.\n\nQuita el insertador y la aguja agarrándolo por el centro y tirando suavemente hacia atrás. Masajea el adhesivo para que quede bien pegado.':
+      'Prem suaument el centre de l\'insertador per fixar l\'adhesiu.\n\nTreu l\'insertador i l\'agulla agafant-lo pel centre i estirant suaument cap enrere. Massatja l\'adhesiu perquè quedi ben enganxat.',
+  'Si la cánula blanda se ha doblado al insertarla, pon enseguida un myInset nuevo en otro sitio.':
+      'Si la cànula tova s\'ha doblegat en inserir-la, posa de seguida un myInset nou en un altre lloc.',
+  'Menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indican las instrucciones de tu catéter.\n\nDespués vuelve a poner la tapa del insertador hasta que haga clic y tíralo a un contenedor de objetos punzantes.':
+      'Menú principal → "Purgar kit d\'infusió" → "Purgar cànula", amb la quantitat que indiquen les instruccions del teu catèter.\n\nDesprés torna a posar la tapa de l\'insertador fins que faci clic i llença\'l a un contenidor d\'objectes punxants.',
+  'Mide tu glucosa entre 1 y 3 horas después de poner el catéter.\n\nPor eso, no lo cambies justo antes de irte a dormir, salvo que puedas medirte en ese tiempo.':
+      'Mesura la glucosa entre 1 i 3 hores després de posar el catèter.\n\nPer això, no el canviïs just abans d\'anar a dormir, tret que et puguis mesurar en aquest temps.',
+  'El sensor FreeStyle Libre 2 Plus dura hasta 15 días.\n\nCon Omnipod 5 tienes que iniciarlo desde la Aplicación Omnipod 5 del Controlador. Si lo inicias con otro dispositivo (un lector o el móvil), el Pod no podrá conectarse a él.':
+      'El sensor FreeStyle Libre 2 Plus dura fins a 15 dies.\n\nAmb Omnipod 5 l\'has d\'iniciar des de l\'Aplicació Omnipod 5 del Controlador. Si l\'inicies amb un altre dispositiu (un lector o el mòbil), el Pod no s\'hi podrà connectar.',
+  'No lo uses si el paquete o el aplicador están dañados o abiertos, o si ha pasado la fecha de caducidad.\n\nComprueba que el código del paquete del sensor coincide con el del aplicador, y que en la tapa de la bandeja del Pod pone FreeStyle Libre 2 Plus.':
+      'No el facis servir si el paquet o l\'aplicador estan malmesos o oberts, o si ha passat la data de caducitat.\n\nComprova que el codi del paquet del sensor coincideix amb el de l\'aplicador, i que a la tapa de la safata del Pod hi diu FreeStyle Libre 2 Plus.',
+  'ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo, en un sitio que se mantenga plano al moverte.\n\nEvita cicatrices, lunares, estrías, bultos y los sitios donde te pinchas insulina. Cambia de sitio en cada sensor.':
+      'ZONA DE COL·LOCACIÓ: només la part de darrere de la part superior del braç, en un lloc que es mantingui pla en moure\'t.\n\nEvita cicatrius, pigues, estries, bonys i els llocs on et punxes insulina. Canvia de lloc a cada sensor.',
+  'Ponlo en el mismo lado del cuerpo que el Pod y al menos a 2,5 cm de él, para que se comuniquen sin que el cuerpo tape la señal.':
+      'Posa\'l al mateix costat del cos que el Pod i almenys a 2,5 cm d\'ell, perquè es comuniquin sense que el cos tapi el senyal.',
+  'Lava la zona con agua y un jabón sin crema ni perfume, sécala y desinféctala con una toallita de alcohol.\n\nEspera a que se seque al aire antes de seguir.':
+      'Renta la zona amb aigua i un sabó sense crema ni perfum, eixuga-la i desinfecta-la amb un tovalló d\'alcohol.\n\nEspera que s\'assequi a l\'aire abans de continuar.',
+  'Abre el paquete del sensor despegando la tapa y desenrosca el capuchón del aplicador.\n\nAlinea la marca oscura del aplicador con la del paquete y, sobre una superficie dura, presiona con firmeza hasta que se detenga. Después levanta el aplicador.':
+      'Obre el paquet del sensor desenganxant la tapa i descargola el caputxó de l\'aplicador.\n\nAlinea la marca fosca de l\'aplicador amb la del paquet i, sobre una superfície dura, prem amb fermesa fins que s\'aturi. Després aixeca l\'aplicador.',
+  'PRECAUCIÓN: el aplicador ya tiene una aguja. No toques su interior ni lo vuelvas a meter en el paquete.\n\nColócalo sobre la zona preparada y presiona con firmeza. No lo presiones antes de tenerlo colocado.':
+      'PRECAUCIÓ: l\'aplicador ja té una agulla. No en toquis l\'interior ni el tornis a ficar al paquet.\n\nCol·loca\'l sobre la zona preparada i prem amb fermesa. No el premis abans de tenir-lo col·locat.',
+  'Retira suavemente el aplicador. Presiona el sensor y pasa el dedo por el adhesivo para que quede bien pegado.\n\nSi sangra y no para, quita el sensor y pon uno nuevo en otro sitio. Vuelve a poner el capuchón al aplicador y tíralo.':
+      'Retira suaument l\'aplicador. Prem el sensor i passa el dit per l\'adhesiu perquè quedi ben enganxat.\n\nSi sagna i no para, treu el sensor i posa\'n un de nou en un altre lloc. Torna a posar el caputxó a l\'aplicador i llença\'l.',
+  'En la Aplicación Omnipod 5, toca AÑADIR SENSOR. Si estás en Modo Automatizado, te pedirá pasar a Modo Manual.\n\nAntes te pedirá revisar los ajustes del sensor: los avisos de Glucosa alta, Glucosa baja y Valores del sensor no recibidos.':
+      'A l\'Aplicació Omnipod 5, toca AFEGIR SENSOR. Si ets en Mode Automatitzat, et demanarà passar a Mode Manual.\n\nAbans et demanarà revisar els ajustos del sensor: els avisos de Glucosa alta, Glucosa baixa i Valors del sensor no rebuts.',
+  'Escanea el sensor acercando el tercio inferior del Controlador y no lo muevas hasta que vibre. Se puede escanear a través de la ropa.\n\nCuando termine, toca OK: no hace falta volver a escanearlo hasta el próximo sensor.':
+      'Escaneja el sensor acostant-hi el terç inferior del Controlador i no el moguis fins que vibri. Es pot escanejar a través de la roba.\n\nQuan acabi, toca OK: no cal tornar-lo a escanejar fins al proper sensor.',
+  'Empieza el calentamiento: 1 HORA. Puedes ver cómo avanza en la pantalla principal.\n\nDespués, el Pod recibe un valor nuevo cada 5 minutos y ya puedes usar el Modo Automatizado.':
+      'Comença l\'escalfament: 1 HORA. Pots veure com avança a la pantalla principal.\n\nDesprés, el Pod rep un valor nou cada 5 minuts i ja pots fer servir el Mode Automatitzat.',
+  'El sensor Instinct dura hasta 15 días. Con la MiniMed 780G se inicia SIEMPRE con la app MiniMed Mobile, que tiene que estar emparejada con la bomba.\n\nTen a mano una toallita de alcohol isopropílico al 70 %: no viene en la caja.':
+      'El sensor Instinct dura fins a 15 dies. Amb la MiniMed 780G s\'inicia SEMPRE amb l\'app MiniMed Mobile, que ha d\'estar emparellada amb la bomba.\n\nTingues a mà un tovalló d\'alcohol isopropílic al 70 %: no ve a la caixa.',
+  'No lo uses si el envase o el aplicador están dañados, o si la etiqueta de precinto indica que ya se ha abierto.\n\nSi tomas suplementos de vitamina C, consulta a tu equipo médico: en dosis altas pueden dar lecturas falsamente altas.':
+      'No el facis servir si l\'envàs o l\'aplicador estan malmesos, o si l\'etiqueta de precinte indica que ja s\'ha obert.\n\nSi prens suplements de vitamina C, consulta el teu equip mèdic: en dosis altes poden donar lectures falsament altes.',
+  'ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo. En otro sitio puede dar lecturas erróneas.\n\nElige piel que se mantenga plana al moverte, sin cicatrices, lunares, estrías ni bultos, al menos a 2,5 cm de donde te pinchas insulina y distinta de la última vez.':
+      'ZONA DE COL·LOCACIÓ: només la part de darrere de la part superior del braç. En un altre lloc pot donar lectures errònies.\n\nTria pell que es mantingui plana en moure\'t, sense cicatrius, pigues, estries ni bonys, almenys a 2,5 cm d\'on et punxes insulina i diferent de l\'última vegada.',
+  'Para que la conexión sea mejor, lleva la bomba y el sensor en el mismo lado del cuerpo.':
+      'Perquè la connexió sigui millor, porta la bomba i el sensor al mateix costat del cos.',
+  'Lava la zona con jabón normal, sécala y límpiala con la toallita de alcohol. Deja que se seque al aire.\n\nLa zona TIENE que estar limpia y seca: si no, el sensor puede despegarse antes de tiempo.':
+      'Renta la zona amb sabó normal, eixuga-la i neteja-la amb el tovalló d\'alcohol. Deixa que s\'assequi a l\'aire.\n\nLa zona HA d\'estar neta i seca: si no, el sensor es pot desenganxar abans d\'hora.',
+  'Con la bomba en la pantalla de inicio, abre la app MiniMed Mobile: menú → Iniciar sensor → "Sí, Instinct".\n\nLa app te irá diciendo cuándo poner el sensor y cuándo escanearlo.':
+      'Amb la bomba a la pantalla d\'inici, obre l\'app MiniMed Mobile: menú → Iniciar sensor → "Sí, Instinct".\n\nL\'app t\'anirà dient quan posar el sensor i quan escanejar-lo.',
+  'Desenrosca el capuchón del aplicador y apártalo.\n\nPRECAUCIÓN: no lo vuelvas a poner antes de usarlo (podrías dañar el sensor) y no toques el interior: tiene una aguja.':
+      'Descargola el caputxó de l\'aplicador i aparta\'l.\n\nPRECAUCIÓ: no el tornis a posar abans de fer-lo servir (podries malmetre el sensor) i no en toquis l\'interior: té una agulla.',
+  'Coloca el aplicador sobre la zona preparada y presiona con firmeza.\n\nPRECAUCIÓN: no presiones hasta tenerlo colocado sobre la zona.':
+      'Col·loca l\'aplicador sobre la zona preparada i prem amb fermesa.\n\nPRECAUCIÓ: no premis fins a tenir-lo col·locat sobre la zona.',
+  'Retira suavemente el aplicador y comprueba que el sensor queda bien sujeto.\n\nSi sangra y no para, quita el sensor y habla con tu equipo médico. Vuelve a poner el capuchón al aplicador usado y tíralo según la normativa de tu zona.':
+      'Retira suaument l\'aplicador i comprova que el sensor queda ben subjecte.\n\nSi sagna i no para, treu el sensor i parla amb el teu equip mèdic. Torna a posar el caputxó a l\'aplicador usat i llença\'l segons la normativa de la teva zona.',
+  'Escanea el sensor acercando el móvil hasta que pite o vibre. Después el sensor se empareja con la bomba: suele tardar 2 minutos y como mucho 5.\n\nAl iniciar un sensor nuevo, el anterior se desempareja solo.':
+      'Escaneja el sensor acostant-hi el mòbil fins que xiuli o vibri. Després el sensor s\'emparella amb la bomba: sol trigar 2 minuts i com a molt 5.\n\nEn iniciar un sensor nou, l\'anterior es desemparella sol.',
+  'Espera el calentamiento: 1 HORA. La bomba muestra la cuenta atrás en la pantalla de inicio.\n\nLas primeras 12 horas las lecturas pueden variar más: si no cuadran con cómo te encuentras, confírmalas con el medidor.':
+      'Espera l\'escalfament: 1 HORA. La bomba mostra el compte enrere a la pantalla d\'inici.\n\nLes primeres 12 hores les lectures poden variar més: si no quadren amb com et trobes, confirma-les amb el mesurador.',
+  'El sensor FreeStyle Libre 3 dura hasta 14 días y el Libre 3 Plus, hasta 15 días.\n\nMira en la caja cuál es el tuyo.':
+      'El sensor FreeStyle Libre 3 dura fins a 14 dies i el Libre 3 Plus, fins a 15 dies.\n\nMira a la caixa quin és el teu.',
+  'Inicia el sensor con el dispositivo que vayas a usar (el lector o la aplicación del móvil) y escanéalo acercándolo al sensor.\n\nUsa siempre ese mismo dispositivo: un sensor iniciado con otro no se puede leer ("Sensor ya en uso").':
+      'Inicia el sensor amb el dispositiu que facis servir (el lector o l\'aplicació del mòbil) i escaneja\'l acostant-lo al sensor.\n\nFes servir sempre el mateix dispositiu: un sensor iniciat amb un altre no es pot llegir ("Sensor ja en ús").',
 };

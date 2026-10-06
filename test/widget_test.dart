@@ -227,9 +227,9 @@ void main() {
   group('Cobertura de guías', () {
     // Cada combinación que el asistente permite elegir debe tener guía.
     const combinacionesSensor = {
-      'bmedtronic': ['sguardian', 'ssimplera'],
+      'bmedtronic': ['sguardian', 'ssimplera', 'sinstinct'],
       'btandem': ['sdexg6', 'sdexg7'],
-      'bomnipod': ['sdexg6', 'sdexg7'],
+      'bomnipod': ['sdexg6', 'sdexg7', 'sfreelibre2plus'],
       'bypsopump': ['sdexg6', 'sfreelibre3'],
     };
 

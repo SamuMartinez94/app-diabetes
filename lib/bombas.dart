@@ -74,11 +74,11 @@ class _BombasScreenState extends State<BombasScreen> {
   List<String> get sensoresFiltrados {
     switch (bombaSeleccionada) {
       case 'bmedtronic':
-        return ['sguardian', 'ssimplera'];
+        return ['sguardian', 'ssimplera', 'sinstinct'];
       case 'btandem':
         return ['sdexg6', 'sdexg7'];
       case 'bomnipod':
-        return ['sdexg6', 'sdexg7'];
+        return ['sdexg6', 'sdexg7', 'sfreelibre2plus'];
       case 'bypsopump':
         return ['sdexg6', 'sfreelibre3'];
       default:
@@ -100,7 +100,7 @@ class _BombasScreenState extends State<BombasScreen> {
       case 'btandem':
         return ['cautosoft90', 'cautosoft30', 'ctrusteel'];
       case 'bypsopump':
-        return ['corbit', 'cinset'];
+        return ['corbit', 'corbitmicro', 'cinset'];
       default:
         return const [];
     }

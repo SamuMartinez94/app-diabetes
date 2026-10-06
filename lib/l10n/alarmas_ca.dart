@@ -416,8 +416,6 @@ const Map<String, String> traduccionesAlarmasCa = {
       'Si la bomba diu que no ha començat l\'escalfament i el sensor està posat, canvia\'l si han passat més de 30 minuts.',
   'El sensor termina pronto, ha caducado o el transmisor no tiene batería':
       'El sensor s\'acaba aviat, ha caducat o el transmissor no té bateria',
-  'El sensor llega al final de su vida útil: Simplera Sync dura hasta 6 días más 24 horas de gracia (en las que sigue funcionando igual) y Guardian 4, hasta 7 días. Con Guardian 4, el transmisor también avisa cuando hay que recargarlo.':
-      'El sensor arriba al final de la seva vida útil: Simplera Sync dura fins a 6 dies més 24 hores de gràcia (en les quals continua funcionant igual) i Guardian 4, fins a 7 dies. Amb Guardian 4, el transmissor també avisa quan cal recarregar-lo.',
   'sensor caducado, fin de sensor, periodo de gracia, bateria transmisor, recargar transmisor':
       'sensor caducat, final de sensor, període de gràcia, bateria transmissor, recarregar transmissor',
   'Ten un sensor de repuesto preparado y cámbialo cuando toque (mira la guía de cambio de sensor).':
@@ -453,7 +451,6 @@ const Map<String, String> traduccionesAlarmasCa = {
       'Si el bloqueig salta una altra vegada en omplir el catèter nou, canvia també el cartutx i torna a omplir.',
   'Si sigue saltando aun con cartucho nuevo, la bomba está defectuosa: contacta con el servicio de atención al cliente.':
       'Si continua saltant tot i amb cartutx nou, la bomba està defectuosa: contacta amb el servei d\'atenció al client.',
-  'Nivel de cartucho bajo': 'Nivell de cartutx baix',
   'Es una advertencia: con lo que queda en el cartucho no llega para las próximas 12 horas de basal y el bolo en curso. Si no lo cambias, pasará a la alarma de cartucho vacío.':
       'És una advertència: amb el que queda al cartutx no n\'hi ha prou per a les properes 12 hores de basal i el bòlus en curs. Si no el canvies, passarà a l\'alarma de cartutx buit.',
   'poca insulina, queda poco, cartucho bajo, advertencia':
@@ -481,8 +478,6 @@ const Map<String, String> traduccionesAlarmasCa = {
       'Posa una pila alcalina AAA (LR03) nova com més aviat millor.',
   'Si ya es la alarma de batería vacía, mide tu glucosa: puede que hayas estado sin insulina de fondo.':
       'Si ja és l\'alarma de bateria buida, mesura la teva glucosa: pot ser que hagis estat sense insulina de fons.',
-  'Cargar la batería interna recargable':
-      'Carregar la bateria interna recarregable',
   'La batería interna recargable de la bomba se ha descargado por un uso intenso. Se cancelan las entregas en curso: bolos, basal temporal y basal.':
       'La bateria interna recarregable de la bomba s\'ha descarregat per un ús intens. Es cancel·len els lliuraments en curs: bòlus, basal temporal i basal.',
   'bateria interna, recargable, uso intenso, cargar':
@@ -493,25 +488,18 @@ const Map<String, String> traduccionesAlarmasCa = {
       'Després de confirmar, la bomba t\'avisa dels bòlus i de la basal temporal que s\'han cancel·lat.',
   'Mide tu glucosa y vuelve a programar lo que necesites.':
       'Mesura la teva glucosa i torna a programar el que necessitis.',
-  'Bomba parada más de una hora': 'Bomba aturada més d\'una hora',
   'Es una advertencia: la bomba lleva más de una hora en modo de parada, sin dar insulina.':
       'És una advertència: la bomba fa més d\'una hora que és en mode d\'aturada, sense donar insulina.',
   'parada, stop, modo parada, una hora':
       'aturada, stop, mode aturada, una hora',
   'Si ya no quieres la bomba parada, ponla en marcha de nuevo.':
       'Si ja no vols la bomba aturada, posa-la en marxa de nou.',
-  'Bolo o basal temporal cancelados': 'Bòlus o basal temporal cancel·lats',
-  'Es una advertencia: un bolo o una basal temporal se han cancelado antes de tiempo por una alarma o porque pusiste la bomba en modo de parada, o la basal temporal ha terminado.':
-      'És una advertència: un bòlus o una basal temporal s\'ha cancel·lat abans d\'hora per una alarma o perquè vas posar la bomba en mode d\'aturada, o la basal temporal ha acabat.',
   'bolo cancelado, basal temporal, cancelado':
       'bòlus cancel·lat, basal temporal, cancel·lat',
   'Mira en los datos de terapia cuánta insulina se llegó a poner.':
       'Mira a les dades de teràpia quanta insulina es va arribar a posar.',
   'Si quieres seguir con el bolo o con la basal temporal, tienes que volver a programarlos.':
       'Si vols continuar amb el bòlus o amb la basal temporal, els has de tornar a programar.',
-  'Error de conexión Bluetooth': 'Error de connexió Bluetooth',
-  'Es una advertencia: pasaron más de 30 segundos al escribir el código de emparejamiento, lo escribiste mal, o se cortó una conexión Bluetooth activa.':
-      'És una advertència: han passat més de 30 segons en escriure el codi d\'aparellament, l\'has escrit malament, o s\'ha tallat una connexió Bluetooth activa.',
   'bluetooth, emparejar, codigo, conexion':
       'bluetooth, aparellar, codi, connexió',
   'Vuelve a emparejar la bomba con el dispositivo.':
@@ -524,103 +512,26 @@ const Map<String, String> traduccionesAlarmasCa = {
       'caiguda, aigua, mullada, bombolles, brutícia, cop',
   'Mide tu glucosa y pon la bomba en modo de parada.':
       'Mesura la teva glucosa i posa la bomba en mode d\'aturada.',
-  'Si hay agua: saca la pila o el cartucho y seca el compartimento con un paño de algodón seco. Si hay suciedad, quítala golpeando suavemente la bomba contra la palma de la mano (nunca contra una superficie dura) y limpia con un paño húmedo y luego seco.':
-      'Si hi ha aigua: treu la pila o el cartutx i asseca el compartiment amb un drap de cotó sec. Si hi ha brutícia, treu-la donant cops suaus amb la bomba contra la palma de la mà (mai contra una superfície dura) i neteja amb un drap humit i després sec.',
   'Después de una caída, cambia el cartucho y el catéter: puede haber microgrietas que no se ven.':
       'Després d\'una caiguda, canvia el cartutx i el catèter: pot haver-hi microesquerdes que no es veuen.',
   'Si hay burbujas de aire, llena de nuevo el tubo sin burbujas desconectado de tu cuerpo.':
       'Si hi ha bombolles d\'aire, omple de nou el tub sense bombolles desconnectat del teu cos.',
   'Si la bomba tiene daños visibles o no funciona, contacta con el servicio de atención al cliente.':
       'Si la bomba té danys visibles o no funciona, contacta amb el servei d\'atenció al client.',
-  'Bloqueo detectado en el Pod': 'Bloqueig detectat al Pod',
-  'El sistema ha detectado un bloqueo (oclusión) en la cánula del Pod y ha detenido la administración de insulina. Es una alarma de peligro.':
-      'El sistema ha detectat un bloqueig (oclusió) a la cànula del Pod i ha aturat l\'administració d\'insulina. És una alarma de perill.',
-  'oclusion, bloqueo, no pasa insulina, canula, peligro':
-      'oclusio, bloqueig, no passa insulina, cànula, perill',
   'Quita el Pod.': 'Treu el Pod.',
-  'Pon un Pod nuevo (mira la guía de cambio de Pod).':
-      'Posa un Pod nou (mira la guia de canvi de Pod).',
-  'Reconoce la alarma en la aplicación.': 'Reconeix l\'alarma a l\'aplicació.',
-  'Error del Pod': 'Error del Pod',
-  'El sistema ha detectado un error del Pod y ha detenido la administración de insulina. Es una alarma de peligro.':
-      'El sistema ha detectat un error del Pod i ha aturat l\'administració d\'insulina. És una alarma de perill.',
   'fallo pod, error, alarma de peligro, pitido':
       'fallada pod, error, alarma de perill, xiulet',
-  'El Pod ha llegado al final de su vida útil. Primero avisa una vez por hora (advertencia) y, si no lo cambias, deja de dar insulina (alarma de peligro).':
-      'El Pod ha arribat al final de la seva vida útil. Primer avisa un cop per hora (advertència) i, si no el canvies, deixa de donar insulina (alarma de perill).',
   'caducado, expirado, pod viejo, fin de vida':
       'caducat, expirat, pod vell, final de vida',
-  'Cambia el Pod pronto: mira la guía de cambio de Pod de esta app.':
-      'Canvia el Pod aviat: mira la guia de canvi de Pod d\'aquesta app.',
-  'Si ya ha saltado la alarma de peligro, quita el Pod: ha dejado de dar insulina.':
-      'Si ja ha saltat l\'alarma de perill, treu el Pod: ha deixat de donar insulina.',
-  'El Pod se queda sin insulina': 'El Pod es queda sense insulina',
-  'Con el aviso "Pod con insulina baja", la insulina del Pod está por debajo del valor que pusiste en Ajustes. Si lo ignoras, pasa a la alarma de peligro "Pod sin insulina": está vacío y la insulina se ha detenido.':
-      'Amb l\'avís "Pod amb insulina baixa", la insulina del Pod està per sota del valor que vas posar a Ajustos. Si l\'ignores, passa a l\'alarma de perill "Pod sense insulina": és buit i la insulina s\'ha aturat.',
   'poca insulina, vacio, sin insulina, insulina baja':
       'poca insulina, buit, sense insulina, insulina baixa',
-  'Si es el aviso, cambia el Pod pronto para que no llegue a la alarma de peligro.':
-      'Si és l\'avís, canvia el Pod aviat perquè no arribi a l\'alarma de perill.',
-  'Si ya está vacío, quita el Pod y pon uno nuevo.':
-      'Si ja és buit, treu el Pod i posa\'n un de nou.',
   'Apagado del Pod': 'Apagat del Pod',
-  'Configuraste una hora de apagado del Pod. Antes de que llegue, la aplicación te avisa; si no respondes, el Pod deja de dar insulina (alarma de peligro).':
-      'Vas configurar una hora d\'apagat del Pod. Abans que arribi, l\'aplicació t\'avisa; si no respons, el Pod deixa de donar insulina (alarma de perill).',
   'apagado, hora de apagado, pod apagado, sin respuesta':
       'apagat, hora d\'apagat, pod apagat, sense resposta',
-  'Si es el aviso, toca OK para reconocerlo y evitar que el Pod se apague.':
-      'Si és l\'avís, toca OK per reconèixer-lo i evitar que el Pod s\'apagui.',
-  'Si ya ha saltado la alarma de peligro, quita el Pod y pon uno nuevo.':
-      'Si ja ha saltat l\'alarma de perill, treu el Pod i posa\'n un de nou.',
-  'Error de la aplicación Omnipod 5': 'Error de l\'aplicació Omnipod 5',
-  'El sistema ha detectado un error en la aplicación. En algunos casos el Controlador se reinicia y se borran todos los ajustes.':
-      'El sistema ha detectat un error a l\'aplicació. En alguns casos el Controlador es reinicia i s\'esborren tots els ajustos.',
-  'error aplicacion, controlador, memoria, reinicio':
-      'error aplicació, controlador, memòria, reinici',
-  'Si el aviso dice que quites el Pod, quítalo y pon uno nuevo.':
-      'Si l\'avís diu que treguis el Pod, treu-lo i posa\'n un de nou.',
-  'Si el Controlador se reinicia y se borran los ajustes, vuelve a introducirlos con tu equipo médico.':
-      'Si el Controlador es reinicia i s\'esborren els ajustos, torna a introduir-los amb el teu equip mèdic.',
-  'Reinicia la insulina': 'Reinicia la insulina',
-  'Ha terminado el tiempo que pusiste para pausar la insulina.':
-      'Ha acabat el temps que vas posar per pausar la insulina.',
-  'pausa, iniciar insulina, pausada, reanudar':
-      'pausa, iniciar insulina, pausada, reprendre',
-  'Toca Iniciar la insulina para reanudarla y evitar la hiperglucemia.':
-      'Toca Iniciar la insulina per reprendre-la i evitar la hiperglucèmia.',
   'Glucosa baja urgente': 'Glucosa baixa urgent',
-  'La glucosa del sensor es de 55 mg/dL o menos.':
-      'La glucosa del sensor és de 55 mg/dL o menys.',
   'hipo, baja, urgente, hipoglucemia, 55':
       'hipo, baixa, urgent, hipoglucèmia, 55',
-  'Considera comer hidratos de carbono de acción rápida para tratar la hipoglucemia.':
-      'Considera prendre hidrats de carboni d\'acció ràpida per tractar la hipoglucèmia.',
-  'Aviso del modo automático': 'Avís del mode automàtic',
-  'En modo automático, el Pod no ha recibido valores del sensor durante una hora, o el sistema no ve que tu glucosa cambie como esperaba y te pide que revises el sensor, el Pod y tu glucosa (avisos "Faltan los valores del sensor", "Revise la glucosa en sangre" o "Restricción de entrega automatizada").':
-      'En mode automàtic, el Pod no ha rebut valors del sensor durant una hora, o el sistema no veu que la teva glucosa canviï com esperava i et demana que revisis el sensor, el Pod i la teva glucosa (avisos "Falten els valors del sensor", "Reviseu la glucosa a la sang" o "Restricció de lliurament automatitzat").',
-  'modo automatico, automatizado limitado, faltan valores, revise glucosa, restriccion':
-      'mode automàtic, automatitzat limitat, falten valors, revisi glucosa, restricció',
-  'Comprueba el sensor y el Pod.': 'Comprova el sensor i el Pod.',
-  'Mide tu glucosa con el medidor.': 'Mesura la teva glucosa amb el mesurador.',
-  'Si el aviso lo pide (Restricción de entrega automatizada), cambia a modo manual durante 5 minutos o más para reconocerlo.':
-      'Si l\'avís ho demana (Restricció de lliurament automatitzat), canvia a mode manual durant 5 minuts o més per reconèixer-lo.',
-  'Sin valores del sensor, el sistema funciona en "Automatizado: Limitado" hasta que vuelvan a llegar.':
-      'Sense valors del sensor, el sistema funciona en "Automatitzat: Limitat" fins que tornin a arribar.',
   'Mensajes del sensor en Omnipod 5': 'Missatges del sensor a Omnipod 5',
-  'La aplicación te avisa si el sensor está demasiado frío o caliente, no puede enviar valores por un momento, tiene un error, ha terminado o hay que reemplazarlo, o no se ha podido conectar. Sin sensor, el modo automático no funciona.':
-      'L\'aplicació t\'avisa si el sensor està massa fred o calent, no pot enviar valors per un moment, té un error, ha acabat o cal substituir-lo, o no s\'ha pogut connectar. Sense sensor, el mode automàtic no funciona.',
-  'sensor, demasiado frio, demasiado caliente, error del sensor, reemplazar sensor, sin sensor':
-      'sensor, massa fred, massa calent, error del sensor, substituir sensor, sense sensor',
-  'Demasiado frío o caliente: muévete a un sitio con una temperatura más suave.':
-      'Massa fred o calent: mou-te a un lloc amb una temperatura més suau.',
-  'Problema temporal del sensor: vuelve a comprobarlo en 10 minutos.':
-      'Problema temporal del sensor: torna a comprovar-ho d\'aquí a 10 minuts.',
-  'Sensor finalizado o "Reemplazar sensor": pon un sensor nuevo (mira la guía de cambio de sensor).':
-      'Sensor finalitzat o "Substituir sensor": posa un sensor nou (mira la guia de canvi de sensor).',
-  'No se pudo conectar: vuelve a intentarlo.':
-      'No s\'ha pogut connectar: torna-ho a provar.',
-  'Para usar el modo automático necesitas un sensor y un Pod activo.':
-      'Per fer servir el mode automàtic necessites un sensor i un Pod actiu.',
   'Valor bajo urgente': 'Valor baix urgent',
   'La lectura del sensor es de 55 mg/dL o menos. Es una alerta de seguridad que suena aunque tengas el móvil en silencio.':
       'La lectura del sensor és de 55 mg/dL o menys. És una alerta de seguretat que sona encara que tinguis el mòbil en silenci.',
@@ -862,33 +773,11 @@ const Map<String, String> traduccionesAlarmasCa = {
       'No facis servir el mateix lloc per a dos sensors seguits. Si la irritació és important (picor, coïssor, erupció), consulta-ho amb el teu equip mèdic.',
   'Si el aplicador se te queda pegado, despega el parche con cuidado junto con el aplicador, comprueba que el sensor no se ha quedado en la piel y no lo reutilices.':
       'Si l\'aplicador se\'t queda enganxat, despega el pegat amb cura juntament amb l\'aplicador, comprova que el sensor no s\'ha quedat a la pell i no el reutilitzis.',
-  'Sensor arrancando (60 minutos)': 'Sensor arrencant (60 minuts)',
-  'Después de escanear el sensor con el móvil, la aplicación muestra tu glucosa automáticamente a los 60 minutos. Después, el sensor envía una lectura nueva cada minuto.':
-      'Després d\'escanejar el sensor amb el mòbil, l\'aplicació mostra la teva glucosa automàticament als 60 minuts. Després, el sensor envia una lectura nova cada minut.',
   'arranque, calentamiento, escanear, sin lecturas':
       'arrencada, escalfament, escanejar, sense lectures',
-  'Espera 60 minutos sin quitar el sensor.':
-      'Espera 60 minuts sense treure el sensor.',
-  'Si el móvil no reconoce el sensor al escanear, muévelo despacio sobre él: cada modelo de móvil es distinto.':
-      'Si el mòbil no reconeix el sensor en escanejar, mou-lo a poc a poc per sobre: cada model de mòbil és diferent.',
   'Alarmas de glucosa del Libre 3': 'Alarmes de glucosa del Libre 3',
-  'Las alarmas vienen activadas de fábrica y son una función de seguridad importante. Se pueden cambiar o desactivar desde la aplicación.':
-      'Les alarmes vénen activades de fàbrica i són una funció de seguretat important. Es poden canviar o desactivar des de l\'aplicació.',
   'alarmas, descartar, desactivar, configurar':
       'alarmes, descartar, desactivar, configurar',
-  'Abre la aplicación o toca Descartar para quitar la alarma.':
-      'Obre l\'aplicació o toca Descartar per treure l\'alarma.',
-  'Abre la aplicación para ver más información de tu lectura.':
-      'Obre l\'aplicació per veure més informació de la teva lectura.',
-  'Si quieres cambiar o desactivar alguna: Menú principal → Alarmas. Consúltalo antes con tu equipo médico.':
-      'Si vols canviar o desactivar alguna: Menú principal → Alarmes. Consulta-ho abans amb el teu equip mèdic.',
-  'Tu móvil no recibe lecturas del sensor. Si usas una bomba con ajuste automático, puede que deje de ajustar la insulina.':
-      'El teu mòbil no rep lectures del sensor. Si fas servir una bomba amb ajust automàtic, pot ser que deixi d\'ajustar la insulina.',
-  'no conecta, sin senal, bluetooth, sin lecturas':
-      'no connecta, sense senyal, bluetooth, sense lectures',
-  'Acerca el móvil al sensor.': 'Apropa el mòbil al sensor.',
-  'Apaga y enciende el Bluetooth del móvil y espera 15 minutos.':
-      'Apaga i encén el Bluetooth del mòbil i espera 15 minuts.',
   'Fuente: manual oficial de {manual}, p. {pagina}':
       'Font: manual oficial de {manual}, p. {pagina}',
   'Problema con la bomba': 'Problema amb la bomba',
@@ -900,4 +789,302 @@ const Map<String, String> traduccionesAlarmasCa = {
       'Hola! Explica\'m quin problema tens i t\'ajudo a resoldre\'l.',
   'Escribe lo que ves en la pantalla…': 'Escriu el que veus a la pantalla…',
   'Viaje, zonas y soporte.': 'Viatge, zones i suport.',
+  'Glucosa alta o glucosa baja':
+      'Glucosa alta o glucosa baixa',
+  'Trata la glucosa alta o baja como te haya indicado tu equipo médico.':
+      'Tracta la glucosa alta o baixa com t\x27hagi indicat el teu equip mèdic.',
+  'alta, baja, hiper, hipo, glucosa alta, glucosa baja':
+      'alta, baixa, hiper, hipo, glucosa alta, glucosa baixa',
+  'Lleva el Pod y el sensor en el mismo lado del cuerpo, para que se "vean" sin que el cuerpo tape la señal.':
+      'Porta el Pod i el sensor al mateix costat del cos, perquè es "vegin" sense que el cos tapi el senyal.',
+  'sin valores, sin datos, sin señal, perdida de señal':
+      'sense valors, sense dades, sense senyal, pèrdua de senyal',
+  'Cartucho/reservorio vacío':
+      'Cartutx/reservori buit',
+  'Al cartucho o reservorio no le queda insulina y la bomba ha dejado de darte insulina.':
+      'Al cartutx o reservori no li queda insulina i la bomba ha deixat de donar-te insulina.',
+  'cartucho, reservorio, vacio, sin insulina':
+      'cartutx, reservori, buit, sense insulina',
+  'No hay insulina / Cebado no finalizado':
+      'No hi ha insulina / Purgat no finalitzat',
+  'La bomba estaba en modo operativo y no se ha usado en 24 horas. Por seguridad, ha interrumpido la administración de insulina que estaba en curso.':
+      'La bomba estava en mode operatiu i no s\'ha fet servir en 24 hores. Per seguretat, ha interromput l\'administració d\'insulina que estava en curs.',
+  'Confirma la alarma: al confirmarla, la bomba vuelve a administrar insulina.':
+      'Confirma l\'alarma: en confirmar-la, la bomba torna a administrar insulina.',
+  'Si el error vuelve a aparecer, deja de usar la bomba, saca la pila y llama al servicio de atención al cliente: el teléfono está en la propia bomba.':
+      'Si l\'error torna a aparèixer, deixa de fer servir la bomba, treu la pila i truca al servei d\'atenció al client: el telèfon és a la mateixa bomba.',
+  'No hay batería':
+      'No hi ha bateria',
+  'Batería no apta':
+      'Bateria no apta',
+  'Cargar batería interna recargable':
+      'Carregar bateria interna recarregable',
+  'Nivel de cartucho/reservorio bajo':
+      'Nivell de cartutx/reservori baix',
+  'Retracción de la varilla roscada no finalizada':
+      'Retracció de la vareta roscada no finalitzada',
+  'Bomba de insulina parada':
+      'Bomba d\'insulina aturada',
+  'Bolo cancelado / Función de tasa basal temporal cancelada':
+      'Bolus cancel·lat / Funció de taxa basal temporal cancel·lada',
+  'Es una advertencia: un bolo o una basal temporal se han cancelado antes de tiempo por una alarma o porque pusiste la bomba en modo de parada.':
+      'És una advertència: un bolus o una basal temporal s\'han cancel·lat abans d\'hora per una alarma o perquè vas posar la bomba en mode d\'aturada.',
+  'Error de la conexión Bluetooth':
+      'Error de la connexió Bluetooth',
+  'Es una advertencia: al emparejar, pasaron más de 30 segundos sin escribir el código de identificación, o lo escribiste mal.':
+      'És una advertència: en emparellar, van passar més de 30 segons sense escriure el codi d\'identificació, o el vas escriure malament.',
+  'Si hay agua o suciedad: saca la pila y limpia o seca la bomba con un paño de algodón húmedo. No uses objetos afilados, productos químicos, disolventes ni detergentes agresivos.':
+      'Si hi ha aigua o brutícia: treu la pila i neteja o eixuga la bomba amb un drap de cotó humit. No facis servir objectes esmolats, productes químics, dissolvents ni detergents agressius.',
+  'Si hay insulina en el compartimento del cartucho, saca el cartucho y mira si tiene grietas; cámbialo si hace falta.':
+      'Si hi ha insulina al compartiment del cartutx, treu el cartutx i mira si té esquerdes; canvia\'l si cal.',
+  'El sensor llega al final de su vida útil: Simplera Sync dura hasta 6 días más 24 horas de gracia (en las que sigue funcionando igual), Guardian 4 hasta 7 días e Instinct hasta 15 días. Con Guardian 4, el transmisor también avisa cuando hay que recargarlo.':
+      'El sensor arriba al final de la seva vida útil: Simplera Sync dura fins a 6 dies més 24 hores de gràcia (en què continua funcionant igual), Guardian 4 fins a 7 dies i Instinct fins a 15 dies. Amb Guardian 4, el transmissor també avisa quan cal recarregar-lo.',
+  'Con Instinct, ten a mano la app MiniMed Mobile: el sensor nuevo se inicia con ella.':
+      'Amb Instinct, tingues a mà l\'app MiniMed Mobile: el sensor nou s\'inicia amb ella.',
+  'No se ha podido iniciar o emparejar el sensor Instinct':
+      'No s\'ha pogut iniciar o emparellar el sensor Instinct',
+  'El sensor no ha empezado el calentamiento porque no detecta líquido bajo la piel ("Comprobar sensor"), una alarma de la bomba ha cortado el emparejamiento, o la app MiniMed Mobile no ha podido escanearlo.':
+      'El sensor no ha començat l\'escalfament perquè no detecta líquid sota la pell ("Comprovar sensor"), una alarma de la bomba ha interromput l\'emparellament, o l\'app MiniMed Mobile no l\'ha pogut escanejar.',
+  'comprobar sensor, no empareja, nfc, escaneo, no arranca':
+      'comprovar sensor, no s\'emparella, nfc, escaneig, no arrenca',
+  'Si el sensor no está puesto, póntelo. Si está bien puesto y pegado, reinícialo con la app MiniMed Mobile.':
+      'Si el sensor no està posat, posa-te\'l. Si està ben posat i enganxat, reinicia\'l amb l\'app MiniMed Mobile.',
+  'Si el aviso vuelve a salir después de reiniciarlo, inicia un sensor nuevo con la app.':
+      'Si l\'avís torna a sortir després de reiniciar-lo, inicia un sensor nou amb l\'app.',
+  'Si la app dice que el NFC está apagado, actívalo en los ajustes del móvil. Si dice "Error de escaneo", acerca el móvil al sensor y vuelve a escanear.':
+      'Si l\'app diu que l\'NFC està desactivat, activa\'l a la configuració del mòbil. Si diu "Error d\'escaneig", acosta el mòbil al sensor i torna a escanejar.',
+  'Si dice que el sensor ya está en uso, comprueba que usas el móvil y la cuenta con los que lo iniciaste.':
+      'Si diu que el sensor ja està en ús, comprova que fas servir el mòbil i el compte amb què el vas iniciar.',
+  'El sistema pide una glucemia para comprobar el sensor Instinct':
+      'El sistema demana una glucèmia per comprovar el sensor Instinct',
+  'Con Instinct, las glucemias del medidor sirven para comprobar que el sensor funciona bien, no para calibrarlo. Este aviso sale cuando hace falta una glucemia o cuando no se ha podido usar la que introdujiste.':
+      'Amb Instinct, les glucèmies del mesurador serveixen per comprovar que el sensor funciona bé, no per calibrar-lo. Aquest avís surt quan cal una glucèmia o quan no s\'ha pogut fer servir la que vas introduir.',
+  'introducir gs, comprobacion fallida, glucemia, considerar cambio':
+      'introduir gs, comprovació fallida, glucèmia, considerar canvi',
+  'Lávate y sécate bien las manos y mide tu glucemia con el medidor.':
+      'Renta\'t i eixuga\'t bé les mans i mesura la glucèmia amb el mesurador.',
+  'Si sale que la comprobación ha fallado, espera al menos 30 minutos y vuelve a medirte.':
+      'Si surt que la comprovació ha fallat, espera almenys 30 minuts i torna a mesurar-te.',
+  'Si fallan dos comprobaciones seguidas, la bomba te propondrá cambiar el sensor: es la forma más rápida de volver a tener lecturas.':
+      'Si fallen dues comprovacions seguides, la bomba et proposarà canviar el sensor: és la manera més ràpida de tornar a tenir lectures.',
+  'El primer día puede tardar hasta 2 horas en volver a dar lecturas. Mientras tanto, usa el medidor para tus decisiones.':
+      'El primer dia pot trigar fins a 2 hores a tornar a donar lectures. Mentrestant, fes servir el mesurador per a les teves decisions.',
+  'Glucosa baja: alarma que no se puede quitar (Instinct)':
+      'Glucosa baixa: alarma que no es pot treure (Instinct)',
+  'Con Instinct, la bomba avisa siempre que la glucosa del sensor baja de 55 mg/dL. Viene de fábrica: no se puede cambiar, apagar ni silenciar. Esta alarma no suspende la insulina.':
+      'Amb Instinct, la bomba avisa sempre que la glucosa del sensor baixa de 55 mg/dL. Ve de fàbrica: no es pot canviar, apagar ni silenciar. Aquesta alarma no suspèn la insulina.',
+  'hipo, baja, 55, gs baja, hipoglucemia':
+      'hipo, baixa, 55, gs baixa, hipoglucèmia',
+  'Mide tu glucemia con el medidor y trata la bajada como te haya indicado tu equipo médico.':
+      'Mesura la glucèmia amb el mesurador i tracta la baixada com t\'hagi indicat el teu equip mèdic.',
+  'Si la glucosa está muy por debajo, la bomba puede dejar de mostrar las flechas de tendencia.':
+      'Si la glucosa està molt per sota, la bomba pot deixar de mostrar les fletxes de tendència.',
+  'Sensor demasiado caliente, frío o actualizándose (Instinct)':
+      'Sensor massa calent, fred o actualitzant-se (Instinct)',
+  'El sensor no da lecturas por un motivo temporal: está fuera de su temperatura de funcionamiento o está haciendo comprobaciones de calidad. No hace falta cambiarlo.':
+      'El sensor no dona lectures per un motiu temporal: és fora de la seva temperatura de funcionament o està fent comprovacions de qualitat. No cal canviar-lo.',
+  'caliente, frio, actualizando, sin lecturas':
+      'calent, fred, actualitzant, sense lectures',
+  'Si está demasiado caliente o frío, muévete a un sitio con una temperatura adecuada.':
+      'Si està massa calent o fred, mou-te a un lloc amb una temperatura adequada.',
+  'Si se está actualizando, espera al menos 30 minutos a que vuelvan las lecturas.':
+      'Si s\'està actualitzant, espera almenys 30 minuts que tornin les lectures.',
+  'Mientras tanto, usa el medidor para tus decisiones.':
+      'Mentrestant, fes servir el mesurador per a les teves decisions.',
+  'Obstrucción detectada':
+      'Obstrucció detectada',
+  'Se ha detectado una obstrucción (oclusión) por una cánula bloqueada, un fallo del Pod o una insulina antigua o inactiva, y se ha detenido la administración de insulina.':
+      'S\'ha detectat una obstrucció (oclusió) per una cànula bloquejada, una fallada del Pod o una insulina antiga o inactiva, i s\'ha aturat l\'administració d\'insulina.',
+  'oclusion, bloqueo, obstruccion, no pasa insulina, canula':
+      'oclusió, bloqueig, obstrucció, no passa insulina, cànula',
+  'Toca OK, DESACTIVAR POD AHORA.':
+      'Toca OK, DESACTIVAR POD ARA.',
+  'Cambia el Pod (mira la guía de cambio de Pod).':
+      'Canvia el Pod (mira la guia de canvi de Pod).',
+  'Mide tu glucosa y sigue las pautas de tu equipo médico: sin insulina puede subir y aparecer cetoacidosis.':
+      'Mesura la glucosa i segueix les pautes del teu equip mèdic: sense insulina pot pujar i aparèixer cetoacidosi.',
+  'Error de Pod':
+      'Error de Pod',
+  'El Pod ha detectado un error inesperado y ha detenido la administración de insulina.':
+      'El Pod ha detectat un error inesperat i ha aturat l\'administració d\'insulina.',
+  'Cambia el Pod. Si no tienes otro, usa otra forma de ponerte la insulina.':
+      'Canvia el Pod. Si no en tens cap altre, fes servir una altra manera de posar-te la insulina.',
+  'Primero es una alarma de advertencia: el Pod dejará de dar insulina pronto. Si no lo cambias, pasa a alarma de peligro: el Pod ha llegado al final de su vida y ha detenido la insulina.':
+      'Primer és una alarma d\'advertència: el Pod deixarà de donar insulina aviat. Si no el canvies, passa a alarma de perill: el Pod ha arribat al final de la seva vida i ha aturat la insulina.',
+  'Si es la advertencia: toca OK y cambia el Pod.':
+      'Si és l\'advertència: toca OK i canvia el Pod.',
+  'Si ya es la alarma de peligro: toca OK, DESACTIVAR POD AHORA y cambia el Pod.':
+      'Si ja és l\'alarma de perill: toca OK, DESACTIVAR POD ARA i canvia el Pod.',
+  'Pod con insulina baja / Pod sin insulina':
+      'Pod amb insulina baixa / Pod sense insulina',
+  'Con "Pod con insulina baja" (advertencia) queda menos insulina de la que tienes configurada en los ajustes. Si no lo cambias, pasa a "Pod sin insulina" (peligro): el depósito está vacío y se ha detenido la insulina.':
+      'Amb "Pod amb insulina baixa" (advertència) queda menys insulina de la que tens configurada als ajustos. Si no el canvies, passa a "Pod sense insulina" (perill): el dipòsit és buit i s\'ha aturat la insulina.',
+  'Tienes configurada una hora de apagado del Pod. Primero salta una advertencia; si no respondes, el Pod deja de administrar insulina (alarma de peligro).':
+      'Tens configurada una hora d\'apagada del Pod. Primer salta una advertència; si no respons, el Pod deixa d\'administrar insulina (alarma de perill).',
+  'Si es la advertencia: toca SIGUIENTE para reiniciar el temporizador de apagado.':
+      'Si és l\'advertència: toca SEGÜENT per reiniciar el temporitzador d\'apagada.',
+  'Error de la Aplicación Omnipod 5':
+      'Error de l\'Aplicació Omnipod 5',
+  'Se ha detectado un error inesperado en la Aplicación Omnipod 5. A veces la aplicación se cierra y se vuelve a abrir sola.':
+      'S\'ha detectat un error inesperat a l\'Aplicació Omnipod 5. De vegades l\'aplicació es tanca i es torna a obrir sola.',
+  'error aplicacion, controlador, reinicio, se cierra':
+      'error aplicació, controlador, reinici, es tanca',
+  'Toca OK para confirmar o silenciar la alarma. Puede que el Controlador se reinicie: sigue igualmente con el paso siguiente.':
+      'Toca OK per confirmar o silenciar l\'alarma. Pot ser que el Controlador es reiniciï: continua igualment amb el pas següent.',
+  'Corrupción de memoria de Omnipod 5':
+      'Corrupció de memòria d\'Omnipod 5',
+  'Se ha detectado un error inesperado en la Aplicación Omnipod 5 que obliga a restablecerla.':
+      'S\'ha detectat un error inesperat a l\'Aplicació Omnipod 5 que obliga a restablir-la.',
+  'memoria, corrupcion, restablecer, controlador':
+      'memòria, corrupció, restablir, controlador',
+  'Toca OK para confirmar la alarma y restablecer la Aplicación Omnipod 5.':
+      'Toca OK per confirmar l\'alarma i restablir l\'Aplicació Omnipod 5.',
+  'Error del sistema':
+      'Error del sistema',
+  'Se ha detectado un error inesperado en el Pod o en la Aplicación Omnipod 5.':
+      'S\'ha detectat un error inesperat al Pod o a l\'Aplicació Omnipod 5.',
+  'error, sistema, fallo':
+      'error, sistema, fallada',
+  'Toca OK para confirmar la alarma.':
+      'Toca OK per confirmar l\'alarma.',
+  'Iniciar insulina':
+      'Iniciar insulina',
+  'Ha terminado el tiempo de pausa de la insulina que elegiste. En Modo Manual la insulina NO vuelve sola después de una pausa.':
+      'Ha acabat el temps de pausa de la insulina que vas triar. En Mode Manual la insulina NO torna sola després d\'una pausa.',
+  'pausa, iniciar insulina, reanudar, parada':
+      'pausa, iniciar insulina, reprendre, aturada',
+  'Para volver a tu Programa Basal, toca INICIAR INSULINA.':
+      'Per tornar al teu Programa Basal, toca INICIAR INSULINA.',
+  'Si quieres seguir en pausa, toca RECORDÁRMELO EN 15 MINUTOS.':
+      'Si vols continuar en pausa, toca RECORDA-M\'HO D\'AQUÍ A 15 MINUTS.',
+  'Sin insulina la glucosa sube: no dejes la pausa más tiempo del necesario.':
+      'Sense insulina la glucosa puja: no deixis la pausa més temps del necessari.',
+  'Tu glucosa del sensor es de 55 mg/dL o menos. Se repite mientras siga baja y no deja de sonar hasta que llega un valor de 56 mg/dL o más.':
+      'La teva glucosa del sensor és de 55 mg/dL o menys. Es repeteix mentre continuï baixa i no deixa de sonar fins que arriba un valor de 56 mg/dL o més.',
+  'Confirma tu glucosa con el medidor y trata la bajada como te haya indicado tu equipo médico.':
+      'Confirma la glucosa amb el mesurador i tracta la baixada com t\'hagi indicat el teu equip mèdic.',
+  'Restricción de administración automatizada':
+      'Restricció d\'administració automatitzada',
+  'En Modo Automatizado, la insulina ha estado parada o al máximo durante demasiado tiempo.':
+      'En Mode Automatitzat, la insulina ha estat aturada o al màxim durant massa temps.',
+  'modo automatico, restriccion, automatizado limitado, insulina parada':
+      'mode automàtic, restricció, automatitzat limitat, insulina aturada',
+  'Toca SIGUIENTE y confirma tu glucosa con el medidor.':
+      'Toca SEGÜENT i confirma la glucosa amb el mesurador.',
+  'Si la glucosa está baja, trátala. Si está alta, revisa el Pod y las cetonas. Si el sensor no marca lo esperado, puede que haya que cambiarlo.':
+      'Si la glucosa és baixa, tracta-la. Si és alta, revisa el Pod i les cetones. Si el sensor no marca el que esperaves, pot ser que calgui canviar-lo.',
+  'Toca SIGUIENTE, después CAMBIAR A MODO MANUAL, y quédate en Modo Manual al menos 5 minutos.':
+      'Toca SEGÜENT, després CANVIAR A MODE MANUAL, i queda\'t en Mode Manual almenys 5 minuts.',
+  'Después puedes volver al Modo Automatizado si los valores del sensor son correctos.':
+      'Després pots tornar al Mode Automatitzat si els valors del sensor són correctes.',
+  'Valores del sensor no recibidos':
+      'Valors del sensor no rebuts',
+  'En Modo Automatizado, el Pod lleva más de una hora sin recibir valores del sensor. Sigue en "Modo Automatizado: Limitado" hasta que vuelvan los valores o cambies a Modo Manual.':
+      'En Mode Automatitzat, el Pod porta més d\'una hora sense rebre valors del sensor. Continua en "Mode Automatitzat: Limitat" fins que tornin els valors o canviïs a Mode Manual.',
+  'faltan valores, sin valores, sin señal, automatizado limitado':
+      'falten valors, sense valors, sense senyal, automatitzat limitat',
+  'Con Dexcom: mira en la app de Dexcom si hay valores o algún aviso del sensor o del transmisor.':
+      'Amb Dexcom: mira a l\'app de Dexcom si hi ha valors o algun avís del sensor o del transmissor.',
+  'Con FreeStyle Libre 2 Plus: mira en la Aplicación Omnipod 5 si hay valores y que el sensor siga bien puesto en el brazo.':
+      'Amb FreeStyle Libre 2 Plus: mira a l\'Aplicació Omnipod 5 si hi ha valors i que el sensor continuï ben posat al braç.',
+  'Si pasa a menudo, lleva el Pod y el sensor en el mismo lado del cuerpo, separados al menos 8 cm (Dexcom) o 2,5 cm (Libre 2 Plus).':
+      'Si passa sovint, porta el Pod i el sensor al mateix costat del cos, separats almenys 8 cm (Dexcom) o 2,5 cm (Libre 2 Plus).',
+  'Alarma opcional del sensor: tu glucosa está por encima de tu ajuste de Glucosa alta o por debajo de tu ajuste de Glucosa baja. Se repite cada 5 minutos hasta que vuelve al ajuste o hasta que la confirmas.':
+      'Alarma opcional del sensor: la teva glucosa està per sobre del teu ajust de Glucosa alta o per sota del teu ajust de Glucosa baixa. Es repeteix cada 5 minuts fins que torna a l\'ajust o fins que la confirmes.',
+  'Confirma la alarma abriendo la notificación en el icono de la campana o descartándola en la pantalla de bloqueo.':
+      'Confirma l\'alarma obrint la notificació a la icona de la campana o descartant-la a la pantalla de bloqueig.',
+  'Comprueba tu glucosa con el medidor para confirmar el valor.':
+      'Comprova la glucosa amb el mesurador per confirmar el valor.',
+  'Valores de glucosa del sensor no recibidos':
+      'Valors de glucosa del sensor no rebuts',
+  'Alarma opcional del sensor: no han llegado valores durante 20 minutos, por pérdida de señal o un problema del sensor. Mientras tanto no se te avisará de subidas ni bajadas. Se repite cada 5 minutos, hasta 5 veces.':
+      'Alarma opcional del sensor: no han arribat valors durant 20 minuts, per pèrdua de senyal o un problema del sensor. Mentrestant no se t\'avisarà de pujades ni baixades. Es repeteix cada 5 minuts, fins a 5 vegades.',
+  'Confirma la alarma desde la notificación.':
+      'Confirma l\'alarma des de la notificació.',
+  'Comprueba que el sensor sigue pegado a la piel.':
+      'Comprova que el sensor continua enganxat a la pell.',
+  'Mensajes en rojo del panel de la Aplicación Omnipod 5: "Sensor demasiado frío", "Sensor demasiado caliente", "Problema temporal del sensor", "Sensor finalizado", "Sin sensor", "Sustituir sensor" o "Error al conectar". Sin sensor, el Modo Automatizado no funciona.':
+      'Missatges en vermell del tauler de l\'Aplicació Omnipod 5: "Sensor massa fred", "Sensor massa calent", "Problema temporal del sensor", "Sensor finalitzat", "Sense sensor", "Substituir sensor" o "Error en connectar". Sense sensor, el Mode Automatitzat no funciona.',
+  'sensor, demasiado frio, demasiado caliente, sensor finalizado, sustituir sensor, sin sensor, error al conectar':
+      'sensor, massa fred, massa calent, sensor finalitzat, substituir sensor, sense sensor, error en connectar',
+  'Demasiado frío o caliente: muévete a un sitio con otra temperatura y vuelve a probar en unos minutos.':
+      'Massa fred o calent: mou-te a un lloc amb una altra temperatura i torna-ho a provar d\'aquí a uns minuts.',
+  'Problema temporal del sensor: espera y vuelve a comprobarlo en 10 minutos.':
+      'Problema temporal del sensor: espera i torna-ho a comprovar d\'aquí a 10 minuts.',
+  'Sensor finalizado o "Sustituir sensor": quita el sensor, pon uno nuevo y escanéalo con el Controlador para activarlo.':
+      'Sensor finalitzat o "Substituir sensor": treu el sensor, posa\'n un de nou i escaneja\'l amb el Controlador per activar-lo.',
+  'Sin sensor: toca AÑADIR SENSOR, ponte el sensor y escanéalo.':
+      'Sense sensor: toca AFEGIR SENSOR, posa\'t el sensor i escaneja\'l.',
+  'Error al conectar: vuelve a intentarlo; si sigue fallando, cambia el sensor.':
+      'Error en connectar: torna-ho a provar; si continua fallant, canvia el sensor.',
+  'Si el problema continúa, llama a Atención al cliente.':
+      'Si el problema continua, truca a Atenció al client.',
+  'Iniciando nuevo sensor (60 minutos)':
+      'Iniciant sensor nou (60 minuts)',
+  'Después de escanear el sensor para iniciarlo, hay un periodo de puesta en marcha de 60 minutos. Hasta que termina, el sensor no está listo para leer la glucosa.':
+      'Després d\'escanejar el sensor per iniciar-lo, hi ha un període de posada en marxa de 60 minuts. Fins que acaba, el sensor no està preparat per llegir la glucosa.',
+  'Espera a que pasen los 60 minutos sin quitar el sensor.':
+      'Espera que passin els 60 minuts sense treure el sensor.',
+  'Si sale "Tiempo agotado escaneo", acerca más el dispositivo al sensor y vuelve a escanear.':
+      'Si surt "Temps esgotat escaneig", acosta més el dispositiu al sensor i torna a escanejar.',
+  'Hay tres alarmas: glucosa baja, glucosa alta y pérdida de señal. En el lector vienen desactivadas de fábrica y hay que activarlas. El sensor por sí solo no suena: el lector o el móvil tienen que estar a menos de 10 metros.':
+      'Hi ha tres alarmes: glucosa baixa, glucosa alta i pèrdua de senyal. Al lector vénen desactivades de fàbrica i cal activar-les. El sensor tot sol no sona: el lector o el mòbil han d\'estar a menys de 10 metres.',
+  'Decide con tu equipo médico si activarlas y a qué niveles.':
+      'Decideix amb el teu equip mèdic si activar-les i a quins nivells.',
+  'En el lector: Configuración → Alarmas → Cambiar config. de las alarmas.':
+      'Al lector: Configuració → Alarmes → Canviar config. de les alarmes.',
+  'Comprueba que el sonido o la vibración están activados y que el dispositivo tiene batería.':
+      'Comprova que el so o la vibració estan activats i que el dispositiu té bateria.',
+  'Las alarmas de glucosa son un apoyo: mira siempre también la glucosa actual, la flecha y el gráfico.':
+      'Les alarmes de glucosa són un suport: mira sempre també la glucosa actual, la fletxa i el gràfic.',
+  'Alarma de pérdida de señal':
+      'Alarma de pèrdua de senyal',
+  'El sensor lleva 20 minutos sin comunicarse con el lector o el móvil, así que no te llegarán las alarmas de glucosa baja ni alta. Puede ser porque está a más de 10 metros o por un problema del sensor o del dispositivo.':
+      'El sensor porta 20 minuts sense comunicar-se amb el lector o el mòbil, així que no et arribaran les alarmes de glucosa baixa ni alta. Pot ser perquè és a més de 10 metres o per un problema del sensor o del dispositiu.',
+  'no conecta, sin senal, perdida de señal, sin lecturas':
+      'no connecta, sense senyal, pèrdua de senyal, sense lectures',
+  'Toca Descartar alarma.':
+      'Toca Descartar alarma.',
+  'Acerca el dispositivo a menos de 10 metros del sensor.':
+      'Acosta el dispositiu a menys de 10 metres del sensor.',
+  'Si sigue saliendo aunque estés cerca, llama al Servicio al Cliente.':
+      'Si continua sortint encara que siguis a prop, truca al Servei al Client.',
+  'Mientras no haya lecturas, mídete con el medidor.':
+      'Mentre no hi hagi lectures, mesura\'t amb el mesurador.',
+  'Sensor agotado / Sustituir el sensor':
+      'Sensor esgotat / Substituir el sensor',
+  '"Sensor agotado": el sensor ha llegado al final de su vida útil. "Sustituir el sensor": el sistema ha detectado un problema con él.':
+      '"Sensor esgotat": el sensor ha arribat al final de la seva vida útil. "Substituir el sensor": el sistema hi ha detectat un problema.',
+  'caducado, agotado, fin de vida, cambiar sensor, sustituir':
+      'caducat, esgotat, fi de vida, canviar sensor, substituir',
+  'Quita el sensor, ponte uno nuevo e inícialo.':
+      'Treu el sensor, posa-te\'n un de nou i inicia\'l.',
+  'Mensajes del sensor Libre 3':
+      'Missatges del sensor Libre 3',
+  'Otros mensajes que pueden salir al leer el sensor: "Error de escaneo", "Error del sensor", "Lectura de glucosa no disponible", "Sensor ya en uso" o "Comprobar sensor".':
+      'Altres missatges que poden sortir en llegir el sensor: "Error d\'escaneig", "Error del sensor", "Lectura de glucosa no disponible", "Sensor ja en ús" o "Comprovar sensor".',
+  'error de escaneo, error del sensor, no disponible, ya en uso, comprobar sensor':
+      'error d\'escaneig, error del sensor, no disponible, ja en ús, comprovar sensor',
+  'Error de escaneo: vuelve a escanear, alejándote de aparatos que puedan interferir.':
+      'Error d\'escaneig: torna a escanejar, allunyant-te d\'aparells que puguin interferir.',
+  'Error del sensor: vuelve a comprobarlo en 10 minutos.':
+      'Error del sensor: torna-ho a comprovar d\'aquí a 10 minuts.',
+  'Lectura de glucosa no disponible: el sensor está demasiado caliente o frío; muévete a un sitio con otra temperatura.':
+      'Lectura de glucosa no disponible: el sensor està massa calent o fred; mou-te a un lloc amb una altra temperatura.',
+  'Sensor ya en uso: se inició con otro dispositivo. Léelo con ese o pon un sensor nuevo.':
+      'Sensor ja en ús: es va iniciar amb un altre dispositiu. Llegeix-lo amb aquell o posa un sensor nou.',
+  'Comprobar sensor: puede que la punta no esté bajo la piel. Inícialo otra vez; si vuelve a salir, pon un sensor nuevo.':
+      'Comprovar sensor: pot ser que la punta no sigui sota la pell. Inicia\'l una altra vegada; si torna a sortir, posa un sensor nou.',
+  'Alarma de glucosa alta':
+      'Alarma de glucosa alta',
+  'Tu glucosa ha subido por encima del nivel que configuraste. Solo recibes una alarma por cada subida.':
+      'La teva glucosa ha pujat per sobre del nivell que vas configurar. Només reps una alarma per cada pujada.',
+  'Confírmalo con el medidor si no cuadra con cómo te encuentras.':
+      'Confirma-ho amb el mesurador si no quadra amb com et trobes.',
+  'Alarma de glucosa baja':
+      'Alarma de glucosa baixa',
+  'Tu glucosa ha bajado por debajo del nivel que configuraste. Solo recibes una alarma por cada bajada.':
+      'La teva glucosa ha baixat per sota del nivell que vas configurar. Només reps una alarma per cada baixada.',
+  'Trata la bajada como te haya indicado tu equipo médico, sin retrasarlo.':
+      'Tracta la baixada com t\'hagi indicat el teu equip mèdic, sense endarrerir-ho.',
 };

@@ -1,7 +1,9 @@
 /// GUÍAS DE CAMBIO DE SENSOR
 ///
-/// Fuentes: manuales oficiales de Dexcom G6 y G7, Guardian 4, Simplera Sync y
-/// FreeStyle Libre 3.
+/// Fuentes: manuales oficiales de Dexcom G6 y G7, Guardian 4, Simplera Sync,
+/// Instinct (guía del sensor, 2025-09) y MiniMed 780G (2025-08); manuales del
+/// lector FreeStyle Libre 2 / 2 Plus (ART52179) y Libre 3 / 3 Plus (ART52185);
+/// guía técnica de Omnipod 5 para España (2026), cap. 21.
 library;
 
 import '../modelos/paso.dart';
@@ -10,6 +12,8 @@ import '../modelos/paso.dart';
 const Set<String> guiasSensorPorRevisar = {
   'bmedtronic_sguardian',
   'bmedtronic_ssimplera',
+  'bmedtronic_sinstinct',
+  'bomnipod_sfreelibre2plus',
   'btandem_sdexg6',
   'btandem_sdexg7',
   'bomnipod_sdexg6',
@@ -210,6 +214,166 @@ final Map<String, List<Paso>> instruccionesSensor = {
   'btandem_sdexg7': _dexcomG7,
   'bomnipod_sdexg7': _dexcomG7,
 
+  // ------------------- FREESTYLE LIBRE 2 PLUS (OMNIPOD 5) -------------------
+  // Manual del lector ART52179 (págs. 19-24) y guía técnica de Omnipod 5
+  // para España, cap. 21 (págs. 319-325).
+  'bomnipod_sfreelibre2plus': [
+    ...enFase(Fases.preparacion, const [
+      Paso(
+        texto: '''
+El sensor FreeStyle Libre 2 Plus dura hasta 15 días.
+
+Con Omnipod 5 tienes que iniciarlo desde la Aplicación Omnipod 5 del Controlador. Si lo inicias con otro dispositivo (un lector o el móvil), el Pod no podrá conectarse a él.''',
+      ),
+      Paso(
+        texto: '''
+No lo uses si el paquete o el aplicador están dañados o abiertos, o si ha pasado la fecha de caducidad.
+
+Comprueba que el código del paquete del sensor coincide con el del aplicador, y que en la tapa de la bandeja del Pod pone FreeStyle Libre 2 Plus.''',
+      ),
+    ]),
+    ...enFase(Fases.zona, const [
+      Paso(
+        texto: '''
+ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo, en un sitio que se mantenga plano al moverte.
+
+Evita cicatrices, lunares, estrías, bultos y los sitios donde te pinchas insulina. Cambia de sitio en cada sensor.''',
+        imagen: 'assets/images/sfreelibre2plus.png',
+      ),
+      Paso(
+        texto:
+            'Ponlo en el mismo lado del cuerpo que el Pod y al menos a 2,5 cm '
+            'de él, para que se comuniquen sin que el cuerpo tape la señal.',
+      ),
+      Paso(
+        texto: '''
+Lava la zona con agua y un jabón sin crema ni perfume, sécala y desinféctala con una toallita de alcohol.
+
+Espera a que se seque al aire antes de seguir.''',
+      ),
+    ]),
+    ...enFase(Fases.insercion, const [
+      Paso(
+        texto: '''
+Abre el paquete del sensor despegando la tapa y desenrosca el capuchón del aplicador.
+
+Alinea la marca oscura del aplicador con la del paquete y, sobre una superficie dura, presiona con firmeza hasta que se detenga. Después levanta el aplicador.''',
+      ),
+      Paso(
+        texto: '''
+PRECAUCIÓN: el aplicador ya tiene una aguja. No toques su interior ni lo vuelvas a meter en el paquete.
+
+Colócalo sobre la zona preparada y presiona con firmeza. No lo presiones antes de tenerlo colocado.''',
+      ),
+      Paso(
+        texto: '''
+Retira suavemente el aplicador. Presiona el sensor y pasa el dedo por el adhesivo para que quede bien pegado.
+
+Si sangra y no para, quita el sensor y pon uno nuevo en otro sitio. Vuelve a poner el capuchón al aplicador y tíralo.''',
+      ),
+    ]),
+    ...enFase(Fases.emparejar, const [
+      Paso(
+        texto: '''
+En la Aplicación Omnipod 5, toca AÑADIR SENSOR. Si estás en Modo Automatizado, te pedirá pasar a Modo Manual.
+
+Antes te pedirá revisar los ajustes del sensor: los avisos de Glucosa alta, Glucosa baja y Valores del sensor no recibidos.''',
+      ),
+      Paso(
+        texto: '''
+Escanea el sensor acercando el tercio inferior del Controlador y no lo muevas hasta que vibre. Se puede escanear a través de la ropa.
+
+Cuando termine, toca OK: no hace falta volver a escanearlo hasta el próximo sensor.''',
+      ),
+      Paso(
+        texto: '''
+Empieza el calentamiento: 1 HORA. Puedes ver cómo avanza en la pantalla principal.
+
+Después, el Pod recibe un valor nuevo cada 5 minutos y ya puedes usar el Modo Automatizado.''',
+      ),
+    ]),
+  ],
+
+  // ------------------- INSTINCT (MINIMED 780G) -------------------
+  // Guía del sensor Instinct (2025-09, en inglés) y guía del usuario del
+  // sistema MiniMed 780G (2025-08), págs. 129-133.
+  'bmedtronic_sinstinct': [
+    ...enFase(Fases.preparacion, const [
+      Paso(
+        texto: '''
+El sensor Instinct dura hasta 15 días. Con la MiniMed 780G se inicia SIEMPRE con la app MiniMed Mobile, que tiene que estar emparejada con la bomba.
+
+Ten a mano una toallita de alcohol isopropílico al 70 %: no viene en la caja.''',
+      ),
+      Paso(
+        texto: '''
+No lo uses si el envase o el aplicador están dañados, o si la etiqueta de precinto indica que ya se ha abierto.
+
+Si tomas suplementos de vitamina C, consulta a tu equipo médico: en dosis altas pueden dar lecturas falsamente altas.''',
+      ),
+    ]),
+    ...enFase(Fases.zona, const [
+      Paso(
+        texto: '''
+ZONA DE COLOCACIÓN: solo la parte de atrás de la parte superior del brazo. En otro sitio puede dar lecturas erróneas.
+
+Elige piel que se mantenga plana al moverte, sin cicatrices, lunares, estrías ni bultos, al menos a 2,5 cm de donde te pinchas insulina y distinta de la última vez.''',
+        imagen: 'assets/images/sinstinct.png',
+      ),
+      Paso(
+        texto:
+            'Para que la conexión sea mejor, lleva la bomba y el sensor en el '
+            'mismo lado del cuerpo.',
+      ),
+      Paso(
+        texto: '''
+Lava la zona con jabón normal, sécala y límpiala con la toallita de alcohol. Deja que se seque al aire.
+
+La zona TIENE que estar limpia y seca: si no, el sensor puede despegarse antes de tiempo.''',
+      ),
+    ]),
+    ...enFase(Fases.insercion, const [
+      Paso(
+        texto: '''
+Con la bomba en la pantalla de inicio, abre la app MiniMed Mobile: menú → Iniciar sensor → "Sí, Instinct".
+
+La app te irá diciendo cuándo poner el sensor y cuándo escanearlo.''',
+      ),
+      Paso(
+        texto: '''
+Desenrosca el capuchón del aplicador y apártalo.
+
+PRECAUCIÓN: no lo vuelvas a poner antes de usarlo (podrías dañar el sensor) y no toques el interior: tiene una aguja.''',
+      ),
+      Paso(
+        texto: '''
+Coloca el aplicador sobre la zona preparada y presiona con firmeza.
+
+PRECAUCIÓN: no presiones hasta tenerlo colocado sobre la zona.''',
+      ),
+      Paso(
+        texto: '''
+Retira suavemente el aplicador y comprueba que el sensor queda bien sujeto.
+
+Si sangra y no para, quita el sensor y habla con tu equipo médico. Vuelve a poner el capuchón al aplicador usado y tíralo según la normativa de tu zona.''',
+      ),
+    ]),
+    ...enFase(Fases.emparejar, const [
+      Paso(
+        texto: '''
+Escanea el sensor acercando el móvil hasta que pite o vibre. Después el sensor se empareja con la bomba: suele tardar 2 minutos y como mucho 5.
+
+Al iniciar un sensor nuevo, el anterior se desempareja solo.''',
+      ),
+      Paso(
+        texto: '''
+Espera el calentamiento: 1 HORA. La bomba muestra la cuenta atrás en la pantalla de inicio.
+
+Las primeras 12 horas las lecturas pueden variar más: si no cuadran con cómo te encuentras, confírmalas con el medidor.''',
+      ),
+    ]),
+  ],
+
   // ------------------------- GUARDIAN 4 -------------------------
   'bmedtronic_sguardian': [
     Paso(
@@ -220,7 +384,7 @@ El insertador One-press es el ÚNICO aprobado para este sensor. Con otro inserta
     ),
     Paso(
       texto: '''
-ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo, tanto en adultos como a partir de 7 años.
+ZONA DE INSERCIÓN: solo la parte de atrás de la parte superior del brazo.
 
 PRECAUCIÓN: no lo uses en el abdomen ni en las nalgas. Ahí funciona distinto y puede darte lecturas que te lleven a error.''',
       imagen: 'assets/images/sguardian.png',
@@ -302,7 +466,7 @@ Lee sus instrucciones antes de usarlo por primera vez.''',
     ),
     Paso(
       texto: '''
-ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo, a partir de 7 años.
+ZONA DE INSERCIÓN: la parte de atrás de la parte superior del brazo.
 
 No se recomienda ponerlo en el abdomen ni en los glúteos.''',
       imagen: 'assets/images/ssimplera.png',
@@ -366,7 +530,14 @@ Mientras tanto, usa el medidor de dedo para decidir tu tratamiento.''',
   ],
 
   // ------------------------- FREESTYLE LIBRE 3 -------------------------
+  // Manual del lector FreeStyle Libre 3 y 3 Plus (ART52185, 2025).
   'bypsopump_sfreelibre3': [
+    Paso(
+      texto: '''
+El sensor FreeStyle Libre 3 dura hasta 14 días y el Libre 3 Plus, hasta 15 días.
+
+Mira en la caja cuál es el tuyo.''',
+    ),
     Paso(
       texto: '''
 ZONA DE INSERCIÓN: solo la parte posterior del brazo.
@@ -410,7 +581,9 @@ Vuelve a poner el tapón al aplicador usado y tíralo como indique la normativa 
     ),
     Paso(
       texto: '''
-Comprueba que el móvil tiene conexión (wifi o datos) e inicia el sensor desde la aplicación, siguiendo las indicaciones de la pantalla.''',
+Inicia el sensor con el dispositivo que vayas a usar (el lector o la aplicación del móvil) y escanéalo acercándolo al sensor.
+
+Usa siempre ese mismo dispositivo: un sensor iniciado con otro no se puede leer ("Sensor ya en uso").''',
     ),
     Paso(
       texto: '''

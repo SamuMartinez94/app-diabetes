@@ -1,0 +1,51 @@
+yp_ifu-es.pdf  ->  mylife YpsoPump/YpsoPump - Guía del usuario (ES, REF 700012540, 2025-09) [ACTUAL].pdf
+yp_ifu_supplement_comp-es.pdf  ->  mylife YpsoPump/YpsoPump - Guía de compatibilidad (ES, V02 2026) [ACTUAL].pdf
+10177078_or_ifu_soft_mstr.pdf  ->  mylife YpsoPump/myOrbit Soft - Instrucciones de uso (multi, V05 2026-01) [ACTUAL 1ª gen].pdf
+10440048-10158619-_or2_ifu_soft_mstr.pdf  ->  mylife YpsoPump/myOrbit Soft 2.0 - Instrucciones de uso (multi, V02 2026-01) [ACTUAL 2.0].pdf
+10177079_or_ifu_micro_mstr.pdf  ->  mylife YpsoPump/myOrbit Micro - Instrucciones de uso (multi, V05 2026-01) [ACTUAL 1ª gen].pdf
+10440049_or2_ifu_micro_mstr.pdf  ->  mylife YpsoPump/myOrbit Micro 2.0 - Instrucciones de uso (multi, V02 2026-01) [ACTUAL 2.0].pdf
+10177187_or_ifu_soft-head_mstr.pdf  ->  mylife YpsoPump/myOrbit Soft Head - Instrucciones de uso (multi, V06 2026-01) [ACTUAL 1ª gen].pdf
+10440050-10248330-_or2_ifu_soft_head_mstr.pdf  ->  mylife YpsoPump/myOrbit Soft 2.0 Head - Instrucciones de uso (multi, V02 2026-01) [ACTUAL 2.0].pdf
+10177191_or_ifu_micro_head_mstr.pdf  ->  mylife YpsoPump/myOrbit Micro Head - Instrucciones de uso (multi, V05 2026-01) [ACTUAL 1ª gen].pdf
+10440051_or2_ifu_micro_head_mstr.pdf  ->  mylife YpsoPump/myOrbit Micro 2.0 Head - Instrucciones de uso (multi, V02 2026-01) [ACTUAL 2.0].pdf
+ypu_ifu_inset_mstr.pdf  ->  mylife YpsoPump/myInset - Instrucciones de uso (multi, V03 2020-04) [ACTUAL].pdf
+or_ins_ifu_row_mstr.pdf  ->  mylife YpsoPump/myOrbit Inserter - Instrucciones de uso (multi, V02 2025-12) [ACTUAL].pdf
+res_ifu_mstr_eu.pdf  ->  mylife YpsoPump/myPump+ Reservoir - Instrucciones de uso (multi, V05 2025-12) [ACTUAL].pdf
+mylife-app-manual-del-usuario-desde-la-version-2-6-de-la-aplicaciones_v08.pdf  ->  mylife YpsoPump/mylife App - Manual del usuario (ES, v2.6+, V08 2026) [ACTUAL - se retira 2026-12].pdf
+mylife-cloud-manual-del-usuario-desde-la-version-2-6-del-software-es-v04.pdf  ->  mylife YpsoPump/mylife Cloud - Manual del usuario (ES, V04 2026) [ACTUAL].pdf
+ypu_hcp_v1-5_es-es.pdf  ->  mylife YpsoPump/mylife YpsoPump - Folleto comercial (ES, 2018) [ANTIGUO].pdf
+Manual YpsoPump.pdf  ->  mylife YpsoPump/mylife YpsoPump - Guía del usuario (manualslib, 2017) [NO OFICIAL - ANTIGUO].pdf
+10440050-10248330-_or2_ifu_soft_head_mstr (1).pdf  ->  _duplicados/myOrbit Soft 2.0 Head - copia idéntica.pdf
+ART52179_rev-A-pub-webfreestylelibre2.pdf  ->  Abbott FreeStyle/FreeStyle Libre 2 y 2 Plus - Manual del lector (ES, ART52179 rev A 2025) [ACTUAL].pdf
+ART52185_rev-A-pub-webFREESTYLE LIBRE 3.pdf  ->  Abbott FreeStyle/FreeStyle Libre 3 y 3 Plus - Manual del lector (ES, ART52185 rev A 2025) [ACTUAL].pdf
+ART53238-001_rev-Afreestylelibrelink.pdf  ->  Abbott FreeStyle/FreeStyle LibreLink - Manual de la app (ES, ART53238 rev A 2025-05) [ACTUAL].pdf
+Decalogo-educativo-FSL2-Plus-Paciente-Tipo1-20262.pdf  ->  Abbott FreeStyle/FreeStyle Libre 2 Plus - Consejos para pacientes tipo 1 (ES, V2 2025-10) [ACTUAL].pdf
+Folleto-Adhesion-Sensor-ADC-75961_A5_V3_0523freestylelibre.pdf  ->  Abbott FreeStyle/FreeStyle Libre - Folleto de adhesión del sensor (ES, ADC-75961 2023-05).pdf
+Folleto-FreeStyle-LibreLink_instrucciones-alarmas.pdf.coredownload.pdf  ->  Abbott FreeStyle/FreeStyle LibreLink - Folleto de alarmas (ES, ADC22607 2021-12) [ANTIGUO].pdf
+LibreLinkUp Guía del usuario.pdf  ->  Abbott FreeStyle/LibreLinkUp - Guía del usuario (ES, web 2026).pdf
+LibreView Guía de inicio rápido para pacientes.pdf  ->  Abbott FreeStyle/LibreView - Guía de inicio rápido para pacientes (ES, web 2026).pdf
+Manual sensor Libra 3.pdf  ->  Abbott FreeStyle/FreeStyle Libre 3 - Guía de inicio rápido (manualslib, ART44255 2022-04) [NO OFICIAL - ANTIGUO].pdf
+FreeStyle Libre 2 Plus.pdf  ->  Abbott FreeStyle/FreeStyle Libre 2 (no Plus) - Manual del usuario (manualslib, 2019) [NO OFICIAL - ANTIGUO].pdf
+guia_tecnica_del_usario_es_es_0omnipod5.pdf  ->  Insulet Omnipod/Omnipod 5 - Guía técnica del usuario (ES-España, Rev 01 2026-03) [ACTUAL].pdf
+guia_del_usario_es_esomnipod5.pdf  ->  Insulet Omnipod/Omnipod 5 - Guía del usuario (ES-España, PT-002782 2026-03) [ACTUAL - texto no extraíble].pdf
+guia del cuidador omnipod5.pdf  ->  Insulet Omnipod/Omnipod 5 - Guía del cuidador (ES-España, V1 2026) [ACTUAL].pdf
+Manual Omnipod.pdf  ->  Insulet Omnipod/Omnipod 5 - Guía del usuario resumida (ES-EEUU-Latam, Rev 01 2026-01) [OTRA REGIÓN].pdf
+Manual Medtronic MiniMed.pdf  ->  MiniMed/MiniMed 780G - Guía del usuario del sistema (EN, 2025-08, Instinct-Simplera-Guardian 4) [ACTUAL].pdf
+Guía de usuario del sistema MiniMed™ 780G con G4S.pdf  ->  MiniMed/MiniMed 780G con Guardian 4 - Guía del usuario del sistema (ES, 2021) [ANTIGUO - sin Simplera ni Instinct].pdf
+Guía de usuario del sistema MiniMed™ 780G con GS3.pdf  ->  MiniMed/MiniMed 780G con Guardian Sensor 3 - Guía del usuario del sistema (ES, 2020) [ANTIGUO - sensor retirado].pdf
+UC202013490a_PatientTrainingGuide_mgdL_V5-es (3) MiniMed™ 780G con G4S.pdf  ->  MiniMed/MiniMed 780G con Guardian 4 - Guía de inicio rápido (ES, 2021) [ANTIGUO].pdf
+MiniMed™ 780G con GS3.pdf  ->  MiniMed/MiniMed 780G con Guardian Sensor 3 - Guía de inicio rápido (ES, 2020) [ANTIGUO - sensor retirado].pdf
+Alertas y Alarmas del sistema MiniMed™ 780G.pdf  ->  MiniMed/MiniMed 780G - Principales alertas y alarmas (ES, 2020, Guardian Sensor 3) [ANTIGUO].pdf
+TRUCOS Y CONSEJOS   sistema minimed 780g guardiansensor3.pdf  ->  MiniMed/MiniMed 780G con Guardian Sensor 3 - Trucos y consejos (ES, 2020) [ANTIGUO - sensor retirado].pdf
+Manual sensor Guardian 4.pdf  ->  MiniMed/Guardian 4 - Guía del usuario del sensor (ES-EN, 2023-03) [ACTUAL].pdf
+Manual sensor simplera Syns.pdf  ->  MiniMed/Simplera Sync - Guía del usuario del sensor (EN, 2025-08) [ACTUAL].pdf
+Instinct-sensor-IFU.pdf  ->  MiniMed/Instinct - Guía del usuario del sensor (EN, 2025-09) [ACTUAL].pdf
+DISPOSITIVO DE INSERCIÓN one-press medtronic.pdf  ->  MiniMed/One-press - Guía del usuario del insertador (multi, 2019-12).pdf
+MiniMed™ Quick-Serter™.pdf  ->  MiniMed/Quick-serter - Guía del usuario del insertador (multi, 2019-12).pdf
+guia_de_inicio_minimed_mobile_iwacth.pdf  ->  MiniMed/MiniMed Mobile - Primeros pasos con la app (ES, 2023).pdf
+Guía CareLink Personal 780G.pdf  ->  MiniMed/CareLink Personal - Guía para MiniMed 780G (ES, 2020).pdf
+uc201812041_es_-_carelink_personal_10_upload_and_install_guide.pdf  ->  MiniMed/CareLink Personal - Guía de instalación (ES, 2018) [ANTIGUO].pdf
+Manual Tandem.pdf  ->  Tandem/t-slim X2 - Guía del usuario (manualslib, 2020) [NO OFICIAL].pdf
+Manual sensor Dexcom G6.pdf  ->  Dexcom/Dexcom G6 - Guía del usuario (manualslib, 2018) [NO OFICIAL].pdf
+Manual sensor Dexcom G7.pdf  ->  Dexcom/Dexcom G7 - Guía del usuario (manualslib, 2024-04) [NO OFICIAL].pdf
+Guía de Inicio FreeStye Libre 3 - Pacientes V2.pdf  ->  Abbott FreeStyle/FreeStyle Libre 3 - Guía de inicio para pacientes (ES, V2 2022-10) [ANTIGUO].pdf
