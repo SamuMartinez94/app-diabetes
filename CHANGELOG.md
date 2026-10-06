@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/SamuMartinez94/app-diabetes/compare/v2.1.1...v2.2.0) (2026-10-06)
+
+
+### Features
+
+* guías y alarmas contrastadas con los manuales oficiales actuales ([65fe145](https://github.com/SamuMartinez94/app-diabetes/commit/65fe1457a63355e1e818f92cdfc8c1b8932efca5))
+
 ## [2.1.1](https://github.com/SamuMartinez94/app-diabetes/compare/v2.1.0...v2.1.1) (2026-09-30)
 
 
