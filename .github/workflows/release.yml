@@ -11,8 +11,12 @@ permissions:
   pull-requests: write
 
 jobs:
-  # Gestiona las versiones y crea la Release de GitHub
+  # Gestiona las versiones y crea la Release de GitHub.
+  # Solo en main: release-please siempre trabaja contra main, y si también se
+  # ejecuta en dev, al subir las dos ramas a la vez las dos ejecuciones pelean
+  # por la misma rama del PR de release ("Error updating ref").
   release-please:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
@@ -26,8 +30,11 @@ jobs:
   # Compila y despliega
   build-and-deploy:
     runs-on: ubuntu-latest
-    # Se ejecuta siempre en dev/main, o cuando Job 1 crea una release oficial
+    # Se ejecuta siempre en dev/main, o cuando Job 1 crea una release oficial.
+    # En dev, release-please se omite: sin esta condición, este job también se
+    # omitiría.
     needs: release-please
+    if: ${{ !cancelled() && !failure() }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
