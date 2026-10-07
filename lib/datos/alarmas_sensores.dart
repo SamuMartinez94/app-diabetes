@@ -169,7 +169,7 @@ const List<Alarma> alarmasSensores = [
       'Apaga y vuelve a encender el Bluetooth del móvil y déjalo encendido. Mantén abierta la app (no la fuerces a cerrar).',
       'Mantén el móvil a menos de 10 metros del sensor, sin nada en medio (paredes, agua) y en el mismo lado del cuerpo.',
       'Si no funciona, reinicia el móvil y abre la app. Mantén el móvil con al menos un 20 % de batería.',
-      'Espera hasta 30 minutos. Si sigue igual, llama al soporte técnico de Dexcom.',
+      'Espera hasta 30 minutos. Si sigue igual, llama al servicio técnico del fabricante.',
     ],
     gravedad: Gravedad.atencion,
     sinonimos: ['sin senal', 'no conecta', 'bluetooth', 'sin lecturas'],
@@ -190,7 +190,7 @@ const List<Alarma> alarmasSensores = [
       'No quites el sensor.',
       'Usa el medidor de glucosa para decidir tu tratamiento.',
       'Toca Ayuda en la app para ver más consejos.',
-      'Si dura más de 3 horas, llama al soporte técnico de Dexcom.',
+      'Si dura más de 3 horas, llama al servicio técnico del fabricante.',
     ],
     gravedad: Gravedad.atencion,
     sinonimos: ['problema temporal', 'sin lecturas', 'no mide', 'espera'],
@@ -273,8 +273,7 @@ const List<Alarma> alarmasSensores = [
     pagina: '119-120',
     titulo: 'Calibración no utilizada',
     significado:
-        'En el G7 calibrar es opcional. Si sale este aviso, el sistema no ha '
-        'usado el valor que introdujiste.',
+        'Con este sensor calibrar es opcional. Si sale este aviso, el sistema no ha usado el valor que introdujiste.',
     queHacer: [
       'Lávate las manos con agua y jabón, sécalas y mide con el dedo.',
       'Introduce el valor antes de que pasen 5 minutos, solo si está entre 40 y 400 mg/dL.',
@@ -297,7 +296,7 @@ const List<Alarma> alarmasSensores = [
         'alertas del sensor. Aparece un código de error.',
     queHacer: [
       'Anota el código de error que sale en la pantalla.',
-      'Llama al soporte técnico de Dexcom y dales el código.',
+      'Llama al servicio técnico del fabricante y dales el código.',
       'Mientras tanto usa el medidor de glucosa.',
     ],
     gravedad: Gravedad.atencion,
@@ -312,16 +311,14 @@ const List<Alarma> alarmasSensores = [
     deSensor: true,
     manual: _manualG6,
     pagina: '227-229',
-    titulo: 'Sin lecturas del G6',
+    titulo: 'Sin lecturas del sensor',
     significado:
-        'No recibes lecturas del G6 desde hace 20 minutos (en el receptor, '
-        'aparece como error de sensor). No hay alarma ni alertas de glucosa '
-        'hasta que se solucione.',
+        'No recibes lecturas del sensor desde hace 20 minutos (en el receptor, aparece como error de sensor). No hay alarma ni alertas de glucosa hasta que se solucione.',
     queHacer: [
       'Usa el medidor de glucosa para decidir tu tratamiento.',
       'Toca la alerta para ver más información.',
       'Comprueba que el transmisor está bien encajado en su soporte.',
-      'Espera: en la app, hasta 3 horas; en el receptor, 30 minutos. Si no se arregla, saldrá "Fallo del sensor": llama al servicio técnico de Dexcom.',
+      'Espera: en la app, hasta 3 horas; en el receptor, 30 minutos. Si no se arregla, saldrá "Fallo del sensor": llama al servicio técnico del fabricante.',
     ],
     gravedad: Gravedad.atencion,
     sinonimos: [
@@ -338,7 +335,7 @@ const List<Alarma> alarmasSensores = [
     deSensor: true,
     manual: _manualG6,
     pagina: '231-232',
-    titulo: 'Pérdida de señal (G6)',
+    titulo: 'Pérdida de señal',
     significado:
         'El dispositivo de visualización y el transmisor no se conectan, así '
         'que no hay lecturas, alarma ni alertas de glucosa.',
@@ -346,7 +343,7 @@ const List<Alarma> alarmasSensores = [
       'Usa el medidor de glucosa.',
       'Acerca el transmisor y el móvil o receptor a menos de 6 metros, sin obstáculos (paredes, metales). Bajo el agua, en la ducha o nadando, acércalos aún más.',
       'En la app: reinicia el móvil. Si sigue, abre los ajustes de Bluetooth, elimina todas las entradas de Dexcom y empareja de nuevo el transmisor.',
-      'Espera hasta 30 minutos: puede arreglarse solo. Si pasan más, llama al servicio técnico de Dexcom.',
+      'Espera hasta 30 minutos: puede arreglarse solo. Si pasan más, llama al servicio técnico del fabricante.',
     ],
     gravedad: Gravedad.atencion,
     sinonimos: ['sin senal', 'perdida de senal', 'no conecta', 'bluetooth'],
@@ -358,14 +355,14 @@ const List<Alarma> alarmasSensores = [
     deSensor: true,
     manual: _manualG6,
     pagina: '229-230, 253-254',
-    titulo: 'Fallo del sensor (G6)',
+    titulo: 'Fallo del sensor',
     significado:
         'El sensor ha dejado de funcionar: no hay lecturas, alarma ni '
         'alertas.',
     queHacer: [
       'Usa el medidor de glucosa.',
       'Toca la alerta para ver más información.',
-      'Antes de parar una sesión antes de tiempo, llama siempre al servicio técnico de Dexcom. Una sesión detenida no se puede reanudar.',
+      'Antes de parar una sesión antes de tiempo, llama siempre al servicio técnico del fabricante. Una sesión detenida no se puede reanudar.',
       'Para volver a tener lecturas, pon un sensor nuevo e inicia la sesión.',
       'Si un hilo del sensor se rompe y no lo ves, no intentes sacarlo: consulta a tu equipo médico.',
     ],
@@ -387,7 +384,7 @@ const List<Alarma> alarmasSensores = [
       'Usa el medidor de glucosa.',
       'Comprueba que el número de serie del transmisor que introdujiste coincide con el de la caja.',
       'Asegúrate de que el transmisor está bien encajado en su soporte.',
-      'Si nada funciona, puede que el sensor esté mal insertado: llama al servicio técnico de Dexcom.',
+      'Si nada funciona, puede que el sensor esté mal insertado: llama al servicio técnico del fabricante.',
     ],
     gravedad: Gravedad.atencion,
     sinonimos: ['transmisor', 'no encontrado', 'numero de serie', 'emparejar'],
@@ -407,7 +404,7 @@ const List<Alarma> alarmasSensores = [
       'Usa el medidor de glucosa.',
       'Sigue las instrucciones de la pantalla: te pedirá calibrar de nuevo en 15 minutos.',
       'En el receptor, si vuelve a fallar, introduce un valor más y espera 15 minutos.',
-      'Si siguen sin salir lecturas, cambia el sensor y llama al servicio técnico de Dexcom.',
+      'Si siguen sin salir lecturas, cambia el sensor y llama al servicio técnico del fabricante.',
     ],
     gravedad: Gravedad.atencion,
     sinonimos: [
@@ -472,11 +469,10 @@ const List<Alarma> alarmasSensores = [
     pagina: '233',
     titulo: '"Bajo" o "Alto" en lugar de un número',
     significado:
-        'El G6 muestra "Bajo" por debajo de 40 mg/dL y "Alto" por encima de '
-        '400 mg/dL. Funciona correctamente.',
+        'El sensor muestra "Bajo" por debajo de 40 mg/dL y "Alto" por encima de 400 mg/dL. Funciona correctamente.',
     queHacer: [
       'Mide con el medidor y trata la bajada o la subida.',
-      'Cuando tu glucosa vuelva a estar entre 40 y 400 mg/dL, el G6 mostrará de nuevo las lecturas.',
+      'Cuando tu glucosa vuelva a estar entre 40 y 400 mg/dL, el sensor mostrará de nuevo las lecturas.',
     ],
     gravedad: Gravedad.urgente,
     sinonimos: ['bajo', 'alto', 'lo', 'hi', 'sin numero'],
@@ -542,7 +538,7 @@ const List<Alarma> alarmasSensores = [
     deSensor: true,
     manual: _manualLibre,
     pagina: '35-45',
-    titulo: 'Alarmas de glucosa del Libre 3',
+    titulo: 'Alarmas de glucosa del sensor',
     significado:
         'Hay tres alarmas: glucosa baja, glucosa alta y pérdida de señal. En '
         'el lector vienen desactivadas de fábrica y hay que activarlas. El '
@@ -604,7 +600,7 @@ const List<Alarma> alarmasSensores = [
     deSensor: true,
     manual: _manualLibre,
     pagina: '95-96',
-    titulo: 'Mensajes del sensor Libre 3',
+    titulo: 'Mensajes del sensor',
     significado:
         'Otros mensajes que pueden salir al leer el sensor: "Error de '
         'escaneo", "Error del sensor", "Lectura de glucosa no disponible", '

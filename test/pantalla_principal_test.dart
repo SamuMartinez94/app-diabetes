@@ -120,7 +120,7 @@ void main() {
       expect(find.text('TU CONFIGURACIÓN'), findsOneWidget);
       expect(find.text('¿Qué necesitas hacer?'), findsOneWidget);
       expect(find.text('Recambio de catéter'), findsOneWidget);
-      // Kit, zonas y soporte se han ido a "Más".
+      // Kit, zonas y soporte están en "Más".
       expect(find.text('Kit de viaje').hitTestable(), findsNothing);
       expect(find.text('Soporte y manuales').hitTestable(), findsNothing);
     });

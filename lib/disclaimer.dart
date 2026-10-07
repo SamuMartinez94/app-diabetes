@@ -19,7 +19,9 @@ List<_Apartado> _apartados() => [
     t(
       'Es un proyecto personal sin ánimo de lucro. No es un producto '
       'sanitario, ni está vinculado, patrocinado o avalado por los '
-      'fabricantes de los dispositivos que aparecen en la app.',
+      'fabricantes de los dispositivos que aparecen en la app.\n\n'
+      'Los nombres y las marcas de esos dispositivos pertenecen a sus '
+      'propietarios y aquí solo se usan para identificarlos.',
     ),
   ),
   _Apartado(

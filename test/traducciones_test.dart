@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:diaguia/datos/aeropuerto.dart';
 import 'package:diaguia/datos/alarmas.dart';
 import 'package:diaguia/datos/guias_cateter.dart';
 import 'package:diaguia/datos/guias_sensor.dart';
@@ -64,6 +65,10 @@ List<String> clavesDeDatos() {
 
   for (final z in zonas) {
     claves.add(z.nombre);
+  }
+
+  for (final aviso in avisosAeropuerto.values) {
+    claves.addAll(aviso.puntos);
   }
 
   return claves;

@@ -20,7 +20,6 @@ class Fabricante {
 const List<Fabricante> fabricantes = [
   Fabricante(
     id: 'medtronic',
-    // Antes Medtronic Diabetes: su web antigua redirige a minimed.com.
     nombre: 'MiniMed',
     dispositivos: 'MiniMed 780G, Guardian, Simplera',
     web: 'https://www.minimed.com',
@@ -29,9 +28,9 @@ const List<Fabricante> fabricantes = [
   Fabricante(
     id: 'tandem',
     nombre: 'Tandem Diabetes Care',
-    dispositivos: 't:slim X2, AutoSoft, TruSteel',
+    dispositivos: 't:slim X2, Tandem Mobi, AutoSoft, VariSoft, TruSteel',
     web: 'https://www.tandemdiabetes.com',
-    bombas: ['btandem'],
+    bombas: ['btandem', 'btandemmobi'],
   ),
   Fabricante(
     id: 'insulet',

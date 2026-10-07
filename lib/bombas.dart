@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'datos/dispositivos.dart';
 import 'l10n/idioma.dart';
 import 'resultado.dart';
 import 'servicios/notificaciones.dart';
@@ -67,6 +68,7 @@ class _BombasScreenState extends State<BombasScreen> {
     'bmedtronic',
     'bomnipod',
     'btandem',
+    'btandemmobi',
   ];
 
   // --- LÓGICA DE FILTRADO ---
@@ -76,11 +78,13 @@ class _BombasScreenState extends State<BombasScreen> {
       case 'bmedtronic':
         return ['sguardian', 'ssimplera', 'sinstinct'];
       case 'btandem':
+      case 'btandemmobi':
         return ['sdexg6', 'sdexg7'];
       case 'bomnipod':
         return ['sdexg6', 'sdexg7', 'sfreelibre2plus'];
       case 'bypsopump':
-        return ['sdexg6', 'sfreelibre3'];
+        // Sensores de CamAPS FX (myLoop), manual del usuario de 2026, anexo B.
+        return ['sdexg6', 'sdexg7', 'sfreelibre3'];
       default:
         return const [];
     }
@@ -91,14 +95,14 @@ class _BombasScreenState extends State<BombasScreen> {
       case 'bmedtronic':
         return [
           'cextended',
-          'cmio',
           'cmio30',
           'cquickset',
           'csilhouette',
           'csuret',
         ];
       case 'btandem':
-        return ['cautosoft90', 'cautosoft30', 'ctrusteel'];
+      case 'btandemmobi':
+        return ['cautosoft90', 'cautosoft30', 'cvarisoft', 'ctrusteel'];
       case 'bypsopump':
         return ['corbit', 'corbitmicro', 'cinset'];
       default:
@@ -288,20 +292,39 @@ class _BombasScreenState extends State<BombasScreen> {
             final isSelected = id == seleccionado;
             return GestureDetector(
               onTap: () => onSelect(id),
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+              child: SizedBox(
                 width: 140,
-                height: 140,
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: fondoDispositivo,
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(
-                    color: isSelected ? esquema.primary : Colors.transparent,
-                    width: 2.5,
-                  ),
+                child: Column(
+                  children: [
+                    AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      width: 140,
+                      height: 140,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: fondoDispositivo,
+                        borderRadius: BorderRadius.circular(24),
+                        border: Border.all(
+                          color: isSelected
+                              ? esquema.primary
+                              : Colors.transparent,
+                          width: 2.5,
+                        ),
+                      ),
+                      child: ImagenDispositivo(id: id),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      nombreDispositivo(id),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: esquema.onSurface,
+                      ),
+                    ),
+                  ],
                 ),
-                child: ImagenDispositivo(id: id),
               ),
             );
           }).toList(),

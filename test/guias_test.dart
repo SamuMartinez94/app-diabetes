@@ -11,7 +11,7 @@ import 'package:diaguia/tema.dart';
 import 'package:diaguia/widgets/pantalla_guia.dart';
 
 /// Primeras letras de la primera instrucción de un paso: sirven para
-/// comprobar en qué paso está la pantalla (ya no se muestra su número).
+/// comprobar en qué paso está la pantalla, que no muestra su número.
 String arranque(Paso paso) {
   final linea = paso.texto
       .split('\n')
