@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.0](https://github.com/SamuMartinez94/app-diabetes/compare/v2.2.0...v2.3.0) (2026-10-07)
+
+
+### Features
+
+* Tandem Mobi y catéters ([3a32ac4](https://github.com/SamuMartinez94/app-diabetes/commit/3a32ac4516dfd38427765eb180882bf86b262e35))
+* Tandem Mobi y catéters ([d6537d6](https://github.com/SamuMartinez94/app-diabetes/commit/d6537d6c98079f90189f9e166cf12acbe8fe657d))
+
 ## [2.2.0](https://github.com/SamuMartinez94/app-diabetes/compare/v2.1.1...v2.2.0) (2026-10-06)
 
 
