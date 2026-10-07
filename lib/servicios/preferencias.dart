@@ -22,6 +22,10 @@ class Preferencias {
   static const _kModoSugerencias = 'modo_sugerencias';
   static const _kProgreso = 'progreso_guia_';
 
+  /// Catéteres que la app ya no ofrece. Quien los tenía guardados vuelve a
+  /// elegir sus dispositivos.
+  static const _cateteresRetirados = {'cmio'};
+
   static late SharedPreferences _prefs;
 
   /// Se incrementa con cada cambio para que la interfaz se reconstruya.
@@ -32,6 +36,11 @@ class Preferencias {
   static Future<void> inicializar() async {
     _prefs = await SharedPreferences.getInstance();
     Traductor.actual = Idioma.deCodigo(_prefs.getString(_kIdioma)) ?? Idioma.es;
+    if (_cateteresRetirados.contains(_prefs.getString(_kCateter))) {
+      await _prefs.remove(_kBomba);
+      await _prefs.remove(_kSensor);
+      await _prefs.remove(_kCateter);
+    }
   }
 
   // --- IDIOMA ---

@@ -361,11 +361,9 @@ const List<Alarma> alarmasMedtronic = [
     bomba: 'bmedtronic',
     manual: _manual,
     pagina: '331-333',
-    titulo: 'SmartGuard pide una glucemia',
+    titulo: 'El modo automático pide una glucemia',
     significado:
-        'SmartGuard necesita que introduzcas una glucemia (medida con el '
-        'dedo): lleva mucho rato dando la insulina máxima o mínima, o tiene '
-        'que comprobar que el sensor es fiable.',
+        'El modo automático necesita que introduzcas una glucemia (medida con el dedo): lleva mucho rato dando la insulina máxima o mínima, o tiene que comprobar que el sensor es fiable.',
     queHacer: [
       'Pulsa OK.',
       'Lávate las manos, mide con el medidor e introduce el valor para volver al modo automático.',
@@ -379,7 +377,7 @@ const List<Alarma> alarmasMedtronic = [
     bomba: 'bmedtronic',
     manual: _manual,
     pagina: '333-335',
-    titulo: 'Salida del modo automático (SmartGuard)',
+    titulo: 'Salida del modo automático',
     significado:
         'La bomba ha salido del modo automático porque se apagó el sensor, '
         'llevaba hasta cuatro horas sin lecturas o un aviso de suspensión '
@@ -407,9 +405,9 @@ const List<Alarma> alarmasMedtronic = [
         'Han pasado 30 minutos sin señal del sensor, o hay interferencias. '
         'Sin señal no tienes lecturas del sensor.',
     queHacer: [
-      'Acerca la bomba al sensor (con Guardian 4, al transmisor) y pulsa OK. La bomba puede tardar hasta 15 minutos en encontrar la señal.',
+      'Acerca la bomba al sensor (o al transmisor, si tu sensor lo lleva aparte) y pulsa OK. La bomba puede tardar hasta 15 minutos en encontrar la señal.',
       'Aléjate de aparatos electrónicos que puedan interferir.',
-      'Con Guardian 4, comprueba que el transmisor y el sensor están bien conectados. Si no lo están, o el sensor no está bien insertado, cambia el sensor.',
+      'Si tu sensor lleva transmisor aparte, comprueba que el transmisor y el sensor están bien conectados. Si no lo están, o el sensor no está bien insertado, cambia el sensor.',
       'Si no la encuentra en 15 minutos o sale "Señal del sensor no encontrada", llama al soporte técnico de 24 horas.',
     ],
     gravedad: Gravedad.atencion,
@@ -471,9 +469,7 @@ const List<Alarma> alarmasMedtronic = [
     pagina: '289, 327, 329, 331',
     titulo: 'Sensor calentando o actualizándose',
     significado:
-        'Un sensor nuevo tarda un tiempo en dar lecturas (con Guardian 4, '
-        'unas 2 horas). También puede haber una pausa temporal mientras el '
-        'sensor hace comprobaciones de calidad: no hace falta cambiarlo.',
+        'Un sensor nuevo tarda un tiempo en dar lecturas (si lleva transmisor aparte, unas 2 horas). También puede haber una pausa temporal mientras el sensor hace comprobaciones de calidad: no hace falta cambiarlo.',
     queHacer: [
       'Pulsa OK y sigue las instrucciones de la pantalla.',
       'Espera: las lecturas pueden tardar hasta 3 horas en volver.',
@@ -506,8 +502,8 @@ const List<Alarma> alarmasMedtronic = [
     queHacer: [
       'Pulsa OK.',
       'Ten un sensor de repuesto preparado y cámbialo cuando toque (mira la guía de cambio de sensor).',
-      'Si tienes Guardian 4 y el transmisor avisa de batería baja, recárgalo lo antes posible: con la batería agotada no hay lecturas.',
-      'Con Instinct, ten a mano la app MiniMed Mobile: el sensor nuevo se inicia con ella.',
+      'Si tu sensor lleva transmisor aparte y avisa de batería baja, recárgalo lo antes posible: con la batería agotada no hay lecturas.',
+      'Si tu sensor se inicia desde el móvil, ten a mano la app emparejada con la bomba: el sensor nuevo se inicia con ella.',
     ],
     gravedad: Gravedad.informativa,
     sinonimos: [
@@ -567,14 +563,12 @@ const List<Alarma> alarmasMedtronic = [
     deSensor: true,
     manual: _manual,
     pagina: '130-132, 289-290, 320, 328',
-    titulo: 'No se ha podido iniciar o emparejar el sensor Instinct',
+    titulo: 'No se ha podido iniciar o emparejar el sensor',
     significado:
-        'El sensor no ha empezado el calentamiento porque no detecta líquido '
-        'bajo la piel ("Comprobar sensor"), una alarma de la bomba ha cortado '
-        'el emparejamiento, o la app MiniMed Mobile no ha podido escanearlo.',
+        'El sensor no ha empezado el calentamiento porque no detecta líquido bajo la piel ("Comprobar sensor"), una alarma de la bomba ha cortado el emparejamiento, o la app del móvil no ha podido escanearlo.',
     queHacer: [
       'Pulsa OK.',
-      'Si el sensor no está puesto, póntelo. Si está bien puesto y pegado, reinícialo con la app MiniMed Mobile.',
+      'Si el sensor no está puesto, póntelo. Si está bien puesto y pegado, reinícialo con la app del móvil.',
       'Si el aviso vuelve a salir después de reiniciarlo, inicia un sensor nuevo con la app.',
       'Si la app dice que el NFC está apagado, actívalo en los ajustes del móvil. Si dice "Error de escaneo", acerca el móvil al sensor y vuelve a escanear.',
       'Si dice que el sensor ya está en uso, comprueba que usas el móvil y la cuenta con los que lo iniciaste.',
@@ -589,12 +583,9 @@ const List<Alarma> alarmasMedtronic = [
     deSensor: true,
     manual: _manual,
     pagina: '320-322',
-    titulo: 'El sistema pide una glucemia para comprobar el sensor Instinct',
+    titulo: 'El sistema pide una glucemia para comprobar el sensor',
     significado:
-        'Con Instinct, las glucemias del medidor sirven para comprobar que '
-        'el sensor funciona bien, no para calibrarlo. Este aviso sale cuando '
-        'hace falta una glucemia o cuando no se ha podido usar la que '
-        'introdujiste.',
+        'Con este sensor, las glucemias del medidor sirven para comprobar que funciona bien, no para calibrarlo. Este aviso sale cuando hace falta una glucemia o cuando no se ha podido usar la que introdujiste.',
     queHacer: [
       'Lávate y sécate bien las manos y mide tu glucemia con el medidor.',
       'Si sale que la comprobación ha fallado, espera al menos 30 minutos y vuelve a medirte.',
@@ -611,11 +602,9 @@ const List<Alarma> alarmasMedtronic = [
     deSensor: true,
     manual: _manual,
     pagina: '323-324',
-    titulo: 'Glucosa baja: alarma que no se puede quitar (Instinct)',
+    titulo: 'Glucosa baja: alarma que no se puede quitar',
     significado:
-        'Con Instinct, la bomba avisa siempre que la glucosa del sensor baja '
-        'de 55 mg/dL. Viene de fábrica: no se puede cambiar, apagar ni '
-        'silenciar. Esta alarma no suspende la insulina.',
+        'Con este sensor, la bomba avisa siempre que la glucosa baja de 55 mg/dL. Viene de fábrica: no se puede cambiar, apagar ni silenciar. Esta alarma no suspende la insulina.',
     queHacer: [
       'Pulsa OK.',
       'Mide tu glucemia con el medidor y trata la bajada como te haya indicado tu equipo médico.',
@@ -632,7 +621,7 @@ const List<Alarma> alarmasMedtronic = [
     deSensor: true,
     manual: _manual,
     pagina: '329',
-    titulo: 'Sensor demasiado caliente, frío o actualizándose (Instinct)',
+    titulo: 'Sensor demasiado caliente, frío o actualizándose',
     significado:
         'El sensor no da lecturas por un motivo temporal: está fuera de su '
         'temperatura de funcionamiento o está haciendo comprobaciones de '

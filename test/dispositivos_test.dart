@@ -33,7 +33,7 @@ void main() {
       );
 
       expect(find.text('Bomba'), findsOneWidget);
-      expect(find.text('Tandem'), findsOneWidget);
+      expect(find.text('t:slim X2'), findsOneWidget);
     });
 
     testWidgets('El sensor muestra su etiqueta y su nombre', (tester) async {
@@ -59,7 +59,7 @@ void main() {
         panel(bomba: 'bomnipod', sensor: 'sdexg6', cateter: 'cpod'),
       );
 
-      expect(find.text('Omnipod'), findsOneWidget);
+      expect(find.text('Omnipod 5'), findsOneWidget);
       expect(find.text('Catéter'), findsNothing);
     });
 
@@ -70,12 +70,12 @@ void main() {
       addTearDown(tester.view.reset);
 
       await tester.pumpWidget(
-        panel(bomba: 'bypsopump', sensor: 'sfreelibre3', cateter: 'corbit'),
+        panel(bomba: 'bomnipod', sensor: 'sfreelibre2plus', cateter: 'cpod'),
       );
 
-      await tester.scrollUntilVisible(find.text('YpsoPump'), 200);
-      expect(find.text('YpsoPump'), findsOneWidget);
-      expect(find.text('FreeStyle Libre 3'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('Omnipod 5'), 200);
+      expect(find.text('Omnipod 5'), findsOneWidget);
+      expect(find.text('FreeStyle Libre 2 Plus'), findsOneWidget);
     });
   });
 

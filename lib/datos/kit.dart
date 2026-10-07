@@ -72,8 +72,9 @@ const List<GrupoKit> kitViaje = [
   GrupoKit(
     titulo: 'Papeles y aeropuerto',
     nota:
-        'Las bombas y los sensores no deben pasar por rayos X ni por el '
-        'escáner corporal. Pide que te revisen a mano.',
+        'Lo que puede pasar por el arco, el escáner corporal o los rayos X '
+        'depende de cada dispositivo. Al final tienes lo que dicen los '
+        'manuales de los tuyos.',
     elementos: [
       'Informe médico que justifique el material (mejor en inglés)',
       'Receta de la insulina',

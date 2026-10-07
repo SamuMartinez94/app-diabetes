@@ -7,6 +7,11 @@ import '../tema.dart';
 /// Fondo blanco fijo de los recuadros de dispositivos, en modo claro y oscuro.
 const Color fondoDispositivo = Colors.white;
 
+// PENDIENTE: casi todas las fotos de assets/images son imágenes de los
+// fabricantes y tienen copyright. Antes de publicar, sustituirlas por fotos
+// propias de los dispositivos o ilustraciones propias, o conseguir permiso
+// de cada marca (material de prensa).
+
 /// Imagen de un dispositivo por su identificador.
 class ImagenDispositivo extends StatelessWidget {
   final String id;

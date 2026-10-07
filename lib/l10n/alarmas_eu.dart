@@ -69,8 +69,6 @@ const Map<String, String> traduccionesAlarmasEu = {
   'reanudar, detenida, parada, stop, detener insulina':
       'berrekin, geldituta, geldiarazita, stop, intsulina gelditu',
   'Apagado automático': 'Itzaltze automatikoa',
-  'Has puesto un tiempo (entre 5 y 24 horas) tras el cual, si no tocas la bomba, esta deja de dar insulina. Antes salta un aviso con una cuenta atrás de 60 segundos.':
-      'Denbora bat jarri duzu (5 eta 24 ordu artean) eta, ponpari ez badiozu ukitzen, intsulina ematen uzten du. Lehenago, 60 segundoko atzerako kontaketa duen abisua ateratzen da.',
   'apagado automatico, auto off, se paro sola, sin tocar':
       'itzaltze automatikoa, auto off, bere kabuz gelditu da, ukitu gabe',
   'Si ves la advertencia previa, pulsa No apagar y la bomba sigue con normalidad.':
@@ -94,8 +92,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Atera kartutxoa ponpatik erabat aireztatzeko eta konektatu berriro.',
   'Reanuda la insulina.': 'Berrekin intsulina.',
   'Botón de arriba atascado': 'Goiko botoia trabatuta',
-  'El botón Activar pantalla / Bolo rápido (el de arriba de la bomba) está atascado o no funciona bien, y se han detenido todos los suministros.':
-      'Pantaila aktibatu / Bolus azkarra botoia (ponparen goikoa) trabatuta dago edo ez dabil ondo, eta emari guztia gelditu da.',
   'boton, atascado, bolo rapido, no funciona':
       'botoia, trabatuta, bolus azkarra, ez dabil',
   'Ponte en contacto con el servicio de atención al cliente.':
@@ -137,37 +133,21 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Berretsi aurretik, pentsatu zure intsulina-beharrak aldatu diren bolusa eskatu zenuenetik.',
   'Con un régimen temporal, pulsa OK para aceptar el valor reducido y revisa tu régimen temporal en el menú Actividad.':
       'Aldi baterako erritmo batekin, sakatu OK balio murriztua onartzeko eta berrikusi zure aldi baterako erritmoa Jarduera menuan.',
-  'Control-IQ: el sensor está fuera de alcance':
-      'Control-IQ: sentsorea irismenetik kanpo dago',
-  'El transmisor y la bomba no se comunican, así que la bomba no recibe lecturas. Control-IQ sigue ajustando la insulina durante los primeros 20 minutos y después vuelve a la basal de tu perfil.':
-      'Transmisorea eta ponpa ez dira komunikatzen, beraz ponpak ez du irakurketarik jasotzen. Control-IQ-k intsulina doitzen jarraitzen du lehen 20 minutuetan eta gero zure profileko basalera itzultzen da.',
   'fuera de limites, sin senal, no conecta, control iq':
       'irismenetik kanpo, seinalerik gabe, ez da konektatzen, control iq',
   'Acerca la bomba y el transmisor, o quita lo que haya entre ellos.':
       'Hurbildu ponpa eta transmisorea, edo kendu haien artean dagoena.',
-  'Control-IQ prevé una glucosa baja':
-      'Control-IQ-k glukosa baxua aurreikusten du',
-  'Control-IQ predice que tu glucosa estará por debajo de 70 mg/dL (80 si usas la función Ejercicio) en los próximos 15 minutos.':
-      'Control-IQ-k aurreikusten du zure glukosa 70 mg/dL azpitik egongo dela (80 Ariketa funtzioa erabiltzen baduzu) hurrengo 15 minutuetan.',
   'hipo, baja, prediccion, control iq, nivel bajo':
       'hipo, baxua, aurreikuspena, control iq, maila baxua',
   'Toma hidratos de carbono de acción rápida y mide tu glucosa.':
       'Hartu ekintza azkarreko karbohidratoak eta neurtu zure glukosa.',
   'Pulsa OK para cerrar la alerta.': 'Sakatu OK alerta ixteko.',
-  'Control-IQ: glucosa alta que no baja':
-      'Control-IQ: jaisten ez den glukosa altua',
-  'Control-IQ ha subido la insulina, pero ve una glucosa por encima de 200 mg/dL y no prevé que baje en los próximos 30 minutos.':
-      'Control-IQ-k intsulina igo du, baina 200 mg/dL baino glukosa altuagoa ikusten du eta ez du aurreikusten hurrengo 30 minutuetan jaitsiko denik.',
   'hiper, alta, control iq, nivel alto, no baja':
       'hiper, altua, control iq, maila altua, ez da jaisten',
   'Revisa el cartucho, el tubo y el sitio de infusión.':
       'Begiratu kartutxoa, hodia eta infusio-gunea.',
   'Mide tu glucosa y trata la glucosa alta según te haya indicado tu equipo médico.':
       'Neurtu zure glukosa eta tratatu glukosa altua zure mediku-taldeak esan dizun bezala.',
-  'Control-IQ: máximo de insulina alcanzado':
-      'Control-IQ: intsulina maximoa lortu da',
-  'La bomba ha dado el máximo de insulina permitido en 2 horas (la mitad de tu dosis diaria total). Control-IQ pausa la insulina un mínimo de 5 minutos y después la reanuda.':
-      'Ponpak 2 ordutan onartutako intsulina maximoa eman du (zure eguneko dosi osoaren erdia). Control-IQ-k intsulina gutxienez 5 minutuz pausatzen du eta gero berrekiten du.',
   'maximo, insulina maxima, control iq, dosis diaria':
       'maximoa, intsulina maximoa, control iq, eguneko dosia',
   'Si tu glucosa sigue alta, revisa el catéter y consúltalo con tu equipo médico.':
@@ -348,17 +328,12 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Ahal baduzu, hartu ekintza azkarreko karbohidratoak.',
   'Toca Descartar cuando la situación esté controlada.':
       'Ukitu Baztertu egoera kontrolatuta dagoenean.',
-  'SmartGuard pide una glucemia': 'SmartGuard-ek glukemia bat eskatzen du',
-  'SmartGuard necesita que introduzcas una glucemia (medida con el dedo): lleva mucho rato dando la insulina máxima o mínima, o tiene que comprobar que el sensor es fiable.':
-      'SmartGuard-ek glukemia bat sartzea behar du (behatzarekin neurtua): denbora luzez ari da intsulina maximoa edo minimoa ematen, edo sentsorea fidagarria dela egiaztatu behar du.',
   'smartguard, introducir glucemia, modo automatico, bg':
       'smartguard, glukemia sartu, modu automatikoa, bg',
   'Lávate las manos, mide con el medidor e introduce el valor para volver al modo automático.':
       'Garbitu eskuak, neurtu neurgailuarekin eta sartu balioa modu automatikora itzultzeko.',
   'Sigue las indicaciones de tu equipo médico y vigila tu glucosa.':
       'Jarraitu zure mediku-taldearen jarraibideei eta zaindu zure glukosa.',
-  'Salida del modo automático (SmartGuard)':
-      'Modu automatikotik irtetea (SmartGuard)',
   'La bomba ha salido del modo automático porque se apagó el sensor, llevaba hasta cuatro horas sin lecturas o un aviso de suspensión no se atendió. Ahora sigue tu basal en modo manual.':
       'Ponpa modu automatikotik irten da sentsorea itzali zelako, lau ordu arte irakurketarik gabe zegoelako edo etendura-abisu bati ez zaiolako kasurik egin. Orain zure basala jarraitzen du modu manualean.',
   'smartguard, modo manual, automatico, salida':
@@ -373,12 +348,8 @@ const Map<String, String> traduccionesAlarmasEu = {
       '30 minutu pasatu dira sentsorearen seinalerik gabe, edo interferentziak daude. Seinalerik gabe ez duzu sentsorearen irakurketarik.',
   'no conecta, sin senal, interferencia, comprobar conexion, sin lecturas':
       'ez da konektatzen, seinalerik gabe, interferentzia, konexioa egiaztatu, irakurketarik gabe',
-  'Acerca la bomba al sensor (con Guardian 4, al transmisor) y pulsa OK. La bomba puede tardar hasta 15 minutos en encontrar la señal.':
-      'Hurbildu ponpa sentsorera (Guardian 4rekin, transmisorera) eta sakatu OK. Ponpak 15 minutu arte behar ditzake seinalea aurkitzeko.',
   'Aléjate de aparatos electrónicos que puedan interferir.':
       'Urrundu interferitu dezaketen gailu elektronikoetatik.',
-  'Con Guardian 4, comprueba que el transmisor y el sensor están bien conectados. Si no lo están, o el sensor no está bien insertado, cambia el sensor.':
-      'Guardian 4rekin, egiaztatu transmisorea eta sentsorea ondo konektatuta daudela. Ez badaude, edo sentsorea ondo sartuta ez badago, aldatu sentsorea.',
   'Si no la encuentra en 15 minutos o sale "Señal del sensor no encontrada", llama al soporte técnico de 24 horas.':
       '15 minututan aurkitzen ez badu edo "Sentsorearen seinalea ez da aurkitu" ateratzen bada, deitu 24 orduko laguntza teknikora.',
   'Cambia el sensor': 'Aldatu sentsorea',
@@ -406,8 +377,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Bigarren aldian ere huts egiten badu, "Aldatu sentsorea" agertuko da.',
   'Sensor calentando o actualizándose':
       'Sentsorea berotzen edo eguneratzen ari da',
-  'Un sensor nuevo tarda un tiempo en dar lecturas (con Guardian 4, unas 2 horas). También puede haber una pausa temporal mientras el sensor hace comprobaciones de calidad: no hace falta cambiarlo.':
-      'Sentsore berri batek denbora bat behar du irakurketak emateko (Guardian 4rekin, 2 ordu inguru). Etenaldi labur bat ere egon daiteke sentsoreak kalitate-egiaztapenak egiten dituen bitartean: ez da aldatu behar.',
   'calentamiento, actualizando, sin lecturas, iniciando, warm up':
       'berotzea, eguneratzen, irakurketarik gabe, hasten, warm up',
   'Pulsa OK y sigue las instrucciones de la pantalla.':
@@ -424,8 +393,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'sentsorea iraungita, sentsorearen amaiera, doako aldia, transmisorearen bateria, transmisorea kargatu',
   'Ten un sensor de repuesto preparado y cámbialo cuando toque (mira la guía de cambio de sensor).':
       'Izan sentsore ordezko bat prest eta aldatu dagokionean (ikusi sentsore-aldaketaren gida).',
-  'Si tienes Guardian 4 y el transmisor avisa de batería baja, recárgalo lo antes posible: con la batería agotada no hay lecturas.':
-      'Guardian 4 baduzu eta transmisoreak bateria baxuaren abisua ematen badu, kargatu ahalik eta lasterren: bateria agortuta ez dago irakurketarik.',
   'Glucosa baja: alarma que no se puede quitar':
       'Glukosa baxua: kendu ezin daitekeen alarma',
   'La lectura del sensor está por debajo de 64 mg/dL. Esta alarma es de fábrica: no se puede silenciar ni desactivar, y no suspende la insulina por sí sola.':
@@ -535,7 +502,6 @@ const Map<String, String> traduccionesAlarmasEu = {
   'Glucosa baja urgente': 'Glukosa baxu larria',
   'hipo, baja, urgente, hipoglucemia, 55':
       'hipo, baxua, larria, hipogluzemia, 55',
-  'Mensajes del sensor en Omnipod 5': 'Sentsorearen mezuak Omnipod 5ean',
   'Valor bajo urgente': 'Balio baxu larria',
   'La lectura del sensor es de 55 mg/dL o menos. Es una alerta de seguridad que suena aunque tengas el móvil en silencio.':
       'Sentsorearen irakurketa 55 mg/dL edo gutxiagokoa da. Segurtasun-alerta bat da, mugikorra isilik izan arren jotzen duena.',
@@ -602,8 +568,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Mantendu mugikorra sentsoretik 10 metrotik beherako distantziara, tartean ezer gabe (hormak, ura) eta gorputzaren alde berean.',
   'Si no funciona, reinicia el móvil y abre la app. Mantén el móvil con al menos un 20 % de batería.':
       'Ez badabil, berrabiarazi mugikorra eta ireki aplikazioa. Mantendu mugikorra gutxienez %20ko bateriarekin.',
-  'Espera hasta 30 minutos. Si sigue igual, llama al soporte técnico de Dexcom.':
-      'Itxaron 30 minutu arte. Berdin jarraitzen badu, deitu Dexcom-en laguntza teknikora.',
   'Problema temporal del sensor': 'Sentsorearen aldi baterako arazoa',
   'El sensor no puede medir la glucosa por ahora. Suele pasar durante el primer día, pero puede ocurrir en cualquier momento y casi siempre se arregla solo en menos de 3 horas.':
       'Sentsoreak ezin du glukosa neurtu oraingoz. Lehen egunean gertatu ohi da, baina edonoiz gerta daiteke eta ia beti bere kabuz konpontzen da 3 ordu baino gutxiagoan.',
@@ -612,8 +576,6 @@ const Map<String, String> traduccionesAlarmasEu = {
   'No quites el sensor.': 'Ez kendu sentsorea.',
   'Toca Ayuda en la app para ver más consejos.':
       'Ukitu Laguntza aplikazioan aholku gehiago ikusteko.',
-  'Si dura más de 3 horas, llama al soporte técnico de Dexcom.':
-      '3 ordu baino gehiago irauten badu, deitu Dexcom-en laguntza teknikora.',
   'El sensor ha fallado': 'Sentsoreak huts egin du',
   'Ya no habrá lecturas ni alertas hasta que empieces un sensor nuevo. Puede llegar después de un problema temporal.':
       'Ez da irakurketarik ez alertarik egongo sentsore berri bat hasi arte. Aldi baterako arazo baten ondoren etor daiteke.',
@@ -651,8 +613,6 @@ const Map<String, String> traduccionesAlarmasEu = {
   'Recuerda que un sensor solo se empareja con un móvil, un receptor y un reloj. Mantén abierta la app.':
       'Gogoratu sentsore bat mugikor bati, hargailu bati eta erloju bati bakarrik parekatzen zaiola. Mantendu aplikazioa irekita.',
   'Calibración no utilizada': 'Kalibrazioa ez da erabili',
-  'En el G7 calibrar es opcional. Si sale este aviso, el sistema no ha usado el valor que introdujiste.':
-      'G7an kalibratzea aukerakoa da. Abisu hau ateratzen bada, sistemak ez du sartu duzun balioa erabili.',
   'calibrar, calibracion, medidor, capilar':
       'kalibratu, kalibrazioa, neurgailua, kapilarra',
   'Lávate las manos con agua y jabón, sécalas y mide con el dedo.':
@@ -671,20 +631,12 @@ const Map<String, String> traduccionesAlarmasEu = {
       'hargailua, errorea, kodea, sistemaren ebaluazioa',
   'Anota el código de error que sale en la pantalla.':
       'Idatzi pantailan ateratzen den errore-kodea.',
-  'Llama al soporte técnico de Dexcom y dales el código.':
-      'Deitu Dexcom-en laguntza teknikora eta eman kodea.',
-  'Sin lecturas del G6': 'G6ren irakurketarik gabe',
-  'No recibes lecturas del G6 desde hace 20 minutos (en el receptor, aparece como error de sensor). No hay alarma ni alertas de glucosa hasta que se solucione.':
-      '20 minutu daramatzazu G6ren irakurketarik jaso gabe (hargailuan, sentsore-errore gisa agertzen da). Ez dago alarmarik ez glukosa-alertarik konpondu arte.',
   'sin lecturas, no lecturas, error de sensor, no hay datos':
       'irakurketarik gabe, irakurketarik ez, sentsore-errorea, daturik gabe',
   'Toca la alerta para ver más información.':
       'Ukitu alerta informazio gehiago ikusteko.',
   'Comprueba que el transmisor está bien encajado en su soporte.':
       'Egiaztatu transmisorea ondo txertatuta dagoela bere euskarrian.',
-  'Espera: en la app, hasta 3 horas; en el receptor, 30 minutos. Si no se arregla, saldrá "Fallo del sensor": llama al servicio técnico de Dexcom.':
-      'Itxaron: aplikazioan, 3 ordu arte; hargailuan, 30 minutu. Konpontzen ez bada, "Sentsorearen hutsegitea" aterako da: deitu Dexcom-en zerbitzu teknikora.',
-  'Pérdida de señal (G6)': 'Seinalea galtzea (G6)',
   'El dispositivo de visualización y el transmisor no se conectan, así que no hay lecturas, alarma ni alertas de glucosa.':
       'Bistaratze-gailua eta transmisorea ez dira konektatzen, beraz ez dago irakurketarik, alarmarik ez glukosa-alertarik.',
   'sin senal, perdida de senal, no conecta, bluetooth':
@@ -694,15 +646,10 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Hurbildu transmisorea eta mugikorra edo hargailua 6 metrotik beherako distantziara, oztoporik gabe (hormak, metalak). Uretan, dutxan edo igerian, hurbildu are gehiago.',
   'En la app: reinicia el móvil. Si sigue, abre los ajustes de Bluetooth, elimina todas las entradas de Dexcom y empareja de nuevo el transmisor.':
       'Aplikazioan: berrabiarazi mugikorra. Jarraitzen badu, ireki Bluetooth doikuntzak, ezabatu Dexcom-en sarrera guztiak eta parekatu berriro transmisorea.',
-  'Espera hasta 30 minutos: puede arreglarse solo. Si pasan más, llama al servicio técnico de Dexcom.':
-      'Itxaron 30 minutu arte: bere kabuz konpon daiteke. Gehiago pasatzen badira, deitu Dexcom-en zerbitzu teknikora.',
-  'Fallo del sensor (G6)': 'Sentsorearen hutsegitea (G6)',
   'El sensor ha dejado de funcionar: no hay lecturas, alarma ni alertas.':
       'Sentsoreak funtzionatzeari utzi dio: ez dago irakurketarik, alarmarik ez alertarik.',
   'fallo, error del sensor, sensor fallado, parar sesion':
       'hutsegitea, sentsore-errorea, sentsore hutsegina, saioa gelditu',
-  'Antes de parar una sesión antes de tiempo, llama siempre al servicio técnico de Dexcom. Una sesión detenida no se puede reanudar.':
-      'Saio bat goiz gelditu aurretik, deitu beti Dexcom-en zerbitzu teknikora. Geldituta dagoen saio bat ezin da berrekin.',
   'Para volver a tener lecturas, pon un sensor nuevo e inicia la sesión.':
       'Berriro irakurketak izateko, jarri sentsore berri bat eta hasi saioa.',
   'Si un hilo del sensor se rompe y no lo ves, no intentes sacarlo: consulta a tu equipo médico.':
@@ -716,8 +663,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Egiaztatu sartu duzun transmisorearen serie-zenbakia kutxakoarekin bat datorrela.',
   'Asegúrate de que el transmisor está bien encajado en su soporte.':
       'Ziurtatu transmisorea ondo txertatuta dagoela bere euskarrian.',
-  'Si nada funciona, puede que el sensor esté mal insertado: llama al servicio técnico de Dexcom.':
-      'Ezerk ez badu funtzionatzen, baliteke sentsorea gaizki sartuta egotea: deitu Dexcom-en zerbitzu teknikora.',
   'Repetir calibración': 'Errepikatu kalibrazioa',
   'El sistema no ha aceptado tu calibración, o el valor estaba fuera de lo esperado. No hay lecturas hasta solucionarlo.':
       'Sistemak ez du zure kalibrazioa onartu, edo balioa espero zenaren kanpoan zegoen. Ez dago irakurketarik konpondu arte.',
@@ -727,8 +672,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Jarraitu pantailako jarraibideei: 15 minutu barru berriro kalibratzeko eskatuko dizu.',
   'En el receptor, si vuelve a fallar, introduce un valor más y espera 15 minutos.':
       'Hargailuan, berriro huts egiten badu, sartu balio bat gehiago eta itxaron 15 minutu.',
-  'Si siguen sin salir lecturas, cambia el sensor y llama al servicio técnico de Dexcom.':
-      'Irakurketak oraindik ateratzen ez badira, aldatu sentsorea eta deitu Dexcom-en zerbitzu teknikora.',
   'Fin de la sesión del sensor (10 días)':
       'Sentsore-saioaren amaiera (10 egun)',
   'La sesión del sensor dura 10 días. Recibes avisos 6 horas, 2 horas y 30 minutos antes del final, y sigues recibiendo lecturas hasta entonces.':
@@ -754,13 +697,9 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Aplikazioa eta hargailua erabiltzen badituzu, hasi saioa batean transmisorea bestearekin parekatu aurretik.',
   '"Bajo" o "Alto" en lugar de un número':
       '"Baxua" edo "Altua" zenbaki baten ordez',
-  'El G6 muestra "Bajo" por debajo de 40 mg/dL y "Alto" por encima de 400 mg/dL. Funciona correctamente.':
-      'G6k "Baxua" erakusten du 40 mg/dL azpitik eta "Altua" 400 mg/dL gainetik. Ondo funtzionatzen du.',
   'bajo, alto, lo, hi, sin numero': 'baxua, altua, lo, hi, zenbakirik gabe',
   'Mide con el medidor y trata la bajada o la subida.':
       'Neurtu neurgailuarekin eta tratatu jaitsiera edo igoera.',
-  'Cuando tu glucosa vuelva a estar entre 40 y 400 mg/dL, el G6 mostrará de nuevo las lecturas.':
-      'Zure glukosa berriro 40 eta 400 mg/dL artean dagoenean, G6k berriro irakurketak erakutsiko ditu.',
   'El parche se despega o me irrita la piel':
       'Partxea askatzen da edo larruazala narritatzen dit',
   'Si el parche adhesivo no aguanta toda la sesión del sensor, o la piel se irrita, se puede prevenir cuidando la colocación.':
@@ -779,7 +718,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Aplikagailua itsatsita gelditzen bazaizu, kendu partxea kontuz aplikagailuarekin batera, egiaztatu sentsorea larruazalean geratu ez dela eta ez berrerabili.',
   'arranque, calentamiento, escanear, sin lecturas':
       'abiarazte, berotzea, eskaneatu, irakurketarik gabe',
-  'Alarmas de glucosa del Libre 3': 'Libre 3ren glukosa-alarmak',
   'alarmas, descartar, desactivar, configurar':
       'alarmak, baztertu, desaktibatu, konfiguratu',
   'Fuente: manual oficial de {manual}, p. {pagina}':
@@ -843,26 +781,14 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Kartutxoaren atalean intsulina badago, atera kartutxoa eta begiratu pitzadurarik duen; aldatu behar izanez gero.',
   'El sensor llega al final de su vida útil: Simplera Sync dura hasta 6 días más 24 horas de gracia (en las que sigue funcionando igual), Guardian 4 hasta 7 días e Instinct hasta 15 días. Con Guardian 4, el transmisor también avisa cuando hay que recargarlo.':
       'Sentsorea bere bizitza erabilgarriaren amaierara iristen ari da: Simplera Sync-ek 6 egun gehi 24 orduko grazia-epea irauten du (epe horretan berdin funtzionatzen du), Guardian 4-k 7 egun arte eta Instinct-ek 15 egun arte. Guardian 4-rekin, transmisoreak ere abisatzen du kargatu behar denean.',
-  'Con Instinct, ten a mano la app MiniMed Mobile: el sensor nuevo se inicia con ella.':
-      'Instinct-ekin, izan eskura MiniMed Mobile aplikazioa: sentsore berria harekin abiarazten da.',
-  'No se ha podido iniciar o emparejar el sensor Instinct':
-      'Ezin izan da Instinct sentsorea abiarazi edo parekatu',
-  'El sensor no ha empezado el calentamiento porque no detecta líquido bajo la piel ("Comprobar sensor"), una alarma de la bomba ha cortado el emparejamiento, o la app MiniMed Mobile no ha podido escanearlo.':
-      'Sentsoreak ez du berotzea hasi azal azpian likidorik detektatzen ez duelako ("Egiaztatu sentsorea"), ponparen alarma batek parekatzea eten duelako, edo MiniMed Mobile aplikazioak ezin izan duelako eskaneatu.',
   'comprobar sensor, no empareja, nfc, escaneo, no arranca':
       'egiaztatu sentsorea, ez da parekatzen, nfc, eskaneatzea, ez da abiarazten',
-  'Si el sensor no está puesto, póntelo. Si está bien puesto y pegado, reinícialo con la app MiniMed Mobile.':
-      'Sentsorea jarrita ez badago, jarri. Ondo jarrita eta itsatsita badago, berrabiarazi MiniMed Mobile aplikazioarekin.',
   'Si el aviso vuelve a salir después de reiniciarlo, inicia un sensor nuevo con la app.':
       'Berrabiarazi ondoren abisua berriro agertzen bada, abiarazi sentsore berri bat aplikazioarekin.',
   'Si la app dice que el NFC está apagado, actívalo en los ajustes del móvil. Si dice "Error de escaneo", acerca el móvil al sensor y vuelve a escanear.':
       'Aplikazioak NFCa itzalita dagoela esaten badu, aktibatu mugikorraren ezarpenetan. "Eskaneatze-errorea" esaten badu, hurbildu mugikorra sentsorera eta eskaneatu berriro.',
   'Si dice que el sensor ya está en uso, comprueba que usas el móvil y la cuenta con los que lo iniciaste.':
       'Sentsorea dagoeneko erabiltzen ari dela esaten badu, egiaztatu abiarazteko erabili zenituen mugikorra eta kontua erabiltzen ari zarela.',
-  'El sistema pide una glucemia para comprobar el sensor Instinct':
-      'Sistemak gluzemia bat eskatzen du Instinct sentsorea egiaztatzeko',
-  'Con Instinct, las glucemias del medidor sirven para comprobar que el sensor funciona bien, no para calibrarlo. Este aviso sale cuando hace falta una glucemia o cuando no se ha podido usar la que introdujiste.':
-      'Instinct-ekin, neurgailuaren gluzemiek sentsoreak ondo funtzionatzen duela egiaztatzeko balio dute, ez kalibratzeko. Abisu hau gluzemia bat behar denean edo sartu duzuna erabili ezin izan denean agertzen da.',
   'introducir gs, comprobacion fallida, glucemia, considerar cambio':
       'sartu gs, egiaztapen okerra, gluzemia, aldaketa kontuan hartu',
   'Lávate y sécate bien las manos y mide tu glucemia con el medidor.':
@@ -873,18 +799,12 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Bi egiaztapenek jarraian huts egiten badute, ponpak sentsorea aldatzea proposatuko dizu: berriro irakurketak izateko modurik azkarrena da.',
   'El primer día puede tardar hasta 2 horas en volver a dar lecturas. Mientras tanto, usa el medidor para tus decisiones.':
       'Lehen egunean 2 ordu arte behar ditzake berriro irakurketak emateko. Bitartean, erabili neurgailua zure erabakietarako.',
-  'Glucosa baja: alarma que no se puede quitar (Instinct)':
-      'Glukosa baxua: kendu ezin den alarma (Instinct)',
-  'Con Instinct, la bomba avisa siempre que la glucosa del sensor baja de 55 mg/dL. Viene de fábrica: no se puede cambiar, apagar ni silenciar. Esta alarma no suspende la insulina.':
-      'Instinct-ekin, ponpak beti abisatzen du sentsorearen glukosa 55 mg/dL-tik behera jaisten denean. Fabrikatik dator: ezin da aldatu, itzali edo isildu. Alarma honek ez du intsulina eteten.',
   'hipo, baja, 55, gs baja, hipoglucemia':
       'hipo, baxua, 55, gs baxua, hipogluzemia',
   'Mide tu glucemia con el medidor y trata la bajada como te haya indicado tu equipo médico.':
       'Neurtu gluzemia neurgailuarekin eta tratatu jaitsiera zure talde medikoak esan bezala.',
   'Si la glucosa está muy por debajo, la bomba puede dejar de mostrar las flechas de tendencia.':
       'Glukosa askoz beherago badago, ponpak joera-geziak erakusteari utz diezaioke.',
-  'Sensor demasiado caliente, frío o actualizándose (Instinct)':
-      'Sentsorea beroegi, hotzegi edo eguneratzen (Instinct)',
   'El sensor no da lecturas por un motivo temporal: está fuera de su temperatura de funcionamiento o está haciendo comprobaciones de calidad. No hace falta cambiarlo.':
       'Sentsoreak ez du irakurketarik ematen aldi baterako arrazoi batengatik: funtzionamendu-tenperaturatik kanpo dago edo kalitate-egiaztapenak egiten ari da. Ez da aldatu behar.',
   'caliente, frio, actualizando, sin lecturas':
@@ -927,26 +847,14 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Podaren itzaltze-ordu bat konfiguratuta duzu. Lehenik abisu bat jotzen du; erantzuten ez baduzu, Podak intsulina emateari uzten dio (arrisku-alarma).',
   'Si es la advertencia: toca SIGUIENTE para reiniciar el temporizador de apagado.':
       'Abisua bada: ukitu HURRENGOA itzaltze-tenporizadorea berrabiarazteko.',
-  'Error de la Aplicación Omnipod 5':
-      'Omnipod 5 aplikazioaren errorea',
-  'Se ha detectado un error inesperado en la Aplicación Omnipod 5. A veces la aplicación se cierra y se vuelve a abrir sola.':
-      'Ustekabeko errore bat detektatu da Omnipod 5 aplikazioan. Batzuetan aplikazioa itxi eta berez irekitzen da berriro.',
   'error aplicacion, controlador, reinicio, se cierra':
       'aplikazio-errorea, kontrolagailua, berrabiaraztea, ixten da',
   'Toca OK para confirmar o silenciar la alarma. Puede que el Controlador se reinicie: sigue igualmente con el paso siguiente.':
       'Ukitu OK alarma berresteko edo isiltzeko. Baliteke Kontrolagailua berrabiaraztea: jarraitu hala ere hurrengo urratsarekin.',
-  'Corrupción de memoria de Omnipod 5':
-      'Omnipod 5-en memoria hondatuta',
-  'Se ha detectado un error inesperado en la Aplicación Omnipod 5 que obliga a restablecerla.':
-      'Omnipod 5 aplikazioan ustekabeko errore bat detektatu da, eta berrezarri egin behar da.',
   'memoria, corrupcion, restablecer, controlador':
       'memoria, hondatzea, berrezarri, kontrolagailua',
-  'Toca OK para confirmar la alarma y restablecer la Aplicación Omnipod 5.':
-      'Ukitu OK alarma berresteko eta Omnipod 5 aplikazioa berrezartzeko.',
   'Error del sistema':
       'Sistemaren errorea',
-  'Se ha detectado un error inesperado en el Pod o en la Aplicación Omnipod 5.':
-      'Ustekabeko errore bat detektatu da Podean edo Omnipod 5 aplikazioan.',
   'error, sistema, fallo':
       'errorea, sistema, akatsa',
   'Toca OK para confirmar la alarma.':
@@ -987,10 +895,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Modu Automatizatuan, Podak ordubete baino gehiago darama sentsorearen baliorik jaso gabe. "Modu Automatizatua: Mugatua" egoeran jarraitzen du balioak itzuli arte edo Eskuzko Modura aldatu arte.',
   'faltan valores, sin valores, sin señal, automatizado limitado':
       'balioak falta, baliorik ez, seinalerik ez, automatizatua mugatua',
-  'Con Dexcom: mira en la app de Dexcom si hay valores o algún aviso del sensor o del transmisor.':
-      'Dexcom-ekin: begiratu Dexcom aplikazioan baliorik edo sentsorearen edo transmisorearen abisurik dagoen.',
-  'Con FreeStyle Libre 2 Plus: mira en la Aplicación Omnipod 5 si hay valores y que el sensor siga bien puesto en el brazo.':
-      'FreeStyle Libre 2 Plus-ekin: begiratu Omnipod 5 aplikazioan baliorik dagoen eta sentsoreak besoan ondo jarrita jarraitzen duen.',
   'Si pasa a menudo, lleva el Pod y el sensor en el mismo lado del cuerpo, separados al menos 8 cm (Dexcom) o 2,5 cm (Libre 2 Plus).':
       'Sarri gertatzen bada, eraman Poda eta sentsorea gorputzaren alde berean, gutxienez 8 cm-ko tartearekin (Dexcom) edo 2,5 cm-koarekin (Libre 2 Plus).',
   'Alarma opcional del sensor: tu glucosa está por encima de tu ajuste de Glucosa alta o por debajo de tu ajuste de Glucosa baja. Se repite cada 5 minutos hasta que vuelve al ajuste o hasta que la confirmas.':
@@ -1007,8 +911,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Berretsi alarma jakinarazpenetik.',
   'Comprueba que el sensor sigue pegado a la piel.':
       'Egiaztatu sentsoreak azalari itsatsita jarraitzen duela.',
-  'Mensajes en rojo del panel de la Aplicación Omnipod 5: "Sensor demasiado frío", "Sensor demasiado caliente", "Problema temporal del sensor", "Sensor finalizado", "Sin sensor", "Sustituir sensor" o "Error al conectar". Sin sensor, el Modo Automatizado no funciona.':
-      'Omnipod 5 aplikazioaren paneleko mezu gorriak: "Sentsorea hotzegi", "Sentsorea beroegi", "Sentsorearen aldi baterako arazoa", "Sentsorea amaituta", "Sentsorerik ez", "Ordezkatu sentsorea" edo "Konektatzeko errorea". Sentsorerik gabe, Modu Automatizatuak ez du funtzionatzen.',
   'sensor, demasiado frio, demasiado caliente, sensor finalizado, sustituir sensor, sin sensor, error al conectar':
       'sentsorea, hotzegi, beroegi, sentsorea amaituta, ordezkatu sentsorea, sentsorerik ez, konektatzeko errorea',
   'Demasiado frío o caliente: muévete a un sitio con otra temperatura y vuelve a probar en unos minutos.':
@@ -1063,8 +965,6 @@ const Map<String, String> traduccionesAlarmasEu = {
       'iraungita, agortuta, bizitzaren amaiera, aldatu sentsorea, ordezkatu',
   'Quita el sensor, ponte uno nuevo e inícialo.':
       'Kendu sentsorea, jarri berri bat eta abiarazi.',
-  'Mensajes del sensor Libre 3':
-      'Libre 3 sentsorearen mezuak',
   'Otros mensajes que pueden salir al leer el sensor: "Error de escaneo", "Error del sensor", "Lectura de glucosa no disponible", "Sensor ya en uso" o "Comprobar sensor".':
       'Sentsorea irakurtzean ager daitezkeen beste mezu batzuk: "Eskaneatze-errorea", "Sentsorearen errorea", "Glukosa-irakurketa ez dago erabilgarri", "Sentsorea dagoeneko erabiltzen" edo "Egiaztatu sentsorea".',
   'error de escaneo, error del sensor, no disponible, ya en uso, comprobar sensor':
@@ -1091,4 +991,266 @@ const Map<String, String> traduccionesAlarmasEu = {
       'Zure glukosa konfiguratu zenuen mailaren azpitik jaitsi da. Jaitsiera bakoitzeko alarma bakarra jasotzen duzu.',
   'Trata la bajada como te haya indicado tu equipo médico, sin retrasarlo.':
       'Tratatu jaitsiera zure talde medikoak esan bezala, atzeratu gabe.',
+  'Has puesto un tiempo (entre 5 y 24 horas) tras el cual, si no tocas la bomba, esta deja de dar insulina. Antes salta un aviso con una cuenta atrás de 30 segundos.':
+      'Denbora bat jarri duzu (5 eta 24 ordu artean); denbora hori igarotzean ponpa ukitzen ez baduzu, intsulina emateari uzten dio. Aurretik abisu bat agertzen da 30 segundoko atzerako kontaketarekin.',
+  'El botón Pantalla enc./Bolo rápido (el de arriba de la bomba) está atascado o no funciona bien, y se han detenido todos los suministros.':
+      'Pantaila piztu / Bolus azkarra botoia (ponparen goikoa) trabatuta dago edo ez dabil ondo, eta emari guztia gelditu da.',
+  'Alarma de oclusión':
+      'Oklusio-alarma',
+  'La bomba ha detectado que la insulina no puede pasar y ha detenido todo el suministro. Las luces de la bomba parpadean en rojo.':
+      'Ponpak detektatu du intsulinak ezin duela pasatu eta emari guztia gelditu du. Ponparen argiak gorriz keinuka ari dira.',
+  'oclusion, obstruido, atasco, no pasa insulina, bloqueo':
+      'oklusioa, buxatuta, trabatuta, intsulina ez da pasatzen, blokeoa',
+  'Pulsa Ignorar en la app.':
+      'Sakatu Ez ikusi egin aplikazioan.',
+  'Revisa el cartucho, el tubo y el sitio de infusión por si hay daños o bloqueos, y corrígelo.':
+      'Berrikusi kartutxoa, hodia eta infusio-lekua kalterik edo blokeorik dagoen ikusteko, eta konpondu.',
+  'Para reanudar la insulina: Acciones → Reanudar insulina.':
+      'Intsulina berrekiteko: Ekintzak → Berrekin intsulina.',
+  'Si salta una segunda alarma de oclusión seguida, cambia el cartucho, el tubo y el sitio de infusión antes de reanudar la insulina.':
+      'Bigarren oklusio-alarma bat jarraian jotzen badu, aldatu kartutxoa, hodia eta infusio-lekua intsulina berrekin aurretik.',
+  'Si saltó durante un bolo, la app te dice cuánto se llegó a poner antes del bloqueo.':
+      'Bolo batean jo bazuen, aplikazioak blokeoa baino lehen zenbat jarri zen esaten dizu.',
+  'Mide tu glucosa y sigue las indicaciones de tu equipo médico.':
+      'Neurtu glukosa eta jarraitu zure talde medikoaren jarraibideei.',
+  'Alarma de cartucho vacío':
+      'Kartutxo hutsaren alarma',
+  'El cartucho se ha quedado sin insulina y se han detenido todos los suministros. Se repite cada 3 minutos hasta que lo cambies.':
+      'Kartutxoa intsulinarik gabe geratu da eta emari guztia gelditu da. 3 minuturo errepikatzen da aldatu arte.',
+  'cartucho, vacio, sin insulina':
+      'kartutxoa, hutsik, intsulinarik gabe',
+  'Pulsa Ignorar.':
+      'Sakatu Ez ikusi egin.',
+  'Cambia el cartucho ya: Acciones → Cargar cartucho (mira la guía de cambio de esta app).':
+      'Aldatu kartutxoa orain: Ekintzak → Kargatu kartutxoa (begiratu aplikazio honetako aldaketa-gida).',
+  'Alarma de error del cartucho':
+      'Kartutxoaren errore-alarma',
+  'La bomba no ha podido usar el cartucho y ha detenido todos los suministros. Puede ser un cartucho defectuoso o que no se siguió bien el procedimiento de carga.':
+      'Ponpak ezin izan du kartutxoa erabili eta emari guztia gelditu du. Kartutxo akastuna izan daiteke, edo kargatzeko prozedura ez da ondo jarraitu.',
+  'cartucho, error, no reconoce':
+      'kartutxoa, errorea, ez du ezagutzen',
+  'Cambia el cartucho ya: Acciones → Cargar cartucho y sigue los pasos.':
+      'Aldatu kartutxoa orain: Ekintzak → Kargatu kartutxoa eta jarraitu urratsei.',
+  'Alarma de batería baja':
+      'Bateria baxuaren alarma',
+  'A la bomba le queda un 1 % de batería o menos y se han detenido todos los suministros. Se repite cada 3 minutos hasta que se apague.':
+      'Ponpari % 1 bateria edo gutxiago geratzen zaio eta emari guztia gelditu da. 3 minuturo errepikatzen da itzali arte.',
+  'bateria, sin bateria, cargar, apagada':
+      'bateria, bateriarik gabe, kargatu, itzalita',
+  'Alarma de reanudación de insulina':
+      'Intsulina berrekiteko alarma',
+  'La insulina lleva detenida más de 15 minutos porque elegiste Detener insulina, o se ha detenido por otra alarma.':
+      'Intsulina 15 minutu baino gehiago darama geldituta Gelditu intsulina aukeratu zenuelako, edo beste alarma batek gelditu duelako.',
+  'reanudar, insulina detenida, parada':
+      'berrekin, intsulina geldituta, geldituta',
+  'Para reanudar la insulina: Acciones → Reanudar insulina y pulsa Sí.':
+      'Intsulina berrekiteko: Ekintzak → Berrekin intsulina eta sakatu Bai.',
+  'Si no la confirmas, vuelve a avisar a los 3 minutos; si la confirmas, a los 15.':
+      'Berresten ez baduzu, 3 minutu barru abisatzen du berriro; berresten baduzu, 15 barru.',
+  'Alarma de apagado automático':
+      'Itzaltze automatikoaren alarma',
+  'Si la tienes activada, la bomba detiene la insulina cuando pasan las horas que elegiste (entre 5 y 24) sin usar la bomba ni la app.':
+      'Aktibatuta baduzu, ponpak intsulina gelditzen du aukeratu zenituen orduak (5 eta 24 artean) ponpa edo aplikazioa erabili gabe igarotzen direnean.',
+  'apagado, automatico, sin uso':
+      'itzalita, automatikoa, erabilerarik gabe',
+  'Reanuda la insulina: Acciones → Reanudar insulina.':
+      'Berrekin intsulina: Ekintzak → Berrekin intsulina.',
+  'Alerta o alarma de temperatura':
+      'Tenperatura-alerta edo -alarma',
+  'La temperatura interna de la bomba es demasiado alta o demasiado baja. Primero sale una alerta; si llega a temperaturas extremas, salta la alarma y se detienen todos los suministros.':
+      'Ponparen barneko tenperatura altuegia edo baxuegia da. Lehenik alerta bat agertzen da; muturreko tenperaturetara iristen bada, alarmak jotzen du eta emari guztia gelditzen da.',
+  'temperatura, calor, frio':
+      'tenperatura, beroa, hotza',
+  'Aleja la bomba del calor o del frío extremo.':
+      'Urrundu ponpa muturreko berotik edo hotzetik.',
+  'Si saltó la alarma, reanuda la insulina cuando vuelva a una temperatura normal.':
+      'Alarmak jo badu, berrekin intsulina tenperatura normalera itzultzen denean.',
+  'Botón Bomba atascado':
+      'Ponpa botoia trabatuta',
+  'El botón Bomba se ha pulsado demasiadas veces o un bolo rápido no se ha podido dar (alerta). Si el botón está atascado o no funciona, salta la alarma y se detienen todos los suministros.':
+      'Ponpa botoia gehiegitan sakatu da edo ezin izan da bolus azkar bat eman (alerta). Botoia trabatuta badago edo ez badabil, alarmak jotzen du eta emari guztia gelditzen da.',
+  'boton, atascado, bolo rapido':
+      'botoia, trabatuta, bolus azkarra',
+  'Comprueba que el botón Bomba no se ha quedado hundido.':
+      'Egiaztatu Ponpa botoia ez dela sakatuta geratu.',
+  'Si es la alarma o el problema continúa, llama al servicio de atención al cliente.':
+      'Alarma bada edo arazoak jarraitzen badu, deitu bezeroarentzako arreta-zerbitzura.',
+  'Alarma de restablecimiento de bomba e IA':
+      'Ponparen eta IA-ren berrezartze-alarma',
+  'La bomba se ha reiniciado: la insulina activa se ha puesto a cero y se han detenido todos los suministros.':
+      'Ponpa berrabiarazi da: intsulina aktiboa zeroan jarri da eta emari guztia gelditu da.',
+  'reinicio, restablecimiento, insulina activa':
+      'berrabiaraztea, berrezartzea, intsulina aktiboa',
+  'Pulsa Ignorar y llama al servicio de atención al cliente.':
+      'Sakatu Ez ikusi egin eta deitu bezeroarentzako arreta-zerbitzura.',
+  'Revisa el estado de la bomba en el Panel y reanuda tú la insulina.':
+      'Berrikusi ponparen egoera Panelean eta berrekin zuk zeuk intsulina.',
+  'No tomes decisiones con la insulina activa que muestre la app después del reinicio, ni con la alerta de bolo máximo por hora durante 60 minutos.':
+      'Ez hartu erabakirik berrabiarazi ondoren aplikazioak erakusten duen intsulina aktiboan oinarrituta, ezta orduko gehieneko boloaren alertan ere 60 minutuz.',
+  'Fallo de la bomba':
+      'Ponparen akatsa',
+  'La bomba ha detectado un error crítico y ha detenido todos los suministros. Las vibraciones y las luces siguen hasta que se agota la batería.':
+      'Ponpak errore kritiko bat detektatu du eta emari guztia gelditu du. Bibrazioek eta argiek jarraitzen dute bateria agortu arte.',
+  'fallo, error critico, no funciona':
+      'akatsa, errore kritikoa, ez dabil',
+  'Pulsa Ignorar en la app para silenciar los pitidos.':
+      'Sakatu Ez ikusi egin aplikazioan bip-soinuak isiltzeko.',
+  'Llama al servicio de atención al cliente.':
+      'Deitu bezeroarentzako arreta-zerbitzura.',
+  'Usa tu método de insulina de respaldo o pide a tu equipo médico un plan alternativo.':
+      'Erabili zure ordezko intsulina-metodoa edo eskatu zure talde medikoari ordezko plan bat.',
+  'Alertas de baja energía':
+      'Energia baxuaren alertak',
+  'Queda menos del 20 % de batería (primera alerta) o menos del 5 % (segunda alerta). Con la segunda, la insulina sigue durante 30 minutos y después la bomba se apaga.':
+      'Bateriaren % 20 baino gutxiago geratzen da (lehen alerta) edo % 5 baino gutxiago (bigarren alerta). Bigarrenarekin, intsulinak 30 minutuz jarraitzen du eta gero ponpa itzali egiten da.',
+  'bateria baja, cargar, poca bateria':
+      'bateria baxua, kargatu, bateria gutxi',
+  'Si ya es la segunda, cárgala de inmediato.':
+      'Bigarrena bada, karga ezazu berehala.',
+  'Alerta de nivel de insulina bajo':
+      'Intsulina-maila baxuaren alerta',
+  'Queda poca insulina en el cartucho: por debajo del aviso que tienes configurado o casi nada.':
+      'Kartutxoan intsulina gutxi geratzen da: konfiguratuta duzun abisuaren azpitik edo ia ezer ez.',
+  'poca insulina, queda poco, cartucho bajo':
+      'intsulina gutxi, gutxi geratzen da, kartutxo baxua',
+  'Cambia el cartucho lo antes posible para evitar la alarma de cartucho vacío.':
+      'Aldatu kartutxoa ahalik eta lasterren kartutxo hutsaren alarma saihesteko.',
+  'La app avisa si empiezas un bolo, un régimen temporal, la carga de un cartucho o una configuración y no lo terminas.':
+      'Aplikazioak abisatzen du bolo bat, aldi baterako tasa bat, kartutxo baten karga edo konfigurazio bat hasi eta amaitzen ez baduzu.',
+  'incompleto, a medias, sin terminar':
+      'osatu gabea, erdizka, amaitu gabe',
+  'Abre la notificación: vuelves a donde lo dejaste.':
+      'Ireki jakinarazpena: utzi zenuen lekura itzultzen zara.',
+  'Termina el proceso o cancélalo si ya no lo quieres.':
+      'Amaitu prozesua edo utzi bertan behera gehiago nahi ez baduzu.',
+  'Has pedido un bolo mayor que tu bolo máximo (o más de lo previsto en la última hora), o un régimen basal por encima de tu máximo o por debajo del mínimo.':
+      'Zure gehieneko boloa baino bolo handiagoa eskatu duzu (edo azken orduan aurreikusitakoa baino gehiago), edo zure gehienekoaren gainetik edo gutxienekoaren azpitik dagoen oinarrizko tasa bat.',
+  'bolo maximo, limite, basal maxima':
+      'gehieneko boloa, muga, gehieneko basala',
+  'Revisa la cantidad y confírmala solo si estás seguro.':
+      'Berrikusi kantitatea eta berretsi ziur bazaude bakarrik.',
+  'Consulta con tu equipo médico si tus necesidades han cambiado.':
+      'Galdetu zure talde medikoari zure beharrak aldatu badira.',
+  'fuera de alcance, sin lecturas, sin señal':
+      'irismenetik kanpo, irakurketarik ez, seinalerik ez',
+  'Acerca el sensor a la bomba o quita lo que haya entre ellos.':
+      'Hurbildu sentsorea ponpara edo kendu bien artean dagoena.',
+  'baja, hipo, prevision':
+      'baxua, hipo, aurreikuspena',
+  'Toma hidratos de carbono y mide tu glucosa.':
+      'Hartu karbohidratoak eta neurtu glukosa.',
+  'alta, hiper, no baja':
+      'altua, hiper, ez da jaisten',
+  'Revisa el cartucho, el tubo y el sitio de infusión, y mide tu glucosa.':
+      'Berrikusi kartutxoa, hodia eta infusio-lekua, eta neurtu glukosa.',
+  'Trata la glucosa alta según te haya indicado tu equipo médico.':
+      'Tratatu glukosa altua zure talde medikoak esan bezala.',
+  'maximo, insulina maxima, dosis diaria':
+      'gehienekoa, gehieneko intsulina, eguneko dosia',
+  'Comprueba que tu insulina diaria total está bien configurada: Ajustes → Bomba → Control-IQ.':
+      'Egiaztatu zure eguneko intsulina osoa ondo konfiguratuta dagoela: Ezarpenak → Ponpa → Control-IQ.',
+  'Modo automático: el sensor está fuera de alcance':
+      'Modu automatikoa: sentsorea irismenetik kanpo dago',
+  'El transmisor y la bomba no se comunican, así que la bomba no recibe lecturas. El modo automático sigue ajustando la insulina durante los primeros 20 minutos y después vuelve a la basal de tu perfil.':
+      'Transmisorea eta ponpa ez dira komunikatzen, beraz ponpak ez du irakurketarik jasotzen. Modu automatikoak intsulina doitzen jarraitzen du lehen 20 minutuetan eta gero zure profileko basalera itzultzen da.',
+  'El modo automático prevé una glucosa baja':
+      'Modu automatikoak glukosa baxua aurreikusten du',
+  'El modo automático predice que tu glucosa estará por debajo de 70 mg/dL (80 si usas la función Ejercicio) en los próximos 15 minutos.':
+      'Modu automatikoak aurreikusten du zure glukosa 70 mg/dL azpitik egongo dela (80 Ariketa funtzioa erabiltzen baduzu) hurrengo 15 minutuetan.',
+  'Modo automático: glucosa alta que no baja':
+      'Modu automatikoa: jaisten ez den glukosa altua',
+  'El modo automático ha subido la insulina, pero ve una glucosa por encima de 200 mg/dL y no prevé que baje en los próximos 30 minutos.':
+      'Modu automatikoak intsulina igo du, baina 200 mg/dL baino glukosa altuagoa ikusten du eta ez du aurreikusten hurrengo 30 minutuetan jaitsiko denik.',
+  'Modo automático: máximo de insulina alcanzado':
+      'Modu automatikoa: intsulina maximoa lortu da',
+  'La bomba ha dado el máximo de insulina permitido en 2 horas (la mitad de tu dosis diaria total). El modo automático pausa la insulina un mínimo de 5 minutos y después la reanuda.':
+      'Ponpak 2 ordutan onartutako intsulina maximoa eman du (zure eguneko dosi osoaren erdia). Modu automatikoak intsulina gutxienez 5 minutuz pausatzen du eta gero berrekiten du.',
+  'El sensor y la bomba no se comunican, así que no llegan lecturas. Si el modo automático está activado, sigue ajustando la insulina los primeros 20 minutos y después vuelve a la basal de tu perfil.':
+      'Sentsorea eta ponpa ez dira komunikatzen, beraz ez da irakurketarik iristen. Modu automatikoa aktibatuta badago, lehen 20 minutuetan intsulina doitzen jarraitzen du eta gero zure profileko basalera itzultzen da.',
+  'El modo automático predice que tu glucosa bajará de 70 mg/dL (80 si tienes activada la actividad Ejercicio) en los próximos 15 minutos.':
+      'Modu automatikoak aurreikusten du zure glukosa 70 mg/dL-tik behera jaitsiko dela (80, Ariketa jarduera aktibatuta baduzu) hurrengo 15 minutuetan.',
+  'El modo automático ha puesto en las últimas 2 horas la mitad de tu dosis diaria total, que es el máximo permitido.':
+      'Modu automatikoak azken 2 orduetan zure eguneko dosi osoaren erdia jarri du, eta hori da baimendutako gehienekoa.',
+  'El modo automático pide una glucemia':
+      'Modu automatikoak glukemia bat eskatzen du',
+  'El modo automático necesita que introduzcas una glucemia (medida con el dedo): lleva mucho rato dando la insulina máxima o mínima, o tiene que comprobar que el sensor es fiable.':
+      'Modu automatikoak glukemia bat sartzea behar du (behatzarekin neurtua): denbora luzez ari da intsulina maximoa edo minimoa ematen, edo sentsorea fidagarria dela egiaztatu behar du.',
+  'Salida del modo automático':
+      'Modu automatikotik irtetea',
+  'Acerca la bomba al sensor (o al transmisor, si tu sensor lo lleva aparte) y pulsa OK. La bomba puede tardar hasta 15 minutos en encontrar la señal.':
+      'Hurbildu ponpa sentsorera (edo transmisorera, zure sentsoreak aparte badu) eta sakatu OK. Ponpak 15 minutu arte behar ditzake seinalea aurkitzeko.',
+  'Si tu sensor lleva transmisor aparte, comprueba que el transmisor y el sensor están bien conectados. Si no lo están, o el sensor no está bien insertado, cambia el sensor.':
+      'Zure sentsoreak transmisorea aparte badu, egiaztatu transmisorea eta sentsorea ondo konektatuta daudela. Ez badaude, edo sentsorea ondo sartuta ez badago, aldatu sentsorea.',
+  'Un sensor nuevo tarda un tiempo en dar lecturas (si lleva transmisor aparte, unas 2 horas). También puede haber una pausa temporal mientras el sensor hace comprobaciones de calidad: no hace falta cambiarlo.':
+      'Sentsore berri batek denbora bat behar du irakurketak emateko (transmisorea aparte badu, 2 ordu inguru). Etenaldi labur bat ere egon daiteke sentsoreak kalitate-egiaztapenak egiten dituen bitartean: ez da aldatu behar.',
+  'Si tu sensor lleva transmisor aparte y avisa de batería baja, recárgalo lo antes posible: con la batería agotada no hay lecturas.':
+      'Zure sentsoreak transmisorea aparte badu eta bateria baxuaren abisua ematen badu, kargatu ahalik eta lasterren: bateria agortuta ez dago irakurketarik.',
+  'Si tu sensor se inicia desde el móvil, ten a mano la app emparejada con la bomba: el sensor nuevo se inicia con ella.':
+      'Zure sentsorea mugikorretik abiarazten bada, izan eskura ponparekin parekatutako aplikazioa: sentsore berria harekin abiarazten da.',
+  'No se ha podido iniciar o emparejar el sensor':
+      'Ezin izan da sentsorea abiarazi edo parekatu',
+  'El sensor no ha empezado el calentamiento porque no detecta líquido bajo la piel ("Comprobar sensor"), una alarma de la bomba ha cortado el emparejamiento, o la app del móvil no ha podido escanearlo.':
+      'Sentsoreak ez du berotzea hasi azal azpian likidorik detektatzen ez duelako ("Egiaztatu sentsorea"), ponparen alarma batek parekatzea eten duelako, edo mugikorreko aplikazioak ezin izan duelako eskaneatu.',
+  'Si el sensor no está puesto, póntelo. Si está bien puesto y pegado, reinícialo con la app del móvil.':
+      'Sentsorea jarrita ez badago, jarri. Ondo jarrita eta itsatsita badago, berrabiarazi mugikorreko aplikazioarekin.',
+  'El sistema pide una glucemia para comprobar el sensor':
+      'Sistemak gluzemia bat eskatzen du sentsorea egiaztatzeko',
+  'Con este sensor, las glucemias del medidor sirven para comprobar que funciona bien, no para calibrarlo. Este aviso sale cuando hace falta una glucemia o cuando no se ha podido usar la que introdujiste.':
+      'Sentsore honekin, neurgailuaren gluzemiek ondo funtzionatzen duela egiaztatzeko balio dute, ez kalibratzeko. Abisu hau gluzemia bat behar denean edo sartu duzuna erabili ezin izan denean agertzen da.',
+  'Con este sensor, la bomba avisa siempre que la glucosa baja de 55 mg/dL. Viene de fábrica: no se puede cambiar, apagar ni silenciar. Esta alarma no suspende la insulina.':
+      'Sentsore honekin, ponpak beti abisatzen du glukosa 55 mg/dL-tik behera jaisten denean. Fabrikatik dator: ezin da aldatu, itzali edo isildu. Alarma honek ez du intsulina eteten.',
+  'Sensor demasiado caliente, frío o actualizándose':
+      'Sentsorea beroegi, hotzegi edo eguneratzen',
+  'Error de la aplicación de la bomba':
+      'Ponparen aplikazioaren errorea',
+  'Se ha detectado un error inesperado en la aplicación de la bomba. A veces la aplicación se cierra y se vuelve a abrir sola.':
+      'Ustekabeko errore bat detektatu da ponparen aplikazioan. Batzuetan aplikazioa itxi eta berez irekitzen da berriro.',
+  'Corrupción de memoria de la aplicación':
+      'Aplikazioaren memoria hondatuta',
+  'Se ha detectado un error inesperado en la aplicación de la bomba que obliga a restablecerla.':
+      'Ponparen aplikazioan ustekabeko errore bat detektatu da, eta berrezarri egin behar da.',
+  'Toca OK para confirmar la alarma y restablecer la aplicación.':
+      'Ukitu OK alarma berresteko eta aplikazioa berrezartzeko.',
+  'Se ha detectado un error inesperado en el Pod o en la aplicación de la bomba.':
+      'Ustekabeko errore bat detektatu da Podean edo ponparen aplikazioan.',
+  'Si tu sensor tiene su propia app, mira en ella si hay valores o algún aviso del sensor o del transmisor.':
+      'Zure sentsoreak bere aplikazioa badu, begiratu bertan baliorik edo sentsorearen edo transmisorearen abisurik dagoen.',
+  'Si el sensor se inició desde la aplicación de la bomba, mira ahí si hay valores y que el sensor siga bien puesto.':
+      'Sentsorea ponparen aplikaziotik abiarazi bazen, begiratu bertan baliorik dagoen eta sentsoreak ondo jarrita jarraitzen duen.',
+  'Mensajes del sensor en la aplicación':
+      'Sentsorearen mezuak aplikazioan',
+  'Mensajes en rojo del panel de la aplicación de la bomba: "Sensor demasiado frío", "Sensor demasiado caliente", "Problema temporal del sensor", "Sensor finalizado", "Sin sensor", "Sustituir sensor" o "Error al conectar". Sin sensor, el Modo Automatizado no funciona.':
+      'Ponparen aplikazioaren paneleko mezu gorriak: "Sentsorea hotzegi", "Sentsorea beroegi", "Sentsorearen aldi baterako arazoa", "Sentsorea amaituta", "Sentsorerik ez", "Ordezkatu sentsorea" edo "Konektatzeko errorea". Sentsorerik gabe, Modu Automatizatuak ez du funtzionatzen.',
+  'Espera hasta 30 minutos. Si sigue igual, llama al servicio técnico del fabricante.':
+      'Itxaron 30 minutu arte. Berdin jarraitzen badu, deitu fabrikatzailearen zerbitzu teknikora.',
+  'Si dura más de 3 horas, llama al servicio técnico del fabricante.':
+      '3 ordu baino gehiago irauten badu, deitu fabrikatzailearen zerbitzu teknikora.',
+  'Con este sensor calibrar es opcional. Si sale este aviso, el sistema no ha usado el valor que introdujiste.':
+      'Sentsore honekin kalibratzea aukerakoa da. Abisu hau ateratzen bada, sistemak ez du sartu duzun balioa erabili.',
+  'Llama al servicio técnico del fabricante y dales el código.':
+      'Deitu fabrikatzailearen zerbitzu teknikora eta eman kodea.',
+  'Sin lecturas del sensor':
+      'Sentsorearen irakurketarik gabe',
+  'No recibes lecturas del sensor desde hace 20 minutos (en el receptor, aparece como error de sensor). No hay alarma ni alertas de glucosa hasta que se solucione.':
+      '20 minutu daramatzazu sentsorearen irakurketarik jaso gabe (hargailuan, sentsore-errore gisa agertzen da). Ez dago alarmarik ez glukosa-alertarik konpondu arte.',
+  'Espera: en la app, hasta 3 horas; en el receptor, 30 minutos. Si no se arregla, saldrá "Fallo del sensor": llama al servicio técnico del fabricante.':
+      'Itxaron: aplikazioan, 3 ordu arte; hargailuan, 30 minutu. Konpontzen ez bada, "Sentsorearen hutsegitea" aterako da: deitu fabrikatzailearen zerbitzu teknikora.',
+  'Espera hasta 30 minutos: puede arreglarse solo. Si pasan más, llama al servicio técnico del fabricante.':
+      'Itxaron 30 minutu arte: bere kabuz konpon daiteke. Gehiago pasatzen badira, deitu fabrikatzailearen zerbitzu teknikora.',
+  'Fallo del sensor':
+      'Sentsorearen hutsegitea',
+  'Antes de parar una sesión antes de tiempo, llama siempre al servicio técnico del fabricante. Una sesión detenida no se puede reanudar.':
+      'Saio bat goiz gelditu aurretik, deitu beti fabrikatzailearen zerbitzu teknikora. Geldituta dagoen saio bat ezin da berrekin.',
+  'Si nada funciona, puede que el sensor esté mal insertado: llama al servicio técnico del fabricante.':
+      'Ezerk ez badu funtzionatzen, baliteke sentsorea gaizki sartuta egotea: deitu fabrikatzailearen zerbitzu teknikora.',
+  'Si siguen sin salir lecturas, cambia el sensor y llama al servicio técnico del fabricante.':
+      'Irakurketak oraindik ateratzen ez badira, aldatu sentsorea eta deitu fabrikatzailearen zerbitzu teknikora.',
+  'El sensor muestra "Bajo" por debajo de 40 mg/dL y "Alto" por encima de 400 mg/dL. Funciona correctamente.':
+      'Sentsoreak "Baxua" erakusten du 40 mg/dL azpitik eta "Altua" 400 mg/dL gainetik. Ondo funtzionatzen du.',
+  'Cuando tu glucosa vuelva a estar entre 40 y 400 mg/dL, el sensor mostrará de nuevo las lecturas.':
+      'Zure glukosa berriro 40 eta 400 mg/dL artean dagoenean, sentsoreak berriro irakurketak erakutsiko ditu.',
+  'Alarmas de glucosa del sensor':
+      'Sentsorearen glukosa-alarmak',
+  'Mensajes del sensor':
+      'Sentsorearen mezuak',
 };

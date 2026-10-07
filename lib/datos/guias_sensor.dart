@@ -1,7 +1,7 @@
 /// GUÍAS DE CAMBIO DE SENSOR
 ///
 /// Fuentes: manuales oficiales de Dexcom G6 y G7, Guardian 4, Simplera Sync,
-/// Instinct (guía del sensor, 2025-09) y MiniMed 780G (2025-08); manuales del
+/// Instinct (guía del sensor, 2026-04) y MiniMed 780G (2025-08); manuales del
 /// lector FreeStyle Libre 2 / 2 Plus (ART52179) y Libre 3 / 3 Plus (ART52185);
 /// guía técnica de Omnipod 5 para España (2026), cap. 21.
 library;
@@ -16,6 +16,9 @@ const Set<String> guiasSensorPorRevisar = {
   'bomnipod_sfreelibre2plus',
   'btandem_sdexg6',
   'btandem_sdexg7',
+  'btandemmobi_sdexg6',
+  'btandemmobi_sdexg7',
+  'bypsopump_sdexg7',
   'bomnipod_sdexg6',
   'bomnipod_sdexg7',
   'bypsopump_sdexg6',
@@ -131,9 +134,9 @@ Si sí pusiste el código, no necesitas calibrar.''',
 const List<Paso> _dexcomG7Base = [
   Paso(
     texto: '''
-Cada sensor G7 dura hasta 10 días, más 12 horas de margen al final para que puedas cambiarlo cuando te venga bien.
+Cada sensor dura hasta 10 días, más 12 horas de margen al final para que puedas cambiarlo cuando te venga bien.
 
-A diferencia del G6, el sensor y el transmisor son una sola pieza desechable: no hay que guardar nada.''',
+El sensor y el transmisor son una sola pieza desechable: no hay que guardar nada.''',
   ),
   Paso(
     texto: '''
@@ -141,7 +144,7 @@ ELIGE LA ZONA
 
 Brazo o glúteos. No lo pongas en ningún otro sitio: fuera de esas zonas puede no funcionar bien.
 
-Si con el G6 usabas el abdomen, con el G7 tienes que pasar a la parte de atrás de la parte superior del brazo. Los niños de 2 a 6 años también pueden usar la parte de arriba de los glúteos.''',
+Si con tu sensor anterior usabas el abdomen, con este tienes que pasar a la parte de atrás de la parte superior del brazo. Los niños de 2 a 6 años también pueden usar la parte de arriba de los glúteos.''',
     imagen: 'assets/images/sdexg7.png',
   ),
   Paso(
@@ -209,9 +212,12 @@ final Map<String, List<Paso>> instruccionesSensor = {
   'bypsopump_sdexg6': _dexcomG6,
   'bomnipod_sdexg6': _dexcomG6,
   'btandem_sdexg6': _dexcomG6,
+  'btandemmobi_sdexg6': _dexcomG6,
 
   // ------------------------- DEXCOM G7 -------------------------
   'btandem_sdexg7': _dexcomG7,
+  'btandemmobi_sdexg7': _dexcomG7,
+  'bypsopump_sdexg7': _dexcomG7,
   'bomnipod_sdexg7': _dexcomG7,
 
   // ------------------- FREESTYLE LIBRE 2 PLUS (OMNIPOD 5) -------------------
@@ -221,15 +227,15 @@ final Map<String, List<Paso>> instruccionesSensor = {
     ...enFase(Fases.preparacion, const [
       Paso(
         texto: '''
-El sensor FreeStyle Libre 2 Plus dura hasta 15 días.
+El sensor dura hasta 15 días.
 
-Con Omnipod 5 tienes que iniciarlo desde la Aplicación Omnipod 5 del Controlador. Si lo inicias con otro dispositivo (un lector o el móvil), el Pod no podrá conectarse a él.''',
+Con esta bomba tienes que iniciarlo desde la aplicación de la bomba. Si lo inicias con otro dispositivo (un lector o la app del sensor), el Pod no podrá conectarse a él.''',
       ),
       Paso(
         texto: '''
 No lo uses si el paquete o el aplicador están dañados o abiertos, o si ha pasado la fecha de caducidad.
 
-Comprueba que el código del paquete del sensor coincide con el del aplicador, y que en la tapa de la bandeja del Pod pone FreeStyle Libre 2 Plus.''',
+Comprueba que el código del paquete del sensor coincide con el del aplicador, y que en la tapa de la bandeja del Pod aparece el sensor que usas.''',
       ),
     ]),
     ...enFase(Fases.zona, const [
@@ -275,7 +281,7 @@ Si sangra y no para, quita el sensor y pon uno nuevo en otro sitio. Vuelve a pon
     ...enFase(Fases.emparejar, const [
       Paso(
         texto: '''
-En la Aplicación Omnipod 5, toca AÑADIR SENSOR. Si estás en Modo Automatizado, te pedirá pasar a Modo Manual.
+En la aplicación de la bomba, toca AÑADIR SENSOR. Si estás en Modo Automatizado, te pedirá pasar a Modo Manual.
 
 Antes te pedirá revisar los ajustes del sensor: los avisos de Glucosa alta, Glucosa baja y Valores del sensor no recibidos.''',
       ),
@@ -295,13 +301,13 @@ Después, el Pod recibe un valor nuevo cada 5 minutos y ya puedes usar el Modo A
   ],
 
   // ------------------- INSTINCT (MINIMED 780G) -------------------
-  // Guía del sensor Instinct (2025-09, en inglés) y guía del usuario del
+  // Guía del sensor Instinct (2026-04, en inglés) y guía del usuario del
   // sistema MiniMed 780G (2025-08), págs. 129-133.
   'bmedtronic_sinstinct': [
     ...enFase(Fases.preparacion, const [
       Paso(
         texto: '''
-El sensor Instinct dura hasta 15 días. Con la MiniMed 780G se inicia SIEMPRE con la app MiniMed Mobile, que tiene que estar emparejada con la bomba.
+El sensor dura hasta 15 días. Con esta bomba se inicia SIEMPRE con la app del móvil, que tiene que estar emparejada con la bomba.
 
 Ten a mano una toallita de alcohol isopropílico al 70 %: no viene en la caja.''',
       ),
@@ -335,7 +341,7 @@ La zona TIENE que estar limpia y seca: si no, el sensor puede despegarse antes d
     ...enFase(Fases.insercion, const [
       Paso(
         texto: '''
-Con la bomba en la pantalla de inicio, abre la app MiniMed Mobile: menú → Iniciar sensor → "Sí, Instinct".
+Con la bomba en la pantalla de inicio, abre la app del móvil: menú → Iniciar sensor → "Sí, Instinct".
 
 La app te irá diciendo cuándo poner el sensor y cuándo escanearlo.''',
       ),
@@ -378,9 +384,9 @@ Las primeras 12 horas las lecturas pueden variar más: si no cuadran con cómo t
   'bmedtronic_sguardian': [
     Paso(
       texto: '''
-El sensor Guardian 4 se usa como máximo siete días seguidos.
+El sensor se usa como máximo siete días seguidos.
 
-El insertador One-press es el ÚNICO aprobado para este sensor. Con otro insertador la colocación puede salir mal y causar dolor o lesión.''',
+Usa solo el insertador de este sensor: es el ÚNICO aprobado. Con otro insertador la colocación puede salir mal y causar dolor o lesión.''',
     ),
     Paso(
       texto: '''
@@ -450,7 +456,13 @@ Si sangra, presiona con una gasa estéril hasta tres minutos. Si para, conecta e
     ),
     Paso(
       texto: '''
-Conecta el transmisor y espera el calentamiento: son 2 HORAS. En la pantalla verás una cuenta atrás.
+Pon la cinta oval: quita el papel 1 y pégala de forma que su parte ancha cubra la mitad de la base del sensor. Quita los papeles 2 y alísala.
+
+Conecta el transmisor al sensor y espera a que parpadee su luz verde. Cúbrelo con la lengüeta adhesiva sin tirar demasiado y pon una segunda cinta en sentido contrario.''',
+    ),
+    Paso(
+      texto: '''
+Espera el calentamiento: son 2 HORAS. En la pantalla verás una cuenta atrás.
 
 Durante ese tiempo no hay lecturas: usa el medidor de dedo para decidir tu tratamiento.''',
     ),
@@ -460,7 +472,7 @@ Durante ese tiempo no hay lecturas: usa el medidor de dedo para decidir tu trata
   'bmedtronic_ssimplera': [
     Paso(
       texto: '''
-El Simplera Sync no se pone igual que otros sensores de Medtronic: su insertador funciona de otra manera.
+Este sensor no se pone igual que otros sensores: su insertador funciona de otra manera.
 
 Lee sus instrucciones antes de usarlo por primera vez.''',
     ),
@@ -534,7 +546,7 @@ Mientras tanto, usa el medidor de dedo para decidir tu tratamiento.''',
   'bypsopump_sfreelibre3': [
     Paso(
       texto: '''
-El sensor FreeStyle Libre 3 dura hasta 14 días y el Libre 3 Plus, hasta 15 días.
+El sensor dura hasta 14 días, o hasta 15 si es la versión Plus.
 
 Mira en la caja cuál es el tuyo.''',
     ),
@@ -581,9 +593,9 @@ Vuelve a poner el tapón al aplicador usado y tíralo como indique la normativa 
     ),
     Paso(
       texto: '''
-Inicia el sensor con el dispositivo que vayas a usar (el lector o la aplicación del móvil) y escanéalo acercándolo al sensor.
+Inicia el sensor con la app o el dispositivo que vayas a usar (la app que controla la bomba, la app del sensor o el lector) y escanéalo acercándolo al sensor.
 
-Usa siempre ese mismo dispositivo: un sensor iniciado con otro no se puede leer ("Sensor ya en uso").''',
+Usa siempre ese mismo: si lo inicias con la app del sensor, la app que controla la bomba no podrá recibir sus datos, y al revés.''',
     ),
     Paso(
       texto: '''

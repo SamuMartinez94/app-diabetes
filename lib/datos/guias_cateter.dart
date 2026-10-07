@@ -1,6 +1,7 @@
 /// GUÍAS DE CAMBIO DE CATÉTER Y RESERVORIO
 ///
-/// Fuentes: manuales oficiales de Medtronic MiniMed 780G y Tandem t:slim X2;
+/// Fuentes: manuales oficiales de Medtronic MiniMed 780G, Tandem t:slim X2 y
+/// Tandem Mobi, e instrucciones de los catéteres AutoSoft, VariSoft y TruSteel;
 /// guía técnica de Omnipod 5 (España, 2026); guía del usuario de YpsoPump
 /// (REF 700012540, edición española) e instrucciones de uso de myOrbit Soft
 /// y myOrbit Micro (1.ª generación y 2.0) y de myInset.
@@ -11,7 +12,6 @@ import '../modelos/paso.dart';
 /// Guías pendientes de validar por un profesional sanitario.
 const Set<String> guiasCateterPorRevisar = {
   'bmedtronic_cextended',
-  'bmedtronic_cmio',
   'bmedtronic_cmio30',
   'bmedtronic_cquickset',
   'bmedtronic_csilhouette',
@@ -23,6 +23,11 @@ const Set<String> guiasCateterPorRevisar = {
   'btandem_cautosoft90',
   'btandem_cautosoft30',
   'btandem_ctrusteel',
+  'btandem_cvarisoft',
+  'btandemmobi_cautosoft90',
+  'btandemmobi_cautosoft30',
+  'btandemmobi_ctrusteel',
+  'btandemmobi_cvarisoft',
 };
 
 // ---------------------------------------------------------------------------
@@ -152,10 +157,15 @@ Cuando la bomba lo pregunte, elige "Omitir llenado de cánula" o "Hecho".''',
 ];
 
 /// Une los bloques comunes de Medtronic con los pasos propios del catéter.
-List<Paso> _medtronic(List<Paso> insercion, {bool llenarCanula = true}) => [
+/// [antesDeLlenar] son pasos del catéter que van justo antes de llenar el tubo.
+List<Paso> _medtronic(
+  List<Paso> insercion, {
+  bool llenarCanula = true,
+  List<Paso> antesDeLlenar = const [],
+}) => [
   ...enFase(Fases.preparacion, _medtronicPreparacion),
   ...enFase(Fases.reservorio, _medtronicLlenado),
-  ...enFase(Fases.cebado, _medtronicCarga),
+  ...enFase(Fases.cebado, [...antesDeLlenar, ..._medtronicCarga]),
   ...enFase(Fases.insercion, insercion),
   ...enFase(
     Fases.cierre,
@@ -184,7 +194,8 @@ Como es un cambio de solo reservorio, NO hay que llenar cánula: elige "Hecho" e
 ];
 
 // ---------------------------------------------------------------------------
-// TANDEM — bloques comunes de cartucho (manual cap. 6)
+// TANDEM — bloques comunes de cartucho. Guía del usuario oficial de
+// t:slim X2 con Control-IQ 7.8.1 (edición española, 2025), cap. 7.
 // ---------------------------------------------------------------------------
 
 const List<Paso> _tandemComun = [
@@ -193,7 +204,7 @@ const List<Paso> _tandemComun = [
     texto: '''
 Prepara el material: un cartucho nuevo sin abrir, la jeringa de llenado con su aguja (viene con el cartucho), el vial de insulina, toallitas de alcohol y un catéter nuevo.
 
-El cartucho se cambia cada 2 o 3 días, según te haya indicado tu equipo médico.''',
+Cambia el cartucho y el catéter cada 48 horas si usas Humalog, Admelog/insulina lispro Sanofi o Lyumjev, y cada 72 horas si usas NovoRapid o Trurapi/insulina aspart Sanofi, o antes si te lo indica tu equipo médico.''',
   ),
   Paso(
     texto: '''
@@ -257,15 +268,15 @@ Empuja hacia dentro el puerto de llenado redondo y pulsa DESBLOQUEAR.''',
   ),
   Paso(
     texto: '''
-Conecta el tubo al conector del cartucho. Gira en sentido horario hasta apretar con la mano y da UN CUARTO DE VUELTA EXTRA.
+Conecta el tubo del catéter al conector del tubo del cartucho y gira en sentido horario hasta que quede bien apretado.
 
-ADVERTENCIA: sin ese cuarto de vuelta, la conexión puede quedar floja y perder insulina.''',
+ADVERTENCIA: la conexión tiene que quedar hermética. Si queda floja, puede perderse insulina.''',
   ),
   Paso(
     texto: '''
 ADVERTENCIA: nunca llenes el tubo con el catéter conectado al cuerpo.
 
-Sujeta la bomba en vertical y pulsa INICIO. Vibrará o pitará mientras se llena el tubo (a esto se le llama cebar).''',
+Sujeta la bomba en vertical y pulsa INICIAR. Vibrará o pitará mientras se llena el tubo (a esto se le llama cebar).''',
   ),
   Paso(
     texto: '''
@@ -293,18 +304,35 @@ Como no has puesto un catéter nuevo, no hace falta llenar la cánula.''',
     ),
     Paso(
       texto:
-          'Reanuda la insulina en la bomba y, entre 1 y 3 horas después, mide '
+          'Reanuda la insulina en la bomba y, entre 1 y 2 horas después, mide '
           'tu glucosa con el medidor.',
     ),
   ]),
 ];
+
+/// Pautas de las guías de t:slim X2 y Tandem Mobi (cap. 7.1) para elegir el
+/// sitio.
+const Paso _tandemZona = Paso(
+  texto: '''
+Elige el sitio: abdomen, parte superior de las nalgas, caderas, brazos o parte superior de las piernas. Cambia de sitio cada vez.
+
+Evita la línea del cinturón, la cintura, 5 cm alrededor del ombligo, cicatrices, bultos, lunares, estrías o tatuajes, y sitios a menos de 7,6 cm del sensor.''',
+);
+
+/// Común a las instrucciones de los catéteres de Tandem.
+const Paso _tandemLimpieza = Paso(
+  texto: '''
+Lávate las manos y limpia la zona con el desinfectante que te haya indicado tu equipo médico.
+
+Deja que la piel se seque al aire antes de insertar el catéter.''',
+);
 
 const List<Paso> _tandemCierre = [
   Paso(
     texto: '''
 Pulsa "Llenar la cánula" y después "Editar cantidad de llenado".
 
-Elige la cantidad que indiquen las instrucciones de tu catéter y pulsa INICIO.''',
+Elige la cantidad que indiquen las instrucciones de tu catéter y pulsa INICIAR.''',
   ),
   Paso(
     texto: '''
@@ -323,7 +351,7 @@ Después reanuda la insulina.''',
 const List<Paso> _tandemCierreAcero = [
   Paso(
     texto: '''
-El TruSteel lleva aguja de acero: no tiene cánula, así que se salta el llenado de cánula.
+Este catéter lleva aguja de acero: no tiene cánula, así que se salta el llenado de cánula.
 
 Cuando la bomba lo ofrezca, márcalo como hecho y reanuda la insulina.''',
   ),
@@ -334,56 +362,389 @@ Cuando la bomba lo ofrezca, márcalo como hecho y reanuda la insulina.''',
   ),
 ];
 
+/// Une los bloques de la t:slim X2 con los pasos propios del catéter. Sus
+/// pasos `antesDeConectar` van antes de cargar el cartucho y conectar el tubo.
+List<Paso> _tandem(_CateterTandem cateter) => [
+  ...enFase(Fases.preparacion, _tandemComun.take(9).toList()),
+  ...enFase(Fases.cebado, [
+    ...cateter.antesDeConectar,
+    ..._tandemComun.skip(9),
+  ]),
+  ...enFase(Fases.insercion, [
+    _tandemZona,
+    _tandemLimpieza,
+    ...cateter.insercion,
+  ]),
+  ...enFase(
+    Fases.cierre,
+    cateter.acero ? _tandemCierreAcero : _tandemCierre,
+  ),
+];
+
+// ---------------------------------------------------------------------------
+// TANDEM MOBI — guía del usuario oficial (Control-IQ 7.9, edición española,
+// 2026), cap. 7. Todo se hace desde la aplicación móvil Tandem Mobi.
+// ---------------------------------------------------------------------------
+
+const List<Paso> _mobiComun = [
+  Paso(texto: 'Lávate bien las manos con agua y jabón.'),
+  Paso(
+    texto: '''
+Prepara el material: el vial de insulina, una toallita de alcohol, un set de cartucho sin abrir, un catéter nuevo y el móvil con la app de la bomba.
+
+Cambia el cartucho cada 72 horas y el catéter cada 48 a 72 horas, según te indique tu equipo médico.''',
+  ),
+  Paso(
+    texto: '''
+Espera a que la insulina esté a temperatura ambiente: si está fría, pueden formarse burbujas.
+
+Revisa que el set de cartucho no esté dañado y limpia el tapón del vial con la toallita de alcohol.''',
+  ),
+  Paso(
+    texto: '''
+Decide con tu equipo médico cuánta insulina cargar.
+
+Súmale la que se gasta al llenar el tubo, que depende de lo largo que sea. Los marcadores del cartucho te ayudan a calcularlo.''',
+  ),
+  Paso(
+    texto: '''
+Saca el set de cartucho de su envase. Tira del pistón de llenado hasta abajo y empújalo hacia arriba para sacar el aire.
+
+Después tira del pistón hasta el volumen que vas a cargar.''',
+  ),
+  Paso(
+    texto: '''
+Con el vial en vertical sobre una superficie plana, encaja el adaptador del set empujándolo hacia abajo sobre el vial.
+
+PRECAUCIÓN: no acerques los dedos al borde superior del adaptador: dentro hay una aguja.''',
+  ),
+  Paso(
+    texto: '''
+Empuja el pistón para meter el aire del cartucho en el vial y mantenlo apretado.
+
+Dale la vuelta al conjunto y suelta despacio el pistón: la insulina pasará al cartucho. Tira despacio hasta el volumen que quieres y saca el vial del adaptador.''',
+  ),
+  Paso(
+    texto:
+        'Mira por los lados del cartucho si hay burbujas. Con el set en '
+        'vertical, da golpecitos para que suban y empuja despacio el pistón '
+        'para sacarlas. Repite hasta que no quede ninguna.',
+  ),
+  Paso(
+    texto: '''
+Desenrosca el pistón hacia la izquierda. Presiona la pestaña de liberación y tira del adaptador hacia delante para sacar el cartucho del set.
+
+Desenrosca el adaptador hacia la izquierda para separarlo del conector t:lock.''',
+  ),
+  Paso(
+    texto: '''
+En la app de la bomba: Acciones → Cargar un cartucho → Cambiar cartucho.
+
+Te avisará de que se detendrá la insulina: pulsa Sí.''',
+  ),
+  Paso(
+    texto: '''
+Desconecta el catéter del cuerpo y pulsa Continuar.
+
+Cuando te lo pida, saca el cartucho vacío girándolo hacia la izquierda, mete el nuevo y gíralo hacia la derecha hasta que encaje. Pulsa Continuar.''',
+  ),
+  Paso(
+    texto: '''
+Conecta el tubo del catéter al conector t:lock del cartucho y gira hacia la derecha hasta que quede bien apretado.
+
+ADVERTENCIA: la conexión tiene que quedar hermética. Si queda floja, puede perderse insulina.''',
+  ),
+  Paso(
+    texto: '''
+ADVERTENCIA: nunca llenes el tubo con el catéter conectado al cuerpo.
+
+Sujeta la bomba en vertical, con el conector t:lock arriba, pulsa Continuar en la app y mantén pulsado el botón de la bomba.''',
+  ),
+  Paso(
+    texto: '''
+Mantenlo pulsado hasta ver gotas de insulina al final del tubo y suelta el botón.
+
+Si la app pregunta si ves gotas y no las ves, pulsa No y vuelve a mantener pulsado. Cuando las veas, pulsa Sí.''',
+  ),
+];
+
+const List<Paso> _mobiCierre = [
+  Paso(
+    texto: '''
+En la app, pulsa Llenar cánula y toca la cantidad de llenado.
+
+Elige la que indiquen las instrucciones de tu catéter y pulsa Iniciar.''',
+  ),
+  Paso(
+    texto: '''
+Cuando termine, pulsa Listo para reanudar la insulina.
+
+Si quieres, configura antes el Recordatorio de sitio para que te avise del próximo cambio.''',
+  ),
+  Paso(
+    texto: '''
+Mide tu glucosa entre 1 y 2 horas después para comprobar que el catéter nuevo funciona bien.
+
+No lleves la bomba a más de 30 cm por encima del sitio de infusión.''',
+  ),
+];
+
+const List<Paso> _mobiCierreAcero = [
+  Paso(
+    texto: '''
+Este catéter lleva aguja de acero: no tiene cánula, así que sáltate el llenado de cánula.
+
+Pulsa Listo en la app para reanudar la insulina.''',
+  ),
+  Paso(
+    texto:
+        'Entre 1 y 2 horas después del cambio, mide tu glucosa para confirmar '
+        'que el catéter funciona bien.',
+  ),
+];
+
+/// Los 9 primeros pasos preparan el cartucho; el resto lo cargan y llenan el
+/// tubo desde la app.
+List<Paso> _mobi(_CateterTandem cateter) => [
+  ...enFase(Fases.preparacion, _mobiComun.take(9).toList()),
+  ...enFase(Fases.cebado, [...cateter.antesDeConectar, ..._mobiComun.skip(9)]),
+  ...enFase(Fases.insercion, [
+    _tandemZona,
+    _tandemLimpieza,
+    ...cateter.insercion,
+  ]),
+  ...enFase(Fases.cierre, cateter.acero ? _mobiCierreAcero : _mobiCierre),
+];
+
+/// Cambio de solo cartucho en la Mobi.
+final List<Paso> _mobiSoloCartucho = [
+  ...enFase(Fases.preparacion, _mobiComun.take(9).toList()),
+  ...enFase(Fases.cebado, _mobiComun.skip(9).toList()),
+  ...enFase(Fases.cierre, const [
+    Paso(
+      texto: '''
+Vuelve a conectar el catéter, que no has cambiado.
+
+Como no has puesto un catéter nuevo, no hace falta llenar la cánula.''',
+    ),
+    Paso(
+      texto:
+          'Reanuda la insulina en la app y, entre 1 y 2 horas después, mide '
+          'tu glucosa con el medidor.',
+    ),
+  ]),
+];
+
+// ---------------------------------------------------------------------------
+// CATÉTERES DE TANDEM (t:lock) — instrucciones de uso oficiales, sección en
+// español: AutoSoft 90 (AW-1000184, 2025), AutoSoft 30 (AW-1000220, 2024),
+// TruSteel (AW-1000232, 2024) y VariSoft (AW-1000226, 2024). Sirven igual
+// para la t:slim X2 y la Tandem Mobi.
+// ---------------------------------------------------------------------------
+
+class _CateterTandem {
+  final List<Paso> antesDeConectar;
+  final List<Paso> insercion;
+  final bool acero;
+
+  const _CateterTandem({
+    this.antesDeConectar = const [],
+    required this.insercion,
+    this.acero = false,
+  });
+}
+
+const _autosoft90 = _CateterTandem(
+  antesDeConectar: [
+    Paso(
+      texto: '''
+Este catéter trae el tubo enrollado dentro de su insertador: ábrelo antes de conectarlo.
+
+Tira de la cinta roja para quitar el precinto y retira el papel estéril. Presiona con una mano los tres puntos en relieve de cada lado de la tapa y levántala con la otra.''',
+    ),
+    Paso(
+      texto: '''
+Desenrolla el tubo: gira con cuidado su principio para sacarlo de la ranura y tira suavemente hacia arriba.
+
+No toques la aguja y no tires fuerte al final: podrías separar el catéter del insertador. Mientras llenas el tubo, sujeta el insertador con la aguja hacia abajo.''',
+    ),
+  ],
+  insercion: [
+    Paso(
+      texto: '''
+Tira hacia arriba para quitar el papel protector del adhesivo.
+
+Prepara el insertador: pon los dedos en las marcas rayadas de los dos lados, presiónalas y tira del resorte hacia arriba hasta oír un CLIC.''',
+    ),
+    Paso(
+      texto: '''
+Quita el protector de la aguja girándolo suavemente. Comprueba que la cánula blanda no sobresale de la aguja.
+
+Mete el tubo en su ranura, para que no quede atrapado debajo al insertar.''',
+    ),
+    Paso(
+      texto: '''
+Apoya el insertador sobre la zona y presiona a la vez las marcas redondas de los dos lados.
+
+Presiona suavemente el centro para fijar el adhesivo y retira el insertador tirando del centro hacia atrás. Masajea el adhesivo.''',
+    ),
+    Paso(
+      texto: '''
+Si la cánula blanda se ha doblado al insertarla, pon enseguida otro catéter en otra zona.
+
+Vuelve a poner la tapa del insertador hasta oír un clic y tíralo a un contenedor de objetos punzantes.''',
+    ),
+  ],
+);
+
+const _autosoft30 = _CateterTandem(
+  antesDeConectar: [
+    Paso(
+      texto:
+          'Saca el tubo del catéter y quítale el papel y el tapón protector redondo de la aguja de conexión antes de conectarlo.',
+    ),
+  ],
+  insercion: [
+    Paso(
+      texto: '''
+Tira de la cinta roja para quitar el precinto y retira el papel estéril, sin tocar el muelle. No lo uses si el papel o el precinto están rotos.
+
+Sujeta el insertador por las hendiduras y tira de la tapa con la otra mano.''',
+    ),
+    Paso(
+      texto: '''
+Pon los dedos en las marcas rayadas y tira del muelle hasta oír un CLIC. No toques ni dobles la aguja.
+
+Justo antes de insertar, quita el protector de la aguja y comprueba que la cánula blanda no sobresale de ella.''',
+    ),
+    Paso(
+      texto: '''
+Pon el índice en el botón de arriba y el pulgar en el de abajo. Apoya el insertador plano sobre la piel (así entra a 30 grados) y aprieta una vez.
+
+Con un dedo sobre la ventana transparente, retira el insertador tirando suavemente hacia atrás.''',
+    ),
+    Paso(
+      texto: '''
+Sujeta la cánula y quita el papel de debajo de la carcasa y luego el de delante. Masajea el adhesivo.
+
+Si el adhesivo se arruga, no lo estires: empieza de nuevo con otro catéter. Pon la tapa al insertador para tirarlo.''',
+    ),
+    Paso(
+      texto:
+          'Con un dedo delante de la carcasa de la cánula, mete la aguja de '
+          'conexión hasta oír un clic.',
+    ),
+  ],
+);
+
+const _trusteel = _CateterTandem(
+  acero: true,
+  antesDeConectar: [
+    Paso(
+      texto:
+          'Saca el tubo del catéter y quítale el papel y el tapón protector redondo de la aguja conectora antes de conectarlo.',
+    ),
+  ],
+  insercion: [
+    Paso(
+      texto: '''
+Este catéter lleva aguja de acero: cámbialo cada uno o dos días, o cuando te diga tu equipo médico.
+
+Quita el papel del adhesivo y gira y tira suavemente del protector de la aguja.''',
+    ),
+    Paso(
+      texto: '''
+Pellizca la piel e inserta el catéter en vertical (90 grados).
+
+Masajea suavemente el adhesivo sobre la piel.''',
+    ),
+    Paso(
+      texto: '''
+Quita el papel protector del adhesivo de la carcasa de acople.
+
+Conecta la aguja conectora a la carcasa de acople y empuja hasta oír un clic.''',
+    ),
+  ],
+);
+
+const _varisoft = _CateterTandem(
+  antesDeConectar: [
+    Paso(
+      texto:
+          'Saca el tubo del catéter y quítale el papel y el tapón protector redondo de la aguja conectora antes de conectarlo.',
+    ),
+  ],
+  insercion: [
+    Paso(
+      texto: '''
+Gira y tira suavemente del protector de la aguja. Comprueba que la cánula blanda no sobresale de la aguja.
+
+Pellizca la piel e inserta el catéter con un ángulo de entre 20 y 45 grados. Consulta con tu equipo médico qué ángulo te conviene.''',
+    ),
+    Paso(
+      texto: '''
+Con un dedo delante de la carcasa de la cánula, retira la aguja introductora apretando sus agarres laterales y tirando hacia fuera.
+
+Sin quitar el dedo, retira el papel del adhesivo y luego el de delante. Masajea el adhesivo sobre la piel.''',
+    ),
+    Paso(
+      texto: '''
+Con un dedo delante de la carcasa de la cánula, empuja el conector hacia dentro hasta oír un clic.
+
+Cambia el catéter cada dos o tres días, o cuando te diga tu equipo médico.''',
+    ),
+  ],
+);
+
 // ---------------------------------------------------------------------------
 // MAPA DE GUÍAS
 // ---------------------------------------------------------------------------
 
 final Map<String, List<Paso>> instruccionesCateter = {
   // ------------------------- MEDTRONIC -------------------------
-  'bmedtronic_cextended': _medtronic(const [
-    Paso(
-      texto: '''
-Elige una zona de inserción (abdomen, muslo, nalgas o brazo) y límpiala con alcohol o con el antiséptico que te haya indicado tu equipo médico.
+  // Instrucciones de uso del equipo de infusión Medtronic Extended (2020,
+  // sección en español).
+  'bmedtronic_cextended': _medtronic(
+    const [
+      Paso(
+        texto: '''
+Este catéter se puede llevar hasta siete días, o menos si así lo indica tu insulina.
 
-Coloca el catéter Extended siguiendo las instrucciones de su envase.''',
-    ),
-    Paso(
-      texto:
-          'PRECAUCIÓN: no uses siempre la misma zona. Ve cambiando de sitio '
-          'para que la piel tenga tiempo de recuperarse.',
-    ),
-  ]),
+Elige la zona que te haya recomendado tu equipo médico: sin irritación, cicatrices ni sangrado, nunca sobre músculo o hueso, y lejos del cinturón, la cintura o la ropa ceñida. Cambia de zona cada vez.''',
+      ),
+      Paso(
+        texto: '''
+Límpiala con el desinfectante que te hayan indicado y deja que se seque al aire. Si hace falta, quita el vello para que pegue bien.
 
-  'bmedtronic_cmio': _medtronic(const [
-    Paso(
-      texto: '''
-PREPARAR EL DISPOSITIVO
-Coloca el Mio dentro de su insertador (la pieza que lo pone) y presiona hacia abajo hasta que encaje.''',
-    ),
-    Paso(
-      texto:
-          'Quita el papel protector del adhesivo y el protector de plástico '
-          'de la aguja.',
-    ),
-    Paso(
-      texto: '''
-TENSAR Y COLOCAR
-Tira del mango del insertador hacia atrás hasta oír un clic.
+Quita el papel protector del adhesivo sin tocar el adhesivo.''',
+      ),
+      Paso(
+        texto: '''
+Quita la cubierta de desconexión del insertador presionando suavemente sus lados, y guárdala. Las flechas en relieve indican hacia dónde va el tubo.
 
-Apóyalo sobre la zona ya limpia y presiona los botones laterales.''',
-    ),
-    Paso(
-      texto: '''
-Retira el insertador con cuidado.
+Estira la piel hasta que quede lisa, apoya el insertador y presiona el botón de arriba hasta el fondo. Después retira el insertador con cuidado.''',
+      ),
+      Paso(
+        texto: '''
+Presiona el adhesivo con el dedo. Si no se pega, cambia el catéter.
 
-Presiona el adhesivo con el dedo para que quede bien pegado a la piel.''',
-    ),
-  ]),
+Sujeta el alojamiento de la cánula con un dedo y mete el conector del tubo en línea recta hasta oír un clic. Tira el insertador a un contenedor de objetos punzantes.''',
+      ),
+    ],
+    antesDeLlenar: const [
+      Paso(
+        texto:
+            'Antes de llenar el tubo, quita la tapa blanca del conector del '
+            'catéter: presiona sus lados y tira. Guárdala para cuando te '
+            'desconectes.',
+      ),
+    ],
+  ),
 
   'bmedtronic_cmio30': _medtronic(const [
     Paso(
       texto: '''
-PREPARAR EL MIO 30
+PREPARAR EL CATÉTER
 Quita el papel del adhesivo y, con cuidado, el protector de la aguja.''',
     ),
     Paso(
@@ -411,7 +772,7 @@ Presiona los botones laterales para insertar.''',
     Paso(
       texto: '''
 PREPARAR EL DISPOSITIVO
-Coloca el Quick-set dentro del insertador azul (Quick-serter) y presiona hacia abajo hasta que encaje.''',
+Coloca el catéter dentro de su insertador azul y presiona hacia abajo hasta que encaje.''',
     ),
     Paso(
       texto:
@@ -503,63 +864,17 @@ Presiona el adhesivo con firmeza contra la piel.''',
     (Fases.cierre, 2),
   ]),
 
-  // ------------------------- TANDEM -------------------------
-  'btandem_cautosoft90': [
-    ..._tandemConFases,
-    ...enFase(Fases.insercion, [
-      const Paso(
-        texto: '''
-Quita el papel del adhesivo y el protector de la aguja.
+  // ------------------------- t:slim X2 -------------------------
+  'btandem_cautosoft90': _tandem(_autosoft90),
+  'btandem_cautosoft30': _tandem(_autosoft30),
+  'btandem_ctrusteel': _tandem(_trusteel),
+  'btandem_cvarisoft': _tandem(_varisoft),
 
-Tira de la parte central del insertador hacia arriba hasta oír un CLIC.''',
-      ),
-      const Paso(
-        texto: '''
-Apoya el dispositivo sobre la zona elegida y presiona los huecos de los lados para disparar.
-
-Presiona el centro del insertador y retíralo con cuidado.''',
-      ),
-    ]),
-    ...enFase(Fases.cierre, _tandemCierre),
-  ],
-  'btandem_cautosoft30': [
-    ..._tandemConFases,
-    ...enFase(Fases.insercion, [
-      const Paso(
-        texto: '''
-PREPARAR EL DISPOSITIVO
-Quita los protectores y tira del insertador hacia atrás hasta oír el CLIC.
-
-El diseño ya incorpora la inclinación de 30 grados.''',
-      ),
-      const Paso(
-        texto: '''
-INSERCIÓN
-Apoya el dispositivo plano sobre la piel y dispara.
-
-Retira el insertador deslizándolo hacia atrás con cuidado, siguiendo la inclinación de la aguja.''',
-      ),
-    ]),
-    ...enFase(Fases.cierre, _tandemCierre),
-  ],
-  'btandem_ctrusteel': [
-    ..._tandemConFases,
-    ...enFase(Fases.insercion, [
-      const Paso(
-        texto: '''
-INSERCIÓN A MANO
-Quita los protectores e inserta la aguja de acero a 90 grados (en vertical, recta).
-
-Fija el adhesivo principal presionándolo contra la piel.''',
-      ),
-      const Paso(
-        texto:
-            'Pega el segundo adhesivo (el del tubo) a unos centímetros de la '
-            'aguja, para que un tirón accidental no la arranque.',
-      ),
-    ]),
-    ...enFase(Fases.cierre, _tandemCierreAcero),
-  ],
+  // ------------------------- TANDEM MOBI -------------------------
+  'btandemmobi_cautosoft90': _mobi(_autosoft90),
+  'btandemmobi_cautosoft30': _mobi(_autosoft30),
+  'btandemmobi_ctrusteel': _mobi(_trusteel),
+  'btandemmobi_cvarisoft': _mobi(_varisoft),
 };
 
 // Guía técnica del usuario de Omnipod 5, edición para España (Rev. 01,
@@ -569,7 +884,7 @@ const List<Paso> _omnipodBase = [
     texto: '''
 Cambia el Pod como mínimo cada 2 o 3 días (48 a 72 horas), o antes si te lo indica tu equipo médico.
 
-Reúne el material: el vial de insulina de acción rápida, un Pod Omnipod 5 sin abrir y toallitas de alcohol. Si la insulina o el Pod están fríos, deja que se atemperen antes de seguir.''',
+Reúne el material: el vial de insulina de acción rápida, un Pod sin abrir y toallitas de alcohol. Si la insulina o el Pod están fríos, deja que se atemperen antes de seguir.''',
   ),
   Paso(
     texto: '''
@@ -664,9 +979,9 @@ Revisa la zona del Pod al menos una vez al día por si hay dolor, hinchazón, en
 const List<Paso> _orbitBase = [
   Paso(
     texto: '''
-El catéter myOrbit Soft no debe usarse durante más de 72 horas.
+Este catéter no debe usarse durante más de 72 horas.
 
-No mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.
+No mezcles piezas de la generación 2.0 con las de la generación anterior: podría haber fugas.
 
 Empieza desconectándote el catéter del cuerpo.''',
   ),
@@ -704,7 +1019,7 @@ Oirás un ligero clic o notarás un tope.''',
     texto: '''
 Abre el menú principal, toca "Cebar kit de infusión" y después "Cebar tubo". (Cebar es llenar el tubo de insulina.)
 
-Elige el volumen que indican las instrucciones de tu catéter myOrbit y confirma: cambia entre la 1.ª generación y la 2.0.''',
+Elige el volumen que indican las instrucciones de tu catéter y confirma: cambia entre la 1.ª generación y la 2.0.''',
   ),
   Paso(
     texto: '''
@@ -734,7 +1049,7 @@ Después quita el protector de la cánula.''',
     texto: '''
 Sujeta bien la zona e inserta la cánula en vertical (90°).
 
-Puedes usar el myOrbit Inserter para que entre con más facilidad.''',
+Puedes usar su insertador para que entre con más facilidad.''',
   ),
   Paso(
     texto:
@@ -778,9 +1093,9 @@ Por eso, no cambies el catéter justo antes de irte a dormir.''',
 const List<Paso> _orbitMicroBase = [
   Paso(
     texto: '''
-El catéter myOrbit Micro lleva cánula de acero y no debe usarse durante más de 48 horas.
+Este catéter lleva cánula de acero y no debe usarse durante más de 48 horas.
 
-No mezcles piezas de myOrbit 2.0 con las de la generación anterior: podría haber fugas.
+No mezcles piezas de la generación 2.0 con las de la generación anterior: podría haber fugas.
 
 Empieza desconectándote el catéter del cuerpo.''',
   ),
@@ -827,9 +1142,9 @@ Despega la lámina protectora del adhesivo y quita el protector de la cánula.''
   ),
   Paso(
     texto: '''
-El myOrbit Micro lleva una cánula de acero que se pone sin aguja introductora.
+Este catéter lleva una cánula de acero que se pone sin aguja introductora.
 
-Sujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar el myOrbit Inserter.''',
+Sujeta bien la zona e inserta la cánula en vertical (90°). Puedes usar su insertador.''',
   ),
   Paso(
     texto: '''
@@ -847,8 +1162,8 @@ Gira el tubo al menos una vuelta completa en cada dirección tirando hacia arrib
     texto: '''
 Llenar la cánula depende de la generación de tu catéter (mira la caja):
 
-• myOrbit Micro 2.0: NO hace falta, la cánula de acero necesita muy poca insulina.
-• myOrbit Micro (1.ª generación): menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indiquen sus instrucciones.''',
+• Generación 2.0: NO hace falta, la cánula de acero necesita muy poca insulina.
+• 1.ª generación: menú principal → "Cebar kit de infusión" → "Cebar cánula", con la cantidad que indiquen sus instrucciones.''',
   ),
   _orbitGlucemia,
 ];
@@ -859,7 +1174,7 @@ Llenar la cánula depende de la generación de tu catéter (mira la caja):
 const List<Paso> _insetBase = [
   Paso(
     texto: '''
-El myInset lleva el catéter dentro de su propio insertador: viene montado y listo para usar.
+Este catéter viene dentro de su propio insertador, montado y listo para usar.
 
 Cámbialo cada dos o tres días, o cuando te diga tu equipo médico. La primera vez, úsalo con un profesional sanitario delante.
 
@@ -886,7 +1201,7 @@ NO insertes el cartucho antes de que acabe.''',
     texto: '''
 Lávate las manos.
 
-Abre el myInset: tira del adhesivo rojo para quitar el precinto y retira el papel estéril.''',
+Abre el insertador: tira del adhesivo rojo para quitar el precinto y retira el papel estéril.''',
   ),
   Paso(
     texto: '''
@@ -916,7 +1231,7 @@ Elige el volumen que indican las instrucciones de tu catéter y confirma que est
     texto: '''
 Mientras se llena, mantén la bomba en vertical con el adaptador hacia arriba y golpéala suavemente contra la palma para que suban las burbujas.
 
-Sujeta el myInset con la aguja hacia abajo, para que la insulina no moje el papel del adhesivo. Repite hasta que no quede aire y salga insulina.''',
+Sujeta el insertador con la aguja hacia abajo, para que la insulina no moje el papel del adhesivo. Repite hasta que no quede aire y salga insulina.''',
   ),
   Paso(
     texto: '''
@@ -938,7 +1253,7 @@ Mete el tubo en su ranura, para que no quede atrapado debajo al insertar.''',
   ),
   Paso(
     texto: '''
-Apoya el myInset sobre la zona y presiona a la vez los agujeros redondos de los dos lados para insertarlo.
+Apoya el insertador sobre la zona y presiona a la vez los agujeros redondos de los dos lados para insertar el catéter.
 
 ADVERTENCIA: nunca apuntes el insertador cargado hacia una parte del cuerpo donde no quieras ponerlo.''',
   ),
@@ -950,8 +1265,7 @@ Quita el insertador y la aguja agarrándolo por el centro y tirando suavemente h
   ),
   Paso(
     texto:
-        'Si la cánula blanda se ha doblado al insertarla, pon enseguida un '
-        'myInset nuevo en otro sitio.',
+        'Si la cánula blanda se ha doblado al insertarla, pon enseguida un catéter nuevo en otro sitio.',
   ),
   Paso(
     texto: '''
@@ -971,6 +1285,7 @@ Por eso, no lo cambies justo antes de irte a dormir, salvo que puedas medirte en
 final Map<String, List<Paso>> instruccionesSoloReservorio = {
   'bmedtronic': _medtronicSoloReservorio,
   'btandem': _tandemSoloCartucho,
+  'btandemmobi': _mobiSoloCartucho,
   'bypsopump': [
     ...enFase(Fases.preparacion, const [
       Paso(

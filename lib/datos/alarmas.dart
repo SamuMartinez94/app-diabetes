@@ -4,7 +4,7 @@
 /// `pagina`), para poder comprobarlo. Los que no llevan manual todavía no se
 /// han contrastado con ninguno y la app los marca como "en revisión".
 ///
-/// Fuentes: manuales oficiales de Tandem t:slim X2, MiniMed 780G (con
+/// Fuentes: manuales oficiales de Tandem t:slim X2 y Tandem Mobi, MiniMed 780G (con
 /// Simplera Sync, Guardian 4 e Instinct), YpsoPump, Omnipod 5 (guía técnica
 /// para España, con FreeStyle Libre 2 Plus), Dexcom G6, Dexcom G7 y el
 /// manual del lector FreeStyle Libre 3 y 3 Plus. Cada fichero
@@ -13,6 +13,7 @@ library;
 
 import '../modelos/alarma.dart';
 import 'alarmas_medtronic.dart';
+import 'alarmas_mobi.dart';
 import 'alarmas_omnipod.dart';
 import 'alarmas_sensores.dart';
 import 'alarmas_tandem.dart';
@@ -20,6 +21,7 @@ import 'alarmas_ypso.dart';
 
 const List<Alarma> alarmas = [
   ...alarmasTandem,
+  ...alarmasMobi,
   ...alarmasMedtronic,
   ...alarmasYpso,
   ...alarmasOmnipod,

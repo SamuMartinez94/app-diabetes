@@ -114,10 +114,9 @@ const List<Alarma> alarmasOmnipod = [
     bomba: 'bomnipod',
     manual: _manual,
     pagina: '178',
-    titulo: 'Error de la Aplicación Omnipod 5',
+    titulo: 'Error de la aplicación de la bomba',
     significado:
-        'Se ha detectado un error inesperado en la Aplicación Omnipod 5. A '
-        'veces la aplicación se cierra y se vuelve a abrir sola.',
+        'Se ha detectado un error inesperado en la aplicación de la bomba. A veces la aplicación se cierra y se vuelve a abrir sola.',
     queHacer: [
       'Toca OK para confirmar o silenciar la alarma. Puede que el Controlador se reinicie: sigue igualmente con el paso siguiente.',
       'Mide tu glucosa.',
@@ -130,12 +129,11 @@ const List<Alarma> alarmasOmnipod = [
     bomba: 'bomnipod',
     manual: _manual,
     pagina: '179',
-    titulo: 'Corrupción de memoria de Omnipod 5',
+    titulo: 'Corrupción de memoria de la aplicación',
     significado:
-        'Se ha detectado un error inesperado en la Aplicación Omnipod 5 que '
-        'obliga a restablecerla.',
+        'Se ha detectado un error inesperado en la aplicación de la bomba que obliga a restablecerla.',
     queHacer: [
-      'Toca OK para confirmar la alarma y restablecer la Aplicación Omnipod 5.',
+      'Toca OK para confirmar la alarma y restablecer la aplicación.',
       'Quita el Pod.',
       'Mide tu glucosa.',
     ],
@@ -149,8 +147,7 @@ const List<Alarma> alarmasOmnipod = [
     pagina: '184',
     titulo: 'Error del sistema',
     significado:
-        'Se ha detectado un error inesperado en el Pod o en la Aplicación '
-        'Omnipod 5.',
+        'Se ha detectado un error inesperado en el Pod o en la aplicación de la bomba.',
     queHacer: [
       'Toca OK para confirmar la alarma.',
       'Quita el Pod.',
@@ -229,8 +226,8 @@ const List<Alarma> alarmasOmnipod = [
         'que vuelvan los valores o cambies a Modo Manual.',
     queHacer: [
       'Toca OK para confirmar la alarma.',
-      'Con Dexcom: mira en la app de Dexcom si hay valores o algún aviso del sensor o del transmisor.',
-      'Con FreeStyle Libre 2 Plus: mira en la Aplicación Omnipod 5 si hay valores y que el sensor siga bien puesto en el brazo.',
+      'Si tu sensor tiene su propia app, mira en ella si hay valores o algún aviso del sensor o del transmisor.',
+      'Si el sensor se inició desde la aplicación de la bomba, mira ahí si hay valores y que el sensor siga bien puesto.',
       'Si pasa a menudo, lleva el Pod y el sensor en el mismo lado del cuerpo, separados al menos 8 cm (Dexcom) o 2,5 cm (Libre 2 Plus).',
     ],
     gravedad: Gravedad.atencion,
@@ -287,12 +284,9 @@ const List<Alarma> alarmasOmnipod = [
     deSensor: true,
     manual: _manual,
     pagina: '336-341',
-    titulo: 'Mensajes del sensor en Omnipod 5',
+    titulo: 'Mensajes del sensor en la aplicación',
     significado:
-        'Mensajes en rojo del panel de la Aplicación Omnipod 5: "Sensor '
-        'demasiado frío", "Sensor demasiado caliente", "Problema temporal del '
-        'sensor", "Sensor finalizado", "Sin sensor", "Sustituir sensor" o '
-        '"Error al conectar". Sin sensor, el Modo Automatizado no funciona.',
+        'Mensajes en rojo del panel de la aplicación de la bomba: "Sensor demasiado frío", "Sensor demasiado caliente", "Problema temporal del sensor", "Sensor finalizado", "Sin sensor", "Sustituir sensor" o "Error al conectar". Sin sensor, el Modo Automatizado no funciona.',
     queHacer: [
       'Demasiado frío o caliente: muévete a un sitio con otra temperatura y vuelve a probar en unos minutos.',
       'Problema temporal del sensor: espera y vuelve a comprobarlo en 10 minutos.',

@@ -129,4 +129,16 @@ void main() {
 
     expect(find.text('Comenzar'), findsOneWidget);
   });
+
+  test('Un catéter retirado borra la configuración guardada', () async {
+    await arrancarCon({
+      'config_bomba': 'bmedtronic',
+      'config_sensor': 'sguardian',
+      'config_cateter': 'cmio',
+    });
+    expect(Preferencias.hayConfiguracion, isFalse);
+
+    await arrancarCon(_configGuardada);
+    expect(Preferencias.hayConfiguracion, isTrue);
+  });
 }

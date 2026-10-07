@@ -1,5 +1,5 @@
 > [!WARNING]
-> **Proyecto no oficial.** DiaGuía es un proyecto personal, sin ánimo de lucro y con fines exclusivamente informativos. No es una herramienta médica profesional ni está vinculada, patrocinada o avalada por ninguna de las marcas de dispositivos mencionadas. Ante cualquier duda sobre tu tratamiento, consulta siempre con tu equipo sanitario.
+> **Proyecto no oficial.** DiaGuía es un proyecto personal, sin ánimo de lucro y con fines exclusivamente informativos. No es una herramienta médica profesional ni está vinculada, patrocinada o avalada por ninguna de las marcas de dispositivos mencionadas. Los nombres y las marcas de los dispositivos pertenecen a sus propietarios y solo se usan para identificarlos. Ante cualquier duda sobre tu tratamiento, consulta siempre con tu equipo sanitario.
 
 > [!NOTE]
 > **Contenido pendiente de validación clínica.** Las guías de recambio y las fichas de alarmas llevan dentro de la app un aviso discreto de "contenido en revisión" mientras un profesional sanitario las revisa.

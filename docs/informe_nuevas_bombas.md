@@ -44,6 +44,8 @@
 
 ## 2. Tandem Mobi: prioridad alta
 
+> **Ya añadida a la app** (7 de octubre de 2026), con la guía del usuario española (Control-IQ 7.9, abril de 2026): guías de cambio con los cuatro catéteres de Tandem, sensores Dexcom G6 y G7 y sus alarmas.
+
 **Lo que se sabe:**
 - Presentada como la bomba con tubo más pequeña del mercado: 5,1 × 3,7 × 1,4 cm y unos 30 g.
 - **Cartucho de 200 unidades**.

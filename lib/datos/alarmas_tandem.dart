@@ -1,8 +1,9 @@
 /// ALARMAS Y AVISOS DE TANDEM t:slim X2 (con Control-IQ)
 ///
-/// Fuente: guía del usuario de la bomba de insulina t:slim X2, capítulos 11 a
-/// 14 (alertas, alarmas y fallo) y 31 (alertas de la tecnología Control-IQ).
-/// Las páginas indicadas son las impresas en el manual.
+/// Fuente: guía del usuario oficial de la bomba t:slim X2 con Control-IQ
+/// 7.8.1 (edición española, 2025): capítulos 12 a 15 (alertas, alarmas y
+/// fallo) y 32 (alertas de la tecnología Control-IQ). Las páginas indicadas
+/// son las impresas en el manual.
 library;
 
 import '../modelos/alarma.dart';
@@ -15,7 +16,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_oclusion',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '149-150',
+    pagina: '201-202',
     titulo: 'Bloqueo de insulina (oclusión)',
     significado:
         'La bomba ha detectado que la insulina no puede pasar y ha detenido '
@@ -42,7 +43,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_cartucho_vacio',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '145',
+    pagina: '197',
     titulo: 'Cartucho vacío',
     significado:
         'El cartucho se ha quedado sin insulina y se han detenido todos los '
@@ -59,7 +60,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_error_cartucho',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '146',
+    pagina: '198',
     titulo: 'Error de cartucho',
     significado:
         'La bomba no ha podido usar el cartucho y ha detenido todos los '
@@ -78,7 +79,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_cartucho_extraido',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '147',
+    pagina: '199',
     titulo: 'Cartucho extraído',
     significado:
         'La bomba ha detectado que se ha sacado el cartucho y ha detenido '
@@ -95,7 +96,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_bateria_agotada',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '144',
+    pagina: '196',
     titulo: 'Batería casi agotada (alarma)',
     significado:
         'A la bomba le queda un 1 % de carga o menos y se han detenido todos '
@@ -112,7 +113,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_reanudar',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '143',
+    pagina: '195',
     titulo: 'Reanuda la insulina',
     significado:
         'Detuviste la insulina desde el menú Opciones y llevas más de 15 '
@@ -129,12 +130,12 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_apagado_auto',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '117',
+    pagina: '166-167',
     titulo: 'Apagado automático',
     significado:
         'Has puesto un tiempo (entre 5 y 24 horas) tras el cual, si no tocas '
         'la bomba, esta deja de dar insulina. Antes salta un aviso con una '
-        'cuenta atrás de 60 segundos.',
+        'cuenta atrás de 30 segundos.',
     queHacer: [
       'Si ves la advertencia previa, pulsa No apagar y la bomba sigue con normalidad.',
       'Si ya ha saltado la alarma, pulsa OK: verás "Todos los suministros detenidos".',
@@ -148,7 +149,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_temperatura',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '148',
+    pagina: '200',
     titulo: 'Demasiado frío o demasiado calor',
     significado:
         'La bomba o su batería están fuera del rango de temperatura seguro y '
@@ -166,7 +167,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_altitud',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '152',
+    pagina: '204',
     titulo: 'Cambio de altitud o de presión',
     significado:
         'La bomba ha notado una diferencia de presión entre el interior del '
@@ -183,10 +184,10 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_boton',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '151',
+    pagina: '203',
     titulo: 'Botón de arriba atascado',
     significado:
-        'El botón Activar pantalla / Bolo rápido (el de arriba de la bomba) '
+        'El botón Pantalla enc./Bolo rápido (el de arriba de la bomba) '
         'está atascado o no funciona bien, y se han detenido todos los '
         'suministros.',
     queHacer: [
@@ -201,7 +202,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_fallo',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '153, 157',
+    pagina: '205, 208-209',
     titulo: 'Fallo o reinicio de la bomba',
     significado:
         'La bomba ha detectado un error del sistema, o uno de sus '
@@ -222,7 +223,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_bateria_baja',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '122-123',
+    pagina: '172-173',
     titulo: 'Batería baja (alerta)',
     significado:
         'Queda menos del 25 % de batería (primera alerta) o menos del 5 % '
@@ -240,7 +241,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_insulina_baja',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '121',
+    pagina: '171',
     titulo: 'Queda poca insulina',
     significado:
         'Queda muy poca insulina en el cartucho. El aviso se repite cada 5 '
@@ -256,7 +257,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_incompleto',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '124-129',
+    pagina: '174-180',
     titulo: 'Has dejado algo a medias',
     significado:
         'La bomba avisa si empiezas un bolo o un régimen temporal y no lo '
@@ -275,7 +276,7 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_limites',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '131-136',
+    pagina: '182-187',
     titulo: 'Aviso de límite de bolo o de basal',
     significado:
         'Has pedido un bolo mayor que tu límite de bolo máximo (o más de lo '
@@ -296,12 +297,10 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_ciq_fuera_alcance',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '285-286',
-    titulo: 'Control-IQ: el sensor está fuera de alcance',
+    pagina: '347-348',
+    titulo: 'Modo automático: el sensor está fuera de alcance',
     significado:
-        'El transmisor y la bomba no se comunican, así que la bomba no '
-        'recibe lecturas. Control-IQ sigue ajustando la insulina durante los '
-        'primeros 20 minutos y después vuelve a la basal de tu perfil.',
+        'El transmisor y la bomba no se comunican, así que la bomba no recibe lecturas. El modo automático sigue ajustando la insulina durante los primeros 20 minutos y después vuelve a la basal de tu perfil.',
     queHacer: [
       'Pulsa OK.',
       'Acerca la bomba y el transmisor, o quita lo que haya entre ellos.',
@@ -314,11 +313,10 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_ciq_bajo',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '287',
-    titulo: 'Control-IQ prevé una glucosa baja',
+    pagina: '349',
+    titulo: 'El modo automático prevé una glucosa baja',
     significado:
-        'Control-IQ predice que tu glucosa estará por debajo de 70 mg/dL (80 '
-        'si usas la función Ejercicio) en los próximos 15 minutos.',
+        'El modo automático predice que tu glucosa estará por debajo de 70 mg/dL (80 si usas la función Ejercicio) en los próximos 15 minutos.',
     queHacer: [
       'Toma hidratos de carbono de acción rápida y mide tu glucosa.',
       'Pulsa OK para cerrar la alerta.',
@@ -330,11 +328,10 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_ciq_alto',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '288',
-    titulo: 'Control-IQ: glucosa alta que no baja',
+    pagina: '350',
+    titulo: 'Modo automático: glucosa alta que no baja',
     significado:
-        'Control-IQ ha subido la insulina, pero ve una glucosa por encima de '
-        '200 mg/dL y no prevé que baje en los próximos 30 minutos.',
+        'El modo automático ha subido la insulina, pero ve una glucosa por encima de 200 mg/dL y no prevé que baje en los próximos 30 minutos.',
     queHacer: [
       'Revisa el cartucho, el tubo y el sitio de infusión.',
       'Mide tu glucosa y trata la glucosa alta según te haya indicado tu equipo médico.',
@@ -347,12 +344,10 @@ const List<Alarma> alarmasTandem = [
     id: 'tandem_ciq_max_insulina',
     bomba: 'btandem',
     manual: _manual,
-    pagina: '289',
-    titulo: 'Control-IQ: máximo de insulina alcanzado',
+    pagina: '351',
+    titulo: 'Modo automático: máximo de insulina alcanzado',
     significado:
-        'La bomba ha dado el máximo de insulina permitido en 2 horas (la '
-        'mitad de tu dosis diaria total). Control-IQ pausa la insulina un '
-        'mínimo de 5 minutos y después la reanuda.',
+        'La bomba ha dado el máximo de insulina permitido en 2 horas (la mitad de tu dosis diaria total). El modo automático pausa la insulina un mínimo de 5 minutos y después la reanuda.',
     queHacer: [
       'Pulsa OK.',
       'Si tu glucosa sigue alta, revisa el catéter y consúltalo con tu equipo médico.',

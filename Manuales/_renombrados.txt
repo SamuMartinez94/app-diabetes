@@ -49,3 +49,31 @@ Manual Tandem.pdf  ->  Tandem/t-slim X2 - Guía del usuario (manualslib, 2020) [
 Manual sensor Dexcom G6.pdf  ->  Dexcom/Dexcom G6 - Guía del usuario (manualslib, 2018) [NO OFICIAL].pdf
 Manual sensor Dexcom G7.pdf  ->  Dexcom/Dexcom G7 - Guía del usuario (manualslib, 2024-04) [NO OFICIAL].pdf
 Guía de Inicio FreeStye Libre 3 - Pacientes V2.pdf  ->  Abbott FreeStyle/FreeStyle Libre 3 - Guía de inicio para pacientes (ES, V2 2022-10) [ANTIGUO].pdf
+
+# 2026-10-07
+Medtronic-Extended-infusion-set.pdf  ->  MiniMed/Extended - Instrucciones de uso del catéter (multi, 2021-09) [ACTUAL].pdf
+guardian-4-sensor-user-guide.pdf  ->  MiniMed/Guardian 4 - Guía del usuario del sensor (EN, 2025-08) [ACTUAL].pdf
+guardian-4-transmitter-user-guide.pdf  ->  MiniMed/Guardian 4 - Guía del usuario del transmisor (EN, 2025-08) [ACTUAL].pdf
+us-instinct-manual.pdf  ->  MiniMed/Instinct - Guía del usuario del sensor (EN, 2026-04) [ACTUAL].pdf
+Simplera-sensor-user-guide.pdf  ->  MiniMed/Simplera (sin Sync, va con su app) - Guía del sensor (EN, 2024-10) [NO APLICA].pdf
+Simplera-system-user-guide.pdf  ->  MiniMed/Simplera (sin Sync, va con su app) - Guía del sistema (EN, 2024-09) [NO APLICA].pdf
+guia-tslimx2-usuario-control-iq-7-8-1.pdf  ->  Tandem/t-slim X2 - Guía del usuario (ES, Control-IQ 7.8.1, 2025) [ACTUAL].pdf
+guia-de-usuario-tandem mobi.pdf  ->  Tandem/Tandem Mobi - Guía del usuario (ES, Control-IQ 7.9, 2026) [ACTUAL].pdf
+guia-referencia-emparejar-tandem-tslim-mobile-app.pdf  ->  Tandem/t-slim mobile app - Guía para emparejar (ES, 2024).pdf
+guia-usuario-tandem-source.pdf  ->  Tandem/Tandem Source - Guía del usuario (ES, 2025).pdf
+Simplera-Sync-Sensor-IFUIngles.pdf  ->  _duplicados/Simplera Sync - Guía del sensor (EN, 2025-08) - copia idéntica.pdf
+Guía de Inicio FreeStye Libre 3 - Pacientes V2.pdf  ->  _duplicados/FreeStyle Libre 3 - Guía de inicio para pacientes - copia idéntica.pdf
+MiniMed/Guardian 4 - Guía del usuario del sensor (ES-EN, 2023-03) [ACTUAL].pdf  ->  MiniMed/Guardian 4 - Guía del usuario del sensor (ES-EN, 2023-03) [ANTIGUO].pdf
+MiniMed/Instinct - Guía del usuario del sensor (EN, 2025-09) [ACTUAL].pdf  ->  MiniMed/Instinct - Guía del usuario del sensor (EN, 2025-09) [ANTIGUO].pdf
+Tandem/t-slim X2 - Guía del usuario (manualslib, 2020) [NO OFICIAL].pdf  ->  Tandem/t-slim X2 - Guía del usuario (manualslib, 2020) [NO OFICIAL - ANTIGUO].pdf
+Tandem/Tandem Mobi - Guía del usuario (ES, Control-IQ 7.9, 2026) [ACTUAL].pdf  ->  Tandem/Tandem Mobi - Guía del usuario (ES, Control-IQ 7.9, 2026-02) [ANTIGUO].pdf
+technical-user-guide-tandem-mobi-control-iq-7-9-mgdl-es-es-AW1017619.pdf  ->  Tandem/Tandem Mobi - Guía del usuario (ES, Control-IQ 7.9, 2026-04) [ACTUAL].pdf
+user-guide-tslimx2-control-iq-7-8-1-mgdl-es-es-aw1014133.pdf  ->  _duplicados/t-slim X2 - Guía del usuario (ES, Control-IQ 7.8.1, 2025) - copia idéntica.pdf
+instructions-for-use-cartridge-mobi-global-aw1016190.pdf  ->  Tandem/Tandem Mobi - Instrucciones del cartucho (multi, 2025-09) [ACTUAL].pdf
+instructions-for-use-3ml-cartridge-tslimx2-global-aw1012470.pdf  ->  Tandem/t-slim X2 - Instrucciones del cartucho de 3 ml (multi, 2025-07) [ACTUAL].pdf
+Instructions-Use-Adhesive-Sleeve-Tandem-Mobi-Digital-AW1017648.pdf  ->  Tandem/Tandem Mobi - Funda adhesiva (multi, 2025-10) [ACTUAL].pdf
+instructions-for-use-tlock-infusion-set-autosoft90-aw1000184.pdf  ->  Tandem/AutoSoft 90 - Instrucciones de uso del catéter (multi, 2025-03) [ACTUAL].pdf
+instructions-for-use-tlock-infusion-set-autosoft30-aw1000220.pdf  ->  Tandem/AutoSoft 30 - Instrucciones de uso del catéter (multi, 2024-03) [ACTUAL].pdf
+instructions-for-use-tlock-infusion-set-trusteel-aw1000232.pdf  ->  Tandem/TruSteel - Instrucciones de uso del catéter (multi, 2024-06) [ACTUAL].pdf
+instructions-for-use-tlock-infusion-set-varisoft-aw1000226.pdf  ->  Tandem/VariSoft - Instrucciones de uso del catéter (multi, 2024-08) [ACTUAL].pdf
+user_manual_camapsfx.pdf  ->  mylife YpsoPump/CamAPS FX - Manual del usuario (ES, 2026-07) [ACTUAL].pdf

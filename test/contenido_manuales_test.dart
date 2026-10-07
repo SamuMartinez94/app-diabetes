@@ -19,11 +19,10 @@ void main() {
       expect(textoDe(instruccionesCateter['bomnipod_cpod']!), contains('8 cm'));
     });
 
-    test('Tandem: cuarto de vuelta extra en el conector del tubo', () {
-      expect(
-        textoDe(instruccionesCateter['btandem_cautosoft90']!).toUpperCase(),
-        contains('CUARTO DE VUELTA'),
-      );
+    test('Tandem: conexión del tubo hermética (guía de 2025)', () {
+      final texto = textoDe(instruccionesCateter['btandem_cautosoft90']!);
+      expect(texto, contains('hermética'));
+      expect(texto.toUpperCase(), isNot(contains('CUARTO DE VUELTA')));
     });
 
     test('YpsoPump myOrbit Soft: límite de 72 horas', () {
@@ -88,7 +87,7 @@ void main() {
 
     test('Medtronic recuerda medir la glucosa tras el cambio', () {
       expect(
-        textoDe(instruccionesCateter['bmedtronic_cmio']!).toLowerCase(),
+        textoDe(instruccionesCateter['bmedtronic_cmio30']!).toLowerCase(),
         contains('glucosa'),
       );
     });

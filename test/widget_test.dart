@@ -229,8 +229,9 @@ void main() {
     const combinacionesSensor = {
       'bmedtronic': ['sguardian', 'ssimplera', 'sinstinct'],
       'btandem': ['sdexg6', 'sdexg7'],
+  'btandemmobi': ['sdexg6', 'sdexg7'],
       'bomnipod': ['sdexg6', 'sdexg7', 'sfreelibre2plus'],
-      'bypsopump': ['sdexg6', 'sfreelibre3'],
+      'bypsopump': ['sdexg6', 'sdexg7', 'sfreelibre3'],
     };
 
     test('Todas las combinaciones bomba+sensor tienen guía', () {

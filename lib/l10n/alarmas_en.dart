@@ -69,8 +69,6 @@ const Map<String, String> traduccionesAlarmasEn = {
   'reanudar, detenida, parada, stop, detener insulina':
       'resume, stopped, paused, stop, stop insulin',
   'Apagado automático': 'Automatic shut-off',
-  'Has puesto un tiempo (entre 5 y 24 horas) tras el cual, si no tocas la bomba, esta deja de dar insulina. Antes salta un aviso con una cuenta atrás de 60 segundos.':
-      'You set a time (between 5 and 24 hours) after which, if you do not touch the pump, it stops giving insulin. Before that, a notice appears with a 60-second countdown.',
   'apagado automatico, auto off, se paro sola, sin tocar':
       'automatic shut-off, auto off, stopped by itself, not touched',
   'Si ves la advertencia previa, pulsa No apagar y la bomba sigue con normalidad.':
@@ -94,8 +92,6 @@ const Map<String, String> traduccionesAlarmasEn = {
       'Take the cartridge out of the pump so it can vent fully and reconnect it.',
   'Reanuda la insulina.': 'Resume insulin.',
   'Botón de arriba atascado': 'Top button stuck',
-  'El botón Activar pantalla / Bolo rápido (el de arriba de la bomba) está atascado o no funciona bien, y se han detenido todos los suministros.':
-      'The Wake screen / Quick bolus button (the one on top of the pump) is stuck or not working properly, and all delivery has stopped.',
   'boton, atascado, bolo rapido, no funciona':
       'button, stuck, quick bolus, not working',
   'Ponte en contacto con el servicio de atención al cliente.':
@@ -137,36 +133,21 @@ const Map<String, String> traduccionesAlarmasEn = {
       'Before confirming, think about whether your insulin needs have changed since you asked for the bolus.',
   'Con un régimen temporal, pulsa OK para aceptar el valor reducido y revisa tu régimen temporal en el menú Actividad.':
       'With a temporary rate, press OK to accept the reduced value and check your temporary rate in the Activity menu.',
-  'Control-IQ: el sensor está fuera de alcance':
-      'Control-IQ: the sensor is out of range',
-  'El transmisor y la bomba no se comunican, así que la bomba no recibe lecturas. Control-IQ sigue ajustando la insulina durante los primeros 20 minutos y después vuelve a la basal de tu perfil.':
-      'The transmitter and the pump are not communicating, so the pump is not receiving readings. Control-IQ keeps adjusting insulin for the first 20 minutes and then goes back to your profile\'s basal.',
   'fuera de limites, sin senal, no conecta, control iq':
       'out of range, no signal, not connecting, control iq',
   'Acerca la bomba y el transmisor, o quita lo que haya entre ellos.':
       'Bring the pump and the transmitter closer, or remove whatever is between them.',
-  'Control-IQ prevé una glucosa baja': 'Control-IQ predicts low glucose',
-  'Control-IQ predice que tu glucosa estará por debajo de 70 mg/dL (80 si usas la función Ejercicio) en los próximos 15 minutos.':
-      'Control-IQ predicts your glucose will be below 70 mg/dL (80 if you use the Exercise feature) in the next 15 minutes.',
   'hipo, baja, prediccion, control iq, nivel bajo':
       'hypo, low, prediction, control iq, low level',
   'Toma hidratos de carbono de acción rápida y mide tu glucosa.':
       'Take fast-acting carbohydrates and check your glucose.',
   'Pulsa OK para cerrar la alerta.': 'Press OK to close the alert.',
-  'Control-IQ: glucosa alta que no baja':
-      'Control-IQ: high glucose that isn\'t coming down',
-  'Control-IQ ha subido la insulina, pero ve una glucosa por encima de 200 mg/dL y no prevé que baje en los próximos 30 minutos.':
-      'Control-IQ has increased insulin, but sees a glucose above 200 mg/dL and doesn\'t expect it to come down in the next 30 minutes.',
   'hiper, alta, control iq, nivel alto, no baja':
       'hyper, high, control iq, high level, not coming down',
   'Revisa el cartucho, el tubo y el sitio de infusión.':
       'Check the cartridge, the tubing and the infusion site.',
   'Mide tu glucosa y trata la glucosa alta según te haya indicado tu equipo médico.':
       'Check your glucose and treat the high glucose as your medical team has told you.',
-  'Control-IQ: máximo de insulina alcanzado':
-      'Control-IQ: maximum insulin reached',
-  'La bomba ha dado el máximo de insulina permitido en 2 horas (la mitad de tu dosis diaria total). Control-IQ pausa la insulina un mínimo de 5 minutos y después la reanuda.':
-      'The pump has delivered the maximum insulin allowed in 2 hours (half of your total daily dose). Control-IQ pauses insulin for at least 5 minutes and then resumes it.',
   'maximo, insulina maxima, control iq, dosis diaria':
       'maximum, maximum insulin, control iq, daily dose',
   'Si tu glucosa sigue alta, revisa el catéter y consúltalo con tu equipo médico.':
@@ -348,17 +329,12 @@ const Map<String, String> traduccionesAlarmasEn = {
       'If you are able to, take fast-acting carbohydrates.',
   'Toca Descartar cuando la situación esté controlada.':
       'Tap Dismiss once the situation is under control.',
-  'SmartGuard pide una glucemia': 'SmartGuard asks for a blood glucose reading',
-  'SmartGuard necesita que introduzcas una glucemia (medida con el dedo): lleva mucho rato dando la insulina máxima o mínima, o tiene que comprobar que el sensor es fiable.':
-      'SmartGuard needs you to enter a blood glucose reading (measured with your finger): it has been giving the maximum or minimum insulin for a long time, or it has to check that the sensor is reliable.',
   'smartguard, introducir glucemia, modo automatico, bg':
       'smartguard, enter blood glucose, automatic mode, bg',
   'Lávate las manos, mide con el medidor e introduce el valor para volver al modo automático.':
       'Wash your hands, measure with the meter and enter the value to return to automatic mode.',
   'Sigue las indicaciones de tu equipo médico y vigila tu glucosa.':
       'Follow your medical team\'s instructions and keep an eye on your glucose.',
-  'Salida del modo automático (SmartGuard)':
-      'Exit from automatic mode (SmartGuard)',
   'La bomba ha salido del modo automático porque se apagó el sensor, llevaba hasta cuatro horas sin lecturas o un aviso de suspensión no se atendió. Ahora sigue tu basal en modo manual.':
       'The pump has left automatic mode because the sensor was switched off, it had spent up to four hours without readings or a suspend notice was not dealt with. It now follows your basal in manual mode.',
   'smartguard, modo manual, automatico, salida':
@@ -373,12 +349,8 @@ const Map<String, String> traduccionesAlarmasEn = {
       '30 minutes have passed without a sensor signal, or there is interference. Without a signal you have no sensor readings.',
   'no conecta, sin senal, interferencia, comprobar conexion, sin lecturas':
       'not connecting, no signal, interference, check connection, no readings',
-  'Acerca la bomba al sensor (con Guardian 4, al transmisor) y pulsa OK. La bomba puede tardar hasta 15 minutos en encontrar la señal.':
-      'Bring the pump close to the sensor (with Guardian 4, to the transmitter) and press OK. The pump can take up to 15 minutes to find the signal.',
   'Aléjate de aparatos electrónicos que puedan interferir.':
       'Move away from electronic devices that could interfere.',
-  'Con Guardian 4, comprueba que el transmisor y el sensor están bien conectados. Si no lo están, o el sensor no está bien insertado, cambia el sensor.':
-      'With Guardian 4, check that the transmitter and the sensor are properly connected. If they are not, or the sensor is not properly inserted, change the sensor.',
   'Si no la encuentra en 15 minutos o sale "Señal del sensor no encontrada", llama al soporte técnico de 24 horas.':
       'If it can\'t find it within 15 minutes or "Sensor signal not found" appears, call 24-hour technical support.',
   'Cambia el sensor': 'Change the sensor',
@@ -405,8 +377,6 @@ const Map<String, String> traduccionesAlarmasEn = {
   'Si falla también la segunda vez, saldrá "Cambiar sensor".':
       'If it also fails the second time, "Change sensor" will appear.',
   'Sensor calentando o actualizándose': 'Sensor warming up or updating',
-  'Un sensor nuevo tarda un tiempo en dar lecturas (con Guardian 4, unas 2 horas). También puede haber una pausa temporal mientras el sensor hace comprobaciones de calidad: no hace falta cambiarlo.':
-      'A new sensor takes a while to give readings (with Guardian 4, about 2 hours). There can also be a temporary pause while the sensor does quality checks: you don\'t need to change it.',
   'calentamiento, actualizando, sin lecturas, iniciando, warm up':
       'warm-up, updating, no readings, starting, warm up',
   'Pulsa OK y sigue las instrucciones de la pantalla.':
@@ -423,8 +393,6 @@ const Map<String, String> traduccionesAlarmasEn = {
       'expired sensor, end of sensor, grace period, transmitter battery, recharge transmitter',
   'Ten un sensor de repuesto preparado y cámbialo cuando toque (mira la guía de cambio de sensor).':
       'Have a spare sensor ready and change it when the time comes (see the sensor change guide).',
-  'Si tienes Guardian 4 y el transmisor avisa de batería baja, recárgalo lo antes posible: con la batería agotada no hay lecturas.':
-      'If you have Guardian 4 and the transmitter warns of low battery, recharge it as soon as possible: with a flat battery there are no readings.',
   'Glucosa baja: alarma que no se puede quitar':
       'Low glucose: alarm that can\'t be turned off',
   'La lectura del sensor está por debajo de 64 mg/dL. Esta alarma es de fábrica: no se puede silenciar ni desactivar, y no suspende la insulina por sí sola.':
@@ -532,7 +500,6 @@ const Map<String, String> traduccionesAlarmasEn = {
   'Glucosa baja urgente': 'Urgent low glucose',
   'hipo, baja, urgente, hipoglucemia, 55':
       'hypo, low, urgent, hypoglycemia, 55',
-  'Mensajes del sensor en Omnipod 5': 'Sensor messages in Omnipod 5',
   'Valor bajo urgente': 'Urgent low value',
   'La lectura del sensor es de 55 mg/dL o menos. Es una alerta de seguridad que suena aunque tengas el móvil en silencio.':
       'The sensor reading is 55 mg/dL or below. It is a safety alert that sounds even if your phone is on silent.',
@@ -599,8 +566,6 @@ const Map<String, String> traduccionesAlarmasEn = {
       'Keep the phone less than 10 metres from the sensor, with nothing in between (walls, water) and on the same side of the body.',
   'Si no funciona, reinicia el móvil y abre la app. Mantén el móvil con al menos un 20 % de batería.':
       'If it doesn\'t work, restart the phone and open the app. Keep the phone at least 20% charged.',
-  'Espera hasta 30 minutos. Si sigue igual, llama al soporte técnico de Dexcom.':
-      'Wait up to 30 minutes. If it stays the same, call Dexcom technical support.',
   'Problema temporal del sensor': 'Temporary sensor problem',
   'El sensor no puede medir la glucosa por ahora. Suele pasar durante el primer día, pero puede ocurrir en cualquier momento y casi siempre se arregla solo en menos de 3 horas.':
       'The sensor can\'t measure glucose for now. It usually happens during the first day, but it can happen at any time and almost always fixes itself in under 3 hours.',
@@ -609,8 +574,6 @@ const Map<String, String> traduccionesAlarmasEn = {
   'No quites el sensor.': 'Don\'t remove the sensor.',
   'Toca Ayuda en la app para ver más consejos.':
       'Tap Help in the app for more tips.',
-  'Si dura más de 3 horas, llama al soporte técnico de Dexcom.':
-      'If it lasts more than 3 hours, call Dexcom technical support.',
   'El sensor ha fallado': 'The sensor has failed',
   'Ya no habrá lecturas ni alertas hasta que empieces un sensor nuevo. Puede llegar después de un problema temporal.':
       'There will be no readings or alerts until you start a new sensor. It can come after a temporary problem.',
@@ -648,8 +611,6 @@ const Map<String, String> traduccionesAlarmasEn = {
   'Recuerda que un sensor solo se empareja con un móvil, un receptor y un reloj. Mantén abierta la app.':
       'Remember that a sensor only pairs with one phone, one receiver and one watch. Keep the app open.',
   'Calibración no utilizada': 'Calibration not used',
-  'En el G7 calibrar es opcional. Si sale este aviso, el sistema no ha usado el valor que introdujiste.':
-      'On the G7 calibrating is optional. If this notice appears, the system did not use the value you entered.',
   'calibrar, calibracion, medidor, capilar':
       'calibrate, calibration, meter, capillary',
   'Lávate las manos con agua y jabón, sécalas y mide con el dedo.':
@@ -668,20 +629,12 @@ const Map<String, String> traduccionesAlarmasEn = {
       'receiver, error, code, system evaluation',
   'Anota el código de error que sale en la pantalla.':
       'Write down the error code shown on the screen.',
-  'Llama al soporte técnico de Dexcom y dales el código.':
-      'Call Dexcom technical support and give them the code.',
-  'Sin lecturas del G6': 'No G6 readings',
-  'No recibes lecturas del G6 desde hace 20 minutos (en el receptor, aparece como error de sensor). No hay alarma ni alertas de glucosa hasta que se solucione.':
-      'You haven\'t received G6 readings for 20 minutes (on the receiver, it appears as a sensor error). There is no alarm or glucose alerts until it is fixed.',
   'sin lecturas, no lecturas, error de sensor, no hay datos':
       'no readings, no readings alert, sensor error, no data',
   'Toca la alerta para ver más información.':
       'Tap the alert for more information.',
   'Comprueba que el transmisor está bien encajado en su soporte.':
       'Check that the transmitter is properly seated in its holder.',
-  'Espera: en la app, hasta 3 horas; en el receptor, 30 minutos. Si no se arregla, saldrá "Fallo del sensor": llama al servicio técnico de Dexcom.':
-      'Wait: on the app, up to 3 hours; on the receiver, 30 minutes. If it isn\'t fixed, "Sensor failure" will appear: call Dexcom technical service.',
-  'Pérdida de señal (G6)': 'Signal loss (G6)',
   'El dispositivo de visualización y el transmisor no se conectan, así que no hay lecturas, alarma ni alertas de glucosa.':
       'The display device and the transmitter are not connecting, so there are no readings, alarm or glucose alerts.',
   'sin senal, perdida de senal, no conecta, bluetooth':
@@ -691,15 +644,10 @@ const Map<String, String> traduccionesAlarmasEn = {
       'Bring the transmitter and the phone or receiver within 6 metres of each other, with no obstacles (walls, metal). Underwater, in the shower or swimming, bring them even closer.',
   'En la app: reinicia el móvil. Si sigue, abre los ajustes de Bluetooth, elimina todas las entradas de Dexcom y empareja de nuevo el transmisor.':
       'On the app: restart the phone. If it continues, open the Bluetooth settings, delete all Dexcom entries and pair the transmitter again.',
-  'Espera hasta 30 minutos: puede arreglarse solo. Si pasan más, llama al servicio técnico de Dexcom.':
-      'Wait up to 30 minutes: it can fix itself. If more time passes, call Dexcom technical service.',
-  'Fallo del sensor (G6)': 'Sensor failure (G6)',
   'El sensor ha dejado de funcionar: no hay lecturas, alarma ni alertas.':
       'The sensor has stopped working: there are no readings, alarm or alerts.',
   'fallo, error del sensor, sensor fallado, parar sesion':
       'failure, sensor error, failed sensor, stop session',
-  'Antes de parar una sesión antes de tiempo, llama siempre al servicio técnico de Dexcom. Una sesión detenida no se puede reanudar.':
-      'Before stopping a session early, always call Dexcom technical service. A stopped session can\'t be resumed.',
   'Para volver a tener lecturas, pon un sensor nuevo e inicia la sesión.':
       'To get readings again, put on a new sensor and start the session.',
   'Si un hilo del sensor se rompe y no lo ves, no intentes sacarlo: consulta a tu equipo médico.':
@@ -713,8 +661,6 @@ const Map<String, String> traduccionesAlarmasEn = {
       'Check that the transmitter serial number you entered matches the one on the box.',
   'Asegúrate de que el transmisor está bien encajado en su soporte.':
       'Make sure the transmitter is properly seated in its holder.',
-  'Si nada funciona, puede que el sensor esté mal insertado: llama al servicio técnico de Dexcom.':
-      'If nothing works, the sensor may be badly inserted: call Dexcom technical service.',
   'Repetir calibración': 'Repeat calibration',
   'El sistema no ha aceptado tu calibración, o el valor estaba fuera de lo esperado. No hay lecturas hasta solucionarlo.':
       'The system has not accepted your calibration, or the value was outside what was expected. There are no readings until it is resolved.',
@@ -724,8 +670,6 @@ const Map<String, String> traduccionesAlarmasEn = {
       'Follow the on-screen instructions: it will ask you to calibrate again in 15 minutes.',
   'En el receptor, si vuelve a fallar, introduce un valor más y espera 15 minutos.':
       'On the receiver, if it fails again, enter one more value and wait 15 minutes.',
-  'Si siguen sin salir lecturas, cambia el sensor y llama al servicio técnico de Dexcom.':
-      'If readings still don\'t appear, change the sensor and call Dexcom technical service.',
   'Fin de la sesión del sensor (10 días)':
       'End of the sensor session (10 days)',
   'La sesión del sensor dura 10 días. Recibes avisos 6 horas, 2 horas y 30 minutos antes del final, y sigues recibiendo lecturas hasta entonces.':
@@ -751,13 +695,9 @@ const Map<String, String> traduccionesAlarmasEn = {
       'If you use the app and the receiver, start the session on one before pairing the transmitter with the other.',
   '"Bajo" o "Alto" en lugar de un número':
       '"Low" or "High" instead of a number',
-  'El G6 muestra "Bajo" por debajo de 40 mg/dL y "Alto" por encima de 400 mg/dL. Funciona correctamente.':
-      'The G6 shows "Low" below 40 mg/dL and "High" above 400 mg/dL. It is working correctly.',
   'bajo, alto, lo, hi, sin numero': 'low, high, lo, hi, no number',
   'Mide con el medidor y trata la bajada o la subida.':
       'Measure with the meter and treat the low or the high.',
-  'Cuando tu glucosa vuelva a estar entre 40 y 400 mg/dL, el G6 mostrará de nuevo las lecturas.':
-      'When your glucose is back between 40 and 400 mg/dL, the G6 will show readings again.',
   'El parche se despega o me irrita la piel':
       'The patch comes off or irritates my skin',
   'Si el parche adhesivo no aguanta toda la sesión del sensor, o la piel se irrita, se puede prevenir cuidando la colocación.':
@@ -776,7 +716,6 @@ const Map<String, String> traduccionesAlarmasEn = {
       'If the applicator stays stuck to you, carefully peel off the patch together with the applicator, check that the sensor hasn\'t stayed in your skin and don\'t reuse it.',
   'arranque, calentamiento, escanear, sin lecturas':
       'start-up, warm-up, scan, no readings',
-  'Alarmas de glucosa del Libre 3': 'Libre 3 glucose alarms',
   'alarmas, descartar, desactivar, configurar':
       'alarms, dismiss, turn off, configure',
   'Fuente: manual oficial de {manual}, p. {pagina}':
@@ -840,26 +779,14 @@ const Map<String, String> traduccionesAlarmasEn = {
       'If there is insulin in the cartridge compartment, take out the cartridge and check it for cracks; replace it if needed.',
   'El sensor llega al final de su vida útil: Simplera Sync dura hasta 6 días más 24 horas de gracia (en las que sigue funcionando igual), Guardian 4 hasta 7 días e Instinct hasta 15 días. Con Guardian 4, el transmisor también avisa cuando hay que recargarlo.':
       'The sensor is reaching the end of its life: Simplera Sync lasts up to 6 days plus a 24-hour grace period (during which it keeps working the same), Guardian 4 up to 7 days and Instinct up to 15 days. With Guardian 4, the transmitter also warns you when it needs recharging.',
-  'Con Instinct, ten a mano la app MiniMed Mobile: el sensor nuevo se inicia con ella.':
-      'With Instinct, keep the MiniMed Mobile app at hand: the new sensor is started with it.',
-  'No se ha podido iniciar o emparejar el sensor Instinct':
-      'The Instinct sensor could not be started or paired',
-  'El sensor no ha empezado el calentamiento porque no detecta líquido bajo la piel ("Comprobar sensor"), una alarma de la bomba ha cortado el emparejamiento, o la app MiniMed Mobile no ha podido escanearlo.':
-      'The sensor has not started warming up because it does not detect fluid under the skin ("Check sensor"), a pump alarm interrupted the pairing, or the MiniMed Mobile app could not scan it.',
   'comprobar sensor, no empareja, nfc, escaneo, no arranca':
       'check sensor, not pairing, nfc, scan, won\'t start',
-  'Si el sensor no está puesto, póntelo. Si está bien puesto y pegado, reinícialo con la app MiniMed Mobile.':
-      'If the sensor is not on, put it on. If it is properly inserted and attached, restart it with the MiniMed Mobile app.',
   'Si el aviso vuelve a salir después de reiniciarlo, inicia un sensor nuevo con la app.':
       'If the alert appears again after restarting it, start a new sensor with the app.',
   'Si la app dice que el NFC está apagado, actívalo en los ajustes del móvil. Si dice "Error de escaneo", acerca el móvil al sensor y vuelve a escanear.':
       'If the app says NFC is off, turn it on in your phone\'s settings. If it says "Scan error", bring the phone close to the sensor and scan again.',
   'Si dice que el sensor ya está en uso, comprueba que usas el móvil y la cuenta con los que lo iniciaste.':
       'If it says the sensor is already in use, check that you are using the phone and account you started it with.',
-  'El sistema pide una glucemia para comprobar el sensor Instinct':
-      'The system asks for a blood glucose reading to check the Instinct sensor',
-  'Con Instinct, las glucemias del medidor sirven para comprobar que el sensor funciona bien, no para calibrarlo. Este aviso sale cuando hace falta una glucemia o cuando no se ha podido usar la que introdujiste.':
-      'With Instinct, meter readings are used to check that the sensor is working properly, not to calibrate it. This alert appears when a reading is needed or when the one you entered could not be used.',
   'introducir gs, comprobacion fallida, glucemia, considerar cambio':
       'enter bg, failed check, blood glucose, consider change',
   'Lávate y sécate bien las manos y mide tu glucemia con el medidor.':
@@ -870,18 +797,12 @@ const Map<String, String> traduccionesAlarmasEn = {
       'If two checks in a row fail, the pump will suggest changing the sensor: it is the quickest way to get readings again.',
   'El primer día puede tardar hasta 2 horas en volver a dar lecturas. Mientras tanto, usa el medidor para tus decisiones.':
       'On the first day it can take up to 2 hours to give readings again. In the meantime, use the meter for your decisions.',
-  'Glucosa baja: alarma que no se puede quitar (Instinct)':
-      'Low glucose: alarm that cannot be turned off (Instinct)',
-  'Con Instinct, la bomba avisa siempre que la glucosa del sensor baja de 55 mg/dL. Viene de fábrica: no se puede cambiar, apagar ni silenciar. Esta alarma no suspende la insulina.':
-      'With Instinct, the pump always alerts you when sensor glucose drops below 55 mg/dL. It is factory set: it cannot be changed, turned off or silenced. This alarm does not suspend insulin.',
   'hipo, baja, 55, gs baja, hipoglucemia':
       'hypo, low, 55, low sg, hypoglycaemia',
   'Mide tu glucemia con el medidor y trata la bajada como te haya indicado tu equipo médico.':
       'Check your blood glucose with the meter and treat the low as your healthcare team has told you.',
   'Si la glucosa está muy por debajo, la bomba puede dejar de mostrar las flechas de tendencia.':
       'If glucose is far below that, the pump may stop showing the trend arrows.',
-  'Sensor demasiado caliente, frío o actualizándose (Instinct)':
-      'Sensor too hot, too cold or updating (Instinct)',
   'El sensor no da lecturas por un motivo temporal: está fuera de su temperatura de funcionamiento o está haciendo comprobaciones de calidad. No hace falta cambiarlo.':
       'The sensor is not giving readings for a temporary reason: it is outside its operating temperature or it is running quality checks. It does not need to be changed.',
   'caliente, frio, actualizando, sin lecturas':
@@ -924,26 +845,14 @@ const Map<String, String> traduccionesAlarmasEn = {
       'You have a Pod shut-off time set. First an advisory alarm goes off; if you do not respond, the Pod stops delivering insulin (hazard alarm).',
   'Si es la advertencia: toca SIGUIENTE para reiniciar el temporizador de apagado.':
       'If it is the advisory alarm: tap NEXT to reset the shut-off timer.',
-  'Error de la Aplicación Omnipod 5':
-      'Omnipod 5 App error',
-  'Se ha detectado un error inesperado en la Aplicación Omnipod 5. A veces la aplicación se cierra y se vuelve a abrir sola.':
-      'An unexpected error has been detected in the Omnipod 5 App. Sometimes the app closes and reopens on its own.',
   'error aplicacion, controlador, reinicio, se cierra':
       'app error, controller, restart, closes',
   'Toca OK para confirmar o silenciar la alarma. Puede que el Controlador se reinicie: sigue igualmente con el paso siguiente.':
       'Tap OK to confirm or silence the alarm. The Controller may restart: carry on with the next step anyway.',
-  'Corrupción de memoria de Omnipod 5':
-      'Omnipod 5 memory corruption',
-  'Se ha detectado un error inesperado en la Aplicación Omnipod 5 que obliga a restablecerla.':
-      'An unexpected error has been detected in the Omnipod 5 App that requires it to be reset.',
   'memoria, corrupcion, restablecer, controlador':
       'memory, corruption, reset, controller',
-  'Toca OK para confirmar la alarma y restablecer la Aplicación Omnipod 5.':
-      'Tap OK to confirm the alarm and reset the Omnipod 5 App.',
   'Error del sistema':
       'System error',
-  'Se ha detectado un error inesperado en el Pod o en la Aplicación Omnipod 5.':
-      'An unexpected error has been detected in the Pod or the Omnipod 5 App.',
   'error, sistema, fallo':
       'error, system, fault',
   'Toca OK para confirmar la alarma.':
@@ -984,10 +893,6 @@ const Map<String, String> traduccionesAlarmasEn = {
       'In Automated Mode, the Pod has not received sensor values for more than an hour. It stays in "Automated Mode: Limited" until the values return or you switch to Manual Mode.',
   'faltan valores, sin valores, sin señal, automatizado limitado':
       'missing values, no values, no signal, automated limited',
-  'Con Dexcom: mira en la app de Dexcom si hay valores o algún aviso del sensor o del transmisor.':
-      'With Dexcom: check the Dexcom app for values or any sensor or transmitter alert.',
-  'Con FreeStyle Libre 2 Plus: mira en la Aplicación Omnipod 5 si hay valores y que el sensor siga bien puesto en el brazo.':
-      'With FreeStyle Libre 2 Plus: check the Omnipod 5 App for values and that the sensor is still properly attached to your arm.',
   'Si pasa a menudo, lleva el Pod y el sensor en el mismo lado del cuerpo, separados al menos 8 cm (Dexcom) o 2,5 cm (Libre 2 Plus).':
       'If it happens often, wear the Pod and the sensor on the same side of your body, at least 8 cm apart (Dexcom) or 2.5 cm apart (Libre 2 Plus).',
   'Alarma opcional del sensor: tu glucosa está por encima de tu ajuste de Glucosa alta o por debajo de tu ajuste de Glucosa baja. Se repite cada 5 minutos hasta que vuelve al ajuste o hasta que la confirmas.':
@@ -1004,8 +909,6 @@ const Map<String, String> traduccionesAlarmasEn = {
       'Confirm the alarm from the notification.',
   'Comprueba que el sensor sigue pegado a la piel.':
       'Check that the sensor is still attached to your skin.',
-  'Mensajes en rojo del panel de la Aplicación Omnipod 5: "Sensor demasiado frío", "Sensor demasiado caliente", "Problema temporal del sensor", "Sensor finalizado", "Sin sensor", "Sustituir sensor" o "Error al conectar". Sin sensor, el Modo Automatizado no funciona.':
-      'Red messages on the Omnipod 5 App dashboard: "Sensor too cold", "Sensor too hot", "Temporary sensor problem", "Sensor ended", "No sensor", "Replace sensor" or "Connection error". Without a sensor, Automated Mode does not work.',
   'sensor, demasiado frio, demasiado caliente, sensor finalizado, sustituir sensor, sin sensor, error al conectar':
       'sensor, too cold, too hot, sensor ended, replace sensor, no sensor, connection error',
   'Demasiado frío o caliente: muévete a un sitio con otra temperatura y vuelve a probar en unos minutos.':
@@ -1060,8 +963,6 @@ const Map<String, String> traduccionesAlarmasEn = {
       'expired, ended, end of life, change sensor, replace',
   'Quita el sensor, ponte uno nuevo e inícialo.':
       'Remove the sensor, put on a new one and start it.',
-  'Mensajes del sensor Libre 3':
-      'Libre 3 sensor messages',
   'Otros mensajes que pueden salir al leer el sensor: "Error de escaneo", "Error del sensor", "Lectura de glucosa no disponible", "Sensor ya en uso" o "Comprobar sensor".':
       'Other messages that may appear when reading the sensor: "Scan error", "Sensor error", "Glucose reading unavailable", "Sensor already in use" or "Check sensor".',
   'error de escaneo, error del sensor, no disponible, ya en uso, comprobar sensor':
@@ -1088,4 +989,266 @@ const Map<String, String> traduccionesAlarmasEn = {
       'Your glucose has dropped below the level you set. You only get one alarm per low episode.',
   'Trata la bajada como te haya indicado tu equipo médico, sin retrasarlo.':
       'Treat the low as your healthcare team has told you, without delay.',
+  'Has puesto un tiempo (entre 5 y 24 horas) tras el cual, si no tocas la bomba, esta deja de dar insulina. Antes salta un aviso con una cuenta atrás de 30 segundos.':
+      'You have set a time (between 5 and 24 hours) after which, if you do not touch the pump, it stops delivering insulin. Before that, a warning appears with a 30-second countdown.',
+  'El botón Pantalla enc./Bolo rápido (el de arriba de la bomba) está atascado o no funciona bien, y se han detenido todos los suministros.':
+      'The Screen on / Quick bolus button (the one on top of the pump) is stuck or not working properly, and all delivery has stopped.',
+  'Alarma de oclusión':
+      'Occlusion alarm',
+  'La bomba ha detectado que la insulina no puede pasar y ha detenido todo el suministro. Las luces de la bomba parpadean en rojo.':
+      'The pump has detected that insulin cannot flow and has stopped all delivery. The pump lights flash red.',
+  'oclusion, obstruido, atasco, no pasa insulina, bloqueo':
+      'occlusion, blocked, clog, no insulin flowing, blockage',
+  'Pulsa Ignorar en la app.':
+      'Press Dismiss in the app.',
+  'Revisa el cartucho, el tubo y el sitio de infusión por si hay daños o bloqueos, y corrígelo.':
+      'Check the cartridge, tubing and infusion site for damage or blockages, and fix it.',
+  'Para reanudar la insulina: Acciones → Reanudar insulina.':
+      'To resume insulin: Actions → Resume insulin.',
+  'Si salta una segunda alarma de oclusión seguida, cambia el cartucho, el tubo y el sitio de infusión antes de reanudar la insulina.':
+      'If a second occlusion alarm goes off straight after, change the cartridge, tubing and infusion site before resuming insulin.',
+  'Si saltó durante un bolo, la app te dice cuánto se llegó a poner antes del bloqueo.':
+      'If it went off during a bolus, the app tells you how much was delivered before the blockage.',
+  'Mide tu glucosa y sigue las indicaciones de tu equipo médico.':
+      'Check your glucose and follow your healthcare team\'s guidance.',
+  'Alarma de cartucho vacío':
+      'Empty cartridge alarm',
+  'El cartucho se ha quedado sin insulina y se han detenido todos los suministros. Se repite cada 3 minutos hasta que lo cambies.':
+      'The cartridge has run out of insulin and all delivery has stopped. It repeats every 3 minutes until you change it.',
+  'cartucho, vacio, sin insulina':
+      'cartridge, empty, no insulin',
+  'Pulsa Ignorar.':
+      'Press Dismiss.',
+  'Cambia el cartucho ya: Acciones → Cargar cartucho (mira la guía de cambio de esta app).':
+      'Change the cartridge now: Actions → Load cartridge (see this app\'s change guide).',
+  'Alarma de error del cartucho':
+      'Cartridge error alarm',
+  'La bomba no ha podido usar el cartucho y ha detenido todos los suministros. Puede ser un cartucho defectuoso o que no se siguió bien el procedimiento de carga.':
+      'The pump could not use the cartridge and has stopped all delivery. It may be a faulty cartridge or the loading procedure was not followed properly.',
+  'cartucho, error, no reconoce':
+      'cartridge, error, not recognised',
+  'Cambia el cartucho ya: Acciones → Cargar cartucho y sigue los pasos.':
+      'Change the cartridge now: Actions → Load cartridge and follow the steps.',
+  'Alarma de batería baja':
+      'Low battery alarm',
+  'A la bomba le queda un 1 % de batería o menos y se han detenido todos los suministros. Se repite cada 3 minutos hasta que se apague.':
+      'The pump has 1% battery or less and all delivery has stopped. It repeats every 3 minutes until it switches off.',
+  'bateria, sin bateria, cargar, apagada':
+      'battery, no battery, charge, switched off',
+  'Alarma de reanudación de insulina':
+      'Resume insulin alarm',
+  'La insulina lleva detenida más de 15 minutos porque elegiste Detener insulina, o se ha detenido por otra alarma.':
+      'Insulin has been stopped for more than 15 minutes because you chose Stop insulin, or it was stopped by another alarm.',
+  'reanudar, insulina detenida, parada':
+      'resume, insulin stopped, stopped',
+  'Para reanudar la insulina: Acciones → Reanudar insulina y pulsa Sí.':
+      'To resume insulin: Actions → Resume insulin and press Yes.',
+  'Si no la confirmas, vuelve a avisar a los 3 minutos; si la confirmas, a los 15.':
+      'If you do not confirm it, it alerts again after 3 minutes; if you confirm it, after 15.',
+  'Alarma de apagado automático':
+      'Auto-off alarm',
+  'Si la tienes activada, la bomba detiene la insulina cuando pasan las horas que elegiste (entre 5 y 24) sin usar la bomba ni la app.':
+      'If you have it switched on, the pump stops insulin when the hours you chose (between 5 and 24) go by without using the pump or the app.',
+  'apagado, automatico, sin uso':
+      'off, automatic, no use',
+  'Reanuda la insulina: Acciones → Reanudar insulina.':
+      'Resume insulin: Actions → Resume insulin.',
+  'Alerta o alarma de temperatura':
+      'Temperature alert or alarm',
+  'La temperatura interna de la bomba es demasiado alta o demasiado baja. Primero sale una alerta; si llega a temperaturas extremas, salta la alarma y se detienen todos los suministros.':
+      'The pump\'s internal temperature is too high or too low. First an alert appears; if it reaches extreme temperatures, the alarm goes off and all delivery stops.',
+  'temperatura, calor, frio':
+      'temperature, heat, cold',
+  'Aleja la bomba del calor o del frío extremo.':
+      'Move the pump away from extreme heat or cold.',
+  'Si saltó la alarma, reanuda la insulina cuando vuelva a una temperatura normal.':
+      'If the alarm went off, resume insulin once it is back at a normal temperature.',
+  'Botón Bomba atascado':
+      'Pump button stuck',
+  'El botón Bomba se ha pulsado demasiadas veces o un bolo rápido no se ha podido dar (alerta). Si el botón está atascado o no funciona, salta la alarma y se detienen todos los suministros.':
+      'The Pump button has been pressed too many times or a quick bolus could not be delivered (alert). If the button is stuck or not working, the alarm goes off and all delivery stops.',
+  'boton, atascado, bolo rapido':
+      'button, stuck, quick bolus',
+  'Comprueba que el botón Bomba no se ha quedado hundido.':
+      'Check that the Pump button has not stayed pressed in.',
+  'Si es la alarma o el problema continúa, llama al servicio de atención al cliente.':
+      'If it is the alarm or the problem continues, call customer service.',
+  'Alarma de restablecimiento de bomba e IA':
+      'Pump and IOB reset alarm',
+  'La bomba se ha reiniciado: la insulina activa se ha puesto a cero y se han detenido todos los suministros.':
+      'The pump has restarted: insulin on board has been reset to zero and all delivery has stopped.',
+  'reinicio, restablecimiento, insulina activa':
+      'restart, reset, insulin on board',
+  'Pulsa Ignorar y llama al servicio de atención al cliente.':
+      'Press Dismiss and call customer service.',
+  'Revisa el estado de la bomba en el Panel y reanuda tú la insulina.':
+      'Check the pump status on the Dashboard and resume insulin yourself.',
+  'No tomes decisiones con la insulina activa que muestre la app después del reinicio, ni con la alerta de bolo máximo por hora durante 60 minutos.':
+      'Do not make decisions based on the insulin on board shown in the app after the restart, or on the maximum hourly bolus alert for 60 minutes.',
+  'Fallo de la bomba':
+      'Pump failure',
+  'La bomba ha detectado un error crítico y ha detenido todos los suministros. Las vibraciones y las luces siguen hasta que se agota la batería.':
+      'The pump has detected a critical error and has stopped all delivery. The vibrations and lights continue until the battery runs out.',
+  'fallo, error critico, no funciona':
+      'failure, critical error, not working',
+  'Pulsa Ignorar en la app para silenciar los pitidos.':
+      'Press Dismiss in the app to silence the beeps.',
+  'Llama al servicio de atención al cliente.':
+      'Call customer service.',
+  'Usa tu método de insulina de respaldo o pide a tu equipo médico un plan alternativo.':
+      'Use your backup insulin method or ask your healthcare team for an alternative plan.',
+  'Alertas de baja energía':
+      'Low power alerts',
+  'Queda menos del 20 % de batería (primera alerta) o menos del 5 % (segunda alerta). Con la segunda, la insulina sigue durante 30 minutos y después la bomba se apaga.':
+      'Less than 20% battery is left (first alert) or less than 5% (second alert). With the second one, insulin continues for 30 minutes and then the pump switches off.',
+  'bateria baja, cargar, poca bateria':
+      'low battery, charge, little battery',
+  'Si ya es la segunda, cárgala de inmediato.':
+      'If it is already the second one, charge it straight away.',
+  'Alerta de nivel de insulina bajo':
+      'Low insulin level alert',
+  'Queda poca insulina en el cartucho: por debajo del aviso que tienes configurado o casi nada.':
+      'There is little insulin left in the cartridge: below the alert you have set, or almost none.',
+  'poca insulina, queda poco, cartucho bajo':
+      'little insulin, not much left, low cartridge',
+  'Cambia el cartucho lo antes posible para evitar la alarma de cartucho vacío.':
+      'Change the cartridge as soon as possible to avoid the empty cartridge alarm.',
+  'La app avisa si empiezas un bolo, un régimen temporal, la carga de un cartucho o una configuración y no lo terminas.':
+      'The app alerts you if you start a bolus, a temporary rate, loading a cartridge or a setting and do not finish it.',
+  'incompleto, a medias, sin terminar':
+      'incomplete, half done, unfinished',
+  'Abre la notificación: vuelves a donde lo dejaste.':
+      'Open the notification: you go back to where you left off.',
+  'Termina el proceso o cancélalo si ya no lo quieres.':
+      'Finish the process or cancel it if you no longer want it.',
+  'Has pedido un bolo mayor que tu bolo máximo (o más de lo previsto en la última hora), o un régimen basal por encima de tu máximo o por debajo del mínimo.':
+      'You have requested a bolus larger than your maximum bolus (or more than expected in the last hour), or a basal rate above your maximum or below the minimum.',
+  'bolo maximo, limite, basal maxima':
+      'maximum bolus, limit, maximum basal',
+  'Revisa la cantidad y confírmala solo si estás seguro.':
+      'Check the amount and confirm it only if you are sure.',
+  'Consulta con tu equipo médico si tus necesidades han cambiado.':
+      'Talk to your healthcare team if your needs have changed.',
+  'fuera de alcance, sin lecturas, sin señal':
+      'out of range, no readings, no signal',
+  'Acerca el sensor a la bomba o quita lo que haya entre ellos.':
+      'Bring the sensor closer to the pump or remove whatever is between them.',
+  'baja, hipo, prevision':
+      'low, hypo, prediction',
+  'Toma hidratos de carbono y mide tu glucosa.':
+      'Take carbohydrates and check your glucose.',
+  'alta, hiper, no baja':
+      'high, hyper, not coming down',
+  'Revisa el cartucho, el tubo y el sitio de infusión, y mide tu glucosa.':
+      'Check the cartridge, tubing and infusion site, and check your glucose.',
+  'Trata la glucosa alta según te haya indicado tu equipo médico.':
+      'Treat the high glucose as your healthcare team has told you.',
+  'maximo, insulina maxima, dosis diaria':
+      'maximum, maximum insulin, daily dose',
+  'Comprueba que tu insulina diaria total está bien configurada: Ajustes → Bomba → Control-IQ.':
+      'Check that your total daily insulin is set correctly: Settings → Pump → Control-IQ.',
+  'Modo automático: el sensor está fuera de alcance':
+      'Automatic mode: the sensor is out of range',
+  'El transmisor y la bomba no se comunican, así que la bomba no recibe lecturas. El modo automático sigue ajustando la insulina durante los primeros 20 minutos y después vuelve a la basal de tu perfil.':
+      'The transmitter and the pump are not communicating, so the pump is not receiving readings. Automatic mode keeps adjusting insulin for the first 20 minutes and then goes back to your profile\'s basal.',
+  'El modo automático prevé una glucosa baja':
+      'Automatic mode predicts low glucose',
+  'El modo automático predice que tu glucosa estará por debajo de 70 mg/dL (80 si usas la función Ejercicio) en los próximos 15 minutos.':
+      'Automatic mode predicts your glucose will be below 70 mg/dL (80 if you use the Exercise feature) in the next 15 minutes.',
+  'Modo automático: glucosa alta que no baja':
+      'Automatic mode: high glucose that isn\'t coming down',
+  'El modo automático ha subido la insulina, pero ve una glucosa por encima de 200 mg/dL y no prevé que baje en los próximos 30 minutos.':
+      'Automatic mode has increased insulin, but sees a glucose above 200 mg/dL and doesn\'t expect it to come down in the next 30 minutes.',
+  'Modo automático: máximo de insulina alcanzado':
+      'Automatic mode: maximum insulin reached',
+  'La bomba ha dado el máximo de insulina permitido en 2 horas (la mitad de tu dosis diaria total). El modo automático pausa la insulina un mínimo de 5 minutos y después la reanuda.':
+      'The pump has delivered the maximum insulin allowed in 2 hours (half of your total daily dose). Automatic mode pauses insulin for at least 5 minutes and then resumes it.',
+  'El sensor y la bomba no se comunican, así que no llegan lecturas. Si el modo automático está activado, sigue ajustando la insulina los primeros 20 minutos y después vuelve a la basal de tu perfil.':
+      'The sensor and the pump are not communicating, so no readings arrive. If automatic mode is on, it keeps adjusting insulin for the first 20 minutes and then goes back to your profile\'s basal rate.',
+  'El modo automático predice que tu glucosa bajará de 70 mg/dL (80 si tienes activada la actividad Ejercicio) en los próximos 15 minutos.':
+      'Automatic mode predicts your glucose will drop below 70 mg/dL (80 if you have the Exercise activity on) in the next 15 minutes.',
+  'El modo automático ha puesto en las últimas 2 horas la mitad de tu dosis diaria total, que es el máximo permitido.':
+      'In the last 2 hours automatic mode has delivered half of your total daily dose, which is the maximum allowed.',
+  'El modo automático pide una glucemia':
+      'Automatic mode asks for a blood glucose reading',
+  'El modo automático necesita que introduzcas una glucemia (medida con el dedo): lleva mucho rato dando la insulina máxima o mínima, o tiene que comprobar que el sensor es fiable.':
+      'Automatic mode needs you to enter a blood glucose reading (measured with your finger): it has been giving the maximum or minimum insulin for a long time, or it has to check that the sensor is reliable.',
+  'Salida del modo automático':
+      'Exit from automatic mode',
+  'Acerca la bomba al sensor (o al transmisor, si tu sensor lo lleva aparte) y pulsa OK. La bomba puede tardar hasta 15 minutos en encontrar la señal.':
+      'Bring the pump close to the sensor (or to the transmitter, if your sensor has a separate one) and press OK. The pump can take up to 15 minutes to find the signal.',
+  'Si tu sensor lleva transmisor aparte, comprueba que el transmisor y el sensor están bien conectados. Si no lo están, o el sensor no está bien insertado, cambia el sensor.':
+      'If your sensor has a separate transmitter, check that the transmitter and the sensor are properly connected. If they are not, or the sensor is not properly inserted, change the sensor.',
+  'Un sensor nuevo tarda un tiempo en dar lecturas (si lleva transmisor aparte, unas 2 horas). También puede haber una pausa temporal mientras el sensor hace comprobaciones de calidad: no hace falta cambiarlo.':
+      'A new sensor takes a while to give readings (if it has a separate transmitter, about 2 hours). There can also be a temporary pause while the sensor does quality checks: you don\'t need to change it.',
+  'Si tu sensor lleva transmisor aparte y avisa de batería baja, recárgalo lo antes posible: con la batería agotada no hay lecturas.':
+      'If your sensor has a separate transmitter and it warns of low battery, recharge it as soon as possible: with a flat battery there are no readings.',
+  'Si tu sensor se inicia desde el móvil, ten a mano la app emparejada con la bomba: el sensor nuevo se inicia con ella.':
+      'If your sensor is started from your phone, keep the app paired with the pump at hand: the new sensor is started with it.',
+  'No se ha podido iniciar o emparejar el sensor':
+      'The sensor could not be started or paired',
+  'El sensor no ha empezado el calentamiento porque no detecta líquido bajo la piel ("Comprobar sensor"), una alarma de la bomba ha cortado el emparejamiento, o la app del móvil no ha podido escanearlo.':
+      'The sensor has not started warming up because it does not detect fluid under the skin ("Check sensor"), a pump alarm interrupted the pairing, or the phone app could not scan it.',
+  'Si el sensor no está puesto, póntelo. Si está bien puesto y pegado, reinícialo con la app del móvil.':
+      'If the sensor is not on, put it on. If it is properly inserted and attached, restart it with the phone app.',
+  'El sistema pide una glucemia para comprobar el sensor':
+      'The system asks for a blood glucose reading to check the sensor',
+  'Con este sensor, las glucemias del medidor sirven para comprobar que funciona bien, no para calibrarlo. Este aviso sale cuando hace falta una glucemia o cuando no se ha podido usar la que introdujiste.':
+      'With this sensor, meter readings are used to check that it is working properly, not to calibrate it. This alert appears when a reading is needed or when the one you entered could not be used.',
+  'Con este sensor, la bomba avisa siempre que la glucosa baja de 55 mg/dL. Viene de fábrica: no se puede cambiar, apagar ni silenciar. Esta alarma no suspende la insulina.':
+      'With this sensor, the pump always alerts you when glucose drops below 55 mg/dL. It is factory set: it cannot be changed, turned off or silenced. This alarm does not suspend insulin.',
+  'Sensor demasiado caliente, frío o actualizándose':
+      'Sensor too hot, too cold or updating',
+  'Error de la aplicación de la bomba':
+      'Pump app error',
+  'Se ha detectado un error inesperado en la aplicación de la bomba. A veces la aplicación se cierra y se vuelve a abrir sola.':
+      'An unexpected error has been detected in the pump app. Sometimes the app closes and reopens on its own.',
+  'Corrupción de memoria de la aplicación':
+      'App memory corruption',
+  'Se ha detectado un error inesperado en la aplicación de la bomba que obliga a restablecerla.':
+      'An unexpected error has been detected in the pump app that requires it to be reset.',
+  'Toca OK para confirmar la alarma y restablecer la aplicación.':
+      'Tap OK to confirm the alarm and reset the app.',
+  'Se ha detectado un error inesperado en el Pod o en la aplicación de la bomba.':
+      'An unexpected error has been detected in the Pod or the pump app.',
+  'Si tu sensor tiene su propia app, mira en ella si hay valores o algún aviso del sensor o del transmisor.':
+      'If your sensor has its own app, check it for values or any sensor or transmitter alert.',
+  'Si el sensor se inició desde la aplicación de la bomba, mira ahí si hay valores y que el sensor siga bien puesto.':
+      'If the sensor was started from the pump app, check there for values and that the sensor is still properly attached.',
+  'Mensajes del sensor en la aplicación':
+      'Sensor messages in the app',
+  'Mensajes en rojo del panel de la aplicación de la bomba: "Sensor demasiado frío", "Sensor demasiado caliente", "Problema temporal del sensor", "Sensor finalizado", "Sin sensor", "Sustituir sensor" o "Error al conectar". Sin sensor, el Modo Automatizado no funciona.':
+      'Red messages on the pump app dashboard: "Sensor too cold", "Sensor too hot", "Temporary sensor problem", "Sensor ended", "No sensor", "Replace sensor" or "Connection error". Without a sensor, Automated Mode does not work.',
+  'Espera hasta 30 minutos. Si sigue igual, llama al servicio técnico del fabricante.':
+      'Wait up to 30 minutes. If it stays the same, call the manufacturer\'s technical support.',
+  'Si dura más de 3 horas, llama al servicio técnico del fabricante.':
+      'If it lasts more than 3 hours, call the manufacturer\'s technical support.',
+  'Con este sensor calibrar es opcional. Si sale este aviso, el sistema no ha usado el valor que introdujiste.':
+      'With this sensor calibrating is optional. If this notice appears, the system did not use the value you entered.',
+  'Llama al servicio técnico del fabricante y dales el código.':
+      'Call the manufacturer\'s technical support and give them the code.',
+  'Sin lecturas del sensor':
+      'No sensor readings',
+  'No recibes lecturas del sensor desde hace 20 minutos (en el receptor, aparece como error de sensor). No hay alarma ni alertas de glucosa hasta que se solucione.':
+      'You haven\'t received sensor readings for 20 minutes (on the receiver, it appears as a sensor error). There is no alarm or glucose alerts until it is fixed.',
+  'Espera: en la app, hasta 3 horas; en el receptor, 30 minutos. Si no se arregla, saldrá "Fallo del sensor": llama al servicio técnico del fabricante.':
+      'Wait: on the app, up to 3 hours; on the receiver, 30 minutes. If it isn\'t fixed, "Sensor failure" will appear: call the manufacturer\'s technical support.',
+  'Espera hasta 30 minutos: puede arreglarse solo. Si pasan más, llama al servicio técnico del fabricante.':
+      'Wait up to 30 minutes: it can fix itself. If more time passes, call the manufacturer\'s technical support.',
+  'Fallo del sensor':
+      'Sensor failure',
+  'Antes de parar una sesión antes de tiempo, llama siempre al servicio técnico del fabricante. Una sesión detenida no se puede reanudar.':
+      'Before stopping a session early, always call the manufacturer\'s technical support. A stopped session can\'t be resumed.',
+  'Si nada funciona, puede que el sensor esté mal insertado: llama al servicio técnico del fabricante.':
+      'If nothing works, the sensor may be badly inserted: call the manufacturer\'s technical support.',
+  'Si siguen sin salir lecturas, cambia el sensor y llama al servicio técnico del fabricante.':
+      'If readings still don\'t appear, change the sensor and call the manufacturer\'s technical support.',
+  'El sensor muestra "Bajo" por debajo de 40 mg/dL y "Alto" por encima de 400 mg/dL. Funciona correctamente.':
+      'The sensor shows "Low" below 40 mg/dL and "High" above 400 mg/dL. It is working correctly.',
+  'Cuando tu glucosa vuelva a estar entre 40 y 400 mg/dL, el sensor mostrará de nuevo las lecturas.':
+      'When your glucose is back between 40 and 400 mg/dL, the sensor will show readings again.',
+  'Alarmas de glucosa del sensor':
+      'Sensor glucose alarms',
+  'Mensajes del sensor':
+      'Sensor messages',
 };

@@ -12,8 +12,9 @@ import 'package:diaguia/tema.dart';
 const _combinaciones = {
   'bmedtronic': ['sguardian', 'ssimplera', 'sinstinct'],
   'btandem': ['sdexg6', 'sdexg7'],
+  'btandemmobi': ['sdexg6', 'sdexg7'],
   'bomnipod': ['sdexg6', 'sdexg7', 'sfreelibre2plus'],
-  'bypsopump': ['sdexg6', 'sfreelibre3'],
+  'bypsopump': ['sdexg6', 'sdexg7', 'sfreelibre3'],
 };
 
 Widget _app(Widget hijo) => MaterialApp(theme: temaClaro, home: hijo);
@@ -149,7 +150,7 @@ void main() {
       await tester.enterText(find.byType(TextField), 'senal');
       await tester.pumpAndSettle();
 
-      // Con Tandem y Dexcom G7, "señal" sale en la bomba (Control-IQ) y en el
+      // Con Tandem y Dexcom G7, "señal" sale en la bomba (modo automático) y en el
       // sensor (pérdida de señal): aparecen los dos con su etiqueta.
       expect(find.text('BOMBA'), findsWidgets);
       expect(find.text('SENSOR'), findsWidgets);

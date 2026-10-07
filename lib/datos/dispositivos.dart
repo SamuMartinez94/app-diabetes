@@ -1,9 +1,10 @@
 /// Nombre comercial de cada dispositivo, a partir de su identificador.
 const Map<String, String> nombresDispositivos = {
   // --- BOMBAS ---
-  'bmedtronic': 'Medtronic',
-  'btandem': 'Tandem',
-  'bomnipod': 'Omnipod',
+  'bmedtronic': 'MiniMed 780G',
+  'btandem': 't:slim X2',
+  'btandemmobi': 'Tandem Mobi',
+  'bomnipod': 'Omnipod 5',
   'bypsopump': 'YpsoPump',
 
   // --- SENSORES ---
@@ -17,7 +18,6 @@ const Map<String, String> nombresDispositivos = {
 
   // --- CATÉTERES ---
   'cextended': 'Extended',
-  'cmio': 'Mio',
   'cmio30': 'Mio 30',
   'cquickset': 'Quick-set',
   'csilhouette': 'Silhouette',
@@ -29,6 +29,7 @@ const Map<String, String> nombresDispositivos = {
   'cautosoft90': 'AutoSoft 90',
   'cautosoft30': 'AutoSoft 30',
   'ctrusteel': 'TruSteel',
+  'cvarisoft': 'VariSoft',
 };
 
 /// Devuelve el nombre comercial, o el propio identificador si no está en el mapa.
